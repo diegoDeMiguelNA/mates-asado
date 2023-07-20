@@ -1,0 +1,39 @@
+.list {
+    list-style: none;
+}
+
+.contentContainer {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    max-width: 800px;
+    margin: 2em;
+    
+}
+
+
+.contentContainer h1 {
+    color: #007BFF;
+    margin-top: 40px;
+}
+
+.contentContainer p {
+    margin-bottom: 20px;
+}
+
+.contentContainer ul {
+    margin: 20px 0;
+    padding-left: 40px;
+}
+
+.goHomeButton {
+    background-color: #F5D4AB;
+    color: #FC8874;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+}
+
