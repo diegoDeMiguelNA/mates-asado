@@ -59,7 +59,7 @@ export default function Anmeldung() {
         <li>
           Un formulario firmado por quien te alquila tu departamento /
           habitación / donde sea que vayas a vivir: el
-          "Wohnungsgeberbestätigung"{" "}
+          &ldquo;Wohnungsgeberbestätigung&ldquo;{" "}
           <a href="https://www.hamburg.de/Dibis/vordr/6700-25-barrierefrei.pdf">
             (descargar formulario)
           </a>
@@ -123,9 +123,9 @@ export default function Anmeldung() {
       <p>
         Cuando uno llega nuevo a Alemania (excepto turistas), lo primero que hay
         que hacer es empadronarse. El empadronamiento, también conocido como
-        "Anmeldung" en alemán, es un trámite que se realiza en las oficinas de
+        &ldquo;Anmeldung&ldquo; en alemán, es un trámite que se realiza en las oficinas de
         la administración pública del municipio donde uno va a vivir
-        (Einwohnerangelegenheiten). La palabra "Anmeldung" se refiere al
+        (Einwohnerangelegenheiten). La palabra &ldquo;Anmeldung&ldquo; se refiere al
         registro o inscripción en diferentes contextos (por ejemplo, inscripción
         en un curso, en la universidad, en un evento, entre otros). En este
         caso, nos referimos al registro del domicilio o lugar de residencia.
@@ -148,13 +148,13 @@ export default function Anmeldung() {
         <li>Documento de identidad personal: pasaporte si eres extranjero.</li>
         <li>
           <a href="https://welcome.hamburg.de/contentblob/2217296/42d1e8e18938d0d8b85e1d0c600755e2/data/anmeldung-des-wohnsitzes.pdf">
-            Formulario de empadronamiento "Anmeldevordruck"
+            Formulario de empadronamiento &ldquo;Anmeldevordruck&ldquo;
           </a>
           .
         </li>
         <li>
           Un formulario firmado por la persona que te alquila el departamento,
-          habitación o lugar donde vivirás, llamado "Wohnungsgeberbestätigung"{" "}
+          habitación o lugar donde vivirás, llamado &ldquo;Wohnungsgeberbestätigung&ldquo;{" "}
           <a href="https://www.hamburg.de/Dibis/vordr/6700-25-barrierefrei.pdf">
             (descargar formulario)
           </a>
@@ -198,14 +198,14 @@ export default function Anmeldung() {
       <ol>
         <li>Accede al enlace que se menciona arriba.</li>
         <li>
-          Acepta las condiciones de protección de datos y haz clic en "Weiter"
+          Acepta las condiciones de protección de datos y haz clic en &ldquo;Weiter&ldquo;
           (Siguiente).
         </li>
         <li>
           Completa los campos de nombre, apellido, correo electrónico y,
           opcionalmente, teléfono.
         </li>
-        <li>En el próximo menú, busca la opción "Meldewesen".</li>
+        <li>En el próximo menú, busca la opción &ldquo;Meldewesen&ldquo;.</li>
         <li>
           Donde aparece el 0, elige la cantidad correspondiente de personas (1
           para una persona, 2 para dos personas, etc.). Si es tu primera vez
@@ -213,11 +213,11 @@ export default function Anmeldung() {
           Si te estás mudando dentro de la ciudad de Hamburgo, elige la segunda
           opción.
         </li>
-        <li>Desplázate hacia abajo hasta que puedas hacer clic en "Weiter".</li>
+        <li>Desplázate hacia abajo hasta que puedas hacer clic en &ldquo;Weiter&ldquo;.</li>
         <li>Verifica la disponibilidad de turnos en el mapa y elige uno.</li>
         <li>
-          Al finalizar, se mostrará un resumen de tu turno. Haz clic en "Termin
-          verbindlich vereinbaren" (Confirmar cita). También recibirás los
+          Al finalizar, se mostrará un resumen de tu turno. Haz clic en &ldquo;Termin
+          verbindlich vereinbaren&ldquo; (Confirmar cita). También recibirás los
           detalles de tu turno por correo electrónico.
         </li>
       </ol>
@@ -251,14 +251,14 @@ export default function Anmeldung() {
       <p>
         El cambio de domicilio dentro de la misma ciudad se conoce como
         Ummeldung. Si te mudas dentro de Hamburgo, debes seleccionar la opción
-        "Wohnsitz Ummeldung innerhalb Hamburgs" en el menú de turnos. El resto
+        &ldquo;Wohnsitz Ummeldung innerhalb Hamburgs&ldquo; en el menú de turnos. El resto
         del procedimiento es el mismo.
       </p>
       <h2>Cancelación de registro</h2>
       <p>
         Cuando te vas de Hamburgo y te registras en otro lugar de Alemania,
         debes realizar la Abmeldung. Para ello, en el menú de turnos, elige
-        "Wohnsitz Abmeldung des Nebenwohnsitzes".
+        &ldquo;Wohnsitz Abmeldung des Nebenwohnsitzes&ldquo;.
       </p>
     </div>
   );
