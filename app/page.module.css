@@ -8,9 +8,8 @@
   /* page.module.css */
 
   text-align: center;
-  background: linear-gradient(to bottom, #8BA0EC, white);
-  color: #4E4795;
-
+  /* background: linear-gradient(to bottom, #8ba0ec, white); */
+  color: #4e4795;
 }
 
 .description {
@@ -103,7 +102,7 @@
 
 .center::before,
 .center::after {
-  content: '';
+  content: "";
   left: 50%;
   position: absolute;
   filter: blur(45px);
@@ -131,7 +130,7 @@
 
 .thirteen::before,
 .thirteen::after {
-  content: '';
+  content: "";
   position: absolute;
   z-index: -1;
 }
