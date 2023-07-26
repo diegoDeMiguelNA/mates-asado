@@ -16,6 +16,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
+        sans: ['"Playfair Display"'],
         heading: ["var(--font-climate-crisis)"],
         playfair: ["var(--font-playfair)"],
       },
