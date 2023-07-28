@@ -1,13 +1,14 @@
 import React from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function Anmeldung() {
   return (
     <div className={styles.contentContainer}>
-      <Link href="/" className={styles.goHomeButton}>
-        Inicio
-      </Link>
+      <Button>
+        <Link href="/">Inicio</Link>
+      </Button>
       <h1>An-, Um- y Abmeldung en Alemania</h1>
       <p>
         <strong>Anmeldung</strong>
