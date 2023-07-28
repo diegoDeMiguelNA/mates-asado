@@ -36,6 +36,18 @@ export default function Home() {
             Como conseguir la licencia en Alemania
           </p>
         </a>
+        <a
+          href="/wohnungssuche"
+          className={styles.card}
+          rel="noopener noreferrer"
+        >
+          <h2 className={inter.className}>
+            Busqueda de Apartamento <span>-&gt;</span>
+          </h2>
+          <p className={inter.className}>
+            Tips de busqueda + como evitar estafas.
+          </p>
+        </a>
       </div>
     </main>
   );

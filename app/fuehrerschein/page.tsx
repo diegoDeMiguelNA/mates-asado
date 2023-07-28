@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function  Fuehrerschein
 () {
   return (
-    <div className={styles.contentContainer}> 
+    <main className={styles.contentContainer}> 
      <Link href="/" className={styles.goHomeButton}>
         Inicio
       </Link>
@@ -32,6 +32,6 @@ export default function  Fuehrerschein
     <p>Todos estos requisitos se desarrollan en el resto del artículo.</p>
          <h2>Aclaración - Licencias españolas o italianas cambiadas mano a mano sin examen habiendo residido en dichos países</h2>
     <p>En algunos países hay convenios unilaterales con países fuera de la unión para, al ser residente, hacer un canje de licencia de conducir mano a mano, sin pasar ningún en examen como requisito. Esto no es correcto. Pasados los primeros seis meses de residir en Alemania, no se puede conducir con una licencia que se obtuvo sin dar examen de conducir en la Unión Europea. Este mito se ha extendido en parte porque es una realidad que en Europa no hay tantos controles de tránsito proactivos como se conocen en Latinoamérica. Lo más probable es que algo así salga a la luz si se está involucrado en un accidente de tránsito y la policía controle la licencia de conducir. Técnicamente no es tan grave como estar sin licencia de conducir, pero la multa igualmente asciende a varios cientos de euros en el mejor de los casos. Es posible que la compañía de seguro del automotor dé problemas para cubrirnos en el caso de que la culpa sea propia. Resumiendo, esto es una confusión muy común y puede costarnos un disgusto y unos cuantos euros.</p>
-    </div>
+    </main>
   )
 }

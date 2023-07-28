@@ -1,11 +1,11 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "An-, Um- y Abmeldung 🧉",
+  title: "Führerschein 🧉",
 };
 
 
-export default function AnmeldungLayout({
+export default function WohnungssucheLayout({
   children,
 }: {
   children: React.ReactNode;

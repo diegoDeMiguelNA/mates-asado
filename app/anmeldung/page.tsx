@@ -121,26 +121,6 @@ export default function Anmeldung() {
       </p>
       <h2>Registro de domicilio</h2>
       <p>
-        Cuando uno llega nuevo a Alemania (excepto turistas), lo primero que hay
-        que hacer es empadronarse. El empadronamiento, también conocido como
-        &ldquo;Anmeldung&ldquo; en alemán, es un trámite que se realiza en las
-        oficinas de la administración pública del municipio donde uno va a vivir
-        (Einwohnerangelegenheiten). La palabra &ldquo;Anmeldung&ldquo; se
-        refiere al registro o inscripción en diferentes contextos (por ejemplo,
-        inscripción en un curso, en la universidad, en un evento, entre otros).
-        En este caso, nos referimos al registro del domicilio o lugar de
-        residencia. Este trámite es muy importante, ya que activa una serie de
-        procesos administrativos, como la obtención del número de identificación
-        fiscal (Steuer-ID) y del número de seguridad social
-        (Sozialversicherungs­ausweis). Estas identificaciones son necesarias
-        para realizar diversas actividades, como trabajar. Aunque no es
-        estrictamente obligatorio, la realidad es que muchos empleadores no te
-        contratarán hasta que tengas estos documentos. Sin embargo, en mi
-        experiencia y en la de otros, también existen empleadores que te
-        permiten comenzar a trabajar mientras arreglas estos trámites
-        burocráticos, pero sí necesitarás tenerlos para poder recibir tu sueldo.
-      </p>
-      <p>
         Ahora, yendo a lo concreto, ¿cómo se realiza el empadronamiento en
         Hamburgo? Para poder registrarte en Hamburgo, necesitarás:
       </p>

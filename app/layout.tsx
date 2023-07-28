@@ -1,9 +1,23 @@
-import './globals.css'
+import "./globals.css";
+
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Mates&Asado 🧉",
+  description:
+    "Mates&Asado is a website for spanish speaking people in Hamburg looking for information about errands and paperwork.",
+    icons: {
+      icon: "/favicon.ico",
+      shortcut: '/favicon.ico',
+
+    }
+};
+
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -14,5 +28,5 @@ export default function RootLayout({
       <head />
       <body>{children}</body>
     </html>
-  )
+  );
 }
