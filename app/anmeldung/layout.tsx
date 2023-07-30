@@ -5,18 +5,22 @@ export const metadata: Metadata = {
 };
 
 
+import { climateCrisis, playfair } from "../fonts";
+import "../globals.css";
+
 export default function AnmeldungLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${playfair.variable} ${climateCrisis.variable}`}
+    >
       <head />
-      <body>
-        {" "}
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
+
