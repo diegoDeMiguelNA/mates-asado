@@ -56,7 +56,7 @@ export default function Home() {
             </p>
           </a>
           <a
-            href="/productoslatinos"
+            href="/productos-latinos"
             className="text-center"
             rel="noopener noreferrer"
           >
@@ -68,7 +68,7 @@ export default function Home() {
             </p>
           </a>
           <a
-            href="/telefonosutiles"
+            href="/telefonos-utiles"
             className="text-center"
             rel="noopener noreferrer"
           >
@@ -85,7 +85,7 @@ export default function Home() {
             rel="noopener noreferrer"
           >
             <h2 className="font-serif font-bold">
-              Detuschland Ticket <span>-&gt;</span>
+              Deutschland Ticket <span>-&gt;</span>
             </h2>
             <p className="text-gray-400 font-thin font-playfair text-sm">
               Información sobre el Deutschlandticket
