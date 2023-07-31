@@ -12,9 +12,11 @@ export default function Anmeldung() {
         </Button>
       </header>
 
-      <main className="text-center px-12 mb-24">
-      <div className="pt-12 py-12">
-          <h1 className="text-5xl font-heading uppercase">An-, Um- y Abmeldung</h1>
+      <main className="text-center px-20 mb-24 mx-24">
+        <div className="pt-12 py-12">
+          <h1 className="text-5xl font-heading uppercase">
+            An-, Um- y Abmeldung
+          </h1>
         </div>
         <p className="text-left py-2 px-24">
           Cuando uno llega nuevo nuevito a Alemania (excepto turistas) lo
@@ -35,8 +37,12 @@ export default function Anmeldung() {
           bola de nieve de procesos administrativos como:
         </p>
         <ul className="list-inside py-2 list-disc px-24 text-center">
-          <li className="text-left">Tu número de identificación fiscal (Steuer-ID)</li>
-          <li className="text-left">Tu número de seguridad social (Sozialversicherungs­ausweis)</li>
+          <li className="text-left">
+            Tu número de identificación fiscal (Steuer-ID)
+          </li>
+          <li className="text-left">
+            Tu número de seguridad social (Sozialversicherungs­ausweis)
+          </li>
         </ul>
         <p className="text-left py-2 px-24">
           Estas identificaciones son necesarias para otras cosas como por
@@ -49,8 +55,12 @@ export default function Anmeldung() {
           te dejan empezar mientras arreglas esos temas de papeles, pero para lo
           que seguro lo vas a necesitar es para que te puedan pagar el sueldo.
         </p>
-        <p className="text-left py-2 px-24">Ahora, yendo a lo concreto. ¿Cómo se hace el Anmeldung?</p>
-        <p className="text-left py-2 px-24">En Hamburgo para poder registrarte vas a necesitar:</p>
+        <p className="text-left py-2 px-24">
+          Ahora, yendo a lo concreto. ¿Cómo se hace el Anmeldung?
+        </p>
+        <p className="text-left py-2 px-24">
+          En Hamburgo para poder registrarte vas a necesitar:
+        </p>
         <ul className="list-inside py-2 list-disc px-24 text-center">
           <li className="text-left">
             Documento de identificación personal: Pasaporte si sos extranjero
@@ -76,7 +86,9 @@ export default function Anmeldung() {
           traductor jurado en Alemania) y todas las personas sujetas a registro
           deben comparecer personalmente.”
         </p>
-        <p className="text-left py-2 px-24">En los siguientes casos también hay que presentar lo siguiente:</p>
+        <p className="text-left py-2 px-24">
+          En los siguientes casos también hay que presentar lo siguiente:
+        </p>
         <ul className="list-inside py-2 list-disc px-24 text-center">
           <li className="text-left">
             Personas casadas/parejas: certificado de matrimonio (original)
@@ -85,13 +97,17 @@ export default function Anmeldung() {
             Personas divorciadas: sentencia de divorcio jurídicamente vinculante
             (original)
           </li>
-          <li className="text-left">Personas viudas: Certificado de defunción (original)</li>
+          <li className="text-left">
+            Personas viudas: Certificado de defunción (original)
+          </li>
           <li className="text-left">
             Titulares de un permiso de residencia electrónico (eAT): el permiso
             de residencia
           </li>
         </ul>
-        <p className="text-left py-2 px-24">El trámite al día de hoy sale 12 euros.</p>
+        <p className="text-left py-2 px-24">
+          El trámite al día de hoy sale 12 euros.
+        </p>
         <p className="text-left py-2 px-24">
           Hoy en día por suerte en Hamburgo hay una plataforma online que te
           permite sacar turno para ciertos trámites y el Anmeldung es uno de
@@ -103,27 +119,20 @@ export default function Anmeldung() {
             Plataforma de turnos
           </a>
         </p>
-        <h4 className="text-l font-heading uppercase">
-          Ummeldung
-        </h4>
+        <h4 className="text-l font-heading uppercase">Ummeldung</h4>
         <p className="text-left py-2 px-24">
           El Ummeldung es el cambio de domicilio dentro de la ciudad. Osea si te
           mudas dentro de Hamburgo tener que elegir en el menu de los turnos
           “Wohnsitz Ummeldung innerhalb Hamburgs”. Y todo el resto es igual.
         </p>
-        <h4 className="text-l font-heading uppercase">
-          Abmeldung
-        </h4>
+        <h4 className="text-l font-heading uppercase">Abmeldung</h4>
         <p className="text-left py-2 px-24">
           Cuando te vas de Hamburgo, si no te mudas y te vas a registrar en otro
           lugar de Alemania tenes que hacer el Abmeldung, para eso, en el menu
           de turnos elegis “Wohnsitz Abmeldung des Nebenwohnsitzes”.
         </p>
         <h3 className="text-l font-heading uppercase mt-12 mb-4">
-          
-            Temas: Registro, Cambio y 
-            Cancelación de registro
-         
+          Temas: Registro, Cambio y Cancelación de registro
         </h3>
         <p className="text-left py-2 px-24">
           Ahora, yendo a lo concreto, ¿cómo se realiza el empadronamiento en
@@ -169,7 +178,9 @@ export default function Anmeldung() {
             Personas divorciadas: sentencia de divorcio legalmente vinculante
             (original).
           </li>
-          <li className="text-left">Personas viudas: certificado de defunción (original).</li>
+          <li className="text-left">
+            Personas viudas: certificado de defunción (original).
+          </li>
           <li className="text-left">
             Titulares de una tarjeta de residencia electrónica (eAT): la tarjeta
             de residencia.
@@ -186,7 +197,9 @@ export default function Anmeldung() {
         </p>
         <h3 className="text-l font-heading uppercase mt-12">Pasos a seguir:</h3>
         <ol className="list-inside py-2 list-decimal px-24 text-center">
-          <li className="text-left">Accede al enlace que se menciona arriba.</li>
+          <li className="text-left">
+            Accede al enlace que se menciona arriba.
+          </li>
           <li className="text-left">
             Acepta las condiciones de protección de datos y haz clic en
             &ldquo;Weiter&ldquo; (Siguiente).
@@ -195,7 +208,9 @@ export default function Anmeldung() {
             Completa los campos de nombre, apellido, correo electrónico y,
             opcionalmente, teléfono.
           </li>
-          <li className="text-left">En el próximo menú, busca la opción &ldquo;Meldewesen&ldquo;.</li>
+          <li className="text-left">
+            En el próximo menú, busca la opción &ldquo;Meldewesen&ldquo;.
+          </li>
           <li className="text-left">
             Donde aparece el 0, elige la cantidad correspondiente de personas (1
             para una persona, 2 para dos personas, etc.). Si es tu primera vez
@@ -207,7 +222,9 @@ export default function Anmeldung() {
             Desplázate hacia abajo hasta que puedas hacer clic en
             &ldquo;Weiter&ldquo;.
           </li>
-          <li className="text-left">Verifica la disponibilidad de turnos en el mapa y elige uno.</li>
+          <li className="text-left">
+            Verifica la disponibilidad de turnos en el mapa y elige uno.
+          </li>
           <li className="text-left">
             Al finalizar, se mostrará un resumen de tu turno. Haz clic en
             &ldquo;Termin verbindlich vereinbaren&ldquo; (Confirmar cita).
@@ -224,7 +241,7 @@ export default function Anmeldung() {
           puede ser necesario actualizar la página varias veces para encontrar
           una opción más próxima en el tiempo.
         </p>
-        <p className="text-left py-2 px-24">Enlaces útiles:</p>
+        <h4 className="text-l font-heading uppercase mt-12">Enlaces útiles:</h4>
         <ul className="list-inside py-2 list-disc px-24 text-center">
           <li className="text-left">
             Versión en inglés de las instrucciones en el sitio web del Hamburg
