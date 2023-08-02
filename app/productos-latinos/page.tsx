@@ -5,19 +5,25 @@ import { Button } from "@/components/ui/button";
 export default function ProductosLatinos() {
   return (
     <>
-      <header className="text-center flex justify-center items-center p-10">
+      <header className="text-center flex justify-center items-center p-4 sm:p-10">
         <Button>
-          <Link href="/">Home/Inicio</Link>
+          <Link href="/">Home</Link>
         </Button>
       </header>
 
-      <main className="text-center px-20 mb-24 mx-24">
-       
-        <h1 className="text-5xl font-heading uppercase m-12">Productos Latinos en Hamburgo</h1>
+      <main className="text-center sm:px-10 mb-8 sm:mb-24 mx-2 sm:mx-24">
+        <div className="pt-12 py-12">
+          <h1 className="text-2xl sm:text-5xl font-heading uppercase">
+            Productos Latinos en Hamburgo
+          </h1>
+        </div>
 
         <div className="py-8 px-24">
-          <h2 className="text-3xl font-heading uppercase mb-4">El Cielo</h2>
-          <p>Dirección: Wandsbeker Chaussee 277, 22089 Hamburg</p>
+          <h2 className="text-xl sd:3xl font-heading uppercase mb-4">
+            El Cielo
+          </h2>
+          <p className="underline mb-4">Dirección: </p>
+          <p> Wandsbeker Chaussee 277, 22089 Hamburg</p>
           <p>
             <a href="https://elcielo-markt.com/">https://elcielo-markt.com/</a>
           </p>
@@ -26,8 +32,11 @@ export default function ProductosLatinos() {
         </div>
 
         <div className="py-8 px-24">
-          <h2 className="text-3xl font-heading uppercase mb-4">Surimex</h2>
-          <p>Dirección: Mundsburger Damm 39, 22087 Hamburg</p>
+          <h2 className="text-xl sd:3xl font-heading uppercase mb-4">
+            Surimex
+          </h2>
+          <p className="underline mb-4">Dirección: </p>
+          <p> Mundsburger Damm 39, 22087 Hamburg</p>
           <p>
             <a href="https://surimex.de/">https://surimex.de/</a>
           </p>
@@ -36,8 +45,11 @@ export default function ProductosLatinos() {
         </div>
 
         <div className="py-8 px-24">
-          <h2 className="text-3xl font-heading uppercase mb-4">La Torre</h2>
-          <p>Dirección: Lagerstraße 36, 20357 Hamburg</p>
+          <h2 className="text-xl sd:3xl font-heading uppercase mb-4">
+            La Torre
+          </h2>
+          <p className="underline mb-4">Dirección: </p>
+          <p> Lagerstraße 36, 20357 Hamburg</p>
           <p>
             <a href="https://www.la-torre-hh.de/">
               https://www.la-torre-hh.de/
@@ -49,10 +61,10 @@ export default function ProductosLatinos() {
         </div>
 
         <div className="py-8 px-24">
-          <h2 className="text-3xl font-heading uppercase mb-4">
+          <h2 className="text-l sd:3xl font-heading uppercase mb-4">
             Andronaco (Supermercado italiano)
           </h2>
-          <p>Direcciones:</p>
+          <p className="underline mb-4">Direcciones:</p>
           <p>Grande Mercato - Hamburg-Billbrook, Halskestraße 48</p>
           <p>Grande Mercato - Hamburg-Bahrenfeld, Beerenweg 24-26</p>
           <p>
@@ -63,6 +75,11 @@ export default function ProductosLatinos() {
             <a href="https://www.andronaco.info">https://www.andronaco.info</a>
           </p>
         </div>
+        <header className="text-center flex justify-center items-center p-4 sm:p-10">
+        <Button>
+          <Link href="/">Home</Link>
+        </Button>
+      </header>
       </main>
     </>
   );

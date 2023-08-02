@@ -61,32 +61,32 @@ export default function Wohnungssuche() {
             </a>
           </li>
         </ul>
-        <h2 className="mt-8 text-l sm:text-3xl font-heading uppercase sm:mt-20">
+        <h2 className="mt-4 text-l sm:text-3xl font-heading uppercase sm:mt-10">
           Pisos a corto y mediano plazo
         </h2>
-        <p className="text-left py-2 px-24">
+        <p className="px-8 text-left pt-10 sm:px-24">
           En ambas aclara si los pisos dan registro o no, con lo cual es una
           Buena opcion al momento de llegar a HH
         </p>
-        <ul className="py-2 list-inside list-disc px-24 text-left">
+        <ul className="py-6 list-inside list-disc sm:px-4 md:px-10 text-center sm:text-left list-none">
           <li>
-            <a className="underline" href="https://wunderflats.com/">https://wunderflats.com/</a>
+            <a className="underline" href="https://wunderflats.com/">Wunderflats</a>
           </li>
           <li>
             <a className="underline" href="https://www.city-wohnen.de/">
-              https://www.city-wohnen.de/
+             City-Wohnen
             </a>
           </li>
         </ul>
-        <h2 className="text-3xl font-heading uppercase mt-12 p-12">
+        <h2 className="mt-10 text-l sm:text-3xl font-heading uppercase sm:mt-10">
           Terminología y abreviaturas
         </h2>
-        <p className="text-left py-2 px-24">
+        <p className="px-8 text-left pt-10 sm:px-24">
           Conocer la terminología alemana del mundo de la vivienda, el alquiler
           y sus abreviaturas te ayudará a sobrevivir al proceso de buscar un
           piso, así que toma nota:
         </p>
-        <ul className="py-2 list-inside list-disc px-24 text-left">
+        <ul className="ml-8 py-6 list-inside list-disc sm:px-4 md:px-10 text-left sm:text-left list-none">
           <li>Kaltmiete (KM): alquiler básico sin gastos adicionales.</li>
           <li>
             Warmmiete (WM): alquiler básico con los gastos adicionales
@@ -105,13 +105,13 @@ export default function Wohnungssuche() {
           </li>
           <li>Kaution (K / Kaut / KT): depósito.</li>
         </ul>
-        <h2 className="text-3xl font-heading uppercase mt-8">Requisitos</h2>
-        <p className="text-left py-2 px-24">
+        <h2 className="mt-10 text-l sm:text-3xl font-heading uppercase sm:mt-10">Requisitos</h2>
+        <p className="px-8 text-left pt-10 sm:px-24">
           Al momento de aplicar a un piso dependiendo del dueño se pueden pedir
           diferentes documentos como pueden ser:
         </p>
-        <ul className="py-2 list-inside list-disc px-24 text-left">
-          <li>solicitud de alquiler por escrito (Wohnenbewerbung)</li>
+        <ul className="ml-8 py-6 list-inside list-disc sm:px-4 md:px-10 text-left sm:text-left">
+          <li>Solicitud de alquiler por escrito (Wohnenbewerbung)</li>
           <li>Fotocopia del DNI o pasaporte (Personalausweis).</li>
           <li>
             Comprobante de ingresos de los últimos tres meses
@@ -126,31 +126,31 @@ export default function Wohnungssuche() {
             nivel de solvencia financiera.
           </li>
         </ul>
-        <h2 className="text-3xl font-heading uppercase mt-12 p-12">
+        <h2 className="mt-10 text-l sm:text-3xl font-heading uppercase sm:mt-10">
           Como obtener el SCHUFA
         </h2>
-        <p className="text-left py-2 px-24">
+        <p className="px-8 text-left pt-10 sm:px-24">
           Se puede hacer de forma gratuita a través del proveedor official
           (puede tardar 2 semanas){" "}
           <a className="underline" href="https://www.meineschufa.de/de/datenkopie">
             https://www.meineschufa.de/de/datenkopie
           </a>
         </p>
-        <p className="text-left py-2 px-24">
+        <p className="px-8 text-left pt-10 sm:px-24">
           O bien se puede elegir pagar por el informe (29,95 EUR), en este caso
           el informe va a llegar en mucho menos tiempo{" "}
           <a className="underline" href="https://www.meineschufa.de/de/produkte">
             https://www.meineschufa.de/de/produkte
           </a>
         </p>
-        <p className="text-left py-2 px-24">
-          Ambos Links son a la pagina official que emite ese document sin pasar
+        <p className="px-8 text-left pt-10 sm:px-24">
+          Ambos Links son a la pagina oficial que emite ese document sin pasar
           por ningun intermediario.
         </p>
-        <h2 className="text-3xl font-heading uppercase mt-12 p-12">
+        <h2 className="mt-10 px-8 text-l sm:text-3xl font-heading uppercase sm:mt-10">
           Estafas a la hora de buscar departamento
         </h2>
-        <p className="text-left py-2 px-24">
+        <p className="px-8 text-left pt-10 sm:px-24">
           Lamentablemente al momento de buscar departamento en los últimos meses
           han aparecido muchos casos de estafas, por fuera de los consejos
           básico de no transferir ningún dinero antes de firmar el contrato o
@@ -159,10 +159,10 @@ export default function Wohnungssuche() {
           comunicación locales donde tratan algunas de las estafas que se
           estuvieron dando en los últimos meses para que estemos al tanto.
         </p>
-        <p className="text-left py-2 px-24">
+        <p className="px-8 text-left pt-10 sm:px-24">
           (Las noticias estan en Aleman, pero se pueden traducir facilmente)
         </p>
-        <ul className="py-2 list-inside list-disc px-24 text-left">
+        <ul className="ml-8 py-6 list-inside list-disc sm:px-4 md:px-10 text-left sm:text-left">
           <li>
             <a className="underline" href="https://www.ndr.de/nachrichten/hamburg/Betrug-in-Hamburg-Wenn-die-neue-Wohnung-schon-vermietet-ist,mietbetrug112.html">
               https://www.ndr.de/nachrichten/hamburg/Betrug-in-Hamburg-Wenn-die-neue-Wohnung-schon-vermietet-ist,mietbetrug112.html
