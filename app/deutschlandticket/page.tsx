@@ -5,25 +5,29 @@ import { Button } from "@/components/ui/button";
 export default function DeutschlandTicket() {
   return (
     <>
-      <header className="text-center flex justify-center items-center p-10">
+      <header className="text-center flex justify-center items-center p-4 sm:p-10">
         <Button>
-          <Link href="/">Home/Inicio</Link>
+          <Link href="/">Home</Link>
         </Button>
       </header>
 
-      <main className="text-center px-20 mb-24 mx-24">
-        <h1 className="text-5xl font-heading uppercase mt-12">Deutschland Ticket</h1>
+      <main className="text-center sm:px-10 mb-8 sm:mb-24 mx-2 sm:mx-24">
+        <div className="pt-12 py-12">
+          <h1 className="text-xl sm:text-5xl font-heading uppercase">
+            Deutschlandticket
+          </h1>
+        </div>
 
-        <div className="py-8 px-24">
-          <h2 className="text-3xl font-heading uppercase m-12">Precio</h2>
+        <div className="px-8 py-8 sm:px-24">
+          <h2 className="text-l sm:text-3xl font-heading uppercase mb-8">Precio</h2>
           <p>
             Su hvv Deutschlandticket cuesta 49,00 € al mes. En el hvv puede
             comenzar de manera flexible y pagar a prorrata en el primer mes.
           </p>
         </div>
 
-        <div className="py-8 px-24">
-          <h2 className="text-3xl font-heading uppercase mb-12">
+        <div className="px-8 py-8 sm:px-24">
+        <h2 className="text-l sm:text-3xl font-heading uppercase mb-8">
             Periodo de validez
           </h2>
           <p>
@@ -33,8 +37,8 @@ export default function DeutschlandTicket() {
           </p>
         </div>
 
-        <div className="py-8 px-24">
-          <h2 className="text-3xl font-heading uppercase mb-12">Validez</h2>
+        <div className="px-8 py-8 sm:px-24">
+        <h2 className="text-l sm:text-3xl font-heading uppercase mb-8">Validez</h2>
           <p>
             El hvv Deutschlandticket es válido para viajar en 2ª clase sin
             restricciones de tiempo. El billete no es válido en trenes de larga
@@ -47,8 +51,8 @@ export default function DeutschlandTicket() {
           </p>
         </div>
 
-        <div className="py-8 px-24">
-          <h2 className="text-3xl font-heading uppercase mb-12">
+        <div className="px-8 py-8 sm:px-24">
+        <h2 className="text-l sm:text-3xl font-heading uppercase mb-8">
             Intransferible, llevar contigo a otros, perros y bicicletas
           </h2>
           <p>
@@ -71,6 +75,11 @@ export default function DeutschlandTicket() {
             momento.
           </p>
         </div>
+        <footer className="text-center flex justify-center items-center p-4 sm:p-10">
+          <Button>
+            <Link href="/">Home</Link>
+          </Button>
+        </footer>
       </main>
     </>
   );

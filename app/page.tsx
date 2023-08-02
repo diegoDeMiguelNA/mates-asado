@@ -18,12 +18,12 @@ export default function Home() {
           </h1>
         </div>
         <div className="py-6">
-          <h3 className="text-lg md:text-2xl font-heading uppercase">
+          <h3 className="text-xs md:text-2xl font-heading uppercase">
             Comunidad de ayuda en español para emigrados en Hamburgo
           </h3>
         </div>
 
-        <div className="py-24 grid gap-8 md:gap-40 grid-cols-1 md:grid-cols-3 grid-rows-3 px-4 md:px-12">
+        <div className="py-10 md:py-24 grid gap-8 md:gap-40 grid-cols-1 md:grid-cols-3 grid-rows-3 px-4 md:px-12">
           <a
             href="/anmeldung"
             className="text-center"
@@ -45,7 +45,7 @@ export default function Home() {
               Führerschein
             </h2>
             <p className="text-gray-400 font-thin font-playfair text-sm md:text-base">
-              Como tramitar la licencia en Alemania
+              Como tramitar la licencia de conducir en Alemania
             </p>
           </a>
           <a

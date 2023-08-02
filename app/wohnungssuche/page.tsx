@@ -6,64 +6,62 @@ import { Button } from "@/components/ui/button";
 export default function Wohnungssuche() {
   return (
     <>
-      <header className="text-center flex justify-center items-center p-10">
+      <header className="text-center flex justify-center items-center p-4 sm:p-10">
         <Button>
-          <Link href="/">Home/Inicio</Link>
+          <Link href="/">Home</Link>
         </Button>
       </header>
 
-      <main className="text-center px-20 mb-24 mx-24">
-        <header className="text-center flex justify-center items-center p-10">
-        </header>
-        <h1 className="text-5xl font-heading uppercase">
-          Busca de apartamento en Hamburgo 
+      <main className="text-center sm:px-10 m-8 sm:mb-24 mx-2 sm:mx-24">
+        <h1 className="text-xl sm:text-5xl font-heading uppercase px-4">
+          Busca de apartamento en Hamburgo
         </h1>
-        <h2 className="text-l font-heading uppercase m-8">
-        (Tambien vale en la mayoria de las casos para toda Alemania)
-        </h2>
-        
-        <h2 className="text-3xl font-heading uppercase mt-12 p-12">
+        <p className="text-xs font-heading uppercase mt-2 mb-8">
+          (Tambien vale en la mayoria de las casos para toda Alemania)
+        </p>
+
+        <h2 className="text-l sm:text-3xl font-heading uppercase mt-20">
           Sitios WEB de busqueda
         </h2>
-        <ul className="py-2 list-inside list-disc px-24 text-left">
-          <li>
-            <a target="_blank" href="https://www.immowelt.de/suche/wohnungen">
-              https://www.immowelt.de/suche/wohnungen
+        <ul className="py-6 list-inside list-disc sm:px-4 md:px-10 text-center sm:text-left list-none">
+          <li className="mb-4 ">
+            <a className="underline" target="_blank" href="https://www.immowelt.de/suche/wohnungen">
+              Immowelt
             </a>
           </li>
-          <li>
-            <a
+          <li className="mb-4">
+            <a className="underline"
               target="_blank"
               href="https://www.immobilienscout24.de/wohnen/wohnung.html"
             >
-              https://www.immobilienscout24.de/wohnen/wohnung.html
+              Immobilienscout24
             </a>
           </li>
-          <li>
-            <a
+          <li className="mb-4">
+            <a className="underline"
               target="_blank"
               href="https://www.kleinanzeigen.de/s-immobilien/hamburg/c195l9409"
             >
-              https://www.kleinanzeigen.de/s-immobilien/hamburg/c195l9409
+              Kleinanzeigen
             </a>
           </li>
-          <li>
-            <a target="_blank" href="https://www.wg-gesucht.de/">
-              https://www.wg-gesucht.de/
+          <li className="mb-4">
+            <a className="underline" target="_blank" href="https://www.wg-gesucht.de/">
+              Wg-gesucht
             </a>
           </li>
-          <li>
-            <a target="_blank" href="https://www.hamburg.de/wohnungen-hamburg/">
-              https://www.hamburg.de/wohnungen-hamburg/
+          <li className="mb-4">
+            <a className="underline" target="_blank" href="https://www.hamburg.de/wohnungen-hamburg/">
+              Wohnungen-Hamburg
             </a>
           </li>
-          <li>
-            <a target="_blank" href="https://www.immonet.de/">
-              https://www.immonet.de/
+          <li className="mb-4">
+            <a className="underline" target="_blank" href="https://www.immonet.de/">
+              Immonet
             </a>
           </li>
         </ul>
-        <h2 className="text-3xl font-heading uppercase mt-12 p-12">
+        <h2 className="mt-8 text-l sm:text-3xl font-heading uppercase sm:mt-20">
           Pisos a corto y mediano plazo
         </h2>
         <p className="text-left py-2 px-24">
@@ -72,10 +70,10 @@ export default function Wohnungssuche() {
         </p>
         <ul className="py-2 list-inside list-disc px-24 text-left">
           <li>
-            <a href="https://wunderflats.com/">https://wunderflats.com/</a>
+            <a className="underline" href="https://wunderflats.com/">https://wunderflats.com/</a>
           </li>
           <li>
-            <a href="https://www.city-wohnen.de/">
+            <a className="underline" href="https://www.city-wohnen.de/">
               https://www.city-wohnen.de/
             </a>
           </li>
@@ -134,14 +132,14 @@ export default function Wohnungssuche() {
         <p className="text-left py-2 px-24">
           Se puede hacer de forma gratuita a través del proveedor official
           (puede tardar 2 semanas){" "}
-          <a href="https://www.meineschufa.de/de/datenkopie">
+          <a className="underline" href="https://www.meineschufa.de/de/datenkopie">
             https://www.meineschufa.de/de/datenkopie
           </a>
         </p>
         <p className="text-left py-2 px-24">
           O bien se puede elegir pagar por el informe (29,95 EUR), en este caso
           el informe va a llegar en mucho menos tiempo{" "}
-          <a href="https://www.meineschufa.de/de/produkte">
+          <a className="underline" href="https://www.meineschufa.de/de/produkte">
             https://www.meineschufa.de/de/produkte
           </a>
         </p>
@@ -166,21 +164,26 @@ export default function Wohnungssuche() {
         </p>
         <ul className="py-2 list-inside list-disc px-24 text-left">
           <li>
-            <a href="https://www.ndr.de/nachrichten/hamburg/Betrug-in-Hamburg-Wenn-die-neue-Wohnung-schon-vermietet-ist,mietbetrug112.html">
+            <a className="underline" href="https://www.ndr.de/nachrichten/hamburg/Betrug-in-Hamburg-Wenn-die-neue-Wohnung-schon-vermietet-ist,mietbetrug112.html">
               https://www.ndr.de/nachrichten/hamburg/Betrug-in-Hamburg-Wenn-die-neue-Wohnung-schon-vermietet-ist,mietbetrug112.html
             </a>
           </li>
           <li>
-            <a href="https://www.ndr.de/ratgeber/verbraucher/Wie-man-Betrug-mit-falschen-Wohnungsanzeigen-erkennt,wohnungssuche164.html">
+            <a className="underline" href="https://www.ndr.de/ratgeber/verbraucher/Wie-man-Betrug-mit-falschen-Wohnungsanzeigen-erkennt,wohnungssuche164.html">
               https://www.ndr.de/ratgeber/verbraucher/Wie-man-Betrug-mit-falschen-Wohnungsanzeigen-erkennt,wohnungssuche164.html
             </a>
           </li>
           <li>
-            <a href="https://www.ndr.de/ratgeber/verbraucher/Dubiose-Wohnungsanzeigen-So-schuetzen-Sie-sich-vor-Betrug,wohnungsanzeigen102.html">
+            <a className="underline" href="https://www.ndr.de/ratgeber/verbraucher/Dubiose-Wohnungsanzeigen-So-schuetzen-Sie-sich-vor-Betrug,wohnungsanzeigen102.html">
               https://www.ndr.de/ratgeber/verbraucher/Dubiose-Wohnungsanzeigen-So-schuetzen-Sie-sich-vor-Betrug,wohnungsanzeigen102.html
             </a>
           </li>
         </ul>
+        <footer className="text-center flex justify-center items-center p-4 sm:p-10">
+          <Button>
+            <Link href="/">Home</Link>
+          </Button>
+        </footer>
       </main>
     </>
   );
