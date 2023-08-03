@@ -14,10 +14,6 @@ export default function Wohnungssuche() {
     });
   };
 
-  useEffect(() => {
-    console.log("menuOpen", menuOpen);
-  }, [menuOpen]);
-
   return (
     <>
       <header className="text-center flex justify-center items-center p-4 sm:p-10">
