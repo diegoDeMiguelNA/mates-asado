@@ -25,7 +25,7 @@ export default function ProductosLatinos() {
             <p className="underline mb-4">Dirección: </p>
             <p> Wandsbeker Chaussee 277, 22089 Hamburg</p>
             <p>
-              <a href="https://elcielo-markt.com/">
+              <a className="underline" href="https://elcielo-markt.com/">
                 https://elcielo-markt.com/
               </a>
             </p>
@@ -40,7 +40,7 @@ export default function ProductosLatinos() {
             <p className="underline mb-4">Dirección: </p>
             <p> Mundsburger Damm 39, 22087 Hamburg</p>
             <p>
-              <a href="https://surimex.de/">https://surimex.de/</a>
+              <a className="underline" href="https://surimex.de/">https://surimex.de/</a>
             </p>
             <p>Horarios: Lunes a Sábados 9:30 a 21 hs</p>
             <p>Domingos cerrados</p>
@@ -53,7 +53,7 @@ export default function ProductosLatinos() {
             <p className="underline mb-4">Dirección: </p>
             <p> Lagerstraße 36, 20357 Hamburg</p>
             <p>
-              <a href="https://www.la-torre-hh.de/">
+              <a className="underline" href="https://www.la-torre-hh.de/">
                 https://www.la-torre-hh.de/
               </a>
             </p>
@@ -74,7 +74,7 @@ export default function ProductosLatinos() {
               Überseeboulevard)
             </p>
             <p>
-              <a href="https://www.andronaco.info">
+              <a className="underline" href="https://www.andronaco.info">
                 https://www.andronaco.info
               </a>
             </p>

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Busqueda de Departamento 🧉",
+  title: "Deutschland Ticket 🧉",
 };
 
 
