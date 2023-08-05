@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import styles from "./page.module.css";
 import { Button } from "@/components/ui/button";
 import clsx from "clsx";
 
@@ -48,14 +47,14 @@ export default function Wohnungssuche() {
               "sm:flex",
               "sm:justify-center",
               "sm:space-x-8",
+              "flex",
+              "items-center",
               {
                 hidden: !menuOpen,
               }
             )}
           >
-            <li className="underline">
-              Indice:
-            </li>
+            <li className="underline">Indice:</li>
             <li>
               <a href="#sitios-web">Sitios de busqueda</a>
             </li>
@@ -65,9 +64,7 @@ export default function Wohnungssuche() {
               </a>
             </li>
             <li>
-              <a href="#terminologia-abreviaturas">
-                Terminología 
-              </a>
+              <a href="#terminologia-abreviaturas">Terminología</a>
             </li>
             <li>
               <a href="#requisitos">Requisitos</a>

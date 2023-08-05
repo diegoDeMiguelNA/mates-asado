@@ -1,8 +1,17 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import clsx from "clsx";
 
 export default function TelefonosUtiles() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleMenuToggle = () => {
+    setMenuOpen((prevState) => {
+      return !prevState;
+    });
+  };
   return (
     <>
       <header className="text-center flex justify-center items-center p-4 sm:p-10">
@@ -11,13 +20,79 @@ export default function TelefonosUtiles() {
         </Button>
       </header>
       <div className="max-w-7xl mx-auto">
+        <nav className="text-center py-4 bg-gray-100 px-4">
+          <div className="block sm:hidden">
+            <button
+              onClick={handleMenuToggle}
+              className="flex items-center px-3 py-2 border rounded text-blue-600 border-white hover:text-white hover:bg-black"
+            >
+              <svg
+                className="w-5 h-5 fill-current"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M2 4.75C2 4.33579 2.33579 4 2.75 4H17.25C17.6642 4 18 4.33579 18 4.75C18 5.16421 17.6642 5.5 17.25 5.5H2.75C2.33579 5.5 2 5.16421 2 4.75ZM2 9.75C2 9.33579 2.33579 9 2.75 9H17.25C17.6642 9 18 9.33579 18 9.75C18 10.1642 17.6642 10.5 17.25 10.5H2.75C2.33579 10.5 2 10.1642 2 9.75ZM2.75 14C2.33579 14 2 14.3358 2 14.75C2 15.1642 2.33579 15.5 2.75 15.5H17.25C17.6642 15.5 18 15.1642 18 14.75C18 14.3358 17.6642 14 17.25 14H2.75Z"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <ul
+            className={clsx(
+              "sm:flex",
+              "sm:justify-center",
+              "sm:space-x-8",
+              "flex",
+              "items-center",
+              {
+                hidden: !menuOpen,
+              }
+            )}
+          >
+            <li className="underline">Indice:</li>
+            <li>
+              <a href="#welcome-center">Hamburg Welcome Center</a>
+            </li>
+            <li>
+              <a href="#consideraciones-generales">Consideraciones Grales.</a>
+            </li>
+            <li>
+              <a href="#numeros-emergencia">Números de Emergencia</a>
+            </li>
+            <li>
+              <a href="#salud">Salud</a>
+            </li>
+            <li>
+              <a href="#practicas-de-emergencia">Prácticas de Emergencia</a>
+            </li>
+            <li>
+              <a href="#urgencias-dentales">Urgencias Dentales</a>
+            </li>
+            <li>
+              <a href="#violencia-contra-la-mujer">Violencia contra la Mujer</a>
+            </li>
+            <li>
+              <a href="#otros">Otros servicios de emergencia</a>
+            </li>
+            <li>
+              <a href="#adicciones">Adicciones</a>
+            </li>
+          </ul>
+        </nav>
         <main className="text-center sm:px-10 m-8 sm:mb-24 mx-2 sm:mx-24">
           <h1 className="text-2xl sm:text-5xl font-heading uppercase px-4">
             Teléfonos Útiles
           </h1>
 
           <div className="py-6 text-xl text-center sm:mt-20">
-            <h2 className="text-l sm:text-xl font-heading uppercase">
+            <h2
+              id="welcome-center"
+              className="text-l sm:text-xl font-heading uppercase"
+            >
               Hamburg Welcome Center:
             </h2>
             <p className="px-8 text-left pt-10 sm:px-24">
@@ -31,12 +106,12 @@ export default function TelefonosUtiles() {
               href="https://welcome.hamburg.de"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline hover:text-blue-800 visited:text-purple-600"
+              className="underline sm:text-2xl hover:text-blue-800 visited:text-purple-600"
             >
-              Welcome Hamburg
+              Link al sitio
             </a>
 
-            <h2 className="text-l sm:text-3xl font-heading uppercase mt-16 sm:mb-8">
+            <h2 className="text-l sm:text-xl font-heading uppercase mt-16 sm:mb-8">
               Horario de apertura:
             </h2>
 
@@ -70,7 +145,10 @@ export default function TelefonosUtiles() {
               los servicios de emergencia y prácticas de emergencia.
             </p>
 
-            <h2 className="text-l sm:text-2xl font-heading uppercase mt-12 sm:mt-20 sm:mb-6">
+            <h2
+              id="consideraciones-generales"
+              className="text-l sm:text-2xl font-heading uppercase mt-12 sm:mt-20 sm:mb-6"
+            >
               Aquí hay algunas cosas a tener en cuenta al informar una
               emergencia:
             </h2>
@@ -91,7 +169,10 @@ export default function TelefonosUtiles() {
               </li>
             </ul>
 
-            <h2 className="text-l sm:text-2xl font-heading uppercase mt-12 mb-4">
+            <h2
+              id="numeros-emergencia"
+              className="text-l sm:text-2xl font-heading uppercase mt-12 mb-4"
+            >
               Números generales de emergencia
             </h2>
             <ul className="py-6 px-8 list-inside list-disc sm:px-4 md:px-16 text-center sm:text-left list-none sm:mx-4">
@@ -108,7 +189,10 @@ export default function TelefonosUtiles() {
               </li>{" "}
             </ul>
 
-            <h2 className="text-l sm:text-2xl font-heading uppercase mt-12">
+            <h2
+              id="salud"
+              className="text-l sm:text-2xl font-heading uppercase mt-12"
+            >
               Salud
             </h2>
             <p className="px-8 text-left pt-10 sm:px-20">
@@ -135,7 +219,10 @@ export default function TelefonosUtiles() {
             <p className="px-8 text-left pt-10 sm:px-24">
               De 12:00 a 07:00 por fax al 040 66955459
             </p>
-            <h2 className="mt-12 text-l sm:text-2xl font-heading uppercase sm:mt-20 mb-4">
+            <h2
+              id="practicas-de-emergencia"
+              className="mt-12 text-l sm:text-2xl font-heading uppercase sm:mt-20 mb-4"
+            >
               Prácticas de emergencia:
             </h2>
             <ul className="py-6 px-8 list-inside list-disc sm:px-4 md:px-16 text-center sm:text-left list-none sm:mx-4">
@@ -166,7 +253,10 @@ export default function TelefonosUtiles() {
               .
             </p>
 
-            <h2 className="mt-12 text-l sm:text-2xl font-heading uppercase sm:mt-20 mb-2">
+            <h2
+              id="urgencias-dentales"
+              className="mt-12 text-l sm:text-2xl font-heading uppercase sm:mt-20 mb-2"
+            >
               Servicio de urgencias dentales
             </h2>
             <p className="px-8 text-left pt-10 sm:px-24">
@@ -179,7 +269,10 @@ export default function TelefonosUtiles() {
             <p className="px-8 text-left pt-10 sm:px-24">
               GIZ Norte 0551 19240
             </p>
-            <h2 className="mt-12 text-l sm:text-xl font-heading uppercase sm:mt-20">
+            <h2
+              id="violencia-contra-la-mujer"
+              className="mt-12 text-l sm:text-xl font-heading uppercase sm:mt-20"
+            >
               Llamada de emergencia violencia contra la mujer
             </h2>
             <p className="px-8 text-left pt-10 sm:px-24">
@@ -200,7 +293,10 @@ export default function TelefonosUtiles() {
             <p className="px-8 text-left pt-10 sm:px-24">
               Hogar de niñas: 040 428 15 32 71
             </p>
-            <h2 className="mt-12 text-l sm:text-2xl font-heading uppercase sm:mt-20">
+            <h2
+              id="otros"
+              className="mt-12 text-l sm:text-2xl font-heading uppercase sm:mt-20"
+            >
               Otros números de emergencia y servicios de emergencia
             </h2>
             <p className="px-8 text-left pt-10 sm:px-24">
@@ -223,7 +319,10 @@ export default function TelefonosUtiles() {
             <p className="px-8 text-left pt-10 sm:px-24">
               Línea directa de extremismo de derecha (policía): 040 428676767
             </p>
-            <h2 className="mt-12 text-l sm:text-2xl font-heading uppercase sm:mt-20">
+            <h2
+              id="adicciones"
+              className="mt-12 text-l sm:text-2xl font-heading uppercase sm:mt-20"
+            >
               Servicios de emergencia para adicciones
             </h2>
             <p className="px-8 text-left pt-10 sm:px-24">
