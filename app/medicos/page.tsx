@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button/button";
+import { Button } from "@/components/ui/button";
 
 export default function Medicos() {
   const data = [
@@ -140,7 +140,7 @@ export default function Medicos() {
   return (
     <>
       <header className="text-center flex justify-center items-center p-4 sm:p-10">
-        <Button>
+      <Button>
           <Link href="/">Home</Link>
         </Button>
       </header>
