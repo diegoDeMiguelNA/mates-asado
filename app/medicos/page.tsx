@@ -140,26 +140,38 @@ export default function Medicos() {
   return (
     <>
       <header className="text-center flex justify-center items-center p-4 sm:p-10">
-      <Button>
+        <Button>
           <Link href="/">Home</Link>
         </Button>
       </header>
-      <div className="max-w-7xl mx-auto">
-        <main className="text-center sm:px-10 mb-8 sm:mb-24 mx-2 sm:mx-24">
+      <main className="text-center mb-2sm:px-10 mb-8 sm:mb-24 mx-2 sm:mx-24 landscape:mb-2 landscape:px-2 landscape:mx-2">
+        <div className="mx-auto px-4 sm:px-2 lg:px-8">
           <div className="pt-12 py-12">
-            <h1 className="text-2xl sm:text-5xl font-heading uppercase">
+            <h1 className="text-xl sm:text-3xl md:text-5xl font-heading uppercase mb-4">
               Médicos en Hamburgo
             </h1>
           </div>
-          <table className="w-full table-fixed border-collapse">
+          <p className="text-red-500 text-center my-4 landscape:hidden">
+            Por favor, gire su dispositivo a modo paisaje (landscape) para poder ver la
+            tabla con el contenido.
+          </p>
+          <table className="w-full table-fixed border-collapse text-sm md:text-base portrait:hidden">
+            <colgroup>
+              <col className="w-1/12" />
+              <col className="w-3/12" />
+              <col className="w-2/12" />
+              <col className="w-2/12" />
+              <col className="w-2/12" />
+              <col className="w-1/12" />
+            </colgroup>
             <thead>
               <tr className="bg-gray-200">
-                <th className="py-2 px-4 text-left">Especialidad</th>
-                <th className="py-2 px-4 text-left">Nombre</th>
-                <th className="py-2 px-4 text-left">Dirección</th>
-                <th className="py-2 px-4 text-left">Teléfono</th>
-                <th className="py-2 px-4 text-left">Mail o website</th>
-                <th className="py-2 px-4 text-left">Idioma</th>
+                <th className="py-2 px-4 text-center">Especialidad</th>
+                <th className="py-2 px-4 text-center">Nombre</th>
+                <th className="py-2 px-4 text-center">Dirección</th>
+                <th className="py-2 px-4 text-center">Teléfono</th>
+                <th className="py-2 px-4 text-center">Mail o website</th>
+                <th className="py-2 px-4 text-center">Idioma</th>
               </tr>
             </thead>
             <tbody>
@@ -187,14 +199,13 @@ export default function Medicos() {
               ))}
             </tbody>
           </table>
-
-          <header className="text-center flex justify-center items-center p-4 sm:p-10">
+        </div>
+        <footer className="text-center flex justify-center items-center p-4 sm:p-10 sm:mt-10 portrait:hidden">
             <Button>
               <Link href="/">Home</Link>
             </Button>
-          </header>
-        </main>
-      </div>
+          </footer>
+      </main>
     </>
   );
 }
