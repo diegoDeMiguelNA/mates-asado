@@ -96,6 +96,18 @@ export default function Home() {
               Información sobre el Deutschlandticket
             </p>
           </a>
+          <a
+            href="/medicos"
+            className="text-center"
+            rel="noopener noreferrer"
+          >
+            <h2 className="font-serif font-bold text-lg md:text-xl">
+              Médicos en Hamburgo
+            </h2>
+            <p className="text-gray-400 font-thin font-playfair text-sm md:text-base">
+              Info sobre médicos en Hamburgo que hablan español o inglés.
+            </p>
+          </a>
         </div>
       </main>
     </>
