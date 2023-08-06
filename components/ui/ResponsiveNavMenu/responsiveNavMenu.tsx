@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from "react";
+import React, { useState, ReactNode } from "react";
 import clsx from "clsx";
 
 interface MenuItem {
@@ -12,7 +12,7 @@ interface MobileMenuProps {
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ menuItems }) => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
@@ -24,6 +24,8 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ menuItems }) => {
         <button
           onClick={handleMenuToggle}
           className="flex items-center px-3 py-2 border rounded text-blue-600 border-white hover:text-white hover:bg-black"
+          aria-label="Toggle Menu"
+          data-testid="mobile-menu-toggle" 
         >
           <svg
             className="w-5 h-5 fill-current"
@@ -44,10 +46,12 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ menuItems }) => {
         className={clsx("sm:flex", "sm:justify-center", "sm:space-x-8", {
           hidden: !menuOpen,
         })}
+        role="menu"
+        aria-label="Mobile Menu"
       >
         {menuItems.map((item, index) => (
           <li key={index}>
-            <a href={item.href}>{item.content}</a>
+            <a href={item.href} role="menuitem">{item.content}</a>
           </li>
         ))}
       </ul>
