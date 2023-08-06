@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button/button";
-import MobileMenu from "../../components/ui/ResponsiveNavMenu/responsiveNavMenu";
+import MobileMenu from "@/components/ui/ResponsiveNavMenu/responsiveNavMenu";
 
 export default function Wohnungssuche() {
   const menuItems = [
