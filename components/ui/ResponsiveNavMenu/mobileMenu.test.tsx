@@ -14,20 +14,20 @@ const menuItems = [
     { content: 'Adicciones', href: '#adicciones' },
   ];
 
-describe("MobileMenu tests", () => {
-  it("should toggle menu when button is clicked", () => {
-    render(<MobileMenu menuItems={menuItems} />);
+  describe("MobileMenu tests", () => {
+    it("should toggle menu when button is clicked", () => {
+      render(<MobileMenu menuItems={menuItems} />);
 
-    const mobileMenu = screen.getByRole("menu");
-    expect(mobileMenu).toHaveClass("hidden"); 
+      const mobileMenu = screen.getByRole("menu");
+      expect(mobileMenu).toHaveClass("hidden"); 
 
-    const toggleButton = screen.getByLabelText("Toggle Menu");
-    fireEvent.click(toggleButton);
+      const toggleButton = screen.getByLabelText("Toggle Menu");
+      fireEvent.click(toggleButton);
 
-    expect(mobileMenu).not.toHaveClass("hidden");
+      expect(mobileMenu).not.toHaveClass("hidden");
 
-    fireEvent.click(toggleButton);
-
-    expect(mobileMenu).toHaveClass("hidden");
+      fireEvent.click(toggleButton);
+      
+      expect(mobileMenu).toHaveClass("hidden");
+    });
   });
-});

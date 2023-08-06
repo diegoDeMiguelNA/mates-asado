@@ -48,6 +48,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ menuItems }) => {
         })}
         role="menu"
         aria-label="Mobile Menu"
+        data-testid="mobile-menu"
       >
         {menuItems.map((item, index) => (
           <li key={index}>
