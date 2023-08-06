@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button/button";
 import clsx from "clsx";
-import MobileMenu from "@/components/ui/ResponsiveNavMenu/responsiveNavMenu";
+import MobileMenu from "@/components/ui/ResponsiveNavMenu/mobileMenu";
 
 export default function TelefonosUtiles() {
   const menuItems = [

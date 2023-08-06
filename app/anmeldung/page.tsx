@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import { Button } from "@/components/ui/button/button";
-import MobileMenu from "@/components/ui/ResponsiveNavMenu/responsiveNavMenu";
+import MobileMenu from "@/components/ui/ResponsiveNavMenu/mobileMenu";
 
 export default function Anmeldung() {
 
