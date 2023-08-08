@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import useGetContentfulData, {ApiResponse} from "../hooks/useGetContenfulData"; // Assuming the ApiResponse is exported from the hook
+import useGetContentfulData from "../hooks/useGetContenfulData"; // Assuming the ApiResponse is exported from the hook
 
 export default function ProductosLatinos() {
   const { data, error, loading } = useGetContentfulData("pageTemplate");
