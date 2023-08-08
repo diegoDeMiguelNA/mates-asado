@@ -1,11 +1,12 @@
-"use client";
+// "use client";
 import React, { useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import useGetContentfulData from "../hooks/useGetContenfulData"; // Assuming the ApiResponse is exported from the hook
+import {getContentFulData} from "@/lib/fetchDataFromContentful"; // Assuming the ApiResponse is exported from the hook
+import { ApiResponse } from "../hooks/useGetContenfulData";
 
-export default function ProductosLatinos() {
-  const { data, error, loading } = useGetContentfulData("pageTemplate");
+export default async function ProductosLatinos() {
+  const { items, errors } = await getContentFulData("pageTemplate");
 
   const renderContent = (content: Array<any>) => {
     return content.map((item: any, index: number) => {
@@ -45,56 +46,63 @@ export default function ProductosLatinos() {
     });
   };
 
-  if (loading) {
-    return <p>Loading...</p>;
+  if (errors) {
+    return <p>Error: {errors}</p>;
   }
 
-  if (error) {
-    return <p>Error: {error.message}</p>;
-  }
+  console.log(items);
 
-  if (!data || !data) {
-    return <p>No data available.</p>; // Handle case when data is not yet fetched
-  }
-
-  const firstItem = data[0];
-
-  if (firstItem !== undefined && firstItem !== null) {
-    return (
+  return <>
+    {items.map(({ fields: { title, subtitle, lastUpdate }}) => (
       <>
-        <header className="text-center flex justify-center items-center p-4 sm:p-10">
-          <Button>
-            <Link href="/">Home</Link>
-          </Button>
-        </header>
-        <div className="max-w-7xl mx-auto">
-          <main className="text-center sm:px-10 mb-8 sm:mb-24 mx-2 sm:mx-24">
-            <div className="pt-12 py-12">
-              <h1 className="text-2xl sm:text-5xl font-heading uppercase">
-                {firstItem.title}
-              </h1>
-            </div>
-
-            {firstItem.publicationBody.content &&
-              renderContent(firstItem.publicationBody.content)}
-
-            {firstItem.publicationBodyOne.content &&
-              renderContent(firstItem.publicationBodyOne.content)}
-
-            {firstItem.publicationBodyTwo.content &&
-              renderContent(firstItem.publicationBodyTwo.content)}
-
-            {firstItem.publicationBodyThree.content &&
-              renderContent(firstItem.publicationBodyThree.content)}
-
-            <header className="text-center flex justify-center items-center p-4 sm:p-10">
-              <Button>
-                <Link href="/">Home</Link>
-              </Button>
-            </header>
-          </main>
-        </div>
+      <div>{title}</div>
+      <div>{subtitle}</div>
       </>
-    );
-  }
+    ))}
+  </>
+
+  // if (!data || !data) {
+  //   return <p>No data available.</p>; // Handle case when data is not yet fetched
+  // }
+
+  // const firstItem = items[0] as ApiResponse;
+
+  // if (firstItem !== undefined && firstItem !== null) {
+  //   return (
+  //     <>
+  //       <header className="text-center flex justify-center items-center p-4 sm:p-10">
+  //         <Button>
+  //           <Link href="/">Home</Link>
+  //         </Button>
+  //       </header>
+  //       <div className="max-w-7xl mx-auto">
+  //         <main className="text-center sm:px-10 mb-8 sm:mb-24 mx-2 sm:mx-24">
+  //           <div className="pt-12 py-12">
+  //             <h1 className="text-2xl sm:text-5xl font-heading uppercase">
+  //               {firstItem.title}
+  //             </h1>
+  //           </div>
+
+  //           {firstItem.publicationBody.content &&
+  //             renderContent(firstItem.publicationBody.content)}
+
+  //           {firstItem.publicationBodyOne.content &&
+  //             renderContent(firstItem.publicationBodyOne.content)}
+
+  //           {firstItem.publicationBodyTwo.content &&
+  //             renderContent(firstItem.publicationBodyTwo.content)}
+
+  //           {firstItem.publicationBodyThree.content &&
+  //             renderContent(firstItem.publicationBodyThree.content)}
+
+  //           <header className="text-center flex justify-center items-center p-4 sm:p-10">
+  //             <Button>
+  //               <Link href="/">Home</Link>
+  //             </Button>
+  //           </header>
+  //         </main>
+  //       </div>
+  //     </>
+  //   );
+  // }
 }
