@@ -1,6 +1,18 @@
-import { createClient } from "contentful";
 import { useEffect, useState } from "react";
 
+import { createClient } from "contentful";
+
+const space = process.env.NEXT_PUBLIC_SPACE;
+const accessToken = process.env.NEXT_PUBLIC_ACCESS_TOKEN;
+
+if (!space || !accessToken) {
+  throw new Error("Space or Access Token is missing in environment variables.");
+}
+
+export const client = createClient({
+  space,
+  accessToken,
+});
 interface ContentfulData {
   uri?: string;
 }
@@ -27,10 +39,6 @@ export interface ApiResponse {
   publicationBodyThree: ContentfulEntry;
 }
 
-export const client = createClient({
-  space: "wdwnckov7fnq",
-  accessToken: "fitunn-HXgMISz9aF9_qQjAIx-rOJ4X1FakgL1GqsSU",
-});
 
 const useGetContentfulData = (content_type: string) => {
   const [data, setData] = useState<ApiResponse[]>([]);
