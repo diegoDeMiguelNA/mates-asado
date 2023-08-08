@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button/button";
+import { Button } from "@/components/ui/button";
 
 export default function Medicos() {
   const data = [
@@ -145,7 +145,7 @@ export default function Medicos() {
         </Button>
       </header>
       <div className="max-w-7xl mx-auto">
-        <main className="text-center sm:px-10 mb-8 sm:mb-24 mx-2 sm:mx-24">
+        <main className="text-center sm:px-2 mb-8 sm:mb-24 mx-2 sm:mx-2">
           <div className="pt-12 py-12">
             <h1 className="text-2xl sm:text-5xl font-heading uppercase">
               Médicos en Hamburgo
