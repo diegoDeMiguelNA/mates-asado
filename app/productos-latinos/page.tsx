@@ -7,10 +7,6 @@ import useGetContentfulData, {ApiResponse} from "../hooks/useGetContenfulData"; 
 export default function ProductosLatinos() {
   const { data, error, loading } = useGetContentfulData("pageTemplate");
 
-  useEffect(() => {
-    console.log("data en componente", data[0]);
-  }, [data]);
-
   const renderContent = (content: Array<any>) => {
     return content.map((item: any, index: number) => {
       if (item.nodeType === "heading-2") {
