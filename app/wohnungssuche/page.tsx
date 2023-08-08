@@ -7,8 +7,6 @@ import useGetContentfulData from "../hooks/useGetContenfulData";
 
 export default function Wohnungssuche() {
   const [menuOpen, setMenuOpen] = useState(false);
-  useGetContentfulData();
-  console.log('entro a wohnungssuche',useGetContentfulData());
 
   const handleMenuToggle = () => {
     setMenuOpen((prevState) => {
