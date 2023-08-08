@@ -3,9 +3,11 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import clsx from "clsx";
+import useGetContentfulData from "../hooks/useGetContenfulData";
 
 export default function Wohnungssuche() {
   const [menuOpen, setMenuOpen] = useState(false);
+  useGetContentfulData();
 
   const handleMenuToggle = () => {
     setMenuOpen((prevState) => {
