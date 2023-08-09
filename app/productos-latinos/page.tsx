@@ -6,7 +6,11 @@ import {getContentFulData} from "@/lib/fetchDataFromContentful"; // Assuming the
 import { ApiResponse } from "../hooks/useGetContenfulData";
 
 export default async function ProductosLatinos() {
-  const { items, errors } = await getContentFulData("pageTemplate");
+  const pageDate: Promise<ApiResponse> = await getContentFulData("pageTemplate");
+  try {
+    const page = await pageDate;
+  }
+
 
   const renderContent = (content: Array<any>) => {
     return content.map((item: any, index: number) => {
