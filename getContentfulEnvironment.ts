@@ -10,10 +10,10 @@ const {
 
 module.exports = function () {
   const contentfulClient = contentfulManagement.createClient({
-    accessToken: NEXT_PUBLIC_ACCESS_TOKEN_TYPESCRIPT,
+    accessToken: "CFPAT-RhBtsdlx6xBiFsK6mHfyUJ0ZLjps51LPMbEz6-NZTcc",
   });
 
   return contentfulClient
-    .getSpace(NEXT_PUBLIC_SPACE)
+    .getSpace("wdwnckov7fnq")
     .then((space: { getEnvironment: (arg0: string | undefined) => any; }) => space.getEnvironment('master'));
 };

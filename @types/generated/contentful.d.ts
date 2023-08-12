@@ -30,10 +30,8 @@ export interface IEntryCommonFields {
   contentTypeId: string;
 }
 
-export interface IPageTemplate
-  extends Entry<IPageTemplateFields> {
-    contentTypeId: string;
-    cont
+
+export interface IPageTemplate extends Entry<IPageTemplateFields> {
   sys: {
     id: string;
     type: string;
@@ -50,6 +48,7 @@ export interface IPageTemplate
   };
 }
 
+export type NewIPageTemplate = IPageTemplate & { contentTypeId: string }
 export interface IProductosLatinosShopFields {
   /** Titulo */
   titulo: string;
@@ -68,7 +67,7 @@ export interface IProductosLatinosShopFields {
 }
 
 export interface IProductosLatinosShop
-  extends Entry<IProductosLatinosShopFields & IEntryCommonFields> {
+  extends Entry<IProductosLatinosShopFields> {
   sys: {
     id: string;
     type: string;
@@ -93,4 +92,4 @@ export type LOCALE_CODE = "en-US";
 
 export type CONTENTFUL_DEFAULT_LOCALE_CODE = "en-US";
 
-export type ExtendedIEntry = IEntry & { entry_id: string };
+ export type ExtendedIEntry = IEntry & { entry_id: string };

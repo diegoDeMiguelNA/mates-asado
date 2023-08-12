@@ -1,11 +1,10 @@
-// "use client";
 import React, { useEffect } from "react";
 import Link from "next/link";
 import { ApiResponse } from "../hooks/useGetContenfulData";
 import { getEntryById } from "@/lib/fetchDataFromContentful";
 
 export default async function ProductosLatinos() {
- await getEntryById("4770AAFB4vVhIKD1SAvrVe");
+ const {fields, } = await getEntryById("4770AAFB4vVhIKD1SAvrVe");
 
  return "hola";
 

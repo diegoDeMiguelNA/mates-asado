@@ -1,5 +1,5 @@
 import { createClient } from "contentful";
-import { IPageTemplate } from "generated/contentful";
+import { NewIPageTemplate } from "generated/contentful";
 
 const {
   NEXT_PUBLIC_ACCESS_TOKEN,
@@ -13,7 +13,7 @@ export const contentfulClient = createClient({
 });
 
 export async function getEntryById(entryId: string) {
-  const entry = await contentfulClient.getEntry<IPageTemplate>(entryId);
+  const entry = await contentfulClient.getEntry<NewIPageTemplate>(entryId);
   console.log('entry: ', entry);
   return entry;
 }
