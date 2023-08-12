@@ -12,6 +12,6 @@ module.exports = function () {
   });
 
   return contentfulClient
-    .getSpace("wdwnckov7fnq")
+    .getSpace(CONTENTFUL_SPACE)
     .then((space: { getEnvironment: (arg0: string | undefined) => any; }) => space.getEnvironment("master"));
 };
