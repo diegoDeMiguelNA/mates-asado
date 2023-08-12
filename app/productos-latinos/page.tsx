@@ -1,69 +1,13 @@
 // "use client";
 import React, { useEffect } from "react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import {getContentFulData} from "@/lib/fetchDataFromContentful"; // Assuming the ApiResponse is exported from the hook
 import { ApiResponse } from "../hooks/useGetContenfulData";
+import { getEntryById } from "@/lib/fetchDataFromContentful";
 
 export default async function ProductosLatinos() {
-  const pageDate: Promise<ApiResponse> = await getContentFulData("pageTemplate");
-  try {
-    const page = await pageDate;
-  }
+ await getEntryById("4770AAFB4vVhIKD1SAvrVe");
 
-
-  const renderContent = (content: Array<any>) => {
-    return content.map((item: any, index: number) => {
-      if (item.nodeType === "heading-2") {
-        return (
-          <h2
-            key={index}
-            className="text-xl sd:3xl font-heading uppercase mb-4"
-          >
-            {item.content[0].value}
-          </h2>
-        );
-      } else if (item.nodeType === "heading-3") {
-        return (
-          <p key={index} className="underline mb-4">
-            {item.content[0].value}
-          </p>
-        );
-      } else if (item.nodeType === "paragraph") {
-        const link = item.content.find(
-          (node: any) => node.nodeType === "hyperlink"
-        );
-        if (link) {
-          return (
-            <p key={index}>
-              <a className="underline" href={link.data.uri}>
-                {link.content[0].value}
-              </a>
-            </p>
-          );
-        }
-        return <p key={index}>{item.content[0].value}</p>;
-      } else if (item.nodeType === "heading-4") {
-        return <p key={index}>{item.content[0].value}</p>;
-      }
-      return null;
-    });
-  };
-
-  if (errors) {
-    return <p>Error: {errors}</p>;
-  }
-
-  console.log(items);
-
-  return <>
-    {items.map(({ fields: { title, subtitle, lastUpdate }}) => (
-      <>
-      <div>{title}</div>
-      <div>{subtitle}</div>
-      </>
-    ))}
-  </>
+ return "hola";
 
   // if (!data || !data) {
   //   return <p>No data available.</p>; // Handle case when data is not yet fetched

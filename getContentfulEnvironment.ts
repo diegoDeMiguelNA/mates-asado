@@ -1,20 +1,19 @@
-const assert = require("assert").strict;
-const contentfulManagement = require("contentful-management");
-const EnvironmentGetter = require("contentful-typescript-codegen").EnvironmentGetter;
+require('dotenv').config();
+const contentfulManagement = require('contentful-management');
 
-const { CONTENTFUL_MANAGEMENT_API_ACCESS_TOKEN, CONTENTFUL_SPACE_ID, CONTENTFUL_ENVIRONMENT } = process.env
+const {
+  NEXT_PUBLIC_ACCESS_TOKEN,
+  NEXT_PUBLIC_SPACE,
+  NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT,
+  NEXT_PUBLIC_ACCESS_TOKEN_TYPESCRIPT
+} = process.env;
 
-assert(CONTENTFUL_MANAGEMENT_API_ACCESS_TOKEN)
-assert(CONTENTFUL_SPACE_ID)
-assert(CONTENTFUL_ENVIRONMENT)
-
-const getContentfulEnvironment: typeof EnvironmentGetter = () => {
+module.exports = function () {
   const contentfulClient = contentfulManagement.createClient({
-    accessToken: CONTENTFUL_MANAGEMENT_API_ACCESS_TOKEN,
-  })
+    accessToken: NEXT_PUBLIC_ACCESS_TOKEN_TYPESCRIPT,
+  });
 
   return contentfulClient
-    .getSpace(CONTENTFUL_SPACE_ID)
-    .then((space: { getEnvironment: (arg0: string) => any }) => space.getEnvironment(CONTENTFUL_ENVIRONMENT!))
-}
-export default getContentfulEnvironment;
+    .getSpace(NEXT_PUBLIC_SPACE)
+    .then((space: { getEnvironment: (arg0: string | undefined) => any; }) => space.getEnvironment('master'));
+};

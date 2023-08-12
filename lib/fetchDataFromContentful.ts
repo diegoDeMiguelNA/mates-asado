@@ -1,15 +1,19 @@
-import { client } from "./apiClient";
+import { createClient } from "contentful";
+import { IPageTemplate } from "generated/contentful";
 
-export async function getContentFulData(contentType: string): Promise<ProductosLatinos> {
-  let res: ProductosLatinos;
-  try {
-   const response = await client.getEntries({
-      content_type: contentType,
-    });
-   res = response.items[0].fields; // Assuming you want the fields from the first item in the response.
-  } catch (error) {
-    throw new Error("No data");
-  }
+const {
+  NEXT_PUBLIC_ACCESS_TOKEN,
+  NEXT_PUBLIC_SPACE,
+  NEXT_PUBLIC_ACCESS_TOKEN_TYPESCRIPT,
+} = process.env;
 
-  return res;
+export const contentfulClient = createClient({
+  accessToken: NEXT_PUBLIC_ACCESS_TOKEN!,
+  space: NEXT_PUBLIC_SPACE!,
+});
+
+export async function getEntryById(entryId: string) {
+  const entry = await contentfulClient.getEntry<IPageTemplate>(entryId);
+  console.log('entry: ', entry);
+  return entry;
 }
