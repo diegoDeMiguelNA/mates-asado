@@ -2,17 +2,16 @@ import { createClient } from "contentful";
 import { IPageTemplateFields } from "generated/contentful";
 
 const {
-  NEXT_PUBLIC_ACCESS_TOKEN,
-  NEXT_PUBLIC_SPACE,
+  CONTENTFUL_ACCESS_TOKEN,
+  CONTENTFUL_SPACE,
 } = process.env;
 
 export const contentfulClient = createClient({
-  accessToken: NEXT_PUBLIC_ACCESS_TOKEN!,
-  space: NEXT_PUBLIC_SPACE!,
+  accessToken: CONTENTFUL_ACCESS_TOKEN!,
+  space: CONTENTFUL_SPACE!,
 });
 
 export async function getEntryById(entryId: string) {
   const entry = await contentfulClient.getEntry<IPageTemplateFields>(entryId);
-  console.log('entry: ', entry);
   return entry;
 }
