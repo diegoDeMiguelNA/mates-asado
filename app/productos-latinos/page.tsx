@@ -1,55 +1,44 @@
-import React, { useEffect } from "react";
 import Link from "next/link";
-import { ApiResponse } from "../hooks/useGetContenfulData";
 import { getEntryById } from "@/lib/fetchDataFromContentful";
+import { Button } from "@/components/ui/button";
 
 export default async function ProductosLatinos() {
- const {fields, } = await getEntryById("4770AAFB4vVhIKD1SAvrVe");
+  const { fields } = await getEntryById("4770AAFB4vVhIKD1SAvrVe");
 
- return "hola";
+  return (
+    <>
+      <header className="text-center flex justify-center items-center p-4 sm:p-10">
+        <Button>
+          <Link href="/">Home</Link>
+        </Button>
+      </header>
+      <div className="max-w-7xl mx-auto">
+        <main className="text-center sm:px-10 mb-8 sm:mb-24 mx-2 sm:mx-24">
+          <div className="pt-12 py-12">
+            <h1 className="text-2xl sm:text-5xl font-heading uppercase">
+              {fields.title}
+            </h1>
+          </div>
 
-  // if (!data || !data) {
-  //   return <p>No data available.</p>; // Handle case when data is not yet fetched
-  // }
+          {fields.publicationBody.content &&
+            renderContent(fields.publicationBody.content)}
 
-  // const firstItem = items[0] as ApiResponse;
+          {fields.publicationBodyOne.content &&
+            renderContent(fields.publicationBodyOne.content)}
 
-  // if (firstItem !== undefined && firstItem !== null) {
-  //   return (
-  //     <>
-  //       <header className="text-center flex justify-center items-center p-4 sm:p-10">
-  //         <Button>
-  //           <Link href="/">Home</Link>
-  //         </Button>
-  //       </header>
-  //       <div className="max-w-7xl mx-auto">
-  //         <main className="text-center sm:px-10 mb-8 sm:mb-24 mx-2 sm:mx-24">
-  //           <div className="pt-12 py-12">
-  //             <h1 className="text-2xl sm:text-5xl font-heading uppercase">
-  //               {firstItem.title}
-  //             </h1>
-  //           </div>
+          {fields.publicationBodyTwo.content &&
+            renderContent(fields.publicationBodyTwo.content)}
 
-  //           {firstItem.publicationBody.content &&
-  //             renderContent(firstItem.publicationBody.content)}
+          {fields.publicationBodyThree.content &&
+            renderContent(fields.publicationBodyThree.content)}
 
-  //           {firstItem.publicationBodyOne.content &&
-  //             renderContent(firstItem.publicationBodyOne.content)}
-
-  //           {firstItem.publicationBodyTwo.content &&
-  //             renderContent(firstItem.publicationBodyTwo.content)}
-
-  //           {firstItem.publicationBodyThree.content &&
-  //             renderContent(firstItem.publicationBodyThree.content)}
-
-  //           <header className="text-center flex justify-center items-center p-4 sm:p-10">
-  //             <Button>
-  //               <Link href="/">Home</Link>
-  //             </Button>
-  //           </header>
-  //         </main>
-  //       </div>
-  //     </>
-  //   );
-  // }
+          <header className="text-center flex justify-center items-center p-4 sm:p-10">
+            <Button>
+              <Link href="/">Home</Link>
+            </Button>
+          </header>
+        </main>
+      </div>
+    </>
+  );
 }

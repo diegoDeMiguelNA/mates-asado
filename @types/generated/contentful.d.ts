@@ -26,11 +26,6 @@ export interface IPageTemplateFields {
   publicationBodyThree?: Document | undefined;
 }
 
-export interface IEntryCommonFields {
-  contentTypeId: string;
-}
-
-
 export interface IPageTemplate extends Entry<IPageTemplateFields> {
   sys: {
     id: string;
@@ -40,7 +35,7 @@ export interface IPageTemplate extends Entry<IPageTemplateFields> {
     locale: string;
     contentType: {
       sys: {
-        id: "content_type_id";
+        id: "pageTemplate";
         linkType: "ContentType";
         type: "Link";
       };
@@ -48,7 +43,6 @@ export interface IPageTemplate extends Entry<IPageTemplateFields> {
   };
 }
 
-export type NewIPageTemplate = IPageTemplate & { contentTypeId: string }
 export interface IProductosLatinosShopFields {
   /** Titulo */
   titulo: string;
@@ -91,5 +85,3 @@ export type IEntry = IPageTemplate | IProductosLatinosShop;
 export type LOCALE_CODE = "en-US";
 
 export type CONTENTFUL_DEFAULT_LOCALE_CODE = "en-US";
-
- export type ExtendedIEntry = IEntry & { entry_id: string };
