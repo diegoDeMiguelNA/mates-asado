@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 
 
 import "./globals.css";
+import { lemonMilk } from "./fonts/fonts";
 
 export default function RootLayout({
   children,
@@ -24,6 +25,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      className={`${lemonMilk.variable}`}
     >
       <head />
       <body>{children}</body>
