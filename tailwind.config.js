@@ -15,11 +15,6 @@ module.exports = {
       },
     },
     extend: {
-      fontFamily: {
-        sans: ['"Playfair Display"'],
-        heading: ["var(--font-climate-crisis)"],
-        playfair: ["var(--font-playfair)"],
-      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

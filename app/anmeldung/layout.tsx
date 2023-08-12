@@ -4,8 +4,6 @@ export const metadata: Metadata = {
   title: "An-, Um- y Abmeldung 🧉",
 };
 
-
-import { climateCrisis, playfair } from "../fonts";
 import "../globals.css";
 
 export default function AnmeldungLayout({
@@ -16,7 +14,6 @@ export default function AnmeldungLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${climateCrisis.variable}`}
     >
       <head />
       <body>{children}</body>

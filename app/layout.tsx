@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     }
 };
 
-import { climateCrisis, playfair } from "./fonts";
+
 import "./globals.css";
 
 export default function RootLayout({
@@ -24,7 +24,6 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${climateCrisis.variable}`}
     >
       <head />
       <body>{children}</body>
