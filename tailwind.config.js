@@ -52,6 +52,7 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        customRed: "#B1060E",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -71,6 +72,9 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      gridTemplateRows: {
+        'header': '210px 20px'
       },
     },
   },

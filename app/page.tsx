@@ -1,28 +1,10 @@
-import styles from "./page.module.css";
+import Header from "./header/header";
 
 export default function Home() {
   return (
     <>
-      <header className="text-center flex justify-center items-center p-4 md:p-10">
-        <div>
-          <p className="text-center text-lg sm:text-xl lg:text-2xl tracking-normal sm:tracking-wide lg:tracking-wider uppercase">
-            by M&A&apos;s Team
-          </p>
-        </div>
-      </header>
-
       <main className="text-center px-4 md:px-12">
-        <div className="pt-12">
-          <h1 className="text-4xl md:text-9xl font-heading uppercase">
-            Mates & Asado
-          </h1>
-        </div>
-        <div className="py-6">
-          <h3 className="text-xs md:text-2xl font-heading uppercase">
-            Comunidad de ayuda en español para emigrados en Hamburgo
-          </h3>
-        </div>
-
+        <Header />
         <div className="py-10 md:py-24 grid gap-8 md:gap-40 grid-cols-1 md:grid-cols-3 grid-rows-3 px-4 md:px-12">
           <a
             href="/anmeldung"
@@ -96,11 +78,7 @@ export default function Home() {
               Información sobre el Deutschlandticket
             </p>
           </a>
-          <a
-            href="/medicos"
-            className="text-center"
-            rel="noopener noreferrer"
-          >
+          <a href="/medicos" className="text-center" rel="noopener noreferrer">
             <h2 className="font-serif font-bold text-lg md:text-xl">
               Médicos en Hamburgo
             </h2>
