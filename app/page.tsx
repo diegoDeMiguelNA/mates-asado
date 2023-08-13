@@ -1,5 +1,5 @@
 import Header from "./components/header/header";
-
+import HomeIcon from "./components/home-icon/home-icon";
 
 export default function Home() {
   return (
@@ -7,6 +7,13 @@ export default function Home() {
       <main className="text-center">
         <Header />
         <div className="py-10 md:py-24 grid gap-8 md:gap-40 grid-cols-1 md:grid-cols-3 grid-rows-3 px-4 md:px-12">
+          <HomeIcon
+            iconSrc="./icons/document.svg"
+            title="An-, Um- y Abmeldung"
+            description=" Informacion sobre el registro de domicilio en Alemania."
+            linkTo="/pages/anmeldung"
+            contentfulReference="referenceIdForAnmeldungFromContentful"
+          />
           <a
             href="/pages/anmeldung"
             className="text-center"
@@ -79,7 +86,11 @@ export default function Home() {
               Información sobre el Deutschlandticket
             </p>
           </a>
-          <a href="/pages/medicos" className="text-center" rel="noopener noreferrer">
+          <a
+            href="/pages/medicos"
+            className="text-center"
+            rel="noopener noreferrer"
+          >
             <h2 className="font-serif font-bold text-lg md:text-xl">
               Médicos en Hamburgo
             </h2>
