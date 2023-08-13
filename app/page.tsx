@@ -3,7 +3,7 @@ import Header from "./header/header";
 export default function Home() {
   return (
     <>
-      <main className="text-center px-4 md:px-12">
+      <main className="text-center">
         <Header />
         <div className="py-10 md:py-24 grid gap-8 md:gap-40 grid-cols-1 md:grid-cols-3 grid-rows-3 px-4 md:px-12">
           <a
