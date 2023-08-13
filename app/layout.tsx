@@ -1,6 +1,16 @@
 import "./globals.css";
+import "./globals.css";
+import { lemonMilk } from "./fonts/fonts";
 
 import { Metadata } from "next";
+import { Montserrat } from 'next/font/google'
+
+const montserrat = Montserrat({
+  weight: ['300', '400', '500', '700', '800'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: "Mates&Asado 🧉",
@@ -13,9 +23,6 @@ export const metadata: Metadata = {
     }
 };
 
-
-import "./globals.css";
-import { lemonMilk } from "./fonts/fonts";
 
 export default function RootLayout({
   children,
