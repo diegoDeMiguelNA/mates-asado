@@ -8,7 +8,8 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ["var(--font-lemon-milk)"],
+      heading: ["var(--font-lemon-milk)"],
+      body: ["var(--font-montserrat)"],
     },
     container: {
       center: true,

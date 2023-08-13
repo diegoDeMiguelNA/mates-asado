@@ -1,7 +1,5 @@
 import "./globals.css";
-import "./globals.css";
 import { lemonMilk } from "./fonts/fonts";
-
 import { Metadata } from "next";
 import { Montserrat } from 'next/font/google'
 
@@ -10,6 +8,7 @@ const montserrat = Montserrat({
   style: ['normal', 'italic'],
   subsets: ['latin'],
   display: 'swap',
+  variable: "--font-montserrat",
 })
 
 export const metadata: Metadata = {
@@ -32,7 +31,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${lemonMilk.variable}`}
+      className={`${montserrat.variable}} ${lemonMilk.variable} `}
     >
       <head />
       <body>{children}</body>
