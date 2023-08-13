@@ -4,8 +4,6 @@ export const metadata: Metadata = {
   title: "An-, Um- y Abmeldung 🧉",
 };
 
-import "../globals.css";
-
 export default function AnmeldungLayout({
   children,
 }: {
