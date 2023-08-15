@@ -19,6 +19,15 @@ module.exports = {
       },
     },
     extend: {
+      width: {
+        '120px': '120px',
+      },
+      height: {
+        '19px': '19px',
+      },
+      fontSize: {
+        '8px': '8px',
+      },
       backgroundColor: {
         'F4F4F4': '#F4F4F4',
         'B1060E': '#B1060E',
