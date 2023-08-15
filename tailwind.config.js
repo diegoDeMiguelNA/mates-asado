@@ -19,6 +19,16 @@ module.exports = {
       },
     },
     extend: {
+      backgroundColor: {
+        'F4F4F4': '#F4F4F4',
+        'B1060E': '#B1060E',
+      },
+      textColor: {
+        'B1060E': '#B1060E',
+      },
+      fontSize: {
+        'xxs': '8px', // assuming you want to add this
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

@@ -1,3 +1,4 @@
+import { Button } from "./components/button/button";
 import Header from "./components/header/header";
 import HomeIcon from "./components/home-icon/home-icon";
 import ImageWrapper from "./components/imageWrapper/imageWrapper";
@@ -7,7 +8,7 @@ export default function Home() {
     <>
       <main className="text-center">
         <Header />
-        <div className="iconWrapper py-10 mb-10 md:py-24 grid gap-8 md:gap-40 grid-cols-1 md:grid-cols-3 grid-rows-3 px-4 md:px-12">
+        <div className="iconWrapper my-14 md:py-24 grid gap-8 md:gap-40 grid-cols-1 md:grid-cols-3 grid-rows-3 px-4 md:px-12">
           <HomeIcon
             iconSrc="./icons/document.svg"
             title="An-, Um- y Abmeldung"
@@ -58,13 +59,29 @@ export default function Home() {
             contentfulReference="referenceIdForAnmeldungFromContentful"
           />
         </div>
-        <ImageWrapper
-          src="/images/rathaus-cut.webp"
-          alt="Description"
-          width={500}
-          height={500}
-          divClassName="rathaus-cut mb-20"
-        />
+        <div className="experiencias-de-vida mb-20">
+          <ImageWrapper
+            src="/images/rathaus-cut.webp"
+            alt="Description"
+            width={500}
+            height={500}
+            divClassName="rathaus-cut"
+          />
+          <div className="h-68 bg-F4F4F4 flex flex-col p-14">
+            <h3 className="text-s text-B1060E font-bold mb-4">
+              Experiencias de vida
+            </h3>
+            <p className="text-xs font-light mb-4">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Repellendus veritatis at nihil nisi qui corrupti possimus
+              suscipit, tenetur saepe numquam accusamus excepturi quam!
+              Repudiandae, animi accusamus? Deserunt maiores enim quidem!
+            </p>
+            <Button className="bg-B1060E text-white rounded-full">
+              Coming Soon
+            </Button>
+          </div>
+        </div>
       </main>
     </>
   );
