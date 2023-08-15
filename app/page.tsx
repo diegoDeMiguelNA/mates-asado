@@ -1,12 +1,13 @@
 import Header from "./components/header/header";
 import HomeIcon from "./components/home-icon/home-icon";
+import ImageWrapper from "./components/imageWrapper/imageWrapper";
 
 export default function Home() {
   return (
     <>
       <main className="text-center">
         <Header />
-        <div className="py-10 md:py-24 grid gap-8 md:gap-40 grid-cols-1 md:grid-cols-3 grid-rows-3 px-4 md:px-12">
+        <div className="iconWrapper py-10 mb-10 md:py-24 grid gap-8 md:gap-40 grid-cols-1 md:grid-cols-3 grid-rows-3 px-4 md:px-12">
           <HomeIcon
             iconSrc="./icons/document.svg"
             title="An-, Um- y Abmeldung"
@@ -52,11 +53,18 @@ export default function Home() {
           <HomeIcon
             iconSrc="./icons/stethoscope.svg"
             title="Médicos en Hamburgo"
-              description="Info sobre médicos que hablan español o inglés."
+            description="Info sobre médicos que hablan español o inglés."
             linkTo="/pages/medicos"
             contentfulReference="referenceIdForAnmeldungFromContentful"
           />
         </div>
+        <ImageWrapper
+          src="/images/rathaus-cut.webp"
+          alt="Description"
+          width={500}
+          height={500}
+          divClassName="rathaus-cut mb-20"
+        />
       </main>
     </>
   );
