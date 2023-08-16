@@ -21,22 +21,23 @@ module.exports = {
     extend: {
       width: {
         '120px': '120px',
+        '90px': '90px',
       },
       height: {
         '19px': '19px',
       },
-      fontSize: {
-        '8px': '8px',
-      },
       backgroundColor: {
-        'F4F4F4': '#F4F4F4',
-        'B1060E': '#B1060E',
+        'regular-grey': '#F4F4F4',
+        'regular-red': '#B1060E',
+        'regular-teal': '#00808D',
+      },
+      fontSize: {
+        'xxs': '8px',
       },
       textColor: {
-        'B1060E': '#B1060E',
-      },
-      fontSize: {
-        'xxs': '8px', // assuming you want to add this
+        'regular-red': '#B1060E',
+        'regular-teal': '#00808D',
+        'plain-white': '#FFFFFF',
       },
       colors: {
         border: "hsl(var(--border))",

@@ -1,4 +1,5 @@
 import { Button } from "./components/button/button";
+import Footer from "./components/footer/footer";
 import Header from "./components/header/header";
 import HomeIcon from "./components/home-icon/home-icon";
 import ImageWrapper from "./components/imageWrapper/imageWrapper";
@@ -62,13 +63,13 @@ export default function Home() {
         <div className="experiencias-de-vida mb-20">
           <ImageWrapper
             src="/images/rathaus-cut.webp"
-            alt="Description"
+            alt="hamburg Rathaus"
             width={500}
             height={500}
             divClassName="rathaus-cut"
           />
-          <div className="h-72 bg-F4F4F4 flex flex-col px-16 py-10 justify-center items-center">
-            <h3 className="text-s text-B1060E font-bold mb-4">
+          <div className="h-72 bg-regular-grey flex flex-col px-16 py-10 justify-center items-center">
+            <h3 className="text-s text-regular-red font-bold mb-4">
               Experiencias de vida
             </h3>
             <p className="text-xs font-light mb-4">
@@ -78,13 +79,41 @@ export default function Home() {
               Einbürgerung.
             </p>
             <Button
-              className="bg-B1060E text-white rounded-full mt-4"
+              className="bg-regular-red text-xxs rounded-full mt-4"
               size="customPill"
+              style={{ color: "white" }}
             >
               Coming Soon
             </Button>
           </div>
         </div>
+        <div className="about-us mb-20 flex flex-col px-16 py-6 justify-center items-center mb-20">
+          <ImageWrapper
+            src="/images/rainbow.webp"
+            alt="Building with rainbow"
+            width={270}
+            height={500}
+            divClassName="rainbow mb-10"
+          />
+          <h3 className="text-s text-regular-teal font-bold mb-4">
+            Sobre Nosotros
+          </h3>
+          <p className="text-xs font-light mb-4">
+            Somos hispanohablantes residentes en Hamburgo, trabajando ad honorem
+            para brindar este espacio a nuestra comunidad. Todo comenzó con un
+            grupo de WhatsApp de más de 500 miembros, donde nos asistimos y
+            compartimos experiencias constantemente. ¡Bienvenidos a nuestro
+            punto de encuentro!
+          </p>
+          <Button
+            className="bg-regular-teal text-xxs rounded-full mt-4"
+            size="customPill"
+            style={{ color: "white" }}
+          >
+            Coming Soon
+          </Button>{" "}
+        </div>
+        <Footer />
       </main>
     </>
   );
