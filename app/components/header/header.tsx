@@ -2,7 +2,7 @@ export default function Header() {
   return (
     <header className="relative grid grid-rows-header h-[230px] md:h-[280px] lg:h-[500px]">
 
-      <div className="absolute inset-0 bg-cover bg-center opacity-80 h-[210px] md:h-[260px] lg:h-[480px] bg-[url('/images/port.webp')]" />
+      <div className="absolute inset-0 bg-cover bg-center h-[210px] md:h-[260px] lg:h-[480px] bg-[url('/images/port.webp')]" />
 
       <div className="flex flex-col justify-center items-center h-[190px] md:h-[240px] lg:h-[460px] relative z-10">
         <h1 className="text-3xl md:text-5xl lg:text-8xl font-heading font-light mb-7.5 order-2 text-white">Mates & Asado</h1> 

@@ -20,26 +20,26 @@ module.exports = {
     },
     extend: {
       width: {
-        '120px': '120px',
-        '90px': '90px',
+        "120px": "120px",
+        "90px": "90px",
       },
       height: {
-        '19px': '19px',
+        "19px": "19px",
       },
       backgroundColor: {
-        'regular-grey': '#F4F4F4',
-        'regular-red': '#B1060E',
-        'regular-teal': '#00808D',
+        "regular-grey": "#F4F4F4",
+        "regular-red": "#B1060E",
+        "regular-teal": "#00808D",
       },
       fontSize: {
-        'xxs': '8px',
-        'xs': '10px',
+        xxs: "8px",
+        xs: "10px",
       },
       textColor: {
-        'regular-red': '#B1060E',
-        'regular-teal': '#00808D',
-        'plain-white': '#FFFFFF',
-        'regular-blue': '#013753'
+        "regular-red": "#B1060E",
+        "regular-teal": "#00808D",
+        "plain-white": "#FFFFFF",
+        "regular-blue": "#013753",
       },
       colors: {
         border: "hsl(var(--border))",
@@ -97,7 +97,15 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       gridTemplateRows: {
-        'header': '210px 20px'
+        header: "210px 20px",
+      },
+      screens: {
+        md: { raw: "(min-width: 768px)" },
+      },
+      utilities: {
+        ".iconWrapper > :nth-child(7)": {
+          placeSelf: "center",
+        },
       },
     },
   },

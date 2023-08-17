@@ -24,7 +24,7 @@ const buttonVariants = cva(
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
         icon: "h-10 w-10",
-        customPill: "w-90px h-19px rounded-full text-8px",
+        customPill: "w-90px h-19px rounded-full text-8px lg:w-120px lg:h-24px",
       },
     },
     defaultVariants: {
