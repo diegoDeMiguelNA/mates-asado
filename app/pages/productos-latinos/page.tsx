@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button/button";
+import { Button } from "@/app/components/button/button";
 import { getEntryById } from "@/lib/fetchDataFromContentful";
 
 export default async function ProductosLatinos() {

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
-import { Button } from "@/components/ui/button/button";
+import { Button } from "@/app/components/button/button";
 
 export default function Fuehrerschein() {
   return (

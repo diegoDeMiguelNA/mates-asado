@@ -8,7 +8,8 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ["var(--font-lemon-milk)"],
+      heading: ["var(--font-lemon-milk)"],
+      body: ["var(--font-montserrat)"],
     },
     container: {
       center: true,
@@ -18,6 +19,26 @@ module.exports = {
       },
     },
     extend: {
+      width: {
+        '120px': '120px',
+        '90px': '90px',
+      },
+      height: {
+        '19px': '19px',
+      },
+      backgroundColor: {
+        'regular-grey': '#F4F4F4',
+        'regular-red': '#B1060E',
+        'regular-teal': '#00808D',
+      },
+      fontSize: {
+        'xxs': '8px',
+      },
+      textColor: {
+        'regular-red': '#B1060E',
+        'regular-teal': '#00808D',
+        'plain-white': '#FFFFFF',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

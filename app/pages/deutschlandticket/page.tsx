@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button/button";
+import { Button } from "@/app/components/button/button";
 
 export default function DeutschlandTicket() {
   return (
