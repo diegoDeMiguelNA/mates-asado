@@ -2,11 +2,15 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}', 
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      heading: ["var(--font-lemon-milk)"],
+      body: ["var(--font-montserrat)"],
+    },
     container: {
       center: true,
       padding: "2rem",
@@ -15,10 +19,27 @@ module.exports = {
       },
     },
     extend: {
-      fontFamily: {
-        sans: ['"Playfair Display"'],
-        heading: ["var(--font-climate-crisis)"],
-        playfair: ["var(--font-playfair)"],
+      width: {
+        "120px": "120px",
+        "90px": "90px",
+      },
+      height: {
+        "19px": "19px",
+      },
+      backgroundColor: {
+        "regular-grey": "#F4F4F4",
+        "regular-red": "#B1060E",
+        "regular-teal": "#00808D",
+      },
+      fontSize: {
+        xxs: "8px",
+        xs: "10px",
+      },
+      textColor: {
+        "regular-red": "#B1060E",
+        "regular-teal": "#00808D",
+        "plain-white": "#FFFFFF",
+        "regular-blue": "#013753",
       },
       colors: {
         border: "hsl(var(--border))",
@@ -54,6 +75,7 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        customRed: "#B1060E",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -73,6 +95,17 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      gridTemplateRows: {
+        header: "210px 20px",
+      },
+      screens: {
+        md: { raw: "(min-width: 768px)" },
+      },
+      utilities: {
+        ".iconWrapper > :nth-child(7)": {
+          placeSelf: "center",
+        },
       },
     },
   },

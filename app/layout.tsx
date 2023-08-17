@@ -1,6 +1,15 @@
 import "./globals.css";
-
+import { lemonMilk } from "./fonts/fonts";
 import { Metadata } from "next";
+import { Montserrat } from 'next/font/google'
+
+const montserrat = Montserrat({
+  weight: ['300', '400', '500', '700', '800'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: "--font-montserrat",
+})
 
 export const metadata: Metadata = {
   title: "Mates&Asado 🧉",
@@ -13,8 +22,6 @@ export const metadata: Metadata = {
     }
 };
 
-import { climateCrisis, playfair } from "./fonts";
-import "./globals.css";
 
 export default function RootLayout({
   children,
@@ -24,7 +31,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${climateCrisis.variable}`}
+      className={`${montserrat.variable}} ${lemonMilk.variable} `}
     >
       <head />
       <body>{children}</body>
