@@ -16,9 +16,9 @@ export default async function Home() {
         
           <section className="bg-cover bg-center h-[80px] md:h-[140px] lg:hidden bg-[url('/images/rathaus-cut.webp')]" />
 
-          <div className="lg:grid lg:grid-cols-2 h-72 lg:h-[540px] bg-regular-grey px-16 py-10 items-center">
+          <div className="lg:grid lg:grid-cols-2 lg:h-[720px] bg-regular-grey px-16 py-10 items-center">
             
-            <section className="hidden lg:block bg-cover bg-center lg:h-full lg:w-full bg-[url('/images/rathaus-full.webp')]" />
+            <section className="hidden lg:block bg-cover bg-bottom lg:h-[630px] lg:w-[550px] bg-[url('/images/rathaus-full.webp')]" />
 
          
             <div className="flex flex-col items-center lg:items-center justify-center space-y-4">
