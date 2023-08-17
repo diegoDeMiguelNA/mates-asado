@@ -5,7 +5,7 @@ import HomeIcon from "./home-icon";
 const HomeProps: React.FC = async () => {
     const { fields } = await getIconProps("3tVpcLMYG910HxpHpdYgn6");
   return (
-    <div className="iconWrapper my-14 md:py-24 grid gap-8 md:gap-40 grid-cols-1 md:grid-cols-3 grid-rows-3 px-4 md:px-12">
+    <div className="iconWrapper my-14 md:py-10 grid gap-8 md:gap-30 grid-cols-1 md:grid-cols-3 grid-rows-3 px-4 md:px-16">
       {Object.values(fields).map((icon, index) => {
         const iconSrc = `./icons/${
           icon.content[0].content[0].value.split("\n\n")[0]

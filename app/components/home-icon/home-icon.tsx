@@ -17,7 +17,7 @@ const HomeIcon: React.FC<HomeIconProps> = ({
   contentfulReference,
 }) => {
   return (
-    <div className="home-icon mb-4">
+    <div className="home-icon mb-4 md:mb-0">
       <Link href={linkTo} passHref>
         <div title={title} className="flex flex-col items-center cursor-pointer">
           <div className="icon-container bg-[#F8D49A] w-[60px] h-[60px] rounded-full mb-2 flex justify-center items-center">

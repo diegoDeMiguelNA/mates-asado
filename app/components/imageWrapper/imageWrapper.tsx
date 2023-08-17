@@ -3,6 +3,7 @@ import Image, { ImageProps } from 'next/image';
 interface ImageWrapperProps extends ImageProps {
   divClassName?: string;
   divStyle?: React.CSSProperties;
+  imageClasses?: string;
 }
 
 const ImageWrapper: React.FC<ImageWrapperProps> = ({
