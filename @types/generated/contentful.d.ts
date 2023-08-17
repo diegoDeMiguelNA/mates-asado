@@ -3,6 +3,76 @@
 import { Asset, Entry } from "contentful";
 import { Document } from "@contentful/rich-text-types";
 
+export interface IHomeIconsFields {
+  /** iconOne */
+  iconOne?: Document | undefined;
+
+  /** iconTwo */
+  iconTwo?: Document | undefined;
+
+  /** iconThree */
+  iconThree?: Document | undefined;
+
+  /** iconFour */
+  iconFour?: Document | undefined;
+
+  /** iconFive */
+  iconFive?: Document | undefined;
+
+  /** iconSix */
+  iconSix?: Document | undefined;
+
+  /** iconSeven */
+  iconSeven?: Document | undefined;
+}
+
+/** This icons for every page on the home page */
+
+export interface IHomeIcons extends Entry<IHomeIconsFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "homeIcons";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IJooFields {
+  /** Body */
+  body?: Document | undefined;
+
+  /** time */
+  time?: string | undefined;
+
+  /** title */
+  title?: string | undefined;
+}
+
+export interface IJoo extends Entry<IJooFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "joo";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IPageTemplateFields {
   /** Title */
   title: string;
@@ -78,9 +148,13 @@ export interface IProductosLatinosShop
   };
 }
 
-export type CONTENT_TYPE = "pageTemplate" | "productosLatinosShop";
+export type CONTENT_TYPE =
+  | "homeIcons"
+  | "joo"
+  | "pageTemplate"
+  | "productosLatinosShop";
 
-export type IEntry = IPageTemplate | IProductosLatinosShop;
+export type IEntry = IHomeIcons | IJoo | IPageTemplate | IProductosLatinosShop;
 
 export type LOCALE_CODE = "en-US";
 

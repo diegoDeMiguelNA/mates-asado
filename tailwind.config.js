@@ -33,11 +33,13 @@ module.exports = {
       },
       fontSize: {
         'xxs': '8px',
+        'xs': '10px',
       },
       textColor: {
         'regular-red': '#B1060E',
         'regular-teal': '#00808D',
         'plain-white': '#FFFFFF',
+        'regular-blue': '#013753'
       },
       colors: {
         border: "hsl(var(--border))",

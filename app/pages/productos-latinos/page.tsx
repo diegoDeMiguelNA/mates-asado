@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { Button } from "@/app/components/button/button";
-import { getEntryById } from "@/lib/fetchDataFromContentful";
+import { getPageTemplate } from "@/lib/fetchDataFromContentful";
 
 export default async function ProductosLatinos() {
-  const { fields } = await getEntryById("4770AAFB4vVhIKD1SAvrVe");
+  const { fields } = await getPageTemplate("4770AAFB4vVhIKD1SAvrVe");
 
   const renderContent = (content: Array<any>) => {
     return content.map((item: any, index: number) => {

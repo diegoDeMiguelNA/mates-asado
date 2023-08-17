@@ -1,5 +1,5 @@
 import { createClient } from "contentful";
-import { IPageTemplateFields } from "generated/contentful";
+import { IPageTemplateFields, IHomeIconsFields } from "generated/contentful";
 
 const {
   CONTENTFUL_ACCESS_TOKEN,
@@ -11,7 +11,11 @@ export const contentfulClient = createClient({
   space: CONTENTFUL_SPACE!,
 });
 
-export async function getEntryById(entryId: string) {
+export async function getPageTemplate(entryId: string) {
   const entry = await contentfulClient.getEntry<IPageTemplateFields>(entryId);
+  return entry;
+}
+export async function getIconProps(entryId: string) {
+  const entry = await contentfulClient.getEntry<IHomeIconsFields>(entryId);
   return entry;
 }
