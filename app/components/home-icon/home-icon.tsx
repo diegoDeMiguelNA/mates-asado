@@ -29,8 +29,8 @@ const HomeIcon: React.FC<HomeIconProps> = ({
               className="ml-[2px]"
             />
           </div>
-          <h2 className="text-[#013753] text-base font-bold mb-1">{title}</h2>
-          <p className="text-[#013753] text-xs font-normal max-w-[120px] break-words">{description}</p>
+          <h2 className="text-regular-blue text-base font-bold mb-1">{title}</h2>
+          <p className="text-regular-blue f-xs max-w-[180px] break-words" style={{fontSize: '12px'}}>{description}</p>
         </div>
       </Link>
       <input type="hidden" value={contentfulReference} />
