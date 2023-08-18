@@ -17,9 +17,6 @@ export default function Anmeldung() {
   return (
     <>
       <header className="text-center flex justify-center items-center p-4 sm:p-10">
-        <Button>
-          <Link href="/">Home</Link>
-        </Button>
       </header>
       <div className="max-w-7xl mx-auto">
        <MobileMenu menuItems={menuItems} />
@@ -300,11 +297,6 @@ export default function Anmeldung() {
             debes realizar la Abmeldung. Para ello, en el menú de turnos, elige
             &ldquo;Wohnsitz Abmeldung des Nebenwohnsitzes&ldquo;.
           </p>
-          <footer className="text-center flex justify-center items-center p-4 sm:p-10 sm:mt-10">
-            <Button>
-              <Link href="/">Home</Link>
-            </Button>
-          </footer>
         </main>
       </div>
     </>

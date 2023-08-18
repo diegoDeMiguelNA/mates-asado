@@ -1,3 +1,5 @@
+import Footer from "@/app/components/footer/footer";
+import Header from "@/app/components/header/header";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,12 +12,12 @@ export default function AnmeldungLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-    >
-      <head />
-      <body>{children}</body>
+    <html lang="en">
+      <main>
+        <Header />
+        {children}
+        <Footer />
+      </main>
     </html>
   );
 }
-
