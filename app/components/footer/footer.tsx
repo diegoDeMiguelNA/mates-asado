@@ -1,12 +1,21 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
   return (
     <footer className="text-white">
-      <div className="inset-0 bg-cover bg-bottom h-[120px] md:h-[160px] lg:h-[600px] lg:bg-center bg-[url('/images/jungfernstieg.webp')]" />
+      <div className="relative h-[120px] md:h-[160px] lg:h-[600px]">
+        <Image
+          src="/images/jungfernstieg.webp"
+          alt="Jungfernstieg"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+        />
+      </div>
       <div className="bg-regular-red w-full flex flex-col items-center justify-center h-auto py-6">
-      <Link href="/">
-          <h3 className="text-xl lg:text-5xl font-heading font-light m-4 lg:m-10">
+        <Link href="/">
+          <h3 className="text-xl lg:text-5xl font-heading font-light m-4 lg:m-10 cursor-pointer">
             Mates & Asado
           </h3>
         </Link>

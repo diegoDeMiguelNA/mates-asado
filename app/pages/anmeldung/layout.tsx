@@ -13,11 +13,9 @@ export default function AnmeldungLayout({
 }) {
   return (
     <html lang="en">
-      <main>
-        <Header />
-        {children}
-        <Footer />
-      </main>
+      <Header />
+      {children}
+      <Footer />
     </html>
   );
 }
