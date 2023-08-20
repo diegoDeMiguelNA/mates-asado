@@ -8,9 +8,8 @@ export default function Footer() {
         <Image
           src="/images/jungfernstieg.webp"
           alt="Jungfernstieg"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
+          fill
+          style={{objectFit:"cover", objectPosition:"center"}}
         />
       </div>
       <div className="bg-regular-red w-full flex flex-col items-center justify-center h-auto py-6">

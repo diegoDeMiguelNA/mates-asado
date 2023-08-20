@@ -12,10 +12,10 @@ export default function AnmeldungLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <>
       <Header />
-      {children}
+      <section>{children}</section>
       <Footer />
-    </html>
+    </>
   );
 }

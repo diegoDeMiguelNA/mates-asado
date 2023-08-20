@@ -18,8 +18,8 @@ export default async function Home() {
             <Image
               src="/images/rathaus-full.webp"
               alt="Rathaus"
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{objectFit:"cover"}}
             />
           </section>
 
@@ -28,9 +28,8 @@ export default async function Home() {
               <Image
                 src="/images/rathaus-full.webp"
                 alt="Rathaus"
-                layout="fill"
-                objectFit="cover"
-                objectPosition="bottom"
+                fill
+                style={{objectFit:"cover", objectPosition:"bottom"}}
               />
             </section>
 
@@ -63,8 +62,8 @@ export default async function Home() {
             <Image
               src="/images/rainbow.webp"
               alt="Rainbow"
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{objectFit:"cover"}}
             />
           </div>
           <h3 className="text-s md:text-xl text-regular-teal font-bold mb-4 mt-12 lg:mt-16">

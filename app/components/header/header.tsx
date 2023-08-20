@@ -8,9 +8,8 @@ export default function Header() {
         <Image
           src="/images/port.webp"
           alt="Background Image"
-          layout="fill"
-          objectFit="cover" 
-          objectPosition="center" 
+          fill
+          style={{objectFit:"cover", objectPosition:"center"}}
           priority={true}
         />
       </div>

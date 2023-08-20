@@ -14,17 +14,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default function PagesLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${lemonMilk.variable}`}>
-      <head />
-      <body>
+    <>
+      <main>
         {children}
-      </body>
-    </html>
+      </main>
+    </>
   );
 }
