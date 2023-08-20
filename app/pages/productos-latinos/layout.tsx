@@ -5,18 +5,14 @@ export const metadata: Metadata = {
 };
 
 
-export default function WohnungssucheLayout({
+export default function ProductosLatinosLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <head />
-      <body>
-        {" "}
-        {children}
-      </body>
-    </html>
+    <>
+      <section>{children}</section>
+    </>
   );
 }

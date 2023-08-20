@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: "Deutschland Ticket 🧉",
 };
 
-export default function WohnungssucheLayout({
+export default function DeutschlandTicketLayout({
   children,
 }: {
   children: React.ReactNode;

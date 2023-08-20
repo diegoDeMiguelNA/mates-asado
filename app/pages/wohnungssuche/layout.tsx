@@ -11,12 +11,8 @@ export default function WohnungssucheLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <head />
-      <body>
-        {" "}
-        {children}
-      </body>
-    </html>
+    <>
+      <section>{children}</section>
+    </>
   );
 }
