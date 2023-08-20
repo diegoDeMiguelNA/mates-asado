@@ -5,18 +5,14 @@ export const metadata: Metadata = {
 };
 
 
-export default function FuehrerscheinLayout({
+export default function FuhrerscheinLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <head />
-      <body>
-        {" "}
-        {children}
-      </body>
-    </html>
+    <>
+      <section>{children}</section>
+    </>
   );
 }

@@ -139,11 +139,6 @@ export default function Medicos() {
 
   return (
     <>
-      <header className="text-center flex justify-center items-center p-4 sm:p-10">
-        <Button>
-          <Link href="/">Home</Link>
-        </Button>
-      </header>
       <div className="max-w-7xl mx-auto">
         <main className="text-center sm:px-2 mb-8 sm:mb-24 mx-2 sm:mx-2">
           <div className="pt-12 py-12">
@@ -187,12 +182,6 @@ export default function Medicos() {
               ))}
             </tbody>
           </table>
-
-          <header className="text-center flex justify-center items-center p-4 sm:p-10">
-            <Button>
-              <Link href="/">Home</Link>
-            </Button>
-          </header>
         </main>
       </div>
     </>

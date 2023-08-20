@@ -18,11 +18,6 @@ export default function TelefonosUtiles() {
 
   return (
     <>
-      <header className="text-center flex justify-center items-center p-4 sm:p-10">
-        <Button>
-          <Link href="/">Home</Link>
-        </Button>
-      </header>
       <div className="max-w-7xl mx-auto">
       <MobileMenu menuItems={menuItems} />     
         <main className="text-center sm:px-10 m-8 sm:mb-24 mx-2 sm:mx-24">
@@ -282,11 +277,6 @@ export default function TelefonosUtiles() {
               Jugadores anónimos: 040 2099009
             </p>
           </div>
-          <header className="text-center flex justify-center items-center p-4 sm:p-10">
-            <Button>
-              <Link href="/">Home</Link>
-            </Button>
-          </header>
         </main>
       </div>
     </>

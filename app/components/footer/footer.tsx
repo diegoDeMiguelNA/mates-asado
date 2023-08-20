@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="text-white">
-      <div className="relative h-[120px] md:h-[160px] lg:h-[600px]">
+      <div className="relative h-[120px] md:h-[160px] lg:h-[400px]">
         <Image
           src="/images/jungfernstieg.webp"
           alt="Jungfernstieg"

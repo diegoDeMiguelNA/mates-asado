@@ -3,6 +3,7 @@ import { lemonMilk } from "../fonts/fonts";
 
 import { Metadata } from "next";
 import Header from "../components/header/header";
+import Footer from "../components/footer/footer";
 
 export const metadata: Metadata = {
   title: "Mates&Asado 🧉",
@@ -21,9 +22,11 @@ export default function PagesLayout({
 }) {
   return (
     <>
+      <Header />
       <main>
         {children}
       </main>
+      <Footer />
     </>
   );
 }

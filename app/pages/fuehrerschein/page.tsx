@@ -1,16 +1,8 @@
 import React from "react";
-import styles from "./page.module.css";
-import Link from "next/link";
-import { Button } from "@/app/components/button/button";
 
 export default function Fuehrerschein() {
   return (
     <>
-      <header className="text-center flex justify-center items-center p-4 sm:p-10">
-        <Button>
-          <Link href="/">Home</Link>
-        </Button>
-      </header>
       <div className="max-w-7xl mx-auto">
         <main className="text-center sm:px-10 mb-8 sm:mb-24 mx-2 sm:mx-24">
           <div className="pt-12 py-8">
@@ -90,11 +82,6 @@ export default function Fuehrerschein() {
             propia. Resumiendo, esto es una confusión muy común y puede
             costarnos un disgusto y unos cuantos euros.
           </p>
-          <footer className="text-center flex justify-center items-center p-4 sm:p-10 mt-4 sm:mt-10">
-            <Button>
-              <Link href="/">Home</Link>
-            </Button>
-          </footer>
         </main>
       </div>
     </>

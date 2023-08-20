@@ -140,11 +140,6 @@ export default function Medicos() {
 
   return (
     <>
-      <header className="text-center flex justify-center items-center p-4 sm:p-10">
-        <Button>
-          <Link href="/">Home</Link>
-        </Button>
-      </header>
       <main className="text-center mb-2sm:px-10 mb-8 sm:mb-24 mx-2 sm:mx-24 landscape:mb-2 landscape:px-2 landscape:mx-2">
         <div className="mx-auto px-4 sm:px-2 lg:px-8">
           <div className="pt-12 py-12">
@@ -201,11 +196,6 @@ export default function Medicos() {
             </tbody>
           </table>
         </div>
-        <footer className="text-center flex justify-center items-center p-4 sm:p-10 sm:mt-10 portrait:hidden">
-            <Button>
-              <Link href="/">Home</Link>
-            </Button>
-          </footer>
       </main>
     </>
   );
