@@ -1,4 +1,4 @@
-import { getIconProps } from "@/lib/fetchDataFromContentful";
+import { getIconProps } from "@/lib/contentful/fetchDataFromContentful";
 import HomeIcon from "./home-icon";
 import clsx from "clsx";
 
