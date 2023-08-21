@@ -111,6 +111,9 @@ export interface IProductoLatinoReusableFields {
   /** Productos Latino Title */
   productosLatinoTitle?: string | undefined;
 
+  /** Subtitle */
+  subtitle?: string | undefined;
+
   /** Producto Latino List */
   productoLatinoList: Entry<{ [fieldId: string]: unknown }>[];
 

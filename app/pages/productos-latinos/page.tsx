@@ -10,18 +10,24 @@ import ProductoLatinoComponent from "@/app/components/ProductoLatino/ProductoLat
 
 const ProductoLatinos: React.FC = async () => {
   const {
-    fields: { productoLatinoList, productosLatinoTitle },
+    fields: { productoLatinoList, productosLatinoTitle, subtitle },
   }: Entry<IProductoLatinoReusableFields> = await getProductosLatinos(
     "7jVrRgIpZdPmb5foNjoER2"
   );
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl flex flex-col items-center">
       <main className="text-center sm:px-10 mb-8 sm:mb-24 mx-2 sm:mx-24">
-        <div className="py-24">
-          <h1 className="text-2xl sm:text-5xl font-heading uppercase">
+        <div className="pt-24 pb-4">
+          <h2 className="text-2xl sm:text-5xl font-heading uppercase">
             {productosLatinoTitle}
-          </h1>
+          </h2>
+        </div>
+        
+        <div className="pt-4 pb-8 max-w-[700px]">
+          <h3 className="text-sm sm:text-l font-heading uppercase w-full text-center">
+            {subtitle}
+          </h3>
         </div>
 
         {productoLatinoList.map((product, index) => (
