@@ -1,20 +1,30 @@
+import { IFuehrerscheinReusableFields } from "@/@types/generated/contentful";
+import { getFuehrerschein } from "@/lib/contentful/fetchDataFromContentful";
+import { Entry } from "contentful";
 import React from "react";
+import { t } from "vitest/dist/types-198fd1d9.js";
 
-export default function Fuehrerschein() {
+const Fuehrerschein: React.FC = async () => {
+  const results: Entry<IFuehrerscheinReusableFields> = await getFuehrerschein(
+    "4z4TZ5l87ag6Lv5xKeLIi"
+  );
+
+  const { title, subtitle, pageBody } = results.fields;
+
+  console.log(pageBody);
+
   return (
     <>
-      <div className="max-w-7xl mx-auto">
+      <div className="mx-auto flex flex-col items-center">
         <main className="text-center sm:px-10 mb-8 sm:mb-24 mx-2 sm:mx-24">
-          <div className="pt-12 py-8">
-            <h1 className="text-xl sm:text-5xl font-heading uppercase">
-              Conducir en Alemania
-            </h1>
+          <div className="pt-24 pb-4">
+            <h2 className="text-2xl sm:text-5xl font-heading uppercase">
+              {title}
+            </h2>
           </div>
+
           <h3 className="text-xs mx-8 font-heading uppercase mb-4 sm:mx-24">
-            En este artículo se explica qué requisitos existen para conducir en
-            en Hamburgo. Los requisitos en otras ciudades suelen ser similares,
-            pero existe la posibilidad de que el orden de los pasos no sea
-            exactamente el mismo.
+            {subtitle}
           </h3>
           <p className="px-6 text-left py-2 sm:px-24">
             Cuando alguien se muda a Alemania y posee una licencia de conducir
@@ -86,4 +96,6 @@ export default function Fuehrerschein() {
       </div>
     </>
   );
-}
+};
+
+export default Fuehrerschein;
