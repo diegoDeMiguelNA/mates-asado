@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getPageTemplate } from "@/lib/contentful/fetchDataFromContentful";
-import { documentToReactComponents } from "@/lib/contentful/documentToReactComponents"; // Adjust this path based on your project structure
+import { documentToReactComponents } from "@/lib/contentful/documentToReactComponents";
 import { ReactNode } from "react";
 
 const options = {
@@ -27,6 +27,7 @@ const options = {
 
 export default async function ProductosLatinos() {
   const { fields } = await getPageTemplate("4770AAFB4vVhIKD1SAvrVe");
+  console.log(fields);
 
   return (
     <>
@@ -49,6 +50,9 @@ export default async function ProductosLatinos() {
           <hr />
           {fields.publicationBodyThree &&
             documentToReactComponents(fields.publicationBodyThree, options)}
+          <hr />
+          {fields.iconsFive &&
+            documentToReactComponents(fields.iconsFive, options)}
         </main>
       </div>
     </>

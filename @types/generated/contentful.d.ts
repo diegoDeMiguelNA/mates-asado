@@ -3,6 +3,69 @@
 import { Asset, Entry } from "contentful";
 import { Document } from "@contentful/rich-text-types";
 
+export interface IHomeIconFields {
+  /** Title */
+  title: string;
+
+  /** Subtitle */
+  subtitle: string;
+
+  /** SVGFileName */
+  svgFileName: string;
+
+  /** pageLinkRef */
+  pageLinkRef?: Entry<{ [fieldId: string]: unknown }> | undefined;
+
+  /** extraData */
+  extraData?: string | undefined;
+}
+
+/** This is an Icon entry for the home page. It has the image, title, subtitle and extras that would be passed to the page to which it redirects. */
+
+export interface IHomeIcon extends Entry<IHomeIconFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "homeIcon";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IHomeIconResuableFields {
+  /** IconListTitle */
+  homeIconReusable?: string | undefined;
+
+  /** homeIconComponent */
+  homeIconComponent: Entry<{ [fieldId: string]: unknown }>[];
+}
+
+/** Draft to see if we can re-use homeIcon contentType */
+
+export interface IHomeIconResuable extends Entry<IHomeIconResuableFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "homeIconResuable";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IHomeIconsFields {
   /** iconOne */
   iconOne?: Document | undefined;
@@ -45,34 +108,6 @@ export interface IHomeIcons extends Entry<IHomeIconsFields> {
   };
 }
 
-export interface IJooFields {
-  /** Body */
-  body?: Document | undefined;
-
-  /** time */
-  time?: string | undefined;
-
-  /** title */
-  title?: string | undefined;
-}
-
-export interface IJoo extends Entry<IJooFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: "joo";
-        linkType: "ContentType";
-        type: "Link";
-      };
-    };
-  };
-}
-
 export interface IPageTemplateFields {
   /** Title */
   title: string;
@@ -94,6 +129,9 @@ export interface IPageTemplateFields {
 
   /** publicationBodyThree */
   publicationBodyThree?: Document | undefined;
+
+  /** publicationBodyFour */
+  iconsFive?: Document | undefined;
 }
 
 export interface IPageTemplate extends Entry<IPageTemplateFields> {
@@ -149,12 +187,18 @@ export interface IProductosLatinosShop
 }
 
 export type CONTENT_TYPE =
+  | "homeIcon"
+  | "homeIconResuable"
   | "homeIcons"
-  | "joo"
   | "pageTemplate"
   | "productosLatinosShop";
 
-export type IEntry = IHomeIcons | IJoo | IPageTemplate | IProductosLatinosShop;
+export type IEntry =
+  | IHomeIcon
+  | IHomeIconResuable
+  | IHomeIcons
+  | IPageTemplate
+  | IProductosLatinosShop;
 
 export type LOCALE_CODE = "en-US";
 
