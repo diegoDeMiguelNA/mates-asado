@@ -2,9 +2,11 @@
 
 import { getProductosLatinos } from "@/lib/contentful/fetchDataFromContentful";
 import { Entry } from "contentful";
-import { IProductoLatinoFields, IProductoLatinoReusableFields } from "@/@types/generated/contentful";
+import {
+  IProductoLatinoFields,
+  IProductoLatinoReusableFields,
+} from "@/@types/generated/contentful";
 import ProductoLatinoComponent from "@/app/components/ProductoLatino/ProductoLatino";
-
 
 const ProductoLatinos: React.FC = async () => {
   const {
@@ -17,15 +19,21 @@ const ProductoLatinos: React.FC = async () => {
     <div className="max-w-7xl mx-auto">
       <main className="text-center sm:px-10 mb-8 sm:mb-24 mx-2 sm:mx-24">
         <div className="py-24">
-          <h1 className="text-2xl sm:text-5xl font-heading uppercase">{productosLatinoTitle}</h1>
+          <h1 className="text-2xl sm:text-5xl font-heading uppercase">
+            {productosLatinoTitle}
+          </h1>
         </div>
 
-        {productoLatinoList.map((product) => (
-          <ProductoLatinoComponent key={product.sys.id}  data={product.fields as unknown as IProductoLatinoFields} />
+        {productoLatinoList.map((product, index) => (
+          <ProductoLatinoComponent
+            key={product.sys.id}
+            data={product.fields as unknown as IProductoLatinoFields}
+            isLast={index === productoLatinoList.length - 1}
+          />
         ))}
       </main>
     </div>
   );
-}
+};
 
 export default ProductoLatinos;
