@@ -21,6 +21,9 @@ export const RenderContent = (props: {
           return (
             <ListWithOrWithoutSubtitle key={index} fields={entry.fields} />
           );
+        }
+        if (entry.sys.contentType.sys.id === "blogSubtitleParagraphAndImage") {
+          return <SubtitleAndImage key={index} fields={entry.fields} />;
         } else {
           return null;
         }
@@ -32,7 +35,7 @@ export const RenderContent = (props: {
 const Hyperlink = (props: { fields: any }) => {
   const hyperlinkData =
     props?.fields?.linkUrlString?.content?.[0]?.content?.find(
-      (item: { nodeType: string; }) => item.nodeType === "hyperlink"
+      (item: { nodeType: string }) => item.nodeType === "hyperlink"
     );
 
   if (!hyperlinkData) return null;
@@ -40,30 +43,28 @@ const Hyperlink = (props: { fields: any }) => {
   const url = hyperlinkData.data.uri;
   const displayText = hyperlinkData.content?.[0]?.value;
 
-  const reference = props.fields.reference
-    ? `(${props.fields.reference})`
-    : "";
+  const reference = props.fields.reference ? `(${props.fields.reference})` : "";
 
   return (
-   <div className="my-4">
-     <a
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-blue-500 flex items-center"
-    >
-      <span>{reference}</span>
-      <span style={{ paddingLeft: '2px', paddingRight: '2px' }}>
-        <Image
-          src="/icons/open-in-new.svg"
-          alt="Open in new tab"
-          width={16}
-          height={16}
-        />
-      </span>
-      <span className="underline">{displayText}</span>
-    </a>
-   </div>
+    <div className="my-4">
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-500 flex items-center"
+      >
+        <span>{reference}</span>
+        <span style={{ paddingLeft: "2px", paddingRight: "2px" }}>
+          <Image
+            src="/icons/open-in-new.svg"
+            alt="Open in new tab"
+            width={16}
+            height={16}
+          />
+        </span>
+        <span className="underline">{displayText}</span>
+      </a>
+    </div>
   );
 };
 
@@ -98,7 +99,7 @@ const BlogOnlyParagraph = (props: { fields: any }) => {
   }
 
   return (
-    <div className="mt-10 mb-10 px-6 text-left w-full flex flex-col items-center justify-center">
+    <div className="mt-4 mb-4 px-6 text-left w-full flex flex-col items-center justify-center">
       {contentItems.map((item: any, index: number) => {
         if (item.nodeType === "paragraph") {
           return <p key={index}>{item?.content[0]?.value}</p>;
@@ -113,7 +114,7 @@ const BlogOnlyParagraph = (props: { fields: any }) => {
                   className="w-[250px] sm:w-[350px] lg:w-[500px] my-4 relative pl-7 inline-block"
                   key={listItemIndex}
                 >
-                  <span className="absolute left-5">
+                  <span className="left-5">
                     {listItem?.content[0]?.content[0]?.value}
                   </span>
                 </li>
@@ -160,8 +161,8 @@ const ListWithOrWithoutSubtitle = (props: { fields: any }) => {
               <ul
                 className={clsx(
                   props.fields.isOrderedList
-                    ? "list-decimal list-inside pl-0"
-                    : "list-disc list-outside",
+                    ? "list-decimal list-inside pl-0 list-disc list-outside pl-5 w-full flex flex-col flex-wrap items-center justify-center"
+                    : "list-disc list-outside pl-5 w-full flex flex-col flex-wrap items-center justify-center",
                   "py-6 px-4"
                 )}
                 key={index}
@@ -174,7 +175,7 @@ const ListWithOrWithoutSubtitle = (props: { fields: any }) => {
                         (text: any, textIndex: number) => (
                           <li
                             className={clsx(
-                              "my-4",
+                              "my-4 w-[250px] sm:w-[350px] lg:w-[500px] my-4 pl-7 inline-block",
                               props.fields.isOrderedList
                                 ? "flex items-start"
                                 : "pl-5",
@@ -203,6 +204,33 @@ const ListWithOrWithoutSubtitle = (props: { fields: any }) => {
             )
         )}
       </div>
+    </div>
+  );
+};
+
+const SubtitleAndImage = (props: { fields: any }) => {
+  const imageUrl =
+    props.fields.assets && props.fields.assets[0]?.fields?.file?.url;
+
+  const secureImageUrl = imageUrl.startsWith("//")
+    ? "https:" + imageUrl
+    : imageUrl;
+
+  if (!imageUrl) return null;
+
+  return (
+    <div className="mt-10 mb-10">
+      {/* {props.fields.subtitle && (
+        <h2 className="mb-4 text-l sm:text-3xl font-heading uppercase">
+          {props.fields.subtitle}
+        </h2>
+      )} */}
+      <Image
+        src={secureImageUrl}
+        alt={props.fields.assets[0]?.fields?.title || "Image"}
+        width={props.fields.assets[0]?.fields?.file?.details?.image?.width}
+        height={props.fields.assets[0]?.fields?.file?.details?.image?.height}
+      />
     </div>
   );
 };
