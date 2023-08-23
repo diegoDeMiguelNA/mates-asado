@@ -11,8 +11,6 @@ const Fuehrerschein: React.FC = async () => {
 
   const { title, subtitle, pageBody } = results.fields;
 
-  console.log(pageBody);
-
   return (
     <>
       <div className="mx-auto flex flex-col items-center">

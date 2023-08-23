@@ -10,7 +10,6 @@ export const RenderContent = (props: {
         if (entry.sys.contentType.sys.id === "blogSubtitleAndParagraph") {
           return <BlogSubtitleAndParagraph key={index} fields={entry.fields} />;
         } else if (entry.sys.contentType.sys.id === "onlyParagraph") {
-          console.log("entry.fields", entry.fields);
           return <BlogOnlyParagraph key={index} fields={entry.fields} />;
         } else if (
           entry.sys.contentType.sys.id === "listWithOrWithoutSubtitle"

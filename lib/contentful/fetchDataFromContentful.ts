@@ -35,3 +35,11 @@ export async function getFuehrerschein(entryId: string) {
   );
   return entry;
 }
+
+// Anmeldung
+export async function getAnmeldung(entryId: string) {
+  const entry = await contentfulClient.getEntry<IFuehrerscheinReusableFields>(
+    entryId
+  );
+  return entry;
+}
