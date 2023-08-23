@@ -15,6 +15,12 @@ const Anmeldung: React.FC = async () => {
 
   console.log("results", results);
 
+  pageBody?.map((entry, index) => {
+    if (entry.sys.contentType.sys.id === "linkWithReference") {
+      console.log("entry", entry);
+    }
+  });
+
   return (
     <>
       <div className="mx-auto flex flex-col items-center">
@@ -30,7 +36,6 @@ const Anmeldung: React.FC = async () => {
           </h3>
 
           {pageBody && <RenderContent entries={pageBody} />}
-          
         </main>
       </div>
     </>

@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { Entry } from "contentful";
+import Image from "next/image";
 
 export const RenderContent = (props: {
   entries: Entry<{ [fieldId: string]: unknown }>[];
@@ -11,6 +12,9 @@ export const RenderContent = (props: {
           return <BlogSubtitleAndParagraph key={index} fields={entry.fields} />;
         } else if (entry.sys.contentType.sys.id === "onlyParagraph") {
           return <BlogOnlyParagraph key={index} fields={entry.fields} />;
+        }
+        if (entry.sys.contentType.sys.id === "linkWithReference") {
+          return <Hyperlink key={index} fields={entry.fields} />;
         } else if (
           entry.sys.contentType.sys.id === "listWithOrWithoutSubtitle"
         ) {
@@ -22,6 +26,42 @@ export const RenderContent = (props: {
         }
       })}
     </>
+  );
+};
+
+const Hyperlink = (props: { fields: any }) => {
+  const hyperlinkData =
+    props?.fields?.linkUrlString?.content?.[0]?.content?.find(
+      (item) => item.nodeType === "hyperlink"
+    );
+
+  if (!hyperlinkData) return null;
+
+  const url = hyperlinkData.data.uri;
+  const displayText = hyperlinkData.content?.[0]?.value;
+
+  const reference = props.fields.reference
+    ? `(${props.fields.reference}) `
+    : "";
+
+  return (
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-blue-500 underline flex items-center"
+    >
+      {reference}
+      <span className="ml-1">
+        <Image
+          src="/icons/openInNewTab.svg"
+          alt="Open in new tab"
+          width={16}
+          height={16}
+        />
+      </span>
+      {displayText}
+    </a>
   );
 };
 
@@ -59,11 +99,7 @@ const BlogOnlyParagraph = (props: { fields: any }) => {
     <div className="mt-10 mb-10 px-6 text-left w-full flex flex-col items-center justify-center">
       {contentItems.map((item: any, index: number) => {
         if (item.nodeType === "paragraph") {
-          return (
-            <p key={index}>
-              {item?.content[0]?.value}
-            </p>
-          );
+          return <p key={index}>{item?.content[0]?.value}</p>;
         } else if (item.nodeType === "unordered-list") {
           return (
             <ul
