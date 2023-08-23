@@ -72,7 +72,7 @@ const BlogSubtitleAndParagraph = (props: { fields: any }) => {
   return (
     <div className={clsx(props.fields.subtitle && "mt-10")}>
       {props.fields.subtitle && (
-        <h2 className="mt-10 mb-16 text-l sm:text-3xl font-heading uppercase sm:mt-16 lg:mt-12">
+        <h2 className="mt-10 mb-16 text-l sm:text-3xl font-heading uppercase sm:mt-16 sm:pt-4 lg:mt-12">
           {props.fields.subtitle}
         </h2>
       )}
