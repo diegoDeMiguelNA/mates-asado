@@ -29,6 +29,9 @@ module.exports = {
       height: {
         "19px": "19px",
       },
+      padding: {
+        "2px": "2px",
+      },
       backgroundColor: {
         "regular-grey": "#F4F4F4",
         "regular-red": "#B1060E",

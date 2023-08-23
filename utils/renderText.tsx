@@ -32,7 +32,7 @@ export const RenderContent = (props: {
 const Hyperlink = (props: { fields: any }) => {
   const hyperlinkData =
     props?.fields?.linkUrlString?.content?.[0]?.content?.find(
-      (item) => item.nodeType === "hyperlink"
+      (item: { nodeType: string; }) => item.nodeType === "hyperlink"
     );
 
   if (!hyperlinkData) return null;
@@ -41,27 +41,29 @@ const Hyperlink = (props: { fields: any }) => {
   const displayText = hyperlinkData.content?.[0]?.value;
 
   const reference = props.fields.reference
-    ? `(${props.fields.reference}) `
+    ? `(${props.fields.reference})`
     : "";
 
   return (
-    <a
+   <div className="my-4">
+     <a
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-blue-500 underline flex items-center"
+      className="text-blue-500 flex items-center"
     >
-      {reference}
-      <span className="ml-1">
+      <span>{reference}</span>
+      <span style={{ paddingLeft: '2px', paddingRight: '2px' }}>
         <Image
-          src="/icons/openInNewTab.svg"
+          src="/icons/open-in-new.svg"
           alt="Open in new tab"
           width={16}
           height={16}
         />
       </span>
-      {displayText}
+      <span className="underline">{displayText}</span>
     </a>
+   </div>
   );
 };
 
@@ -145,7 +147,7 @@ const BlogOnlyParagraph = (props: { fields: any }) => {
 
 const ListWithOrWithoutSubtitle = (props: { fields: any }) => {
   return (
-    <div className="flex flex-col justify-center px-4 min-h-screen max-w-[550px]">
+    <div className="flex flex-col justify-center px-4 min-h-screen max-w-[550px] mt-12">
       {props.fields.subtitle && (
         <h2 className="mt-10 sm:text-3xl font-heading uppercase mb-4">
           {props.fields.subtitle}
