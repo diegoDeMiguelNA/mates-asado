@@ -61,7 +61,7 @@ const BlogOnlyParagraph = (props: { fields: any }) => {
       {contentItems.map((item: any, index: number) => {
         if (item.nodeType === "paragraph") {
           return (
-            <p className="py-2" key={index}>
+            <p key={index}>
               {item?.content[0]?.value}
             </p>
           );
