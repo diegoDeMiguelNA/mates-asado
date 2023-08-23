@@ -1,25 +1,21 @@
 import React, { useState } from "react";
-import Link from "next/link";
-import { Button } from "@/app/components/button/button";
+
 import MobileMenu from "@/app/components/ResponsiveNavMenu/mobileMenu";
+import { Entry } from "contentful";
 
-export default function Anmeldung() {
+const Anmeldung: React.FC = async () => {
+  // const results: Entry<IFuehrerscheinReusableFields> = await getFuehrerschein(
+  //   "4z4TZ5l87ag6Lv5xKeLIi"
+  // );
 
-  const menuItems = [
-    { content: 'Introduccion', href: '#introduccion' },
-    { content: 'Ummeldung', href: '#ummeldung' },
-    { content: 'Abmeldung', href: '#abmeldung' },
-    { content: 'Requisitos', href: '#requisitos' },
-    { content: 'Enlaces utiles', href: '#enlaces-utiles' },
-    { content: 'Cancelacion de Registro', href: '#cancelacion' },
-  ];
+  // const { title, subtitle, pageBody } = results.fields;
+
 
   return (
     <>
       <header className="text-center flex justify-center items-center p-4 sm:p-10">
       </header>
       <div className="max-w-7xl mx-auto">
-       <MobileMenu menuItems={menuItems} />
         <main className="text-center sm:px-10 mb-8 sm:mb-24 mx-2 sm:mx-24">
           <div className="pt-12 py-12">
             <h1 className="text-xl sm:text-5xl font-heading uppercase">
@@ -302,3 +298,5 @@ export default function Anmeldung() {
     </>
   );
 }
+
+export default Anmeldung;

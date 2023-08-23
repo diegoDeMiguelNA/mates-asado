@@ -33,13 +33,16 @@ export interface IBlogSubtitleAndParagraph
 
 export interface IBlogSubtitleParagraphAndImageFields {
   /** Subtitle */
-  subtitle: string;
+  subtitle?: string | undefined;
 
   /** Paragraph */
   paragraph?: Document | undefined;
 
   /** Assets */
   assets?: Asset[] | undefined;
+
+  /** image caption */
+  imageCaption?: string | undefined;
 }
 
 /** This is a chunk of page with a title, a paragraph and one or more images (Assets) */
@@ -73,7 +76,7 @@ export interface IFuehrerscheinReusableFields {
   pageBody?: Entry<{ [fieldId: string]: unknown }>[] | undefined;
 }
 
-/** This content model will hold the info for the Führerschein's page */
+/** This content model will hold the info for every page within the site (Wohnungssuche, Führerschein, etc) */
 
 export interface IFuehrerscheinReusable
   extends Entry<IFuehrerscheinReusableFields> {
@@ -159,12 +162,45 @@ export interface IHomeIconResuable extends Entry<IHomeIconResuableFields> {
   };
 }
 
+export interface ILinkWithReferenceFields {
+  /** reference */
+  reference: number;
+
+  /** link url string */
+  linkUrlString: Document;
+
+  /** text to display */
+  textToDisplay?: string | undefined;
+}
+
+/** This is a Link to be referenced on the text */
+
+export interface ILinkWithReference extends Entry<ILinkWithReferenceFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "linkWithReference";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IListWithOrWithoutSubtitleFields {
   /** Subtitle */
   subtitle?: string | undefined;
 
   /** List */
   list: Document;
+
+  /** isOrderedList */
+  isOrderedList: boolean;
 }
 
 /** This is a component for the page's content (text) in which things are listed either order or unordered */
@@ -180,6 +216,50 @@ export interface IListWithOrWithoutSubtitle
     contentType: {
       sys: {
         id: "listWithOrWithoutSubtitle";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IOnlyListFields {
+  /** List Body */
+  listBody: string[];
+}
+
+export interface IOnlyList extends Entry<IOnlyListFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "onlyList";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IOnlyParagraphFields {
+  /** body */
+  body?: Document | undefined;
+}
+
+export interface IOnlyParagraph extends Entry<IOnlyParagraphFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "onlyParagraph";
         linkType: "ContentType";
         type: "Link";
       };
@@ -269,7 +349,10 @@ export type CONTENT_TYPE =
   | "fuehrerscheinReusable"
   | "homeIcon"
   | "homeIconResuable"
+  | "linkWithReference"
   | "listWithOrWithoutSubtitle"
+  | "onlyList"
+  | "onlyParagraph"
   | "productoLatino"
   | "productoLatinoReusable";
 
@@ -279,7 +362,10 @@ export type IEntry =
   | IFuehrerscheinReusable
   | IHomeIcon
   | IHomeIconResuable
+  | ILinkWithReference
   | IListWithOrWithoutSubtitle
+  | IOnlyList
+  | IOnlyParagraph
   | IProductoLatino
   | IProductoLatinoReusable;
 

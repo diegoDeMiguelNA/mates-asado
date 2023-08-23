@@ -20,8 +20,11 @@ module.exports = {
     },
     extend: {
       width: {
-        "120px": "120px",
         "90px": "90px",
+        "120px": "120px",
+        "250px": "250px",  
+        "350px": "350px",  
+        "500px": "500px",  
       },
       height: {
         "19px": "19px",
