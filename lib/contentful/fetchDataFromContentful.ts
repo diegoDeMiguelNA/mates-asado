@@ -43,3 +43,11 @@ export async function getAnmeldung(entryId: string) {
   );
   return entry;
 }
+
+// Wohnnungssuche
+export async function getWohnungssuche(entryId: string) {
+  const entry = await contentfulClient.getEntry<IFuehrerscheinReusableFields>(
+    entryId
+  );
+  return entry;
+}

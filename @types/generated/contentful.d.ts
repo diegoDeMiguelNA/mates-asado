@@ -223,28 +223,6 @@ export interface IListWithOrWithoutSubtitle
   };
 }
 
-export interface IOnlyListFields {
-  /** List Body */
-  listBody: string[];
-}
-
-export interface IOnlyList extends Entry<IOnlyListFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: "onlyList";
-        linkType: "ContentType";
-        type: "Link";
-      };
-    };
-  };
-}
-
 export interface IOnlyParagraphFields {
   /** body */
   body?: Document | undefined;
@@ -343,6 +321,32 @@ export interface IProductoLatinoReusable
   };
 }
 
+export interface ITitleWithOrWithoutSubtitleFields {
+  /** Title Name */
+  titleName: string;
+
+  /** subtitle */
+  subtitle?: string | undefined;
+}
+
+export interface ITitleWithOrWithoutSubtitle
+  extends Entry<ITitleWithOrWithoutSubtitleFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "titleWithOrWithoutSubtitle";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export type CONTENT_TYPE =
   | "blogSubtitleAndParagraph"
   | "blogSubtitleParagraphAndImage"
@@ -351,10 +355,10 @@ export type CONTENT_TYPE =
   | "homeIconResuable"
   | "linkWithReference"
   | "listWithOrWithoutSubtitle"
-  | "onlyList"
   | "onlyParagraph"
   | "productoLatino"
-  | "productoLatinoReusable";
+  | "productoLatinoReusable"
+  | "titleWithOrWithoutSubtitle";
 
 export type IEntry =
   | IBlogSubtitleAndParagraph
@@ -364,10 +368,10 @@ export type IEntry =
   | IHomeIconResuable
   | ILinkWithReference
   | IListWithOrWithoutSubtitle
-  | IOnlyList
   | IOnlyParagraph
   | IProductoLatino
-  | IProductoLatinoReusable;
+  | IProductoLatinoReusable
+  | ITitleWithOrWithoutSubtitle;
 
 export type LOCALE_CODE = "en-US";
 

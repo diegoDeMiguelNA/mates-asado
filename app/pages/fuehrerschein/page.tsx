@@ -21,7 +21,7 @@ const Fuehrerschein: React.FC = async () => {
             </h2>
           </div>
 
-          <h3 className="text-xs mx-8 font-heading uppercase mb-4 sm:mx-24">
+          <h3 className="text-sm mx-8 font-heading uppercase mb-4 sm:mx-24">
             {subtitle}
           </h3>
 
