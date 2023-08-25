@@ -29,6 +29,7 @@ export default async function Home() {
                 src="/images/rathaus-full.webp"
                 alt="Rathaus"
                 fill
+                className="md:max-w-[440px] md:max-h-[600px]"
                 style={{objectFit:"cover", objectPosition:"bottom"}}
               />
             </section>
@@ -38,7 +39,7 @@ export default async function Home() {
                 Experiencias de vida
               </h3>
               <p
-                className="text-s md:text-sm md:px-6 md:py-6 font-light max-w-[650px]"
+                className="text-s md:text-sm font-light max-w-[550px] lg:max-w-[600px]"
                 style={{ lineHeight: "1.5rem" }}
               >
                 Conocé relatos inspiradores de compatriotas en Hamburgo: desde
