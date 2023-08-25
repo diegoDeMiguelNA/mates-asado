@@ -8,12 +8,12 @@ import Image from "next/image";
 export default async function Home() {
   return (
     <>
-      <main className="text-center">
+      <main className="text-center flex flex-col items-center">
         <Header />
 
         <HomeProps />
 
-        <div className="experiencias-de-vida mb-16">
+        <div className="experiencias-de-vida mb-16 w-full flex">
           <section className="relative h-[200px] md:h-[300px] lg:hidden">
             <Image
               src="/images/rathaus-full.webp"
@@ -23,7 +23,7 @@ export default async function Home() {
             />
           </section>
 
-          <div className="lg:grid lg:grid-cols-2 md:flex md:justify-center md:h-[350px] lg:h-[720px] bg-regular-grey px-16 py-10 items-center lg:px-12">
+          <div className="lg:grid lg:grid-cols-2 md:flex md:justify-center md:h-[350px] lg:h-[720px] bg-regular-grey px-16 py-10 items-center lg:px-12 w-full flex">
             <section className="relative hidden lg:block lg:h-[600px] lg:w-[500px]">
               <Image
                 src="/images/rathaus-full.webp"

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <header className="relative grid grid-rows-header h-[230px] md:h-[280px] lg:h-[500px]">
+    <header className="relative grid grid-rows-header h-[230px] md:h-[280px] lg:h-[500px] w-full">
       <div className="absolute inset-0 h-[210px] md:h-[260px] lg:h-[480px] z-0">
         <Image
           src="/images/port.webp"
