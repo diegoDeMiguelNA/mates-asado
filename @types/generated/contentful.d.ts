@@ -111,6 +111,12 @@ export interface IHomeIconFields {
 
   /** extraData */
   extraData?: string | undefined;
+
+  /** width (pixels) */
+  width?: number | undefined;
+
+  /** height (pixels) */
+  heightPixels?: number | undefined;
 }
 
 /** This is an Icon entry for the home page. It has the image, title, subtitle and extras that would be passed to the page to which it redirects. */

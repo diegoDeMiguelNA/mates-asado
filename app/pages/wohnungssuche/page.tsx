@@ -23,16 +23,14 @@ const Wohnungssuche: React.FC = async () => {
     <>
       <div className="mx-auto flex flex-col items-center">
         <main className="text-center mb-8 sm:mb-24 mx-2 sm:mx-4 flex flex-col justify-center items-center max-w-[800px]">
-          <div className="pt-24 pb-4">
+          <div className="pt-24 pb-4 mb-10">
             <h2 className="text-2xl sm:text-5xl font-heading uppercase">
               {title}
             </h2>
+            <h3 className="text-sm mx-8 font-heading uppercase pt-10 mb-4 sm:mx-24">
+              {subtitle}
+            </h3>
           </div>
-
-          <h3 className="text-sm mx-8 font-heading uppercase mb-4 sm:mx-24">
-            {subtitle}
-          </h3>
-
           {pageBody && <RenderContent entries={pageBody} />}
         </main>
       </div>

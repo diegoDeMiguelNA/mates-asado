@@ -114,7 +114,7 @@ const BlogOnlyParagraph = (props: { fields: any }) => {
                   return contentItem.value;
                 } else if (contentItem.nodeType === "hyperlink") {
                   return (      
-                     <div className="mt-10" key={index}>
+                     <div className="mt-10 mb-10" key={index}>
                        <a
                         key={contentIndex}
                         href={contentItem.data.uri}
@@ -280,14 +280,14 @@ const TitleWithOrWithoutSubtitle = (props: { fields: any }) => {
   if (!titleWithOrWithoutSubtitle) return null;
 
   return (
-    <div className="mt-10 mb-10">
+    <div className="mt-20 mb-10 pt-20">
       {props.fields.titleName && (
         <h2 className="mb-4 text-l sm:text-3xl font-heading uppercase">
           {titleWithOrWithoutSubtitle.titleName}
         </h2>
       )}
       {props.fields.subtitle && (
-        <h3 className="mb-4 text-l sm:text-3xl font-heading uppercase">
+        <h3 className="mb-4 sm:text-sm">
           {titleWithOrWithoutSubtitle.subtitle}
         </h3>
       )}

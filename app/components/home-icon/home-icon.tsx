@@ -8,6 +8,8 @@ type HomeIconProps = {
   linkTo: string;
   contentfulReference: string;
   className?: string;
+  width?: number;
+  height?: number;
 };
 
 const HomeIcon: React.FC<HomeIconProps> = ({
@@ -17,6 +19,8 @@ const HomeIcon: React.FC<HomeIconProps> = ({
   linkTo,
   contentfulReference,
   className,
+  width = 30,
+  height = 30,
 }) => {
   return (
     <div className={`home-icon mb-4 md:mb-0 ${className}`}>
@@ -24,8 +28,8 @@ const HomeIcon: React.FC<HomeIconProps> = ({
         <div title={title} className="flex flex-col items-center cursor-pointer">
           <div className="icon-container bg-[#F8D49A] w-[60px] h-[60px] rounded-full mb-2 flex justify-center items-center">
             <Image
-              width={30}  
-              height={30} 
+              width={width}  
+              height={height} 
               src={iconSrc}
               alt={title}
               className="ml-[2px]"
