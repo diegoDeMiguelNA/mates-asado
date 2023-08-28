@@ -15,6 +15,11 @@ export const RenderContent = (props: {
         }
         if (entry.sys.contentType.sys.id === "linkWithReference") {
           return <Hyperlink key={index} fields={entry.fields} />;
+        }
+        if (entry.sys.contentType.sys.id === "titleWithOrWithoutSubtitle") {
+          return (
+            <TitleWithOrWithoutSubtitle key={index} fields={entry.fields} />
+          );
         } else if (
           entry.sys.contentType.sys.id === "listWithOrWithoutSubtitle"
         ) {
@@ -95,14 +100,49 @@ const BlogOnlyParagraph = (props: { fields: any }) => {
   const contentItems = props?.fields?.body?.content;
 
   if (!contentItems || contentItems.length === 0) {
-    return null; // or some fallback UI if you prefer
+    return null;
   }
 
   return (
     <div className="mt-4 mb-4 px-6 text-left w-full flex flex-col items-center justify-center">
       {contentItems.map((item: any, index: number) => {
         if (item.nodeType === "paragraph") {
-          return <p key={index}>{item?.content[0]?.value}</p>;
+          return (
+            <div key={index} className="flex flex-col items-center justify-center">
+              {item.content.map((contentItem: any, contentIndex: number) => {
+                if (contentItem.nodeType === "text") {
+                  return contentItem.value;
+                } else if (contentItem.nodeType === "hyperlink") {
+                  return (      
+                     <div className="mt-10 mb-10" key={index}>
+                       <a
+                        key={contentIndex}
+                        href={contentItem.data.uri}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-500 flex items-center"
+                      >
+                        <span
+                          style={{ paddingLeft: "2px", paddingRight: "2px" }}
+                        >
+                          <Image
+                            src="/icons/open-in-new.svg"
+                            alt="Open in new tab"
+                            width={16}
+                            height={16}
+                          />
+                        </span>
+                        <span className="underline">
+                          {contentItem?.content[0]?.value}
+                        </span>
+                      </a>
+                     </div>              
+                  );
+                }
+                return null;
+              })}
+            </div>
+          );
         } else if (item.nodeType === "unordered-list") {
           return (
             <ul
@@ -231,6 +271,26 @@ const SubtitleAndImage = (props: { fields: any }) => {
         width={props.fields.assets[0]?.fields?.file?.details?.image?.width}
         height={props.fields.assets[0]?.fields?.file?.details?.image?.height}
       />
+    </div>
+  );
+};
+
+const TitleWithOrWithoutSubtitle = (props: { fields: any }) => {
+  const titleWithOrWithoutSubtitle = props.fields && props.fields;
+  if (!titleWithOrWithoutSubtitle) return null;
+
+  return (
+    <div className="mt-20 mb-10 pt-20">
+      {props.fields.titleName && (
+        <h2 className="mb-4 text-l sm:text-3xl font-heading uppercase">
+          {titleWithOrWithoutSubtitle.titleName}
+        </h2>
+      )}
+      {props.fields.subtitle && (
+        <h3 className="mb-4 sm:text-sm">
+          {titleWithOrWithoutSubtitle.subtitle}
+        </h3>
+      )}
     </div>
   );
 };

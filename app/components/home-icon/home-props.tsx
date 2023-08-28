@@ -10,11 +10,13 @@ const renderHomeIcons = (icons: any[], parentIndex: number = 0) => {
     (
       icon: {
         fields: {
-          homeIconComponent?: any;
-          title?: any;
-          subtitle?: any;
+          homeIconComponent: any;
+          title: string;
+          subtitle: string;
           extraData?: any;
-          svgFileName?: any;
+          svgFileName?: string;
+          width?: number;
+          height?: number;
         };
         sys: { id: string };
       },
@@ -25,6 +27,8 @@ const renderHomeIcons = (icons: any[], parentIndex: number = 0) => {
         subtitle: description,
         extraData: linkTo,
         svgFileName,
+        width,
+        height,
       } = icon.fields;
       const iconSrc = `./icons/${svgFileName}`;
 
@@ -40,6 +44,8 @@ const renderHomeIcons = (icons: any[], parentIndex: number = 0) => {
             description={description}
             linkTo={linkTo}
             contentfulReference={icon.sys.id}
+            width={width}
+            height={height}
             className={clsx(
               index === icons.length - 1 && parentIndex === 0 && "md:col-span-3"
             )}

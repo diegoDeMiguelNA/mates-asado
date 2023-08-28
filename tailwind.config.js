@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  mode: "jit",
   darkMode: ["class"],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -48,7 +49,12 @@ module.exports = {
         "plain-white": "#FFFFFF",
         "regular-blue": "#013753",
       },
+      backgroundImage: (theme) => ({
+        "flag-gradient":
+          "linear-gradient(to right, #74ACDF 33.3%, #fff 33.3%, #fff 66.6%, #74ACDF 66.6%)",
+      }),
       colors: {
+        lightBlue: "#74ACDF",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

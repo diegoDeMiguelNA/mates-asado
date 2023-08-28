@@ -15,11 +15,11 @@ const Anmeldung: React.FC = async () => {
 
   // console.log("results", results);
 
-  pageBody?.map((entry, index) => {
-    if (entry.sys.contentType.sys.id === "onlyParagraph") {
-      console.log("entry", entry);
-    }
-  });
+  // pageBody?.map((entry, index) => {
+  //   if (entry.sys.contentType.sys.id === "onlyParagraph") {
+  //     console.log("entry", entry);
+  //   }
+  // });
 
   return (
     <>
@@ -31,7 +31,7 @@ const Anmeldung: React.FC = async () => {
             </h2>
           </div>
 
-          <h3 className="text-xs mx-8 font-heading uppercase mb-4 sm:mx-24">
+          <h3 className="text-sm mx-8 font-heading uppercase mb-4 sm:mx-24">
             {subtitle}
           </h3>
 

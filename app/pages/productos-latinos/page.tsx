@@ -16,7 +16,7 @@ const ProductoLatinos: React.FC = async () => {
   );
 
   return (
-    <div className="max-w-7xl flex flex-col items-center">
+    <div className="flex flex-col items-center">
       <main className="text-center sm:px-10 mb-8 sm:mb-24 mx-2 sm:mx-24">
         <div className="pt-24 pb-4">
           <h2 className="text-2xl sm:text-5xl font-heading uppercase">

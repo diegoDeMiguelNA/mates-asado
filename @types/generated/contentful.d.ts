@@ -111,6 +111,12 @@ export interface IHomeIconFields {
 
   /** extraData */
   extraData?: string | undefined;
+
+  /** width (pixels) */
+  width?: number | undefined;
+
+  /** height (pixels) */
+  heightPixels?: number | undefined;
 }
 
 /** This is an Icon entry for the home page. It has the image, title, subtitle and extras that would be passed to the page to which it redirects. */
@@ -223,28 +229,6 @@ export interface IListWithOrWithoutSubtitle
   };
 }
 
-export interface IOnlyListFields {
-  /** List Body */
-  listBody: string[];
-}
-
-export interface IOnlyList extends Entry<IOnlyListFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: "onlyList";
-        linkType: "ContentType";
-        type: "Link";
-      };
-    };
-  };
-}
-
 export interface IOnlyParagraphFields {
   /** body */
   body?: Document | undefined;
@@ -343,6 +327,32 @@ export interface IProductoLatinoReusable
   };
 }
 
+export interface ITitleWithOrWithoutSubtitleFields {
+  /** Title Name */
+  titleName: string;
+
+  /** subtitle */
+  subtitle?: string | undefined;
+}
+
+export interface ITitleWithOrWithoutSubtitle
+  extends Entry<ITitleWithOrWithoutSubtitleFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "titleWithOrWithoutSubtitle";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export type CONTENT_TYPE =
   | "blogSubtitleAndParagraph"
   | "blogSubtitleParagraphAndImage"
@@ -351,10 +361,10 @@ export type CONTENT_TYPE =
   | "homeIconResuable"
   | "linkWithReference"
   | "listWithOrWithoutSubtitle"
-  | "onlyList"
   | "onlyParagraph"
   | "productoLatino"
-  | "productoLatinoReusable";
+  | "productoLatinoReusable"
+  | "titleWithOrWithoutSubtitle";
 
 export type IEntry =
   | IBlogSubtitleAndParagraph
@@ -364,10 +374,10 @@ export type IEntry =
   | IHomeIconResuable
   | ILinkWithReference
   | IListWithOrWithoutSubtitle
-  | IOnlyList
   | IOnlyParagraph
   | IProductoLatino
-  | IProductoLatinoReusable;
+  | IProductoLatinoReusable
+  | ITitleWithOrWithoutSubtitle;
 
 export type LOCALE_CODE = "en-US";
 
