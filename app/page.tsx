@@ -1,7 +1,6 @@
 import { Button } from "./components/button/button";
 import Footer from "./components/footer/footer";
 import Header from "./components/header/header";
-import ImageWrapper from "./components/imageWrapper/imageWrapper";
 import HomeProps from "./components/home-icon/home-props";
 import Image from "next/image";
 
