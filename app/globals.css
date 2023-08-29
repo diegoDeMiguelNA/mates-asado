@@ -70,6 +70,24 @@
   }
 }
 
+@media (orientation: portrait) {
+  .warningText {
+    display: block !important;
+  }
+  .table-fixed {
+    display: none !important;
+  }
+}
+
+@media (orientation: landscape) {
+  .table-fixed {
+    display: block !important;
+  }
+  .warningText {
+    display: none !important;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;

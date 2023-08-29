@@ -23,10 +23,10 @@ module.exports = {
       width: {
         "90px": "90px",
         "120px": "120px",
-        "250px": "250px",  
-        "300px": "300px",  
-        "350px": "350px",  
-        "500px": "500px",  
+        "250px": "250px",
+        "300px": "300px",
+        "350px": "350px",
+        "500px": "500px",
       },
       height: {
         "19px": "19px",
@@ -118,6 +118,8 @@ module.exports = {
       },
       screens: {
         md: { raw: "(min-width: 768px)" },
+        landscape: { raw: "(orientation: landscape)" },
+        portrait: { raw: "(orientation: portrait)" },
       },
       utilities: {
         ".iconWrapper > :nth-child(7)": {
@@ -126,5 +128,32 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".landscape\\:block": {
+          "@media (orientation: landscape)": {
+            display: "block",
+          },
+        },
+        ".landscape\\:hidden": {
+          "@media (orientation: landscape)": {
+            display: "none",
+          },
+        },
+        ".portrait\\:block": {
+          "@media (orientation: portrait)": {
+            display: "block",
+          },
+        },
+        ".portrait\\:hidden": {
+          "@media (orientation: portrait)": {
+            display: "none",
+          },
+        },
+      };
+      addUtilities(newUtilities, ["responsive", "hover"]);
+    },
+  ],
 };
