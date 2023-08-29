@@ -12,7 +12,7 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: "Mates&amp;Asado🧉",
+  title: "Mates y Asado🧉",
   description:
     "Sitio web de ayuda para la comunidad hispano-hablante de Hamburgo",
     icons: {
