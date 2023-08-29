@@ -51,7 +51,7 @@ const Hyperlink = (props: { fields: any }) => {
   const reference = props.fields.reference ? `(${props.fields.reference})` : "";
 
   return (
-    <div className="my-4">
+    <div className="mt-4 mb-4">
       <a
         href={url}
         target="_blank"
@@ -75,7 +75,7 @@ const Hyperlink = (props: { fields: any }) => {
 
 const BlogSubtitleAndParagraph = (props: { fields: any }) => {
   return (
-    <div className={clsx(props.fields.subtitle && "mt-10")}>
+    <div className={clsx(props.fields.subtitle && "pt-12 mt-4")}>
       {props.fields.subtitle && (
         <h2 className="mt-10 mb-16 text-l sm:text-3xl font-heading uppercase sm:mt-16 lg:mt-12">
           {props.fields.subtitle}
@@ -108,14 +108,17 @@ const BlogOnlyParagraph = (props: { fields: any }) => {
       {contentItems.map((item: any, index: number) => {
         if (item.nodeType === "paragraph") {
           return (
-            <div key={index} className="flex flex-col items-center justify-center">
+            <div
+              key={index}
+              className="flex flex-col items-center justify-center"
+            >
               {item.content.map((contentItem: any, contentIndex: number) => {
                 if (contentItem.nodeType === "text") {
                   return contentItem.value;
                 } else if (contentItem.nodeType === "hyperlink") {
-                  return (      
-                     <div className="mt-10 mb-10" key={index}>
-                       <a
+                  return (
+                    <div className="mt-10 mb-10" key={index}>
+                      <a
                         key={contentIndex}
                         href={contentItem.data.uri}
                         target="_blank"
@@ -136,7 +139,7 @@ const BlogOnlyParagraph = (props: { fields: any }) => {
                           {contentItem?.content[0]?.value}
                         </span>
                       </a>
-                     </div>              
+                    </div>
                   );
                 }
                 return null;
@@ -188,7 +191,7 @@ const BlogOnlyParagraph = (props: { fields: any }) => {
 
 const ListWithOrWithoutSubtitle = (props: { fields: any }) => {
   return (
-    <div className="flex flex-col justify-center px-4 min-h-screen max-w-[550px] mt-12">
+    <div className="flex flex-col justify-center px-4 min-h-screen max-w-[550px] mt-8 mb-12">
       {props.fields.subtitle && (
         <h2 className="mt-10 sm:text-3xl font-heading uppercase mb-4">
           {props.fields.subtitle}
@@ -224,13 +227,13 @@ const ListWithOrWithoutSubtitle = (props: { fields: any }) => {
                             key={textIndex}
                           >
                             {props.fields.isOrderedList && (
-                              <span className="absolute left-0">
+                              <span style={{ marginRight: '5px' }} className="flex-shrink-0 mr-2">
                                 {itemIndex + 1}.
                               </span>
                             )}
                             <span
                               className={
-                                props.fields.isOrderedList ? "ml-8" : ""
+                                props.fields.isOrderedList ? "flex-grow" : ""
                               }
                             >
                               {text.value}

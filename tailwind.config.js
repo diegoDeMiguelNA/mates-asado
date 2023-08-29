@@ -32,6 +32,7 @@ module.exports = {
       },
       padding: {
         "2px": "2px",
+        "25px": "25px",
       },
       backgroundColor: {
         "regular-grey": "#F4F4F4",
@@ -47,6 +48,9 @@ module.exports = {
         "regular-teal": "#00808D",
         "plain-white": "#FFFFFF",
         "regular-blue": "#013753",
+      },
+      margin: {
+        "25px": "25px",
       },
       backgroundImage: (theme) => ({
         "flag-gradient":

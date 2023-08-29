@@ -1,11 +1,11 @@
 import { IFuehrerscheinReusableFields } from "@/@types/generated/contentful";
-import { getFuehrerschein } from "@/lib/contentful/fetchDataFromContentful";
+import {  getReusablePage } from "@/lib/contentful/fetchDataFromContentful";
 import { RenderContent } from "@/utils/renderText";
 import { Entry } from "contentful";
 import React from "react";
 
 const Fuehrerschein: React.FC = async () => {
-  const results: Entry<IFuehrerscheinReusableFields> = await getFuehrerschein(
+  const results: Entry<IFuehrerscheinReusableFields> = await getReusablePage(
     "4z4TZ5l87ag6Lv5xKeLIi"
   );
 

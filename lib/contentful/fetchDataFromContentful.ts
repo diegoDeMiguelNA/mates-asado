@@ -28,24 +28,9 @@ export async function getHomeIcons(entryId: string) {
   return entry;
 }
 
-// Fuererschein
-export async function getFuehrerschein(entryId: string) {
-  const entry = await contentfulClient.getEntry<IFuehrerscheinReusableFields>(
-    entryId
-  );
-  return entry;
-}
 
-// Anmeldung
-export async function getAnmeldung(entryId: string) {
-  const entry = await contentfulClient.getEntry<IFuehrerscheinReusableFields>(
-    entryId
-  );
-  return entry;
-}
-
-// Wohnnungssuche
-export async function getWohnungssuche(entryId: string) {
+// Fetch Data for generic Page (Ex IFuehrerschein)
+export async function getReusablePage(entryId: string) {
   const entry = await contentfulClient.getEntry<IFuehrerscheinReusableFields>(
     entryId
   );

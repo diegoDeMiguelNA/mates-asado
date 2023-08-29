@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
 import { Entry } from "contentful";
 import { IFuehrerscheinReusableFields } from "@/@types/generated/contentful";
-import { getWohnungssuche } from "@/lib/contentful/fetchDataFromContentful";
+import { getReusablePage } from "@/lib/contentful/fetchDataFromContentful";
 import { RenderContent } from "@/utils/renderText";
 
 const Wohnungssuche: React.FC = async () => {
-  const results: Entry<IFuehrerscheinReusableFields> = await getWohnungssuche(
+  const results: Entry<IFuehrerscheinReusableFields> = await getReusablePage(
     "2lAekDy2OasiUxrA9ZPER"
   );
 
@@ -14,7 +13,7 @@ const Wohnungssuche: React.FC = async () => {
   console.log("results", results);
 
   pageBody?.map((entry, index) => {
-    if (entry.sys.contentType.sys.id === "onlyParagraph") {
+    if (entry.sys.contentType.sys.id === "listWithOrWithoutSubtitle") {
       console.log("entry", entry);
     }
   });

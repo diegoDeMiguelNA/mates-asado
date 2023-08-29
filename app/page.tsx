@@ -7,12 +7,12 @@ import Image from "next/image";
 export default async function Home() {
   return (
     <>
-      <main className="text-center">
+      <main className="text-center flex flex-col items-center">
         <Header />
 
         <HomeProps />
 
-        <div className="experiencias-de-vida mb-16">
+        <div className="experiencias-de-vida mb-16 w-full flex">
           <section className="relative h-[200px] md:h-[300px] lg:hidden">
             <Image
               src="/images/rathaus-full.webp"
@@ -22,22 +22,23 @@ export default async function Home() {
             />
           </section>
 
-          <div className="lg:grid lg:grid-cols-2 md:flex md:justify-center md:h-[350px] lg:h-[720px] bg-regular-grey px-16 py-10 items-center lg:px-12">
-            <section className="relative hidden lg:block lg:h-[600px] lg:w-[500px]">
+          <div className="lg:grid lg:grid-cols-2 md:flex md:justify-center md:h-[350px] lg:h-[720px] bg-regular-grey px-16 py-10 items-center lg:px-12 w-full flex">
+            <section className="relative hidden lg:block lg:h-[600px] lg:w-[500px] justify-self-center">
               <Image
                 src="/images/rathaus-full.webp"
                 alt="Rathaus"
                 fill
+                className="md:max-w-[440px] md:max-h-[600px]"
                 style={{objectFit:"cover", objectPosition:"bottom"}}
               />
             </section>
 
-            <div className="flex flex-col items-center lg:items-center justify-center space-y-4">
+            <div className="flex flex-col items-center lg:items-center justify-center space-y-4 justify-self-center">
               <h3 className="text-s md:text-xl text-regular-red font-bold">
                 Experiencias de vida
               </h3>
               <p
-                className="text-s md:text-sm md:px-6 md:py-6 font-light max-w-[650px]"
+                className="text-s md:text-sm font-light max-w-[550px] lg:max-w-[600px]"
                 style={{ lineHeight: "1.5rem" }}
               >
                 Conocé relatos inspiradores de compatriotas en Hamburgo: desde

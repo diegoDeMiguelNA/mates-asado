@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import MobileMenu from "@/app/components/ResponsiveNavMenu/mobileMenu";
 import { Entry } from "contentful";
 import { IFuehrerscheinReusableFields } from "@/@types/generated/contentful";
-import { getAnmeldung } from "@/lib/contentful/fetchDataFromContentful";
+import { getReusablePage } from "@/lib/contentful/fetchDataFromContentful";
 import { RenderContent } from "@/utils/renderText";
 
 const Anmeldung: React.FC = async () => {
-  const results: Entry<IFuehrerscheinReusableFields> = await getAnmeldung(
+  const results: Entry<IFuehrerscheinReusableFields> = await getReusablePage(
     "7henc1KRwe8D0b4FkJEHpn"
   );
 
