@@ -2,9 +2,9 @@ import clsx from "clsx";
 
 export default function BlogSubtitleAndParagraph(props: { fields: any }) {
   return (
-    <div className={clsx(props.fields.subtitle && "pt-12 mt-4")}>
+    <div>
       {props.fields.subtitle && (
-        <h2 className="mt-10 mb-16 text-l sm:text-3xl font-heading uppercase sm:mt-16 lg:mt-12">
+        <h2 className="mb-16 text-l sm:text-3xl font-heading uppercase">
           {props.fields.subtitle}
         </h2>
       )}
@@ -14,7 +14,7 @@ export default function BlogSubtitleAndParagraph(props: { fields: any }) {
           (content: any, index: number) =>
             content.nodeType === "paragraph" &&
             content.content.map((text: any, textIndex: number) => (
-              <p className="px-6 text-left py-2" key={textIndex}>
+              <p className="px-6 text-left py-2" key={Math.random() * textIndex}>
                 {text.value}
               </p>
             ))

@@ -8,12 +8,12 @@ export default function BlogOnlyParagraph(props: { fields: any }) {
   }
 
   return (
-    <div className="mt-4 mb-4 px-6 text-left w-full flex flex-col items-center justify-center">
+    <div className="px-6 text-left w-full flex flex-col items-center justify-center">
       {contentItems.map((item: any, index: number) => {
         if (item.nodeType === "paragraph") {
           return (
             <div
-              key={index}
+              key={Math.random() * index}
               className="flex flex-col items-center justify-center"
             >
               {item.content.map((contentItem: any, contentIndex: number) => {
@@ -21,9 +21,8 @@ export default function BlogOnlyParagraph(props: { fields: any }) {
                   return contentItem.value;
                 } else if (contentItem.nodeType === "hyperlink") {
                   return (
-                    <div className="mt-10 mb-10" key={index}>
+                    <div className="mt-4 mb-4" key={index}>
                       <a
-                        key={contentIndex}
                         href={contentItem.data.uri}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -53,7 +52,7 @@ export default function BlogOnlyParagraph(props: { fields: any }) {
         } else if (item.nodeType === "unordered-list") {
           return (
             <ul
-              key={index}
+              key={Math.random() * index}
               className="list-disc list-outside pl-5 w-full flex flex-col flex-wrap items-center justify-center"
             >
               {item.content.map((listItem: any, listItemIndex: number) => (
@@ -71,7 +70,7 @@ export default function BlogOnlyParagraph(props: { fields: any }) {
         } else if (item.nodeType === "ordered-list") {
           return (
             <ol
-              key={index}
+              key={Math.random() * index}
               className="list-decimal list-outside pl-5 w-full flex flex-col flex-wrap items-center justify-center"
             >
               {item.content.map((listItem: any, listItemIndex: number) => (

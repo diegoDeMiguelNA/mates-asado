@@ -13,7 +13,7 @@ const Wohnungssuche: React.FC = async () => {
   // console.log("results", results);
 
   // pageBody?.map((entry, index) => {
-  //   if (entry.sys.contentType.sys.id === "listWithOrWithoutSubtitle") {
+  //   if (entry.sys.contentType.sys.id === "marginGenerator") {
   //     console.log("entry", entry);
   //   }
   // });
@@ -22,7 +22,7 @@ const Wohnungssuche: React.FC = async () => {
     <>
       <div className="mx-auto flex flex-col items-center">
         <main className="text-center mb-8 sm:mb-24 mx-2 sm:mx-4 flex flex-col justify-center items-center max-w-[800px]">
-          <div className="pt-24 pb-4 mb-10">
+          <div className="pt-24 pb-4">
             <h2 className="text-2xl sm:text-5xl font-heading uppercase">
               {title}
             </h2>

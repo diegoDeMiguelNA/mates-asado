@@ -3,7 +3,7 @@ export const TitleWithOrWithoutSubtitle = (props: { fields: any }) => {
   if (!titleWithOrWithoutSubtitle) return null;
 
   return (
-    <div className="mt-20 mb-10 pt-20">
+    <div>
       {props.fields.titleName && (
         <h2 className="mb-4 text-l sm:text-3xl font-heading uppercase">
           {titleWithOrWithoutSubtitle.titleName}

@@ -7,7 +7,12 @@ export const SubtitleAndImage = (props: { fields: any }) => {
   if (!imageUrl) return null;
 
   return (
-    <div className="mt-10 mb-10">
+    <div>
+      {props.fields.subtitle && (
+        <h2 className="sm:text-3xl font-heading uppercase mb-4">
+          {props.fields.subtitle}
+        </h2>
+      )}
       <Image
         src={secureImageUrl}
         alt={props.fields.assets[0]?.fields?.title || "Image"}
