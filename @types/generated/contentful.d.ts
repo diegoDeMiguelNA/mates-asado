@@ -317,43 +317,6 @@ export interface IProductoLatino extends Entry<IProductoLatinoFields> {
   };
 }
 
-export interface IProductoLatinoReusableFields {
-  /** Productos Latino Title */
-  productosLatinoTitle?: string | undefined;
-
-  /** Subtitle */
-  subtitle?: string | undefined;
-
-  /** Producto Latino List */
-  productoLatinoList: Entry<{ [fieldId: string]: unknown }>[];
-
-  /** Last Modified */
-  lastModified?: string | undefined;
-
-  /** author */
-  author?: Entry<{ [fieldId: string]: unknown }>[] | undefined;
-}
-
-/** This is a list of productos latinos for the page with that name */
-
-export interface IProductoLatinoReusable
-  extends Entry<IProductoLatinoReusableFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: "productoLatinoReusable";
-        linkType: "ContentType";
-        type: "Link";
-      };
-    };
-  };
-}
-
 export interface ITitleWithOrWithoutSubtitleFields {
   /** Title Name */
   titleName: string;
@@ -391,7 +354,6 @@ export type CONTENT_TYPE =
   | "marginGenerator"
   | "onlyParagraph"
   | "productoLatino"
-  | "productoLatinoReusable"
   | "titleWithOrWithoutSubtitle";
 
 export type IEntry =
@@ -405,7 +367,6 @@ export type IEntry =
   | IMarginGenerator
   | IOnlyParagraph
   | IProductoLatino
-  | IProductoLatinoReusable
   | ITitleWithOrWithoutSubtitle;
 
 export type LOCALE_CODE = "en-US";
