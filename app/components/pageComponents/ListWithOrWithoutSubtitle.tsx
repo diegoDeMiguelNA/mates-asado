@@ -2,7 +2,7 @@ import clsx from "clsx";
 
 export const ListWithOrWithoutSubtitle = (props: { fields: any }) => {
   return (
-    <div className="flex flex-col justify-center px-4 max-w-[550px]">
+    <div className="flex flex-col justify-center px-4 max-w-[550px] lg:max-w-[700px]">
       {props.fields.subtitle && (
         <h2 className="sm:text-3xl font-heading uppercase mb-4">
           {props.fields.subtitle}

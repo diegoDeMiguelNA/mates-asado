@@ -17,13 +17,13 @@ type EntryFields = {
 export const RenderContent = (props: {
   entries: Entry<{ [fieldId: string]: unknown }>[];
 }) => {
-  console.log(props.entries);
   return (
     <>
       {props.entries.map((entry, index) => {
         if (entry.sys.contentType.sys.id === "blogSubtitleAndParagraph") {
-          return <BlogSubtitleAndParagraph key={index} fields={entry.fields} />;
-        } else if (entry.sys.contentType.sys.id === "onlyParagraph") {
+          return <BlogSubtitleAndParagraph   key={Math.random() * index - index} fields={entry.fields} />;
+        }  
+        if (entry.sys.contentType.sys.id === "onlyParagraph") {
           return (
             <BlogOnlyParagraph
               key={Math.random() * index}

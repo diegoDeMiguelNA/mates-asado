@@ -13,15 +13,18 @@ export default function BlogOnlyParagraph(props: { fields: any }) {
         if (item.nodeType === "paragraph") {
           return (
             <div
-              key={Math.random() * index}
+              key={index + Math.random() * index}
               className="flex flex-col items-center justify-center"
             >
               {item.content.map((contentItem: any, contentIndex: number) => {
                 if (contentItem.nodeType === "text") {
                   return contentItem.value;
-                } else if (contentItem.nodeType === "hyperlink") {
+                } else if (contentItem.nodeType === "hyperlink") { 
                   return (
-                    <div className="mt-4 mb-4" key={index}>
+                    <div
+                      className="mt-4 mb-4"
+                      key={contentIndex - Math.random() * contentIndex}
+                    >
                       <a
                         href={contentItem.data.uri}
                         target="_blank"
@@ -52,13 +55,13 @@ export default function BlogOnlyParagraph(props: { fields: any }) {
         } else if (item.nodeType === "unordered-list") {
           return (
             <ul
-              key={Math.random() * index}
+            key={Math.random() * index}
               className="list-disc list-outside pl-5 w-full flex flex-col flex-wrap items-center justify-center"
             >
               {item.content.map((listItem: any, listItemIndex: number) => (
                 <li
                   className="w-[250px] sm:w-[350px] lg:w-[500px] my-4 relative pl-7 inline-block"
-                  key={listItemIndex}
+                  key={listItemIndex + Math.random() * listItemIndex}
                 >
                   <span className="left-5">
                     {listItem?.content[0]?.content[0]?.value}
@@ -70,13 +73,13 @@ export default function BlogOnlyParagraph(props: { fields: any }) {
         } else if (item.nodeType === "ordered-list") {
           return (
             <ol
-              key={Math.random() * index}
+            key={index + Math.random() * 5 * index}
               className="list-decimal list-outside pl-5 w-full flex flex-col flex-wrap items-center justify-center"
             >
               {item.content.map((listItem: any, listItemIndex: number) => (
                 <li
                   className="w-[250px] sm:w-[350px] lg:w-[500px] my-4 relative pl-7 inline-block"
-                  key={listItemIndex}
+                  key={index + Math.random() * 7 * index}
                 >
                   <span className="absolute left-5">
                     {listItem?.content[0]?.content[0]?.value}
