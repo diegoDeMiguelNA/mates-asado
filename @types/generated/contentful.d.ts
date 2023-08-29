@@ -232,6 +232,9 @@ export interface IListWithOrWithoutSubtitle
 export interface IMarginGeneratorFields {
   /** margin/padding */
   marginpadding?: number | undefined;
+
+  /** isHrTag */
+  isHrTag?: boolean | undefined;
 }
 
 /** a content separator for the pages with info */

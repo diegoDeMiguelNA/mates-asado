@@ -1,3 +1,5 @@
+import { IProductoLatinoFields } from "@/@types/generated/contentful";
+import ProductoLatinoComponent from "@/app/components/ProductoLatino/ProductoLatino";
 import BlogOnlyParagraph from "@/app/components/pageComponents/BlogOnlyParagraph";
 import BlogSubtitleAndParagraph from "@/app/components/pageComponents/BlogSubtitleAndParagraph";
 import Hyperlink from "@/app/components/pageComponents/Hyperlink";
@@ -9,11 +11,13 @@ import { Entry } from "contentful";
 
 type EntryFields = {
   marginpadding?: number;
+  isHrTag?: boolean;
 };
 
 export const RenderContent = (props: {
   entries: Entry<{ [fieldId: string]: unknown }>[];
 }) => {
+  console.log(props.entries);
   return (
     <>
       {props.entries.map((entry, index) => {
@@ -30,6 +34,14 @@ export const RenderContent = (props: {
         if (entry.sys.contentType.sys.id === "linkWithReference") {
           return (
             <Hyperlink key={Math.random() * index} fields={entry.fields} />
+          );
+        }
+        if (entry.sys.contentType.sys.id === "productoLatino") {
+          return (
+            <ProductoLatinoComponent
+              key={entry.sys.id}
+              data={entry.fields as unknown as IProductoLatinoFields}
+            />
           );
         }
         if (entry.sys.contentType.sys.id === "titleWithOrWithoutSubtitle") {
@@ -49,11 +61,12 @@ export const RenderContent = (props: {
           );
         }
         if (entry.sys.contentType.sys.id === "marginGenerator") {
-          const { marginpadding } = entry.fields as EntryFields;
+          const { marginpadding, isHrTag} = entry.fields as EntryFields;
           return (
             <MarginGenerator
               key={Math.random() * index}
               marginpadding={marginpadding}
+              isHrTag={isHrTag}
             />
           );
         }
