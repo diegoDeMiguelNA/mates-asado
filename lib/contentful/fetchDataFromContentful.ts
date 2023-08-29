@@ -2,7 +2,6 @@ import { createClient } from "contentful";
 import {
   IFuehrerscheinReusableFields,
   IHomeIconResuableFields,
-  IProductoLatinoReusableFields,
 } from "generated/contentful";
 
 const { CONTENTFUL_ACCESS_TOKEN, CONTENTFUL_SPACE } = process.env;
@@ -12,13 +11,6 @@ export const contentfulClient = createClient({
   space: CONTENTFUL_SPACE!,
 });
 
-// Productos Latinos
-export async function getProductosLatinos(entryId: string) {
-  const entry = await contentfulClient.getEntry<IProductoLatinoReusableFields>(
-    entryId
-  );
-  return entry;
-}
 
 // Home Page Icons
 export async function getHomeIcons(entryId: string) {
