@@ -229,6 +229,30 @@ export interface IListWithOrWithoutSubtitle
   };
 }
 
+export interface IMarginGeneratorFields {
+  /** margin/padding */
+  marginpadding?: number | undefined;
+}
+
+/** a content separator for the pages with info */
+
+export interface IMarginGenerator extends Entry<IMarginGeneratorFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "marginGenerator";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IOnlyParagraphFields {
   /** body */
   body?: Document | undefined;
@@ -361,6 +385,7 @@ export type CONTENT_TYPE =
   | "homeIconResuable"
   | "linkWithReference"
   | "listWithOrWithoutSubtitle"
+  | "marginGenerator"
   | "onlyParagraph"
   | "productoLatino"
   | "productoLatinoReusable"
@@ -374,6 +399,7 @@ export type IEntry =
   | IHomeIconResuable
   | ILinkWithReference
   | IListWithOrWithoutSubtitle
+  | IMarginGenerator
   | IOnlyParagraph
   | IProductoLatino
   | IProductoLatinoReusable

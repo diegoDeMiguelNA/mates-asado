@@ -10,13 +10,13 @@ const Wohnungssuche: React.FC = async () => {
 
   const { title, subtitle, pageBody } = results.fields;
 
-  console.log("results", results);
+  // console.log("results", results);
 
-  pageBody?.map((entry, index) => {
-    if (entry.sys.contentType.sys.id === "listWithOrWithoutSubtitle") {
-      console.log("entry", entry);
-    }
-  });
+  // pageBody?.map((entry, index) => {
+  //   if (entry.sys.contentType.sys.id === "listWithOrWithoutSubtitle") {
+  //     console.log("entry", entry);
+  //   }
+  // });
 
   return (
     <>
