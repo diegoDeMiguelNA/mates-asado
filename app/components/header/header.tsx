@@ -15,7 +15,7 @@ export default function Header() {
   return (
     <header
       className={clsx(
-        "relative",
+        "relative w-full",
         isHomePage
           ? "grid grid-rows-header h-[230px] md:h-[280px] lg:h-[500px] w-full"
           : "h-[100px] md:h-[150px] lg:h-[280px] flex flex-col justify-center items-center bg-gradient-to-h from-lightBlue to-white to-lightBlue"

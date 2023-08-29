@@ -1,17 +1,26 @@
-import React, { useState } from "react";
-
-import MobileMenu from "@/app/components/ResponsiveNavMenu/mobileMenu";
 import { Entry } from "contentful";
 import { IFuehrerscheinReusableFields } from "@/@types/generated/contentful";
 import { getReusablePage } from "@/lib/contentful/fetchDataFromContentful";
 import { RenderContent } from "@/utils/renderText";
 
-const Anmeldung: React.FC = async () => {
+interface PageReusableProps {
+  entryId: string;
+}
+
+const PageReusable: React.FC<PageReusableProps> = async ({ entryId }) => {
   const results: Entry<IFuehrerscheinReusableFields> = await getReusablePage(
-    "7henc1KRwe8D0b4FkJEHpn"
+    entryId
   );
 
   const { title, subtitle, pageBody } = results.fields;
+
+  // console.log("results", results);
+
+  // pageBody?.map((entry, index) => {
+  //   if (entry.sys.contentType.sys.id === "marginGenerator") {
+  //     console.log("entry", entry);
+  //   }
+  // });
 
   return (
     <>
@@ -21,12 +30,10 @@ const Anmeldung: React.FC = async () => {
             <h2 className="text-2xl sm:text-5xl font-heading uppercase">
               {title}
             </h2>
+            <h3 className="text-sm mx-8 font-heading uppercase pt-10 mb-4 sm:mx-24">
+              {subtitle}
+            </h3>
           </div>
-
-          <h3 className="text-sm mx-8 font-heading uppercase mb-4 sm:mx-24">
-            {subtitle}
-          </h3>
-
           {pageBody && <RenderContent entries={pageBody} />}
         </main>
       </div>
@@ -34,4 +41,4 @@ const Anmeldung: React.FC = async () => {
   );
 };
 
-export default Anmeldung;
+export default PageReusable;

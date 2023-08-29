@@ -2,12 +2,11 @@ import { IProductoLatinoFields } from "@/@types/generated/contentful";
 
 interface ProductoLatinoComponentProps {
   data: IProductoLatinoFields;
-  isLast?: boolean;
+
 }
 
 const ProductoLatinoComponent: React.FC<ProductoLatinoComponentProps> = ({
   data,
-  isLast,
 }) => {
   return (
     <>
@@ -29,7 +28,6 @@ const ProductoLatinoComponent: React.FC<ProductoLatinoComponentProps> = ({
         )}
         {data.openingHours && <p className="mb-20">{data.openingHours}</p>}
       </div>
-      {!isLast && <hr />}
     </>
   );
 };
