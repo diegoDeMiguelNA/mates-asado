@@ -13,34 +13,30 @@ export const contentfulClient = createClient({
   space: CONTENTFUL_SPACE!,
 });
 
+async function getEntityData<T>(entryId: string) {
+  return contentfulClient.getEntry<T>(entryId);
+}
+
 // Home Page Icons
-export async function getHomeIcons(entryId: string) {
-  const entry = await contentfulClient.getEntry<IHomeIconResuableFields>(
-    entryId
-  );
-  return entry;
+export async function getHomeIcons() {
+  return getEntityData<IHomeIconResuableFields>("13fZd2HWu0ZBxxNCC00tfT");
 }
 
 // Subtitle and Paragraph content type
 export async function getSubtitleAndParagraph(entryId: string) {
-  const entry =
-    await contentfulClient.getEntry<IBlogSubtitleAndParagraphFields>(entryId);
-  return entry;
+  return getEntityData<IBlogSubtitleAndParagraphFields>(entryId);
 }
 
 // Subtitle and Paragraph and Images content type
 export async function getSubtitleAndParagraphAndImage(entryId: string) {
-  const entry =
-    await contentfulClient.getEntry<IBlogSubtitleParagraphAndImageFields>(
+  return getEntityData<IBlogSubtitleParagraphAndImageFields>(
       entryId
     );
-  return entry;
 }
 
 // Fetch Data for generic Page (Ex IFuehrerschein)
 export async function getReusablePage(entryId: string) {
-  const entry = await contentfulClient.getEntry<IFuehrerscheinReusableFields>(
+  return getEntityData<IFuehrerscheinReusableFields>(
     entryId
   );
-  return entry;
 }

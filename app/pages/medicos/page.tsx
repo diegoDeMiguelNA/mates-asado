@@ -10,6 +10,7 @@ export default async function Medicos() {
   );
 
   const { title, subtitle, pageBody } = results.fields;
+  
 
   return (
     <>

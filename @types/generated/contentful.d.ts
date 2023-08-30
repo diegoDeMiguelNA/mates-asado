@@ -2,6 +2,7 @@
 
 import { Asset, Entry } from "contentful";
 import { Document } from "@contentful/rich-text-types";
+import { Prettify } from "@/utils/helpFunction";
 
 export interface IBlogSubtitleAndParagraphFields {
   /** Subtitle */
@@ -30,6 +31,8 @@ export interface IBlogSubtitleAndParagraph
     };
   };
 }
+
+const something: Prettify<IBlogSubtitleAndParagraph>;
 
 export interface IBlogSubtitleParagraphAndImageFields {
   /** Subtitle */

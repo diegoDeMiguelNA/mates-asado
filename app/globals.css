@@ -79,13 +79,13 @@
   .warningText {
     display: block !important;
   }
-  .table-fixed {
+  .medicos-table {
     display: none !important;
   }
 }
 
 @media (orientation: landscape) {
-  .table-fixed {
+  .medicos-table {
     display: block !important;
   }
   .warningText {

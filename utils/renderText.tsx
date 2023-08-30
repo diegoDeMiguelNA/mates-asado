@@ -21,8 +21,13 @@ export const RenderContent = (props: {
     <>
       {props.entries.map((entry, index) => {
         if (entry.sys.contentType.sys.id === "blogSubtitleAndParagraph") {
-          return <BlogSubtitleAndParagraph   key={Math.random() * index - index} fields={entry.fields} />;
-        }  
+          return (
+            <BlogSubtitleAndParagraph
+              key={entry.sys.id}
+              fields={entry.fields}
+            />
+          );
+        }
         if (entry.sys.contentType.sys.id === "onlyParagraph") {
           return (
             <BlogOnlyParagraph
@@ -32,9 +37,7 @@ export const RenderContent = (props: {
           );
         }
         if (entry.sys.contentType.sys.id === "linkWithReference") {
-          return (
-            <Hyperlink key={Math.random() * index} fields={entry.fields} />
-          );
+          return <Hyperlink key={entry.sys.id} fields={entry.fields} />;
         }
         if (entry.sys.contentType.sys.id === "productoLatino") {
           return (
@@ -47,7 +50,7 @@ export const RenderContent = (props: {
         if (entry.sys.contentType.sys.id === "titleWithOrWithoutSubtitle") {
           return (
             <TitleWithOrWithoutSubtitle
-              key={Math.random() * index}
+              key={entry.sys.id}
               fields={entry.fields}
             />
           );
@@ -55,28 +58,23 @@ export const RenderContent = (props: {
         if (entry.sys.contentType.sys.id === "listWithOrWithoutSubtitle") {
           return (
             <ListWithOrWithoutSubtitle
-              key={Math.random() * index}
+              key={entry.sys.id}
               fields={entry.fields}
             />
           );
         }
         if (entry.sys.contentType.sys.id === "marginGenerator") {
-          const { marginpadding, isHrTag} = entry.fields as EntryFields;
+          const { marginpadding, isHrTag } = entry.fields as EntryFields;
           return (
             <MarginGenerator
-              key={Math.random() * index}
+              key={entry.sys.id}
               marginpadding={marginpadding}
               isHrTag={isHrTag}
             />
           );
         }
         if (entry.sys.contentType.sys.id === "blogSubtitleParagraphAndImage") {
-          return (
-            <SubtitleAndImage
-              key={Math.random() * index}
-              fields={entry.fields}
-            />
-          );
+          return <SubtitleAndImage key={entry.sys.id} fields={entry.fields} />;
         } else {
           return null;
         }
