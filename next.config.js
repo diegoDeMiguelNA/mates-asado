@@ -8,9 +8,6 @@ const nextConfig = {
     NEXT_PUBLIC_ACCESS_TOKEN_TYPESCRIPT:
       process.env.NEXT_PUBLIC_ACCESS_TOKEN_TYPESCRIPT,
   },
-  generateMetadata: {
-    metadataBase: 'https://www.mates-asado.de',
-  },
   images: {
     domains: ["images.ctfassets.net"],
   },
