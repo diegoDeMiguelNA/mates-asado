@@ -1,5 +1,5 @@
 import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
-import HomeIcon from "./home-icon";
+import HomeIcon from "../home-icon/home-icon";
 import clsx from "clsx";
 import { IHomeIconResuableFields } from "@/@types/generated/contentful";
 import { Entry } from "contentful";
