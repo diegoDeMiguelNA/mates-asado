@@ -12,6 +12,17 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.mates-asado.de'),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/en-US',
+      'de-DE': '/de-DE',
+    },
+  },
+  openGraph: {
+    images: '/opengraph-image.png',
+  },
   title: "Mates y Asado🧉",
   description:
     "Sitio web de ayuda para la comunidad hispano-hablante de Hamburgo",
