@@ -1,5 +1,3 @@
-import React from "react";
-
 interface MedicosTableProps {
   data: any;
 }
@@ -7,15 +5,15 @@ interface MedicosTableProps {
 const MedicosTable: React.FC<MedicosTableProps> = ({ data }) => {
  
   return (
-    <table className="w-full table-fixed border-collapse text-sm md:text-base table">
+    <table className="w-full table-fixed border-collapse text-sm md:text-base table mt-16 pb-24">
       <thead>
         <tr className="bg-gray-200">
           <th className="py-2 text-center w-1/12">Especialidad</th>
-          <th className="py-2 text-center w-4/12">Nombre</th>
+          <th className="py-2 text-center w-3/12">Nombre</th>
           <th className="py-2 text-center w-2/12">Dirección</th>
           <th className="py-2 text-center w-2/12">Teléfono</th>
           <th className="py-2 text-center w-2/12">Mail o website</th>
-          <th className="py-2 text-center w-1/12">Idioma</th>
+          <th className="py-2 text-center w-2/12">Idioma</th>
         </tr>
       </thead>
       <tbody>
