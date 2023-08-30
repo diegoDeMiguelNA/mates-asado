@@ -1,8 +1,6 @@
-import { Button } from "./components/button/button";
 import Footer from "./components/footer/footer";
 import Header from "./components/header/header";
 import HomeProps from "./components/homePageComponents/home-props";
-import Image from "next/image";
 import ExperienciasDeVida from "./components/homePageComponents/ExperienciasDeVida";
 import AboutUs from "./components/homePageComponents/AboutUs";
 
