@@ -16,7 +16,7 @@ const PageReusable: React.FC<PageReusableProps> = async ({ entryId }) => {
 
   // console.log("results", results);
 
-  // pageBody?.map((entry, index) => {
+  // pageBody?.map((entry: { sys: { contentType: { sys: { id: string; }; }; }; }, index: any) => {
   //   if (entry.sys.contentType.sys.id === "marginGenerator") {
   //     console.log("entry", entry);
   //   }
