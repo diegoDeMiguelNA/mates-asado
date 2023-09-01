@@ -1,65 +1,22 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import clsx from "clsx";
-import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
-import { Entry, SpaceLink } from "contentful";
-import { IHomeIconResuableFields } from "@/@types/generated/contentful";
+import { Icon } from "../header/header";
 
 interface MobileMenuProps {
   className?: string;
+  icons: Icon[];
 }
 
-interface Sys {
-  space: { sys: SpaceLink };
-  id: string;
-  type: string;
-  createdAt: string;
-  updatedAt: string;
-  environment: { sys: { id: string; type: "Link"; linkType: "Environment" } };
-  revision: number;
-  contentType: { sys: { type: "Link"; linkType: "ContentType"; id: string } };
-  locale: "en-US";
-}
-
-interface Fields {
-  title: string;
-  subtitle: string;
-  svgFileName: string;
-  extraData: string;
-  width: number;
-  heightPixels: number;
-}
-
-interface Icon {
-  metadata: { tags: any[] };
-  sys: Sys;
-  fields: Fields;
-}
-
-const MobileMenu: React.FC<MobileMenuProps> = ({ className }) => {
+const MobileMenu: React.FC<MobileMenuProps> = ({ className, icons }) => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
-  const [icons, setIcons] = useState<Icon[]>([]);
 
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
   };
 
-  useEffect(() => {
-    const fetchIcons = async () => {
-      try {
-        const response: Entry<IHomeIconResuableFields> = await getHomeIcons(
-          "13fZd2HWu0ZBxxNCC00tfT"
-        );
-        const homeIconComponent = response.fields
-          .homeIconComponent as unknown as Icon[];
-        setIcons(homeIconComponent);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  console.log(icons);
 
-    fetchIcons();
-  }, []);
 
   return (
     <nav
@@ -95,7 +52,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ className }) => {
         className={clsx(
           "sm:flex",
           "sm:justify-center",
-          "sm:space-x-8 flex flex-col items-start mt-2 w-[200px] px-4 py-4",
+          "sm:space-x-8 flex flex-col items-start mt-2 w-[300px] px-4 mb-4 pt-2 pb-4",
           {
             hidden: !menuOpen,
           }
@@ -104,11 +61,19 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ className }) => {
         aria-label="Mobile Menu"
         data-testid="mobile-menu"
       >
+         <li className="mt-4">
+            <a
+              href="/"
+              className="font-white font-bold underline"
+              role="menuitem"
+            >
+              Inicio            </a>
+          </li>
         {icons?.map((item, index) => (
           <li key={index} className="mt-4">
             <a
               href={item.fields.extraData}
-              className="font-white"
+              className="font-white font-bold underline"
               role="menuitem"
             >
               {item.fields.title}
