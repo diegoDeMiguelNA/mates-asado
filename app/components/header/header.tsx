@@ -23,18 +23,14 @@ export default function Header() {
   return (
     <header
       className={clsx(
-        "relative w-full grid items-center",
+        "relative w-full",
         isHomePage
-          ? "grid-rows-home h-[230px] md:h-[280px] lg:h-[500px]"
-          : "grid-rows-nonHome h-[100px] md:h-[150px] lg:h-[280px] bg-gradient-to-h from-lightBlue to-white to-lightBlue"
+          ? "grid grid-rows-header h-[230px] md:h-[280px] lg:h-[500px] w-full"
+          : "grid items-center grid-rows-nonHome h-[100px] md:h-[150px] lg:h-[280px] bg-gradient-to-h from-lightBlue to-white to-lightBlue"
       )}
       style={isHomePage ? {} : gradientStyle}
     >
-      <div className="absolute top-0 left-0 p-4 z-20">
-        <MobileMenu className="block sm:hidden" menuItems={menuItems} />
-      </div>
-
-      {isHomePage && (
+      {isHomePage ? (
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/port.webp"
@@ -45,9 +41,22 @@ export default function Header() {
             priority={true}
           />
         </div>
+      ) : (
+        <div className="absolute top-0 left-0 p-4 z-20">
+          <MobileMenu
+            className="block sm:hidden"
+            menuItems={menuItems}
+            isHomePage={isHomePage}
+          />
+        </div>
       )}
 
-      <div className="z-10 flex flex-col items-center justify-center grid-row-1 self-end mt-6">
+      <div
+        className={clsx(
+          "z-10 flex flex-col items-center justify-center",
+          !isHomePage && "grid-row-1 self-end mt-6"
+        )}
+      >
         <Link href="/">
           <h1
             className={clsx(
@@ -60,12 +69,17 @@ export default function Header() {
             Mates & Asado
           </h1>
         </Link>
-        <h3 className="text-xs md:text-sm text-center mb-2">
+        <h3 className={clsx("text-xs md:text-sm text-center mb-2", isHomePage && "text-white")}>
           By M&A&apos;s Team
         </h3>
       </div>
 
-      <div className="bg-customRed flex items-center justify-center h-[20px] md:h-[22px] lg:h-[38px] grid-row-2">
+      <div
+        className={clsx(
+          "bg-customRed flex items-center justify-center h-[20px] md:h-[22px] lg:h-[38px] z-20",
+          !isHomePage && " grid-row-2"
+        )}
+      >
         <h2 className="text-xxs md:text-sm lg:text-xl leading-tight text-white">
           Comunidad de ayuda para emigrados en Hamburgo
         </h2>
