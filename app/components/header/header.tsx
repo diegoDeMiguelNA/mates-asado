@@ -10,20 +10,13 @@ const gradientStyle = {
     "linear-gradient(to right, #74ACDF 33.3%, #fff 33.3%, #fff 66.6%, #74ACDF 66.6%)",
 };
 
-const menuItems = [
-  { content: "Home", href: "/" },
-  { content: "Fuehrerschein", href: "/pages/fuehrerschein" },
-  { content: "Wohnungssuche", href: "/pages/wohnungssuche" },
-  { content: "Productos Latinos", href: "/pages/productoslatinos" },
-];
-
 export default function Header() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   return (
     <header
       className={clsx(
-        "relative w-full",
+        "relative w-full font-body",
         isHomePage
           ? "grid grid-rows-header h-[230px] md:h-[280px] lg:h-[500px] w-full"
           : "grid items-center grid-rows-nonHome h-[100px] md:h-[150px] lg:h-[280px] bg-gradient-to-h from-lightBlue to-white to-lightBlue"
@@ -43,11 +36,7 @@ export default function Header() {
         </div>
       ) : (
         <div className="absolute top-0 left-0 p-4 z-20">
-          <MobileMenu
-            className="block sm:hidden"
-            menuItems={menuItems}
-            isHomePage={isHomePage}
-          />
+          <MobileMenu className="block sm:hidden" />
         </div>
       )}
 
@@ -69,18 +58,23 @@ export default function Header() {
             Mates & Asado
           </h1>
         </Link>
-        <h3 className={clsx("text-xs md:text-sm text-center mb-2", isHomePage && "text-white")}>
+        <h3
+          className={clsx(
+            "text-xs md:text-sm text-center mb-2",
+            isHomePage && "text-white"
+          )}
+        >
           By M&A&apos;s Team
         </h3>
       </div>
 
       <div
         className={clsx(
-          "bg-customRed flex items-center justify-center h-[20px] md:h-[22px] lg:h-[38px] z-20",
+          "bg-customRed flex items-center justify-center h-[20px] md:h-[22px] lg:h-[38px] z-15",
           !isHomePage && " grid-row-2"
         )}
       >
-        <h2 className="text-xxs md:text-sm lg:text-xl leading-tight text-white">
+        <h2 className="text-xxs md:text-sm lg:text-xl leading-tight text-white font-body">
           Comunidad de ayuda para emigrados en Hamburgo
         </h2>
       </div>

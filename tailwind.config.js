@@ -11,6 +11,8 @@ module.exports = {
     fontFamily: {
       heading: ["var(--font-lemon-milk)"],
       body: ["var(--font-montserrat)"],
+      h2: ["var(--font-montserrat)"],
+      h3: ["var(--font-montserrat)"],
     },
     container: {
       center: true,

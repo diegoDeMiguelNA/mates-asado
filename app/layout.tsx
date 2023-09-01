@@ -10,7 +10,7 @@ const montserrat = Montserrat({
   subsets: ['latin'],
   display: 'swap',
   variable: "--font-montserrat",
-});
+}); 
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.mates-asado.de'),
