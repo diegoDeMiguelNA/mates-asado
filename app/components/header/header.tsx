@@ -47,25 +47,25 @@ export default function Header() {
         </div>
       )}
 
-      <div className="z-10 flex flex-col items-center justify-center">
+      <div className="z-10 flex flex-col items-center justify-center grid-row-1 self-end mt-6">
         <Link href="/">
           <h1
             className={clsx(
-              "text-4xl text-bold font-heading font-light",
+              "text-4xl font-bold font-heading font-light mb-2",
               isHomePage
-                ? "text-white md:text-light md:text-5xl lg:text-8xl mb-7"
+                ? "text-white md:text-5xl lg:text-8xl"
                 : "text-black text-xl md:text-4xl lg:text-5xl"
             )}
           >
             Mates & Asado
           </h1>
         </Link>
-        <h3 className="text-xs md:text-sm text-center mb-2.5">
+        <h3 className="text-xs md:text-sm text-center mb-2">
           By M&A&apos;s Team
         </h3>
       </div>
 
-      <div className="bg-customRed flex items-center justify-center h-[20px] md:h-[22px] lg:h-[38px]">
+      <div className="bg-customRed flex items-center justify-center h-[20px] md:h-[22px] lg:h-[38px] grid-row-2">
         <h2 className="text-xxs md:text-sm lg:text-xl leading-tight text-white">
           Comunidad de ayuda para emigrados en Hamburgo
         </h2>
