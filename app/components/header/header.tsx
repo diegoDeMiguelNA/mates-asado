@@ -51,7 +51,7 @@ export default function Header() {
         <Link href="/">
           <h1
             className={clsx(
-              "text-4xl font-bold font-heading",
+              "text-4xl text-bold font-heading font-light",
               isHomePage
                 ? "text-white md:text-light md:text-5xl lg:text-8xl mb-7"
                 : "text-black text-xl md:text-4xl lg:text-5xl"
@@ -60,7 +60,7 @@ export default function Header() {
             Mates & Asado
           </h1>
         </Link>
-        <h3 className="text-xs md:text-sm text-center text-white mb-2.5">
+        <h3 className="text-xs md:text-sm text-center mb-2.5">
           By M&A&apos;s Team
         </h3>
       </div>
