@@ -129,7 +129,7 @@ export default function Header() {
       <div
         className={clsx(
           "bg-customRed flex items-center justify-center h-[20px] md:h-[22px] lg:h-[38px] z-25 self-end",
-          !isHomePage && " grid-row-2"
+          !isHomePage && "grid-row-2"
         )}
       >
         <h2 className="text-xxs md:text-sm lg:text-xl leading-tight text-white font-body">
