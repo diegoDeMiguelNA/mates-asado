@@ -71,9 +71,9 @@ export default function Header() {
   return (
     <header
       className={clsx(
-        "relative w-full font-body",
+        "relative w-full font-body h-full",
         isHomePage
-          ? "grid grid-rows-header h-[230px] md:h-[280px] lg:h-[500px] w-full"
+          ? "grid grid-rows-header w-full"
           : "grid items-center grid-rows-nonHome h-[100px] md:h-[150px] lg:h-[280px] bg-gradient-to-h from-lightBlue to-white to-lightBlue"
       )}
       style={isHomePage ? {} : gradientStyle}
@@ -90,11 +90,10 @@ export default function Header() {
           />
         </div>
       ) : (
-        <div className="absolute top-0 left-0 p-4 z-20">
+        <div className="mobile-menu absolute top-0 left-0 p-4 z-20 sm:relative">
           <MobileMenu
             className="block sm:hidden"
             icons={icons}
-            pathname={pathname}
           />
         </div>
       )}
@@ -129,7 +128,7 @@ export default function Header() {
 
       <div
         className={clsx(
-          "bg-customRed flex items-center justify-center h-[20px] md:h-[22px] lg:h-[38px] z-15",
+          "bg-customRed flex items-center justify-center h-[20px] md:h-[22px] lg:h-[38px] z-25 self-end",
           !isHomePage && " grid-row-2"
         )}
       >

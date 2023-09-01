@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import clsx from "clsx";
 import { Icon } from "../header/header";
 
@@ -15,13 +15,10 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ className, icons }) => {
     setMenuOpen(!menuOpen);
   };
 
-  console.log(icons);
-
-
   return (
     <nav
       className={clsx(
-        "text-center z-30",
+        "text-center z-100",
         className,
         menuOpen && "bg-blue-100 rounded font-body"
       )}
@@ -47,40 +44,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ className, icons }) => {
           </svg>
         </button>
       </div>
-
-      <ul
-        className={clsx(
-          "sm:flex",
-          "sm:justify-center",
-          "sm:space-x-8 flex flex-col items-start mt-2 w-[300px] px-4 mb-4 pt-2 pb-4",
-          {
-            hidden: !menuOpen,
-          }
-        )}
-        role="menu"
-        aria-label="Mobile Menu"
-        data-testid="mobile-menu"
-      >
-         <li className="mt-4">
-            <a
-              href="/"
-              className="font-white font-bold underline"
-              role="menuitem"
-            >
-              Inicio            </a>
-          </li>
-        {icons?.map((item, index) => (
-          <li key={index} className="mt-4">
-            <a
-              href={item.fields.extraData}
-              className="font-white font-bold underline"
-              role="menuitem"
-            >
-              {item.fields.title}
-            </a>
-          </li>
-        ))}
-      </ul>
     </nav>
   );
 };
