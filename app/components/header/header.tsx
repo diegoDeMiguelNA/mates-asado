@@ -50,9 +50,7 @@ export default function Header() {
   useEffect(() => {
     const fetchIcons = async () => {
       try {
-        const response: Entry<IHomeIconResuableFields> = await getHomeIcons(
-          "13fZd2HWu0ZBxxNCC00tfT"
-        );
+        const response: Entry<IHomeIconResuableFields> = await getHomeIcons();
         const homeIconComponent = response.fields
           .homeIconComponent as unknown as Icon[];
         const filteredIcons = homeIconComponent.filter(
@@ -91,10 +89,7 @@ export default function Header() {
         </div>
       ) : (
         <div className="mobile-menu absolute top-0 left-0 p-4 z-20 sm:relative">
-          <MobileMenu
-            className="block sm:hidden"
-            icons={icons}
-          />
+          <MobileMenu className="block sm:hidden" icons={icons} />
         </div>
       )}
 
