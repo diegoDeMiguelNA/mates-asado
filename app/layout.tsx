@@ -3,13 +3,14 @@ import { lemonMilk } from "./fonts/fonts";
 import { Metadata } from "next";
 import { Montserrat } from 'next/font/google'
 
+
 const montserrat = Montserrat({
   weight: ['300', '400', '500', '700', '800'],
   style: ['normal', 'italic'],
   subsets: ['latin'],
   display: 'swap',
   variable: "--font-montserrat",
-})
+}); 
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.mates-asado.de'),

@@ -1,8 +1,8 @@
 import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
 import HomeIcon from "../home-icon/home-icon";
 import clsx from "clsx";
-import { IHomeIconResuableFields } from "@/@types/generated/contentful";
 import { Entry } from "contentful";
+import { IHomeIconResuableFields } from "@/@types/generated/contentful";
 import React from "react";
 
 const renderHomeIcons = (icons: any[], parentIndex: number = 0) => {
@@ -60,10 +60,9 @@ const renderHomeIcons = (icons: any[], parentIndex: number = 0) => {
 const HomeProps: React.FC = async () => {
   const {
     fields: { homeIconComponent },
-  } = await getHomeIcons();
-
+  }: Entry<IHomeIconResuableFields> = await getHomeIcons();
   return (
-    <div className="iconWrapper my-14 md:py-10 grid gap-8 lg:gap-y-32 md:gap-30 grid-cols-1 md:grid-cols-3 grid-rows-3 px-4 md:px-16 lg:w-[900px]">
+    <div className="iconWrapper my-14 md:py-10 grid gap-8 lg:gap-y-32 md:gap-30 grid-cols-1 md:grid-cols-3 grid-rows-3 px-4 md:px-16 lg:w-[900px] lg:my-20 lg:pt-16 lg:pb-16">
       {renderHomeIcons(homeIconComponent)}
     </div>
   );

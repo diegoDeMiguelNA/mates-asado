@@ -6,11 +6,9 @@ import {
   IHomeIconResuableFields,
 } from "generated/contentful";
 
-const { CONTENTFUL_ACCESS_TOKEN, CONTENTFUL_SPACE } = process.env;
-
 export const contentfulClient = createClient({
-  accessToken: CONTENTFUL_ACCESS_TOKEN!,
-  space: CONTENTFUL_SPACE!,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!,
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE!,
 });
 
 async function getEntityData<T>(entryId: string) {
@@ -18,8 +16,10 @@ async function getEntityData<T>(entryId: string) {
 }
 
 // Home Page Icons
-export async function getHomeIcons() {
-  return getEntityData<IHomeIconResuableFields>("13fZd2HWu0ZBxxNCC00tfT");
+export async function getHomeIcons(entryId: string) {
+  const entry =
+    await contentfulClient.getEntry<IHomeIconResuableFields>(entryId);
+  return entry;
 }
 
 // Subtitle and Paragraph content type
@@ -36,7 +36,7 @@ export async function getSubtitleAndParagraphAndImage(entryId: string) {
 
 // Fetch Data for generic Page (Ex IFuehrerschein)
 export async function getReusablePage(entryId: string) {
-  return getEntityData<IFuehrerscheinReusableFields>(
-    entryId
-  );
+  const entry =
+    await contentfulClient.getEntry<IFuehrerscheinReusableFields>(entryId);
+  return entry;
 }

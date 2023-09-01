@@ -13,6 +13,7 @@ const PageReusable: React.FC<PageReusableProps> = async ({ entryId }) => {
   );
 
   const { title, subtitle, pageBody } = results.fields;
+  const { sys } = results;
 
   // console.log("results", results);
 
@@ -33,6 +34,9 @@ const PageReusable: React.FC<PageReusableProps> = async ({ entryId }) => {
             <h3 className="text-sm mx-8 font-heading uppercase pt-10 mb-4 sm:mx-24">
               {subtitle}
             </h3>
+            <h4 className="text-sm mx-8 pt-10 mb-4 sm:mx-24 underline">
+              Ultima actualización: {new Date(sys.updatedAt).toLocaleDateString("de-DE",)}
+            </h4>
           </div>
           {pageBody && <RenderContent entries={pageBody} />}
         </main>
