@@ -3,11 +3,19 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
+import MobileMenu from "../ResponsiveNavMenu/mobileMenu";
 
 const gradientStyle = {
   backgroundImage:
     "linear-gradient(to right, #74ACDF 33.3%, #fff 33.3%, #fff 66.6%, #74ACDF 66.6%)",
 };
+
+const menuItems = [
+  { content: "Home", href: "/" },
+  { content: "Fuehrerschein", href: "/pages/fuehrerschein" },
+  { content: "Wohnungssuche", href: "/pages/wohnungssuche" },
+  { content: "Productos Latinos", href: "/pages/productoslatinos" },
+];
 
 export default function Header() {
   const pathname = usePathname();
@@ -15,15 +23,19 @@ export default function Header() {
   return (
     <header
       className={clsx(
-        "relative w-full",
+        "relative w-full grid items-center",
         isHomePage
-          ? "grid grid-rows-header h-[230px] md:h-[280px] lg:h-[500px] w-full"
-          : "h-[100px] md:h-[150px] lg:h-[280px] flex flex-col justify-center items-center bg-gradient-to-h from-lightBlue to-white to-lightBlue"
+          ? "grid-rows-home h-[230px] md:h-[280px] lg:h-[500px]"
+          : "grid-rows-nonHome h-[100px] md:h-[150px] lg:h-[280px] bg-gradient-to-h from-lightBlue to-white to-lightBlue"
       )}
       style={isHomePage ? {} : gradientStyle}
     >
+      <div className="absolute top-0 left-0 p-4 z-20">
+        <MobileMenu className="block sm:hidden" menuItems={menuItems} />
+      </div>
+
       {isHomePage && (
-        <div className="absolute inset-0 h-[210px] md:h-[260px] lg:h-[480px] z-0">
+        <div className="absolute inset-0 z-0">
           <Image
             src="/images/port.webp"
             alt="Background Image"
@@ -34,11 +46,12 @@ export default function Header() {
           />
         </div>
       )}
-      <div className="flex flex-col justify-center items-center h-[190px] md:h-[240px] lg:h-[460px] relative z-10 order-2">
+
+      <div className="z-10 flex flex-col items-center justify-center">
         <Link href="/">
           <h1
             className={clsx(
-              "text-4xl text-bold font-heading font-light",
+              "text-4xl font-bold font-heading",
               isHomePage
                 ? "text-white md:text-light md:text-5xl lg:text-8xl mb-7"
                 : "text-black text-xl md:text-4xl lg:text-5xl"
@@ -47,12 +60,12 @@ export default function Header() {
             Mates & Asado
           </h1>
         </Link>
-        <h3 className="text-xs md:text-sm text-center mb-2.5 order-1 text-white">
+        <h3 className="text-xs md:text-sm text-center text-white mb-2.5">
           By M&A&apos;s Team
         </h3>
       </div>
 
-      <div className="absolute bottom-0 bg-customRed w-full flex items-center justify-center h-[20px] md:h-[22px] lg:h-[38px]">
+      <div className="bg-customRed flex items-center justify-center h-[20px] md:h-[22px] lg:h-[38px]">
         <h2 className="text-xxs md:text-sm lg:text-xl leading-tight text-white">
           Comunidad de ayuda para emigrados en Hamburgo
         </h2>

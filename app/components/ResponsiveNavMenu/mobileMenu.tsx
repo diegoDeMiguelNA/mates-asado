@@ -1,5 +1,5 @@
-'use client';
-import React, { useState, ReactNode } from "react";
+"use client";
+import React, { useState } from "react";
 import clsx from "clsx";
 
 interface MenuItem {
@@ -9,23 +9,25 @@ interface MenuItem {
 
 interface MobileMenuProps {
   menuItems: MenuItem[];
+  className?: string;
 }
 
-const MobileMenu: React.FC<MobileMenuProps> = ({ menuItems }) => {
+const MobileMenu: React.FC<MobileMenuProps> = ({ menuItems, className }) => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   const handleMenuToggle = () => {
+    console.log("menuOpen", menuOpen);
     setMenuOpen(!menuOpen);
   };
 
   return (
-    <nav className="text-center py-4 bg-gray-100">
+    <nav className={clsx("text-center", className)}>
       <div className="block sm:hidden">
         <button
           onClick={handleMenuToggle}
-          className="flex items-center px-3 py-2 border rounded text-blue-600 border-white hover:text-white hover:bg-black"
+          className="flex px-3 py-2 border rounded text-blue-600 border-white hover:text-white hover:bg-black"
           aria-label="Toggle Menu"
-          data-testid="mobile-menu-toggle" 
+          data-testid="mobile-menu-toggle"
         >
           <svg
             className="w-5 h-5 fill-current"
@@ -52,7 +54,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ menuItems }) => {
       >
         {menuItems.map((item, index) => (
           <li key={index}>
-            <a href={item.href} role="menuitem">{item.content}</a>
+            <a href={item.href} role="menuitem">
+              {item.content}
+            </a>
           </li>
         ))}
       </ul>
