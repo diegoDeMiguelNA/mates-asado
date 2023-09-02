@@ -1,14 +1,15 @@
 "use client";
 import { useState } from "react";
 import clsx from "clsx";
-import { Icon } from "../header/header";
+import { Entry } from "contentful";
 
 interface MobileMenuProps {
   className?: string;
-  icons: Icon[];
+  navigationElements: Entry<{ [fieldId: string]: unknown; }>[];
+
 }
 
-const MobileMenu: React.FC<MobileMenuProps> = ({ className, icons }) => {
+const MobileMenu: React.FC<MobileMenuProps> = ({ className, navigationElements }) => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   const handleMenuToggle = () => {

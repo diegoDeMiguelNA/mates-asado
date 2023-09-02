@@ -5,35 +5,10 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import MobileMenu from "../ResponsiveNavMenu/mobileMenu";
-import { Entry, SpaceLink } from "contentful";
-import { IHomeIconResuableFields } from "@/@types/generated/contentful";
-import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
+import { Entry } from "contentful";
 
-interface Sys {
-  space: { sys: SpaceLink };
-  id: string;
-  type: string;
-  createdAt: string;
-  updatedAt: string;
-  environment: { sys: { id: string; type: "Link"; linkType: "Environment" } };
-  revision: number;
-  contentType: { sys: { type: "Link"; linkType: "ContentType"; id: string } };
-  locale: "en-US";
-}
-
-interface Fields {
-  title: string;
-  subtitle: string;
-  svgFileName: string;
-  extraData: string;
-  width: number;
-  heightPixels: number;
-}
-
-export interface Icon {
-  metadata: { tags: any[] };
-  sys: Sys;
-  fields: Fields;
+interface MobileMenuProps {
+  navigationElements: Entry<{ [fieldId: string]: unknown; }>[];
 }
 
 const gradientStyle = {
@@ -41,32 +16,14 @@ const gradientStyle = {
     "linear-gradient(to right, #74ACDF 33.3%, #fff 33.3%, #fff 66.6%, #74ACDF 66.6%)",
 };
 
-export default function Header() {
-  const [icons, setIcons] = useState<Icon[]>([]);
+const Header: React.FC<MobileMenuProps> = ({ navigationElements }) => {
 
   const pathname = usePathname();
   const isHomePage = pathname === "/";
+  const filteredMobileMenuElements = navigationElements.filter(
+    (icon) => icon.fields.extraData !== pathname
+  );
 
-  useEffect(() => {
-    const fetchIcons = async () => {
-      try {
-        const response: Entry<IHomeIconResuableFields> = await getHomeIcons(
-          "13fZd2HWu0ZBxxNCC00tfT"
-        );
-        const homeIconComponent = response.fields
-          .homeIconComponent as unknown as Icon[];
-        const filteredIcons = homeIconComponent.filter(
-          (icon) => icon.fields.extraData !== pathname
-        );
-
-        setIcons(filteredIcons);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchIcons();
-  }, [pathname]);
 
   return (
     <header
@@ -93,7 +50,7 @@ export default function Header() {
         <div className="mobile-menu absolute top-0 left-0 p-4 z-20 sm:relative">
           <MobileMenu
             className="block sm:hidden"
-            icons={icons}
+            navigationElements={filteredMobileMenuElements}
           />
         </div>
       )}
@@ -139,3 +96,5 @@ export default function Header() {
     </header>
   );
 }
+
+export default Header;
