@@ -10,13 +10,12 @@ interface MobileMenuProps {
   navigationElements: any[];
 }
 
-const gradientStyle = {
+export const gradientStyleArgentina = {
   backgroundImage:
     "linear-gradient(to right, #74ACDF 33.3%, #fff 33.3%, #fff 66.6%, #74ACDF 66.6%)",
 };
 
 const Header: React.FC<MobileMenuProps> = ({ navigationElements }) => {
-
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   const filteredMobileMenuElements = navigationElements?.filter(
@@ -31,7 +30,7 @@ const Header: React.FC<MobileMenuProps> = ({ navigationElements }) => {
           ? "grid grid-rows-header w-full"
           : "grid items-center grid-rows-nonHome h-[100px] md:h-[150px] lg:h-[280px] bg-gradient-to-h from-lightBlue to-white to-lightBlue"
       )}
-      style={isHomePage ? {} : gradientStyle}
+      style={isHomePage ? {} : gradientStyleArgentina}
     >
       {isHomePage && (
         <div className="absolute inset-0 z-0">
@@ -45,20 +44,18 @@ const Header: React.FC<MobileMenuProps> = ({ navigationElements }) => {
           />
         </div>
       )}
-      
+
       {!isHomePage && (
-        <div className="mobile-menu absolute top-0 left-0 p-4 z-20 sm:relative">
-          <MobileMenu
-            className="block sm:hidden"
-            navigationElements={filteredMobileMenuElements}
-          />
-        </div>
+        <MobileMenu
+          className="block sm:hidden"
+          navigationElements={filteredMobileMenuElements}
+        />
       )}
 
       <div
         className={clsx(
           "z-10 flex flex-col items-center justify-center",
-          !isHomePage && "grid-row-1 self-end mt-6"
+          !isHomePage && "grid-row-1"
         )}
       >
         <Link href="/">
