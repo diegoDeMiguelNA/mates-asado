@@ -154,6 +154,9 @@ module.exports = {
             display: "none",
           },
         },
+        ".flex-inherit": {
+          "flex-direction": "inherit",
+        },
       };
       addUtilities(newUtilities, ["responsive", "hover"]);
     },

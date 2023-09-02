@@ -28,7 +28,7 @@ const Header: React.FC<MobileMenuProps> = ({ navigationElements }) => {
         "relative w-full font-body h-full",
         isHomePage
           ? "grid grid-rows-header w-full"
-          : "grid items-center grid-rows-nonHome h-[100px] md:h-[150px] lg:h-[280px] bg-gradient-to-h from-lightBlue to-white to-lightBlue"
+          : "grid grid-rows-nonHome h-full md:h-full lg:h-full min-h-[250px] lg:min-h-[320px]  bg-gradient-to-h from-lightBlue to-white to-lightBlue items-start"
       )}
       style={isHomePage ? {} : gradientStyleArgentina}
     >
@@ -47,7 +47,7 @@ const Header: React.FC<MobileMenuProps> = ({ navigationElements }) => {
 
       {!isHomePage && (
         <MobileMenu
-          className="block sm:hidden"
+          className="block"
           navigationElements={filteredMobileMenuElements}
         />
       )}
@@ -55,7 +55,7 @@ const Header: React.FC<MobileMenuProps> = ({ navigationElements }) => {
       <div
         className={clsx(
           "z-10 flex flex-col items-center justify-center",
-          !isHomePage && "grid-row-1 mb-8"
+          !isHomePage && "grid-row-1 mb-8 sm:m-0"
         )}
       >
         <Link href="/">
