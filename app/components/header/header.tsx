@@ -5,35 +5,9 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import MobileMenu from "../ResponsiveNavMenu/mobileMenu";
-import { Entry, SpaceLink } from "contentful";
-import { IHomeIconResuableFields } from "@/@types/generated/contentful";
-import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
 
-interface Sys {
-  space: { sys: SpaceLink };
-  id: string;
-  type: string;
-  createdAt: string;
-  updatedAt: string;
-  environment: { sys: { id: string; type: "Link"; linkType: "Environment" } };
-  revision: number;
-  contentType: { sys: { type: "Link"; linkType: "ContentType"; id: string } };
-  locale: "en-US";
-}
-
-interface Fields {
-  title: string;
-  subtitle: string;
-  svgFileName: string;
-  extraData: string;
-  width: number;
-  heightPixels: number;
-}
-
-export interface Icon {
-  metadata: { tags: any[] };
-  sys: Sys;
-  fields: Fields;
+interface MobileMenuProps {
+  navigationElements: any[];
 }
 
 const gradientStyle = {
@@ -41,30 +15,14 @@ const gradientStyle = {
     "linear-gradient(to right, #74ACDF 33.3%, #fff 33.3%, #fff 66.6%, #74ACDF 66.6%)",
 };
 
-export default function Header() {
-  const [icons, setIcons] = useState<Icon[]>([]);
+const Header: React.FC<MobileMenuProps> = ({ navigationElements }) => {
+  console.log(navigationElements);
 
   const pathname = usePathname();
   const isHomePage = pathname === "/";
-
-  useEffect(() => {
-    const fetchIcons = async () => {
-      try {
-        const response: Entry<IHomeIconResuableFields> = await getHomeIcons();
-        const homeIconComponent = response.fields
-          .homeIconComponent as unknown as Icon[];
-        const filteredIcons = homeIconComponent.filter(
-          (icon) => icon.fields.extraData !== pathname
-        );
-
-        setIcons(filteredIcons);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchIcons();
-  }, [pathname]);
+  const filteredMobileMenuElements = navigationElements?.filter(
+    (icon) => icon.fields.extraData !== pathname
+  );
 
   return (
     <header
@@ -76,7 +34,7 @@ export default function Header() {
       )}
       style={isHomePage ? {} : gradientStyle}
     >
-      {isHomePage ? (
+      {isHomePage && (
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/port.webp"
@@ -87,9 +45,14 @@ export default function Header() {
             priority={true}
           />
         </div>
-      ) : (
+      )}
+      
+      {!isHomePage && (
         <div className="mobile-menu absolute top-0 left-0 p-4 z-20 sm:relative">
-          <MobileMenu className="block sm:hidden" icons={icons} />
+          <MobileMenu
+            className="block sm:hidden"
+            navigationElements={filteredMobileMenuElements}
+          />
         </div>
       )}
 
@@ -133,4 +96,6 @@ export default function Header() {
       </div>
     </header>
   );
-}
+};
+
+export default Header;
