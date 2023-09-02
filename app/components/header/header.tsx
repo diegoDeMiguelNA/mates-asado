@@ -5,10 +5,9 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import MobileMenu from "../ResponsiveNavMenu/mobileMenu";
-import { Entry } from "contentful";
 
 interface MobileMenuProps {
-  navigationElements: Entry<{ [fieldId: string]: unknown; }>[];
+  navigationElements: any[];
 }
 
 const gradientStyle = {
@@ -17,13 +16,13 @@ const gradientStyle = {
 };
 
 const Header: React.FC<MobileMenuProps> = ({ navigationElements }) => {
+  console.log(navigationElements);
 
   const pathname = usePathname();
   const isHomePage = pathname === "/";
-  const filteredMobileMenuElements = navigationElements.filter(
+  const filteredMobileMenuElements = navigationElements?.filter(
     (icon) => icon.fields.extraData !== pathname
   );
-
 
   return (
     <header
@@ -35,7 +34,7 @@ const Header: React.FC<MobileMenuProps> = ({ navigationElements }) => {
       )}
       style={isHomePage ? {} : gradientStyle}
     >
-      {isHomePage ? (
+      {isHomePage && (
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/port.webp"
@@ -46,7 +45,9 @@ const Header: React.FC<MobileMenuProps> = ({ navigationElements }) => {
             priority={true}
           />
         </div>
-      ) : (
+      )}
+      
+      {!isHomePage && (
         <div className="mobile-menu absolute top-0 left-0 p-4 z-20 sm:relative">
           <MobileMenu
             className="block sm:hidden"
@@ -95,6 +96,6 @@ const Header: React.FC<MobileMenuProps> = ({ navigationElements }) => {
       </div>
     </header>
   );
-}
+};
 
 export default Header;

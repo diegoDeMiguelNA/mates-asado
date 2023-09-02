@@ -3,13 +3,19 @@ import { useState } from "react";
 import clsx from "clsx";
 import { Entry } from "contentful";
 
+
+
+
 interface MobileMenuProps {
   className?: string;
-  navigationElements: Entry<{ [fieldId: string]: unknown; }>[];
-
+  navigationElements: any[];
 }
 
-const MobileMenu: React.FC<MobileMenuProps> = ({ className, navigationElements }) => {
+
+const MobileMenu: React.FC<MobileMenuProps> = ({
+  className,
+  navigationElements,
+}) => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   const handleMenuToggle = () => {
@@ -19,7 +25,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ className, navigationElements }
   return (
     <nav
       className={clsx(
-        "text-center z-100",
+        "text-center z-30",
         className,
         menuOpen && "bg-blue-100 rounded font-body"
       )}
@@ -45,6 +51,41 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ className, navigationElements }
           </svg>
         </button>
       </div>
+
+      <ul
+        className={clsx(
+          "sm:flex",
+          "sm:justify-center",
+          "sm:space-x-8 flex flex-col items-start mt-2 w-[300px] px-4 mb-4 pt-2 pb-4",
+          {
+            hidden: !menuOpen,
+          }
+        )}
+        role="menu"
+        aria-label="Mobile Menu"
+        data-testid="mobile-menu"
+      >
+        <li className="mt-4">
+          <a
+            href="/"
+            className="font-white font-bold underline"
+            role="menuitem"
+          >
+            Inicio{" "}
+          </a>
+        </li>
+        {navigationElements?.map((item, index) => (
+          <li key={index} className="mt-4">
+            <a
+              href={item.fields.extraData}
+              className="font-white font-bold underline"
+              role="menuitem"
+            >
+              {item.fields.title}
+            </a>
+          </li>
+        ))}
+      </ul>
     </nav>
   );
 };

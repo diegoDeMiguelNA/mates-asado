@@ -7,8 +7,8 @@ import {
 } from "generated/contentful";
 
 export const contentfulClient = createClient({
-  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!,
-  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE!,
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!,
+  space: process.env.CONTENTFUL_SPACE!,
 });
 
 // Home Page Icons

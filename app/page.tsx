@@ -8,21 +8,24 @@ import { IHomeIconResuableFields } from "@/@types/generated/contentful";
 import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
 
 export default async function Home() {
-  const { fields: { homeIconComponent } } : Entry<IHomeIconResuableFields> = await getHomeIcons("13fZd2HWu0ZBxxNCC00tfT");
+  const {
+    fields: { homeIconComponent },
+  }: Entry<IHomeIconResuableFields> = await getHomeIcons(
+    "13fZd2HWu0ZBxxNCC00tfT"
+  );
 
   return (
     <>
       <main className="text-center flex flex-col items-center">
-        <Header navigationElements={homeIconComponent}/>
+        <Header navigationElements={homeIconComponent} />
 
         <HomeProps />
 
         <ExperienciasDeVida />
 
         <AboutUs />
-       
-        <Footer />
 
+        <Footer />
       </main>
     </>
   );

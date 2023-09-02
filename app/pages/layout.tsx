@@ -4,6 +4,9 @@ import { lemonMilk } from "../fonts/fonts";
 import { Metadata } from "next";
 import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
+import { Entry } from "contentful";
+import { IHomeIconResuableFields } from "@/@types/generated/contentful";
+import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
 
 export const metadata: Metadata = {
   title: "Mates&Asado 🧉",
@@ -15,14 +18,20 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PagesLayout({
+export default async function PagesLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const {
+    fields: { homeIconComponent },
+  }: Entry<IHomeIconResuableFields> = await getHomeIcons(
+    "13fZd2HWu0ZBxxNCC00tfT"
+  );
+
   return (
     <>
-      <Header />
+      <Header navigationElements={homeIconComponent} />
       <main>
         {children}
       </main>
