@@ -157,6 +157,9 @@ module.exports = {
         ".flex-inherit": {
           "flex-direction": "inherit",
         },
+        ".nav-list-element": { 
+          "margin-left": "0px !important",
+        },
       };
       addUtilities(newUtilities, ["responsive", "hover"]);
     },

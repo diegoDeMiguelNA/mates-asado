@@ -20,18 +20,18 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   };
 
   return (
-    <div>
+    <div className="row-start-1">
       <button
         onClick={handleMenuToggle}
-        className="block flex py-4 border rounded text-blue-600 border-white hover:text-white ml-4 mt-4 lg:hidden  "
+        className="block flex py-4 border rounded text-blue-600 border-white hover:text-white ml-2 mt-2  sm:ml-4 sm:mt-4 lg:hidden  "
         aria-label="Toggle Menu"
         data-testid="mobile-menu-toggle"
       >
         {menuOpen ? (
-          <span className="mx-6 text-white font-bold">X</span>
+          <span className="mx-5 text-s sm:mx-6 text-white font-bold">X</span>
         ) : (
           <svg
-            className="mx-4 w-5 h-5 fill-current"
+            className="mx-4 w-4 h-4 sm:mx-4 sm:w-5 sm:h-5 fill-current"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
@@ -56,7 +56,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
         {/* Mobile Menu */}
         <ul
           className={clsx(
-            "lg:hidden sm:space-x-8 flex flex-col items-center justify-start w-full h-full px-4 mb-8 pb-8",
+            "lg:hidden sm:space-x-8 flex flex-col items-center justify-start w-full h-full px-4 sm:mb-8 pb-8",
             {
               hidden: !menuOpen,
             }
@@ -65,7 +65,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
           aria-label="Mobile Menu"
           data-testid="mobile-menu"
         >
-          <li className="mt-4">
+          <li className="mt-4 nav-list-element">
             <a
               href="/"
               className="text-red-200 font-bold text-2xl"
@@ -75,7 +75,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
             </a>
           </li>
           {navigationElements?.map((item, index) => (
-            <li key={index} className="mt-4">
+            <li key={index} className="mt-4 nav-list-element">
               <a
                 href={item.fields.extraData}
                 className="text-red-200 font-bold text-2xl"
@@ -91,26 +91,26 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
 
         <ul
           className={clsx(
-            "hidden justify-center sm:space-x-8 lg:flex flex-col items-center justify-start w-full h-full px-4 mb-2 lg:flex-inherit",
+            "hidden justify-center sm:space-x-8 lg:flex flex-col items-center justify-start w-full h-full px-4 mb-2 lg:flex-inherit"
           )}
           role="menu"
           aria-label="Mobile Menu"
           data-testid="mobile-menu"
         >
-          <li className="mt-4">
+          <li className="mt-4 nav-list-element">
             <a
               href="/"
-              className="text-red-200 font-bold text-2xl"
+              className="text-red-200 font-bold text-l"
               role="menuitem"
             >
               Inicio{" "}
             </a>
           </li>
           {navigationElements?.map((item, index) => (
-            <li key={index} className="mt-4">
+            <li key={index} className="mt-4 nav-list-element px-2">
               <a
                 href={item.fields.extraData}
-                className="text-red-200 font-bold text-2xl"
+                className="text-red-200 font-bold text-l"
                 role="menuitem"
               >
                 {item.fields.title}
