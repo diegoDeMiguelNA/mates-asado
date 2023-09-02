@@ -1,5 +1,3 @@
-import Footer from "./components/footer/footer";
-import Header from "./components/header/header";
 import HomeProps from "./components/homePageComponents/home-props";
 import ExperienciasDeVida from "./components/homePageComponents/ExperienciasDeVida";
 import AboutUs from "./components/homePageComponents/AboutUs";
@@ -10,23 +8,15 @@ import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
 export default async function Home() {
   const {
     fields: { homeIconComponent },
-  }: Entry<IHomeIconResuableFields> = await getHomeIcons(
-    "13fZd2HWu0ZBxxNCC00tfT"
-  );
+  }: Entry<IHomeIconResuableFields> = await getHomeIcons();
 
   return (
-    <>
-      <main className="text-center flex flex-col items-center">
-        <Header navigationElements={homeIconComponent} />
+    <div className="homePage text-center flex flex-col items-center">
+      <HomeProps navigationElements={homeIconComponent} />
 
-        <HomeProps />
+      <ExperienciasDeVida />
 
-        <ExperienciasDeVida />
-
-        <AboutUs />
-
-        <Footer />
-      </main>
-    </>
+      <AboutUs />
+    </div>
   );
 }

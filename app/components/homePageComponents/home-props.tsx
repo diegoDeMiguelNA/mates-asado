@@ -57,13 +57,16 @@ const renderHomeIcons = (icons: any[], parentIndex: number = 0) => {
   );
 };
 
-const HomeProps: React.FC = async () => {
-  const {
-    fields: { homeIconComponent },
-  }: Entry<IHomeIconResuableFields> = await getHomeIcons();
+interface HomePropsInterface {
+  navigationElements: any[];
+}
+
+const HomeProps: React.FC<HomePropsInterface> = async ({
+  navigationElements,
+}) => {
   return (
     <div className="iconWrapper my-14 md:py-10 grid gap-8 lg:gap-y-32 md:gap-30 grid-cols-1 md:grid-cols-3 grid-rows-3 px-4 md:px-16 lg:w-[900px] lg:my-20 lg:pt-16 lg:pb-16">
-      {renderHomeIcons(homeIconComponent)}
+      {renderHomeIcons(navigationElements)}
     </div>
   );
 };
