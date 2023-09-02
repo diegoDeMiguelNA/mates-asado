@@ -25,16 +25,12 @@ export default async function PagesLayout({
 }) {
   const {
     fields: { homeIconComponent },
-  }: Entry<IHomeIconResuableFields> = await getHomeIcons(
-    "13fZd2HWu0ZBxxNCC00tfT"
-  );
+  }: Entry<IHomeIconResuableFields> = await getHomeIcons();
 
   return (
     <>
       <Header navigationElements={homeIconComponent} />
-      <main>
-        {children}
-      </main>
+      <main>{children}</main>
       <Footer />
     </>
   );

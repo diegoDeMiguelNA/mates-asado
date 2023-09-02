@@ -16,7 +16,6 @@ const gradientStyle = {
 };
 
 const Header: React.FC<MobileMenuProps> = ({ navigationElements }) => {
-  console.log(navigationElements);
 
   const pathname = usePathname();
   const isHomePage = pathname === "/";
