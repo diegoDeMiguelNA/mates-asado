@@ -55,7 +55,7 @@ const Header: React.FC<MobileMenuProps> = ({ navigationElements }) => {
       <div
         className={clsx(
           "z-10 flex flex-col items-center justify-center",
-          !isHomePage && "grid-row-1"
+          !isHomePage && "grid-row-1 mb-8"
         )}
       >
         <Link href="/">
@@ -82,7 +82,7 @@ const Header: React.FC<MobileMenuProps> = ({ navigationElements }) => {
 
       <div
         className={clsx(
-          "bg-customRed flex items-center justify-center h-[20px] md:h-[22px] lg:h-[38px] z-25 self-end",
+          "bg-customRed flex items-center justify-center h-[20px] md:h-[22px] lg:h-[38px] z-50 self-end",
           !isHomePage && "grid-row-2"
         )}
       >
