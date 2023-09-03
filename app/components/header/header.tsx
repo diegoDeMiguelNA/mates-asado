@@ -53,7 +53,7 @@ const Header: React.FC<MobileMenuProps> = ({ navigationElements }) => {
 
       <div
         className={clsx(
-          "z-10 flex flex-col items-center justify-center row-start-1 self-center",
+          "z-10 flex flex-col items-center justify-center row-start-1 self-center lg:mt-12",
           !isHomePage && "grid-row-1 sm:mb-8 lg:mb-2 row-start-2"
         )}
       >

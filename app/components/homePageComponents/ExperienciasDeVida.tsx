@@ -33,7 +33,7 @@ export default async function ExperienciasDeVida() {
 
   return (
     Object.keys(results).length !== 0 && (
-      <div className="experiencias-de-vida mb-16 w-full grid h-full min-h-[400px] md:mt-16 md:min-h-[400px] md:min-h-[600px] lg:pt-8 lg:pb-8 bg-regular-grey flex-col">
+      <div className="experiencias-de-vida mb-16 w-full grid h-full min-h-[420px] md:mt-16 md:min-h-[400px] lg:pt-8 lg:pb-8 bg-regular-grey flex-col">
         <section className="absolute w-full z-50 h-[100px] md:h-[120px] lg:hidden">
           <Image
             src={
@@ -65,7 +65,7 @@ export default async function ExperienciasDeVida() {
             />
           </section>
 
-          <div className="flex flex-col items-center lg:items-center justify-center space-y-4 justify-self-center">
+          <div className="flex flex-col items-center lg:items-center justify-center space-y-4 mb-4 md:mb-2">
             <h3 className="text-s md:text-xl text-regular-red font-bold">
               {subtitle}
             </h3>
