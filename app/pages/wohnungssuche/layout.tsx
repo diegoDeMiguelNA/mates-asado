@@ -1,9 +1,23 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Busqueda de Departamento 🧉",
+  openGraph: {
+    title: "Búsqueda de Departamento 🧉",
+    description:
+      "Tips para encontrar departamento o Wg + como prevenir estafas",
+    url: "https://www.mates-asado.de/pages/deutschlandticket",
+    siteName: "Mates&Asado",
+    images: [
+      {
+        width: 800,
+        height: 600,
+        url: "./opengraph-image.jpeg",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
-
 
 export default function WohnungssucheLayout({
   children,
