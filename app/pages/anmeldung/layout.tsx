@@ -11,6 +11,7 @@ export const metadata: Metadata = {
         width: 800,
         height: 600,
         url: "./opengraph-image.jpg",
+        alt: "Imagen de un Formulario de Anmeldung",
       },
     ],
     locale: "en_US",

@@ -11,6 +11,7 @@ export const metadata: Metadata = {
         width: 800,
         height: 600,
         url: "./opengraph-image.jpeg",
+        alt: "Medicos cruzados de brazo vestidos de blanco con sus estetoscopios",
       },
     ],
     locale: "en_US",

@@ -12,6 +12,7 @@ export const metadata: Metadata = {
         width: 800,
         height: 600,
         url: "./opengraph-image.jpeg",
+        alt: "Anverso de una licencia de conducir alemana",
       },
     ],
     locale: "en_US",

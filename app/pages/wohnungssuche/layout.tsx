@@ -12,6 +12,7 @@ export const metadata: Metadata = {
         width: 300,
         height: 300,
         url: "./opengraph-image.jpeg",
+        alt: "Imagen de un cartel de busqueda de departamento con un edificio de fondo",
       },
     ],
     locale: "en_US",

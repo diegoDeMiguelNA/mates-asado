@@ -11,6 +11,7 @@ export const metadata: Metadata = {
         width: 800,
         height: 600,
         url: "./opengraph-image.jpg",
+        alt: "Imagen de dulces y golosinas de Argentina",
       },
     ],
     locale: "en_US",
