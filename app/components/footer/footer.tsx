@@ -20,16 +20,13 @@ export default function Footer() {
         </Link>
         <ul className="list-none p-0 flex flex-col m-10 lg:flex-row items-center space-y-2 lg:space-y-0 lg:space-x-24 text-sm lg:text-sm lg:my-20">
           <li className="m-0">
-            <Link href="/about-us">About us</Link>
+            <Link href="/pages/about-us">About us</Link>
           </li>
           <li className="m-0">
-            <Link href="/kontakt">Kontakt</Link>
+            <Link href="/pages/kontakt">Kontakt</Link>
           </li>
           <li className="m-0">
-            <Link href="/impressum">Impressum</Link>
-          </li>
-          <li className="m-0">
-            <Link href="/datenschutz">Datenschutz</Link>
+            <Link href="/pages/datenschutz">Datenschutz</Link>
           </li>
         </ul>
         <p className="mb-10">Copyright M&A Team 2023</p>

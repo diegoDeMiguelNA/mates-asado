@@ -12,7 +12,7 @@ export const SubtitleAndImage = (props: { fields: any }) => {
   return (
     <div>
       {props.fields.subtitle && (
-        <h2 className="sm:text-3xl font-heading uppercase mb-4 pb-8 mt-4">
+        <h2 className="sm:text-3xl font-heading uppercase mb-4 pb-8 mt-4 lg:mb-0 lg:pb-0">
           {props.fields.subtitle}
         </h2>
       )}
