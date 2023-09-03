@@ -4,31 +4,31 @@ import { IBlogSubtitleParagraphAndImageFields } from "@/@types/generated/content
 import { Entry } from "contentful";
 import { getSubtitleAndParagraphAndImage } from "@/lib/contentful/fetchDataFromContentful";
 
+export function getTextFromContentfulRichText(paragraph: { content: any }) {
+  if (!paragraph) {
+    return "";
+  }
+  const contentArray = paragraph.content;
+  let text = "";
+
+  contentArray.forEach((content: { content: any[] }) => {
+    if (content.content) {
+      content.content.forEach((innerContent) => {
+        if (innerContent.value) {
+          text += innerContent.value;
+        }
+      });
+    }
+  });
+
+  return text;
+}
+
 export default async function ExperienciasDeVida() {
   const results: Entry<IBlogSubtitleParagraphAndImageFields> =
     await getSubtitleAndParagraphAndImage("2FSjWb3HaXM9obR4vqS1Gr");
 
   const { subtitle, paragraph, assets } = results.fields;
-
-  function getTextFromContentfulRichText(paragraph: { content: any }) {
-    if (!paragraph) {
-      return "";
-    }
-    const contentArray = paragraph.content;
-    let text = "";
-
-    contentArray.forEach((content: { content: any[] }) => {
-      if (content.content) {
-        content.content.forEach((innerContent) => {
-          if (innerContent.value) {
-            text += innerContent.value;
-          }
-        });
-      }
-    });
-
-    return text;
-  }
 
   return (
     Object.keys(results).length !== 0 && (

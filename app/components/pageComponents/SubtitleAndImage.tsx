@@ -1,24 +1,38 @@
 import Image from "next/image";
+import { getTextFromContentfulRichText } from "../homePageComponents/ExperienciasDeVida";
 
 export const SubtitleAndImage = (props: { fields: any }) => {
-  const imageUrl = props.fields.assets && props.fields.assets[0]?.fields?.file?.url;
-  const secureImageUrl = imageUrl.startsWith("//") ? "https:" + imageUrl : imageUrl;
+  const assets = props.fields.assets;
+  const paragraph = props.fields.paragraph;
 
-  if (!imageUrl) return null;
+  const text = getTextFromContentfulRichText(paragraph);
+
+  if (!assets || assets.length === 0) return null;
 
   return (
     <div>
       {props.fields.subtitle && (
-        <h2 className="sm:text-3xl font-heading uppercase mb-4">
+        <h2 className="sm:text-3xl font-heading uppercase mb-4 pb-8 mt-4">
           {props.fields.subtitle}
         </h2>
       )}
-      <Image
-        src={secureImageUrl}
-        alt={props.fields.assets[0]?.fields?.title || "Image"}
-        width={props.fields.assets[0]?.fields?.file?.details?.image?.width}
-        height={props.fields.assets[0]?.fields?.file?.details?.image?.height}
-      />
+      <p className="mb-4 pb-8">{text}</p>
+      {assets.map((asset: any, index: number) => {
+        const imageUrl = asset.fields.file.url;
+        const secureImageUrl = imageUrl.startsWith("//")
+          ? "https:" + imageUrl
+          : imageUrl;
+        return (
+          <Image
+            key={index}
+            src={secureImageUrl}
+            alt={asset.fields.title || "Image"}
+            width={asset.fields.file.details.image.width}
+            height={asset.fields.file.details.image.height}
+            className="mb-4 pb-8"
+          />
+        );
+      })}
     </div>
   );
 };

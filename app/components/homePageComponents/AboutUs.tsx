@@ -3,32 +3,14 @@ import { Button } from "../button/button";
 import { IBlogSubtitleParagraphAndImageFields } from "@/@types/generated/contentful";
 import { Entry } from "contentful";
 import { getSubtitleAndParagraphAndImage } from "@/lib/contentful/fetchDataFromContentful";
+import { getTextFromContentfulRichText } from "./ExperienciasDeVida";
+import Link from "next/link";
 
 export default async function AboutUs() {
   const results: Entry<IBlogSubtitleParagraphAndImageFields> =
     await getSubtitleAndParagraphAndImage("7FOhJrA9q7cpExISJUp6db");
 
   const { subtitle, paragraph, assets } = results.fields;
-
-  function getTextFromContentfulRichText(paragraph: { content: any }) {
-    if (!paragraph) {
-      return "";
-    }
-    const contentArray = paragraph.content;
-    let text = "";
-
-    contentArray.forEach((content: { content: any[] }) => {
-      if (content.content) {
-        content.content.forEach((innerContent) => {
-          if (innerContent.value) {
-            text += innerContent.value;
-          }
-        });
-      }
-    });
-
-    return text;
-  }
 
   return (
     Object.keys(results).length !== 0 && (
@@ -58,13 +40,15 @@ export default async function AboutUs() {
         >
           {paragraph && getTextFromContentfulRichText(paragraph)}
         </p>
-        <Button
-          className="bg-regular-teal text-xxs md:text-xs lg:text-[12px] rounded-full mt-4"
-          size="customPill"
-          style={{ color: "white" }}
-        >
-          Coming Soon
-        </Button>
+        <Link href="/pages/about-us" passHref>
+          <Button
+            className="bg-regular-teal text-xxs md:text-xs lg:text-[12px] rounded-full mt-4"
+            size="customPill"
+            style={{ color: "white" }}
+          >
+            Ver más
+          </Button>
+        </Link>
       </div>
     )
   );
