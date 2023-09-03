@@ -8,11 +8,12 @@ export const metadata: Metadata = {
     url: "https://www.mates-asado.de/pages/deutschlandticket",
     siteName: "Mates&Asado",
     images: [
-      // {
-      //   url: "https://images.ctfassets.net/wdwnckov7fnq/1omR1b1SJKC6hm3eNYpMmH/9c0d9a4fd9b499e01408c364a68f9f97/deutschland_ticket_3.jpeg",
-      //   width: 800,
-      //   height: 600,
-      // },
+      {
+        // url: "https://images.ctfassets.net/wdwnckov7fnq/1omR1b1SJKC6hm3eNYpMmH/9c0d9a4fd9b499e01408c364a68f9f97/deutschland_ticket_3.jpeg",
+        width: 800,
+        height: 600,
+        url: "./opengraph-image.jpeg",
+      },
     ],
     locale: "en_US",
     type: "website",
