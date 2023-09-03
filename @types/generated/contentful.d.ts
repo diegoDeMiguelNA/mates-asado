@@ -2,7 +2,6 @@
 
 import { Asset, Entry } from "contentful";
 import { Document } from "@contentful/rich-text-types";
-import { Prettify } from "@/utils/helpFunction";
 
 export interface IBlogSubtitleAndParagraphFields {
   /** Subtitle */
@@ -31,8 +30,6 @@ export interface IBlogSubtitleAndParagraph
     };
   };
 }
-
-const something: Prettify<IBlogSubtitleAndParagraph>;
 
 export interface IBlogSubtitleParagraphAndImageFields {
   /** Subtitle */
@@ -259,6 +256,46 @@ export interface IMarginGenerator extends Entry<IMarginGeneratorFields> {
   };
 }
 
+export interface IMedicoprofesionalDeLaSaludFields {
+  /** Especialidad */
+  especialidad: string;
+
+  /** Nombre */
+  nombre: string;
+
+  /** Direccion */
+  direccion?: string | undefined;
+
+  /** telephone */
+  telephone?: string | undefined;
+
+  /** email/website */
+  emailwebsite?: string | undefined;
+
+  /** idioma/s */
+  idiomas?: string | undefined;
+}
+
+/** informacion sobre medicos que hablen español o ingles */
+
+export interface IMedicoprofesionalDeLaSalud
+  extends Entry<IMedicoprofesionalDeLaSaludFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "medicoprofesionalDeLaSalud";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IOnlyParagraphFields {
   /** body */
   body?: Document | undefined;
@@ -355,6 +392,7 @@ export type CONTENT_TYPE =
   | "linkWithReference"
   | "listWithOrWithoutSubtitle"
   | "marginGenerator"
+  | "medicoprofesionalDeLaSalud"
   | "onlyParagraph"
   | "productoLatino"
   | "titleWithOrWithoutSubtitle";
@@ -368,6 +406,7 @@ export type IEntry =
   | ILinkWithReference
   | IListWithOrWithoutSubtitle
   | IMarginGenerator
+  | IMedicoprofesionalDeLaSalud
   | IOnlyParagraph
   | IProductoLatino
   | ITitleWithOrWithoutSubtitle;

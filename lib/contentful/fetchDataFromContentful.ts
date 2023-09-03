@@ -11,7 +11,7 @@ export const contentfulClient = createClient({
   space: process.env.CONTENTFUL_SPACE!,
 });
 
-async function getEntityData<T>(entryId: string) {
+export async function getEntityData<T>(entryId: string) {
   return contentfulClient.getEntry<T>(entryId);
 }
 
@@ -37,4 +37,9 @@ export async function getReusablePage(entryId: string) {
   return getEntityData<IFuehrerscheinReusableFields>(
     entryId
   );
+}
+
+// Fetch Asset from contentful
+export async function getAsset(assetId: string) {
+  return contentfulClient.getAsset(assetId);
 }
