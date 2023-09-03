@@ -32,7 +32,7 @@ export default async function AboutUs() {
 
   return (
     Object.keys(results).length !== 0 && (
-      <div className="about-us mb-16 flex flex-col px-8 py-6 justify-center items-center mb-20 lg:mb-[160px] lg:pt-[120px]">
+      <div className="about-us mb-16 mt-20 flex flex-col px-8 py-6 justify-center items-center mb-20 lg:mb-[160px] lg:pt-[90px]">
         <div className="relative h-[130px] w-[290px] md:w-[500px] md:h-[210px] lg:w-[850px] md:h-[410px] rounded-2xl overflow-hidden">
           <Image
             src={

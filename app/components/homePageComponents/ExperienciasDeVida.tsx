@@ -33,8 +33,8 @@ export default async function ExperienciasDeVida() {
 
   return (
     Object.keys(results).length !== 0 && (
-      <div className="experiencias-de-vida mb-16 w-full flex">
-        <section className="relative h-[200px] md:h-[300px] lg:hidden">
+      <div className="experiencias-de-vida mb-16 w-full grid h-full min-h-[400px] md:mt-16 md:min-h-[400px] md:min-h-[600px] lg:pt-8 lg:pb-8 bg-regular-grey flex-col">
+        <section className="absolute w-full z-50 h-[100px] md:h-[120px] lg:hidden">
           <Image
             src={
               assets
@@ -49,8 +49,8 @@ export default async function ExperienciasDeVida() {
           />
         </section>
 
-        <div className="lg:grid lg:grid-cols-2 md:flex md:justify-center md:h-[350px] lg:h-[720px] bg-regular-grey px-16 py-10 items-center lg:px-12 w-full flex">
-          <section className="relative hidden lg:block lg:h-[600px] lg:w-[500px] justify-self-center">
+        <div className="flex flex-col mb-10 w-full justify-end px-9 sm:px-16 md:mb-16 lg:mb-0 lg:grid lg:grid-cols-2 lg:py-10 lg:px-12">
+          <section className="relative hidden lg:block lg:h-[550px] lg:w-[480px] justify-self-center">
             <Image
               src={
                 assets
@@ -61,7 +61,7 @@ export default async function ExperienciasDeVida() {
                 assets ? assets[0].fields.description || "Hamburg Townhall" : ""
               }
               fill
-              style={{ objectFit: "cover" }}
+              style={{ objectFit: "cover", objectPosition: "bottom" }}
             />
           </section>
 
@@ -70,7 +70,7 @@ export default async function ExperienciasDeVida() {
               {subtitle}
             </h3>
             <p
-              className="text-s md:text-sm font-light max-w-[550px] lg:max-w-[600px]"
+              className="text-s md:text-sm font-light sm:max-w-[550px] lg:max-w-[400px]"
               style={{ lineHeight: "1.5rem" }}
             >
               {paragraph && getTextFromContentfulRichText(paragraph)}

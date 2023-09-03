@@ -65,7 +65,7 @@ const HomeProps: React.FC<HomePropsInterface> = async ({
   navigationElements,
 }) => {
   return (
-    <div className="iconWrapper my-14 md:py-10 grid gap-8 lg:gap-y-32 md:gap-30 grid-cols-1 md:grid-cols-3 grid-rows-3 px-4 md:px-16 lg:w-[900px] lg:my-20 lg:pt-16 lg:pb-16">
+    <div className="iconWrapper py-10 my-20 px-4 grid grid-cols-1 grid-rows-3 gap-8 md:px-16 md:gap-30 md:grid-cols-3 lg:gap-y-32 lg:w-[900px] lg:mt-20 lg:mb-10 lg:pt-16 lg:pb-10">
       {renderHomeIcons(navigationElements)}
     </div>
   );
