@@ -5,7 +5,6 @@ import { Entry } from "contentful";
 import { getSubtitleAndParagraphAndImage } from "@/lib/contentful/fetchDataFromContentful";
 
 export default async function ExperienciasDeVida() {
-
   const results: Entry<IBlogSubtitleParagraphAndImageFields> =
     await getSubtitleAndParagraphAndImage("2FSjWb3HaXM9obR4vqS1Gr");
 
@@ -33,7 +32,7 @@ export default async function ExperienciasDeVida() {
 
   return (
     Object.keys(results).length !== 0 && (
-      <div className="experiencias-de-vida mb-16 w-full grid h-full min-h-[420px] md:mt-16 md:min-h-[400px] lg:pt-8 lg:pb-8 bg-regular-grey flex-col">
+      <div className="experiencias-de-vida mb-16 w-full grid h-full min-h-[420px] md:mt-6 md:min-h-[400px] lg:pt-8 lg:pb-8 bg-regular-grey flex-col">
         <section className="absolute w-full z-50 h-[100px] md:h-[120px] lg:hidden">
           <Image
             src={
@@ -49,7 +48,7 @@ export default async function ExperienciasDeVida() {
           />
         </section>
 
-        <div className="flex flex-col mb-10 w-full justify-end px-9 sm:px-16 md:mb-16 lg:mb-0 lg:grid lg:grid-cols-2 lg:py-10 lg:px-12">
+        <div className="flex flex-col mb-10 w-full justify-end max-h-[370px] px-9 sm:px-16 md:mb-16 lg:mb-0 lg:grid lg:grid-cols-2 lg:py-10 lg:px-12 lg:max-h-none">
           <section className="relative hidden lg:block lg:h-[550px] lg:w-[480px] justify-self-center">
             <Image
               src={
