@@ -5,7 +5,7 @@ export const metadata: Metadata = {
     title: "Teléfonos Útiles 🧉",
     description:
       "Listado de teléfonos útiles y organismos de gobierno en Hamburgo",
-    url: "https://www.mates-asado.de/pages/deutschlandticket",
+    url: "https://www.mates-asado.de/pages/telefonos-utiles",
     siteName: "Mates&Asado",
     images: [
       {

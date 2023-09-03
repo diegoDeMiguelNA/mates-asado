@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Médicos 🧉",
     description: "Profesionales de la saluds que hablan español en Hamburgo",
-    url: "https://www.mates-asado.de/pages/deutschlandticket",
+    url: "https://www.mates-asado.de/pages/medicos",
     siteName: "Mates&Asado",
     images: [
       {

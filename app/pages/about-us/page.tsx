@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Entry } from "contentful";
 import { IFuehrerscheinReusableFields } from "@/@types/generated/contentful";

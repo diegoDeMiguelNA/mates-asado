@@ -2,16 +2,16 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   openGraph: {
-    title: "Productos Latinos 🧉",
-    description: "Donde comprar productos latinos en Hamburgo",
-    url: "https://www.mates-asado.de/pages/productos-latinos",
+    title: "Sobre nosotros...",
+    description: "Historia y presente de les integrantes de Mates&Asado y su comunidad",
+    url: "https://www.mates-asado.de/pages/about-us",
     siteName: "Mates&Asado",
     images: [
       {
         width: 300,
         height: 300,
         url: "./opengraph-image.jpg",
-        alt: "Imagen de dulces y golosinas de Argentina",
+        alt: "Imagen de un Formulario de Anmeldung",
       },
     ],
     locale: "en_US",
@@ -19,10 +19,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ProductosLatinosLayout({
+export default function AboutUsLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <section>{children}</section>
+    </>
+  );
 }
