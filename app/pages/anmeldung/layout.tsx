@@ -8,8 +8,8 @@ export const metadata: Metadata = {
     siteName: "Mates&Asado",
     images: [
       {
-        width: 800,
-        height: 600,
+        width: 300,
+        height: 300,
         url: "./opengraph-image.jpg",
         alt: "Imagen de un Formulario de Anmeldung",
       },
