@@ -10,7 +10,7 @@ export const metadata: Metadata = {
       {
         width: 300,
         height: 300,
-        url: "./opengraph-image.jpeg",
+        url: "./opengraph-image.jpg",
         alt: "Medicos cruzados de brazo vestidos de blanco con sus estetoscopios",
       },
     ],

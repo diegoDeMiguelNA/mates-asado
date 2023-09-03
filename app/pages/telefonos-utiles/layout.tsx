@@ -11,7 +11,7 @@ export const metadata: Metadata = {
       {
         width: 300,
         height: 300,
-        url: "./opengraph-image.png",
+        url: "./opengraph-image.jpg",
         alt: "Imagen de un teléfono",
       },
     ],

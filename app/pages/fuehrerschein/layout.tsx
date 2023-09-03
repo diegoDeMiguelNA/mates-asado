@@ -11,7 +11,7 @@ export const metadata: Metadata = {
       {
         width: 300,
         height: 300,
-        url: "./opengraph-image.jpeg",
+        url: "./opengraph-image.jpg",
         alt: "Anverso de una licencia de conducir alemana",
       },
     ],
