@@ -16,7 +16,7 @@ const CookieBanner: React.FC = () => {
 
     const timer = setTimeout(() => {
       setIsVisible(false);
-    }, 90000);
+    }, 10000);
 
     return () => clearTimeout(timer);
   }, []);

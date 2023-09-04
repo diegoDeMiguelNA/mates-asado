@@ -16,7 +16,7 @@ export const SubtitleAndImage = (props: { fields: any }) => {
           {props.fields.subtitle}
         </h2>
       )}
-      <p className="mb-8 pb-8">{text}</p>
+      <p className="mb-8 pb-8 text-left">{text}</p>
       {assets.map((asset: any, index: number) => {
         const imageUrl = asset.fields.file.url;
         const secureImageUrl = imageUrl.startsWith("//")
