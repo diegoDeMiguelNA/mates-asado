@@ -5,17 +5,20 @@ import { RenderContent } from "@/utils/renderText";
 
 interface PageReusableProps {
   entryId: string;
+  showLastUpdated?: boolean;
 }
 
-const PageReusable: React.FC<PageReusableProps> = async ({ entryId }) => {
-  const results: Entry<IFuehrerscheinReusableFields> = await getReusablePage(
-    entryId
-  );
+const PageReusable: React.FC<PageReusableProps> = async ({
+  entryId,
+  showLastUpdated = true,
+}) => {
+  const results: Entry<IFuehrerscheinReusableFields> =
+    await getReusablePage(entryId);
 
   const { title, subtitle, pageBody } = results.fields;
   const { sys } = results;
 
-  // console.log("results", results);
+  console.log("results", results);
 
   // pageBody?.map((entry: { sys: { contentType: { sys: { id: string; }; }; }; }, index: any) => {
   //   if (entry.sys.contentType.sys.id === "marginGenerator") {
@@ -34,9 +37,12 @@ const PageReusable: React.FC<PageReusableProps> = async ({ entryId }) => {
             <h3 className="text-sm mx-8 font-heading uppercase pt-10 mb-4 sm:mx-24">
               {subtitle}
             </h3>
-            <h4 className="text-sm mx-8 pt-10 mb-4 sm:mx-24 underline">
-              Ultima actualización: {new Date(sys.updatedAt).toLocaleDateString("de-DE",)}
-            </h4>
+            {showLastUpdated && (
+              <h4 className="text-sm mx-8 pt-10 mb-4 sm:mx-24 underline">
+                Ultima actualización:{" "}
+                {new Date(sys.updatedAt).toLocaleDateString("de-DE")}
+              </h4>
+            )}
           </div>
           {pageBody && <RenderContent entries={pageBody} />}
         </main>

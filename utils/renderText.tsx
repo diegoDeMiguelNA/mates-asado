@@ -7,6 +7,7 @@ import { ListWithOrWithoutSubtitle } from "@/app/components/pageComponents/ListW
 import MarginGenerator from "@/app/components/pageComponents/MarginGenerator";
 import { SubtitleAndImage } from "@/app/components/pageComponents/SubtitleAndImage";
 import { TitleWithOrWithoutSubtitle } from "@/app/components/pageComponents/TitleWithOrWithoutSubtitle";
+import EmailComponent from "@/app/components/pageComponents/email";
 import { Entry } from "contentful";
 
 type EntryFields = {
@@ -73,6 +74,15 @@ export const RenderContent = (props: {
             />
           );
         }
+        if (entry.sys.contentType.sys.id === "email") {
+          return (
+            <EmailComponent
+              key={entry.sys.id}
+              data={{ fields: entry.fields as { emailAdress?: string } }}
+            />
+          );
+        }
+
         if (entry.sys.contentType.sys.id === "blogSubtitleParagraphAndImage") {
           return <SubtitleAndImage key={entry.sys.id} fields={entry.fields} />;
         } else {
