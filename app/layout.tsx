@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    images: "/opengraph-image.png",
+    images: "/opengraph-image.jpg",
   },
   title: "Mates y Asado🧉",
   description:

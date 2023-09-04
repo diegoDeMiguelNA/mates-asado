@@ -1,10 +1,11 @@
 "use client";
-import React from "react";
+import React, { Suspense } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import MobileMenu from "../ResponsiveNavMenu/mobileMenu";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface MobileMenuProps {
   navigationElements: any[];
@@ -31,18 +32,20 @@ const Header: React.FC<MobileMenuProps> = ({ navigationElements }) => {
       )}
       style={isHomePage ? {} : gradientStyleArgentina}
     >
-      {isHomePage && (
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/port.webp"
-            alt="Background Image"
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
-            priority={true}
-          />
-        </div>
-      )}
+      <Suspense fallback={<Skeleton />}>
+        {isHomePage && (
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/images/port.webp"
+              alt="Background Image"
+              layout="fill"
+              objectFit="cover"
+              objectPosition="center"
+              priority={true}
+            />
+          </div>
+        )}
+      </Suspense>
 
       {!isHomePage && (
         <MobileMenu
