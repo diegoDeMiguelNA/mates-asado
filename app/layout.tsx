@@ -7,6 +7,7 @@ import { IHomeIconResuableFields } from "@/@types/generated/contentful";
 import { Entry } from "contentful";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
+import CookieBanner from "./components/cookieBanner.tsx/cookieBanner";
 
 const montserrat = Montserrat({
   weight: ["300", "400", "500", "700", "800"],
@@ -61,8 +62,12 @@ export default async function RootLayout({
       <head />
       <body>
         <Header navigationElements={homeIconComponent} />
+
         {children}
+
         <Footer />
+        
+        <CookieBanner />
       </body>
     </html>
   );

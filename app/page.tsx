@@ -12,6 +12,7 @@ export default async function Home() {
 
   return (
     <div className="homePage text-center flex flex-col items-center">
+
       <HomeProps navigationElements={homeIconComponent} />
 
       <ExperienciasDeVida />
