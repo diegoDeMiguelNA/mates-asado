@@ -7,6 +7,8 @@ import {
 } from "generated/contentful";
 import { cache } from "react";
 
+export const revalidate = 3;
+
 export const contentfulClient = createClient({
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!,
   space: process.env.CONTENTFUL_SPACE!,
