@@ -5,6 +5,8 @@ import { Entry } from "contentful";
 import { IHomeIconResuableFields } from "@/@types/generated/contentful";
 import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
 
+export const revalidate = 3;
+
 export default async function Home() {
   const {
     fields: { homeIconComponent },
@@ -12,7 +14,6 @@ export default async function Home() {
 
   return (
     <div className="homePage text-center flex flex-col items-center">
-
       <HomeProps navigationElements={homeIconComponent} />
 
       <ExperienciasDeVida />
