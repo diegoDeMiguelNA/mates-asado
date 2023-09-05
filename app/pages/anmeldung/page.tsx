@@ -5,6 +5,9 @@ import { IFuehrerscheinReusableFields } from "@/@types/generated/contentful";
 import { getReusablePage } from "@/lib/contentful/fetchDataFromContentful";
 import { RenderContent } from "@/utils/renderText";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 const Anmeldung: React.FC = async () => {
   const results: Entry<IFuehrerscheinReusableFields> = await getReusablePage(
     "7henc1KRwe8D0b4FkJEHpn"

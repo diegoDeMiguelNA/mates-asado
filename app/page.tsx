@@ -5,7 +5,6 @@ import { Entry } from "contentful";
 import { IHomeIconResuableFields } from "@/@types/generated/contentful";
 import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
 
-export const revalidate = 3;
 
 export default async function Home() {
   const {

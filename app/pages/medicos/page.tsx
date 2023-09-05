@@ -4,13 +4,15 @@ import { Entry } from "contentful";
 import { getReusablePage } from "@/lib/contentful/fetchDataFromContentful";
 import MedicosTable from "@/app/components/pageComponents/medicos";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function Medicos() {
   const results: Entry<IFuehrerscheinReusableFields> = await getReusablePage(
     "7815QrUkSC1g3On5DHk7Me"
   );
 
   const { title, subtitle, pageBody } = results.fields;
-  
 
   return (
     <>
