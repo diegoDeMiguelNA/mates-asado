@@ -18,7 +18,7 @@ const PageReusable: React.FC<PageReusableProps> = async ({
   const { title, subtitle, pageBody } = results.fields;
   const { sys } = results;
 
-  console.log("results", results);
+  // console.log("results", results);
 
   // pageBody?.map((entry: { sys: { contentType: { sys: { id: string; }; }; }; }, index: any) => {
   //   if (entry.sys.contentType.sys.id === "marginGenerator") {
@@ -28,7 +28,7 @@ const PageReusable: React.FC<PageReusableProps> = async ({
 
   return (
     <>
-      <div className="mx-auto flex flex-col items-center">
+      <div className="mx-auto flex flex-col items-center min-h-[800px]">
         <main className="text-center mb-8 sm:mb-24 mx-2 sm:mx-4 flex flex-col justify-center items-center max-w-[800px]">
           <div className="pt-24 pb-4">
             <h2 className="text-2xl sm:text-5xl font-heading uppercase">
