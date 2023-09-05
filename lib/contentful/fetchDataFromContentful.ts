@@ -5,15 +5,18 @@ import {
   IFuehrerscheinReusableFields,
   IHomeIconResuableFields,
 } from "generated/contentful";
+import { cache } from "react";
+
+export const revalidate = 3;
 
 export const contentfulClient = createClient({
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!,
   space: process.env.CONTENTFUL_SPACE!,
 });
 
-export async function getEntityData<T>(entryId: string) {
+export const getEntityData = cache(async function <T>(entryId: string) {
   return contentfulClient.getEntry<T>(entryId);
-}
+});
 
 // Home Page Icons
 export async function getHomeIcons() {
@@ -27,19 +30,15 @@ export async function getSubtitleAndParagraph(entryId: string) {
 
 // Subtitle and Paragraph and Images content type
 export async function getSubtitleAndParagraphAndImage(entryId: string) {
-  return getEntityData<IBlogSubtitleParagraphAndImageFields>(
-      entryId
-    );
+  return getEntityData<IBlogSubtitleParagraphAndImageFields>(entryId);
 }
 
 // Fetch Data for generic Page (Ex IFuehrerschein)
 export async function getReusablePage(entryId: string) {
-  return getEntityData<IFuehrerscheinReusableFields>(
-    entryId
-  );
+  return getEntityData<IFuehrerscheinReusableFields>(entryId);
 }
 
 // Fetch Asset from contentful
-export async function getAsset(assetId: string) {
+export const getAsset = cache(async function (assetId: string) {
   return contentfulClient.getAsset(assetId);
-}
+});
