@@ -15,7 +15,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   const handleMenuToggle = () => {
-    console.log("handleMenuToggle");
     setMenuOpen(!menuOpen);
   };
 
