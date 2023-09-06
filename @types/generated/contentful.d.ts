@@ -65,6 +65,66 @@ export interface IBlogSubtitleParagraphAndImage
   };
 }
 
+export interface IEmailFields {
+  /** email adress */
+  emailAdress: string;
+
+  /** reference */
+  reference?: number | undefined;
+}
+
+/** to add emails */
+
+export interface IEmail extends Entry<IEmailFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "email";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IExperienciaFields {
+  /** nombre de la experiencia */
+  nombreDeLaExperiencia: string;
+
+  /** Subtitle */
+  subtitle?: string | undefined;
+
+  /** pageBody */
+  pageBody: Entry<{ [fieldId: string]: unknown }>[];
+
+  /** slug */
+  slug?: string | undefined;
+}
+
+/** un posteo de una experiencia en particular como hacer el führerschein, etc. */
+
+export interface IExperiencia extends Entry<IExperienciaFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "experiencia";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IFuehrerscheinReusableFields {
   /** Title */
   title: string;
@@ -386,6 +446,8 @@ export interface ITitleWithOrWithoutSubtitle
 export type CONTENT_TYPE =
   | "blogSubtitleAndParagraph"
   | "blogSubtitleParagraphAndImage"
+  | "email"
+  | "experiencia"
   | "fuehrerscheinReusable"
   | "homeIcon"
   | "homeIconResuable"
@@ -400,6 +462,8 @@ export type CONTENT_TYPE =
 export type IEntry =
   | IBlogSubtitleAndParagraph
   | IBlogSubtitleParagraphAndImage
+  | IEmail
+  | IExperiencia
   | IFuehrerscheinReusable
   | IHomeIcon
   | IHomeIconResuable
