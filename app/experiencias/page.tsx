@@ -53,7 +53,7 @@ export default async function Experiencias() {
 
   const { title, subtitle, pageBody } = results.fields;
 
-  console.log("pageBody", pageBody);
+//   console.log("pageBody", pageBody);
 
   return (
     <>

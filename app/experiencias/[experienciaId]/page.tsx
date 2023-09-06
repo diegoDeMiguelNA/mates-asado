@@ -8,14 +8,8 @@ import { RenderContent } from "@/utils/renderText";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
-interface ExperienciaProps {
-  slug: string;
-  params: {
-    experienciaId: string;
-  };
-}
 
-const Experiencia: React.FC<ExperienciaProps> = async ({
+const Experiencia: React.FC<any> = async ({
   params: { experienciaId },
 }) => {
   const results: Entry<IExperienciaFields> =

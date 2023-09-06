@@ -22,21 +22,26 @@ export const SubtitleAndImage = (props: { fields: any }) => {
           {props.fields.subtitle}
         </h2>
       )}
-      {text && <p className="mb-8 pb-8 text-left">{text}</p>}
+      {text && <p className="mb-8 pb-8 text-center mt-8 pt-4">{text}</p>}
       {assets.map((asset: any, index: number) => {
         const imageUrl = asset.fields.file.url;
         const secureImageUrl = imageUrl.startsWith("//")
           ? "https:" + imageUrl
           : imageUrl;
         return (
-          <Image
-            key={index}
-            src={secureImageUrl}
-            alt={asset.fields.title || "Image"}
-            width={asset.fields.file.details.image.width}
-            height={asset.fields.file.details.image.height}
-            className="mb-4 pb-8"
-          />
+          <div key={index} className="mt-4 mb-4">
+            <p className="mt-4 pt-4 mb-4 pb-4 text-xl">{asset.fields.title}</p>
+            <span className="border-2">
+            <Image
+              key={index}
+              src={secureImageUrl}
+              alt={asset.fields.title || "Image"}
+              width={asset.fields.file.details.image.width}
+              height={asset.fields.file.details.image.height}
+              className="mb-4 pb-8 inline-block w-full h-full object-cover rounded"
+            />
+            </span>
+          </div>
         );
       })}
     </div>
