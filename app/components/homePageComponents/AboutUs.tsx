@@ -42,7 +42,7 @@ export default async function AboutUs() {
         </p>
         <Link href="/about-us" passHref>
           <Button
-            className="bg-regular-teal text-xxs md:text-xs lg:text-[12px] rounded-full mt-4"
+            className="bg-regular-teal text-xxs md:text-xs lg:text-[12px] rounded-full mt-4 py-4"
             size="customPill"
           style={{ color: "white" }}
           >
