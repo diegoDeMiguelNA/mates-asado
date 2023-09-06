@@ -18,7 +18,7 @@ const ExperienciaIcon: React.FC<DynamicCardProps> = ({
 }) => {
   return (
     <Link
-      className="relative block p-4 border border-gray-200 rounded-md bg-gray-100 hover:bg-gray-300 transition ease-in-out duration-150"
+      className="relative block p-4 border border-gray-200 rounded-md bg-gray-100 hover:bg-gray-300 transition ease-in-out duration-150 max-w-[300px]"
       href={`/experiencias/${slug}`}
     >
       <div className="absolute top-0 left-0 w-full h-48 overflow-hidden">
@@ -28,7 +28,7 @@ const ExperienciaIcon: React.FC<DynamicCardProps> = ({
           objectFit="cover"
           objectPosition="center"
           fill
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover rounded shadow-md max-w-[300px]"
         />
       </div>
       <div className="mt-52">

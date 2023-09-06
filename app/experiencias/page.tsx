@@ -53,7 +53,6 @@ export default async function Experiencias() {
 
   const { title, subtitle, pageBody } = results.fields;
 
-//   console.log("pageBody", pageBody);
 
   return (
     <>
@@ -70,7 +69,7 @@ export default async function Experiencias() {
           {pageBody &&
             pageBody.map(
               (
-                experience: Entry<IExperienciaFields> // Use the correct type here
+                experience: Entry<IExperienciaFields> 
               ) => (
                 <ExperienciaIcon
                   key={experience.sys.id}
