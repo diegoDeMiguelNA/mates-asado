@@ -1,16 +1,16 @@
-import React from "react";
-import { IFuehrerscheinReusableFields } from "@/@types/generated/contentful";
-import { Entry } from "contentful";
+import { IMedicoprofesionalDeLaSalud } from "@/@types/generated/contentful";
+import MedicosList from "@/app/components/pageComponents/medicos";
 import { getReusablePage } from "@/lib/contentful/fetchDataFromContentful";
-import MedicosTable from "@/app/components/pageComponents/medicos";
+import { Entry } from "contentful";
 
 export default async function Medicos() {
-  const results: Entry<IFuehrerscheinReusableFields> = await getReusablePage(
-    "7815QrUkSC1g3On5DHk7Me"
-  );
-
-  const { title, subtitle, pageBody } = results.fields;
-  
+  const {
+    fields: { title, subtitle, pageBody },
+  }: Entry<{
+    title: string;
+    subittle: string;
+    pageBody: IMedicoprofesionalDeLaSalud[];
+  }> = await getReusablePage("7815QrUkSC1g3On5DHk7Me");
 
   return (
     <>
@@ -23,11 +23,11 @@ export default async function Medicos() {
             {subtitle}
           </h3>
         </div>
-        <h3 className="warningText text-red-500 text-center mt-10 mb-24">
+        {/* <h3 className="warningText text-red-500 text-center mt-10 mb-24">
           Por favor, gire su dispositivo a modo paisaje (landscape) para poder
           ver la tabla con el contenido.
-        </h3>
-        <MedicosTable data={pageBody} />
+        </h3> */}
+        <MedicosList data={pageBody} />
       </main>
     </>
   );

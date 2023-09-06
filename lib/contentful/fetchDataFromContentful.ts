@@ -2,8 +2,8 @@ import { createClient } from "contentful";
 import {
   IBlogSubtitleAndParagraphFields,
   IBlogSubtitleParagraphAndImageFields,
-  IFuehrerscheinReusableFields,
   IHomeIconResuableFields,
+  IMedicoprofesionalDeLaSalud
 } from "generated/contentful";
 
 export const contentfulClient = createClient({
@@ -34,7 +34,7 @@ export async function getSubtitleAndParagraphAndImage(entryId: string) {
 
 // Fetch Data for generic Page (Ex IFuehrerschein)
 export async function getReusablePage(entryId: string) {
-  return getEntityData<IFuehrerscheinReusableFields>(
+  return getEntityData<IMedicoprofesionalDeLaSalud>(
     entryId
   );
 }
