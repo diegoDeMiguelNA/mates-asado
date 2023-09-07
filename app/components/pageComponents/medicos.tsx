@@ -16,12 +16,6 @@ interface MedicosListProps {
   data: IMedicoprofesionalDeLaSalud[];
 }
 
-function truncate(str: string | undefined, maxLength: number): string {
-  if (!str) return '';
-  return str.length > maxLength ? str.substring(0, maxLength) + "..." : str;
-}
-
-
 function Icon({ name, size = 24 }: { name: string; size: string | number }) {
   const LucideIcon = icons[name as keyof typeof icons];
   if (!LucideIcon) return null;
@@ -41,9 +35,9 @@ function Detail({
   content: ReactNode;
 }) {
   return (
-    <div className="flex text-ellipsis overflow-hidden w-full">
+    <div className="flex overflow-hidden w-full">
       <Icon name={iconName} size={24} />
-      <div>{content}</div>
+      <div className="flex-1 truncate">{content}</div>
     </div>
   );
 }
@@ -51,7 +45,6 @@ function Detail({
 function MedicosCard({ data }: { data: IMedicoprofesionalDeLaSaludFields }) {
   const { especialidad, nombre, telephone, direccion, emailwebsite, idiomas } =
     data;
-    const truncatedEmailWebsite = truncate(emailwebsite, 40);
   return (
     <Card>
       <CardHeader>
@@ -71,7 +64,7 @@ function MedicosCard({ data }: { data: IMedicoprofesionalDeLaSaludFields }) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {truncatedEmailWebsite}
+                {emailwebsite}
               </a>
             </div>
           }
