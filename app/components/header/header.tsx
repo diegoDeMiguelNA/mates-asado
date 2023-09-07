@@ -5,7 +5,6 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import MobileMenu from "../ResponsiveNavMenu/mobileMenu";
-import { Skeleton } from "@/components/ui/skeleton";
 
 interface MobileMenuProps {
   navigationElements: any[];
@@ -32,7 +31,6 @@ const Header: React.FC<MobileMenuProps> = ({ navigationElements }) => {
       )}
       style={isHomePage ? {} : gradientStyleArgentina}
     >
-      <Suspense fallback={<Skeleton />}>
         {isHomePage && (
           <div className="absolute inset-0 z-0">
             <Image
@@ -45,7 +43,6 @@ const Header: React.FC<MobileMenuProps> = ({ navigationElements }) => {
             />
           </div>
         )}
-      </Suspense>
 
       {!isHomePage && (
         <MobileMenu

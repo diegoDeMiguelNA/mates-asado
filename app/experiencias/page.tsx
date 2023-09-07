@@ -4,9 +4,6 @@ import { getReusablePage } from "@/lib/contentful/fetchDataFromContentful";
 
 import ExperienciaIcon from "../components/experienciasComponents/ExperienciaIcon";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
-
 // Define el tipo para los campos dentro de 'pageBody'
 export interface IExperienciaFields {
   nombreDeLaExperiencia?: string; // Puedes ajustar si es opcional o no según tus datos
