@@ -3,10 +3,8 @@ import {
   IBlogSubtitleAndParagraphFields,
   IBlogSubtitleParagraphAndImageFields,
   IExperienciaFields,
-  IHomeIconResuableFields,
-  IMedicoprofesionalDeLaSalud
-} from "../../@types/generated/contentful";
-import { s } from "vitest/dist/types-198fd1d9.js";
+  IHomeIconResuableFields
+} from "@/@types/generated/contentful";
 
 export const contentfulClient = createClient({
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!,
@@ -33,8 +31,8 @@ export async function getSubtitleAndParagraphAndImage(entryId: string) {
 }
 
 // Fetch Data for generic Page (Ex IFuehrerschein)
-export async function getReusablePage(entryId: string) {
-  return getEntityData<IMedicoprofesionalDeLaSalud>(
+export async function getReusablePage<T>(entryId: string) {
+  return getEntityData<T>(
     entryId
   );
 }
