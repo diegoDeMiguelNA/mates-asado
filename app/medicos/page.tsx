@@ -3,7 +3,11 @@ import MedicosList from "@/app/components/pageComponents/medicos";
 import { getReusablePage } from "@/lib/contentful/fetchDataFromContentful";
 import { Entry } from "contentful";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function Medicos() {
+<<<<<<< HEAD:app/pages/medicos/page.tsx
   const {
     fields: { title, subtitle, pageBody },
   }: Entry<{
@@ -11,6 +15,13 @@ export default async function Medicos() {
     subittle: string;
     pageBody: IMedicoprofesionalDeLaSalud[];
   }> = await getReusablePage("7815QrUkSC1g3On5DHk7Me");
+=======
+  const results: Entry<IFuehrerscheinReusableFields> = await getReusablePage(
+    "7815QrUkSC1g3On5DHk7Me"
+  );
+
+  const { title, subtitle, pageBody } = results.fields;
+>>>>>>> main:app/medicos/page.tsx
 
   return (
     <>

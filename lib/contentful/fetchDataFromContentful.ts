@@ -2,9 +2,11 @@ import { createClient } from "contentful";
 import {
   IBlogSubtitleAndParagraphFields,
   IBlogSubtitleParagraphAndImageFields,
+  IExperienciaFields,
   IHomeIconResuableFields,
   IMedicoprofesionalDeLaSalud
-} from "generated/contentful";
+} from "../../@types/generated/contentful";
+import { s } from "vitest/dist/types-198fd1d9.js";
 
 export const contentfulClient = createClient({
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!,
@@ -27,9 +29,7 @@ export async function getSubtitleAndParagraph(entryId: string) {
 
 // Subtitle and Paragraph and Images content type
 export async function getSubtitleAndParagraphAndImage(entryId: string) {
-  return getEntityData<IBlogSubtitleParagraphAndImageFields>(
-      entryId
-    );
+  return getEntityData<IBlogSubtitleParagraphAndImageFields>(entryId);
 }
 
 // Fetch Data for generic Page (Ex IFuehrerschein)
@@ -42,4 +42,24 @@ export async function getReusablePage(entryId: string) {
 // Fetch Asset from contentful
 export async function getAsset(assetId: string) {
   return contentfulClient.getAsset(assetId);
+}
+
+// Fetch Experiencias from contentful
+export async function getExperiencia(entryId: string) {
+  return getEntityData<IExperienciaFields>(entryId);
+}
+
+// Fetch Experiencias from contentful by slug
+export async function getExperienciaBySlug(slug: string) {
+  const { items } =
+    await contentfulClient.getEntries<IExperienciaFields>("Experiencia");
+
+  if (items.length > 0) {
+    const experiencia: any = items.find((item) => {
+      return item.fields.slug === slug;
+    });
+    return experiencia;
+  }
+
+  return null;
 }

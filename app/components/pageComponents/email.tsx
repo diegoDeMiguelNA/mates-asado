@@ -9,7 +9,6 @@ interface EmailProps {
 }
 
 const EmailComponent: React.FC<EmailProps> = ({ data }) => {
-    console.log("data", data);
   const email = data?.fields?.emailAdress;
 
   if (!email) return null;
