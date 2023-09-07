@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import clsx from "clsx";
-import { gradientStyleArgentina } from "../header/header";
+import { gradientStyleArgentina } from "../header/headerHome";
 
 interface MobileMenuProps {
   className?: string;
@@ -22,7 +22,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
     <div className="row-start-1">
       <button
         onClick={handleMenuToggle}
-        className="block flex py-4 border rounded text-blue-600 border-white hover:text-white ml-2 mt-2  sm:ml-4 sm:mt-4 lg:hidden  "
+        className="block flex py-4 border rounded text-blue-600 border-white hover:text-white ml-2 mt-2  sm:ml-4 sm:mt-4 lg:hidden"
         aria-label="Toggle Menu"
         data-testid="mobile-menu-toggle"
       >
@@ -48,7 +48,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
         className={clsx(
           "text-center z-30",
           className,
-          menuOpen && "bg-blue-100 rounded font-body h-full"
+          menuOpen && "rounded font-body h-full"
         )}
         style={gradientStyleArgentina}
       >

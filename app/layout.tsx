@@ -2,10 +2,6 @@ import "./globals.css";
 import { lemonMilk } from "./fonts/fonts";
 import { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
-import { IHomeIconResuableFields } from "@/@types/generated/contentful";
-import { Entry } from "contentful";
-import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import CookieBanner from "./components/cookieBanner.tsx/cookieBanner";
 
@@ -51,9 +47,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const {
-    fields: { homeIconComponent },
-  }: Entry<IHomeIconResuableFields> = await getHomeIcons();
   return (
     <html
       lang="en"
@@ -61,7 +54,6 @@ export default async function RootLayout({
     >
       <head />
       <body>
-        <Header navigationElements={homeIconComponent} />
 
         {children}
 

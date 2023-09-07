@@ -22,6 +22,9 @@ module.exports = {
       },
     },
     extend: {
+      gridTemplateRows: {
+        custom: "auto 1fr 1fr",
+      },
       width: {
         "90px": "90px",
         "120px": "120px",
@@ -157,7 +160,7 @@ module.exports = {
         ".flex-inherit": {
           "flex-direction": "inherit",
         },
-        ".nav-list-element": { 
+        ".nav-list-element": {
           "margin-left": "0px !important",
         },
       };
