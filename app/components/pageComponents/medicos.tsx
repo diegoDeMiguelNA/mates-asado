@@ -37,14 +37,28 @@ function Detail({
   return (
     <div className="flex overflow-hidden w-full">
       <Icon name={iconName} size={24} />
-      <div className="flex-1 truncate">{content}</div>
+      <div className="flex-1 truncate ml-2">{content}</div>
     </div>
   );
 }
 
 function MedicosCard({ data }: { data: IMedicoprofesionalDeLaSaludFields }) {
-  const { especialidad, nombre, telephone, direccion, emailwebsite, idiomas } =
-    data;
+  const {
+    especialidad,
+    nombre,
+    telephone,
+    direccion,
+    emailwebsite,
+    email,
+    idiomas,
+  } = data;
+
+  let displayLink: string = emailwebsite || "";
+
+  if (emailwebsite) {
+    displayLink = emailwebsite!.replace(/^https?:\/\//, "");
+  }
+
   return (
     <Card>
       <CardHeader>
@@ -54,21 +68,34 @@ function MedicosCard({ data }: { data: IMedicoprofesionalDeLaSaludFields }) {
       <CardContent className="text-left">
         <Detail iconName="Home" content={direccion} />
         <Detail iconName="Phone" content={telephone} />
-        <Detail
-          iconName="Globe2"
-          content={
-            <div className="w-full">
-              <a
-                href={emailwebsite}
-                className="text-ellipsis"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {emailwebsite}
-              </a>
-            </div>
-          }
-        />
+        {emailwebsite ? (
+          <Detail
+            iconName="Globe2"
+            content={
+              <div className="w-full truncate">
+                <a
+                  href={emailwebsite}
+                  className="text-ellipsis"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {displayLink}
+                </a>
+              </div>
+            }
+          />
+        ) : (
+          <Detail
+            iconName="Mail"
+            content={
+              <div className="w-full">
+                <a href={`mailto:${email}`} className="text-ellipsis">
+                  {email}
+                </a>
+              </div>
+            }
+          />
+        )}
         <Detail iconName="Languages" content={idiomas} />
       </CardContent>
     </Card>

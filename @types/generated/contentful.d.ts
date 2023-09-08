@@ -329,8 +329,11 @@ export interface IMedicoprofesionalDeLaSaludFields {
   /** telephone */
   telephone?: string | undefined;
 
-  /** email/website */
+  /** website */
   emailwebsite?: string | undefined;
+
+  /** email */
+  email?: string | undefined;
 
   /** idioma/s */
   idiomas?: string | undefined;
