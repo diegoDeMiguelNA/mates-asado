@@ -2,12 +2,13 @@ import "./globals.css";
 import { lemonMilk } from "./fonts/fonts";
 import { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
+import { getAsset, getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
 import { IHomeIconResuableFields } from "@/@types/generated/contentful";
 import { Entry } from "contentful";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import CookieBanner from "./components/cookieBanner.tsx/cookieBanner";
+import ModalNovedades from "./novedades/modal";
 
 const montserrat = Montserrat({
   weight: ["300", "400", "500", "700", "800"],
@@ -54,6 +55,11 @@ export default async function RootLayout({
   const {
     fields: { homeIconComponent },
   }: Entry<IHomeIconResuableFields> = await getHomeIcons();
+
+  const { fields } = await getAsset("70ugPGYgMr3ZANJCLuPQx9");
+
+  console.log('response', fields);
+  
   return (
     <html
       lang="en"
@@ -61,6 +67,7 @@ export default async function RootLayout({
     >
       <head />
       <body>
+        <ModalNovedades fields={fields} />
         <Header navigationElements={homeIconComponent} />
 
         {children}

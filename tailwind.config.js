@@ -30,6 +30,10 @@ module.exports = {
         "350px": "350px",
         "500px": "500px",
       },
+      zIndex: {
+        100: "100",
+        200: "200",
+      },
       height: {
         "19px": "19px",
       },
@@ -131,7 +135,7 @@ module.exports = {
     },
   },
   plugins: [
-    require("tailwindcss-animate"),
+    require("tailwindcss-animate", "@tailwindcss/aspect-ratio"),
     function ({ addUtilities }) {
       const newUtilities = {
         ".landscape\\:block": {
@@ -157,7 +161,7 @@ module.exports = {
         ".flex-inherit": {
           "flex-direction": "inherit",
         },
-        ".nav-list-element": { 
+        ".nav-list-element": {
           "margin-left": "0px !important",
         },
       };
