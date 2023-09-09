@@ -57,8 +57,6 @@ export default async function RootLayout({
   }: Entry<IHomeIconResuableFields> = await getHomeIcons();
 
   const { fields } = await getAsset("70ugPGYgMr3ZANJCLuPQx9");
-
-  console.log('response', fields);
   
   return (
     <html
