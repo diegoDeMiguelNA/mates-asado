@@ -28,7 +28,7 @@ interface NextJsComponentProps {
 }
 
 const ModalNovedades: React.FC<NextJsComponentProps> = ({ fields }) => {
-  const [isVisible, setIsVisible] = useState<boolean>(true);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
 
     useEffect(() => {
       const hasVisited = localStorage.getItem("hasSeenModalNovedades");
