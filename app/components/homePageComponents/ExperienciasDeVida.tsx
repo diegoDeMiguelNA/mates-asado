@@ -2,22 +2,18 @@ import { getSubtitleAndParagraphAndImage } from "@/lib/contentful/fetchDataFromC
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../button/button";
+import { Document } from "@contentful/rich-text-types";
 
-export function getTextFromContentfulRichText(paragraph: { content: any }) {
-  if (!paragraph) {
-    return "";
-  }
+export function getTextFromContentfulRichText(paragraph: Document) {
   const contentArray = paragraph.content;
   let text = "";
 
-  contentArray.forEach((content: { content: any[] }) => {
-    if (content.content) {
-      content.content.forEach((innerContent) => {
-        if (innerContent.value) {
-          text += innerContent.value;
-        }
-      });
-    }
+  contentArray.forEach((content) => {
+    content.content.forEach((innerContent) => {
+      if (innerContent.nodeType === "text") {
+        text += innerContent.value;
+      }
+    });
   });
 
   return text;
