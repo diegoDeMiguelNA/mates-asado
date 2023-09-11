@@ -4,7 +4,7 @@ import AboutUs from "./components/homePageComponents/AboutUs";
 import { Entry } from "contentful";
 import { IHomeIconResuableFields } from "@/@types/generated/contentful";
 import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
-import Header from "./components/header/headerHome";
+import HeaderHome from "./components/header/headerHome";
 
 export default async function Home() {
   const {
@@ -13,7 +13,7 @@ export default async function Home() {
 
   return (
     <>
-      <Header navigationElements={homeIconComponent} />
+      <HeaderHome navigationElements={homeIconComponent} />
       <div className="homePage text-center flex flex-col items-center">
         <HomeProps navigationElements={homeIconComponent} />
 

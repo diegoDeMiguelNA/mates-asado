@@ -1,7 +1,11 @@
 "use client";
 import { useState } from "react";
 import clsx from "clsx";
-import { gradientStyleArgentina } from "../header/headerHome";
+
+export const gradientStyleArgentina = {
+  backgroundImage:
+    "linear-gradient(to right, #74ACDF 33.3%, #fff 33.3%, #fff 66.6%, #74ACDF 66.6%)",
+};
 
 interface MobileMenuProps {
   className?: string;
