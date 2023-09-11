@@ -6,7 +6,6 @@ import {
   IFuehrerscheinReusableFields,
   IHomeIconResuableFields,
 } from "generated/contentful";
-import { s } from "vitest/dist/types-198fd1d9.js";
 
 export const contentfulClient = createClient({
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!,
@@ -17,9 +16,26 @@ export async function getEntityData<T>(entryId: string) {
   return contentfulClient.getEntry<T>(entryId);
 }
 
+export type SubPage = {
+  fields: {
+    homeIconComponent: any;
+    title: string;
+    subtitle: string;
+    extraData?: any;
+    svgFileName?: string;
+    width?: number;
+    height?: number;
+  };
+  sys: { id: string };
+};
+
+type HomeIconPageFields = Omit<IHomeIconResuableFields, "homeIconComponent"> & {
+  homeIconComponent: SubPage[];
+};
+
 // Home Page Icons
 export async function getHomeIcons() {
-  return getEntityData<IHomeIconResuableFields>("13fZd2HWu0ZBxxNCC00tfT");
+  return getEntityData<HomeIconPageFields>("13fZd2HWu0ZBxxNCC00tfT");
 }
 
 // Subtitle and Paragraph content type
@@ -49,8 +65,9 @@ export async function getExperiencia(entryId: string) {
 
 // Fetch Experiencias from contentful by slug
 export async function getExperienciaBySlug(slug: string) {
-  const { items } =
-    await contentfulClient.getEntries<IExperienciaFields>("Experiencia");
+  const { items } = await contentfulClient.getEntries<IExperienciaFields>(
+    "Experiencia"
+  );
 
   if (items.length > 0) {
     const experiencia: any = items.find((item) => {

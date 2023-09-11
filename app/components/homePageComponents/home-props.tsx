@@ -1,65 +1,49 @@
-import HomeIcon from "../home-icon/home-icon";
-import clsx from "clsx";
+import { SubPage } from "@/lib/contentful/fetchDataFromContentful";
 import React from "react";
+import HomeIcon from "../home-icon/home-icon";
 
-const renderHomeIcons = (icons: any[], parentIndex: number = 0) => {
-  return icons.map(
-    (
-      icon: {
-        fields: {
-          homeIconComponent: any;
-          title: string;
-          subtitle: string;
-          extraData?: any;
-          svgFileName?: string;
-          width?: number;
-          height?: number;
-        };
-        sys: { id: string };
-      },
-      index: number
-    ) => {
-      const {
-        title,
-        subtitle: description,
-        extraData: linkTo,
-        svgFileName,
-        width,
-        height,
-      } = icon.fields;
-      const iconSrc = `./icons/${svgFileName}`;
+const renderHomeIcons = (icons: SubPage[], parentIndex: number = 0) => {
+  return icons.map((icon, index: number) => {
+    const {
+      title,
+      subtitle: description,
+      extraData: linkTo,
+      svgFileName,
+      width,
+      height,
+    } = icon.fields;
+    const iconSrc = `./icons/${svgFileName}`;
 
-      const nestedIcons = icon.fields.homeIconComponent
-        ? renderHomeIcons(icon.fields.homeIconComponent, index)
-        : [];
+    const nestedIcons = icon.fields.homeIconComponent
+      ? renderHomeIcons(icon.fields.homeIconComponent, index)
+      : [];
 
-      const iconClassName = () => {
-        if (icons.length !== 8) return "";
-        if (index === 7) return "md:col-start-3"; 
-        return "";
-      };
+    const iconClassName = () => {
+      if (icons.length !== 8) return "";
+      if (index === 7) return "md:col-start-3";
+      return "";
+    };
 
-      return (
-        <React.Fragment key={index}>
-          <HomeIcon
-            iconSrc={iconSrc}
-            title={title}
-            description={description}
-            linkTo={linkTo}
-            contentfulReference={icon.sys.id}
-            width={width}
-            height={height}
-            className={iconClassName()}
-          />
-          {nestedIcons}
-        </React.Fragment>
-      );
-    }
-  );
+    return (
+      <React.Fragment key={index}>
+        <HomeIcon
+          iconSrc={iconSrc}
+          title={title}
+          description={description}
+          linkTo={linkTo}
+          contentfulReference={icon.sys.id}
+          width={width}
+          height={height}
+          className={iconClassName()}
+        />
+        {nestedIcons}
+      </React.Fragment>
+    );
+  });
 };
 
 interface HomePropsInterface {
-  navigationElements: any[];
+  navigationElements: SubPage[];
 }
 
 const HomeProps: React.FC<HomePropsInterface> = async ({
