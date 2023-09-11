@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import HeaderBlogPosts from "../components/header/headerBlogPosts";
 
 export const metadata: Metadata = {
+  title: "Productos Latinos 🧉",
   openGraph: {
     title: "Productos Latinos 🧉",
     description: "Donde comprar productos latinos en Hamburgo",

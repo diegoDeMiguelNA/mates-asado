@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import HeaderBlogPosts from "../components/header/headerBlogPosts";
 
 export const metadata: Metadata = {
+  title: "Teléfonos Útiles 🧉",
   openGraph: {
     title: "Teléfonos Útiles 🧉",
     description:

@@ -5,6 +5,7 @@ import { IHomeIconResuableFields } from "@/@types/generated/contentful";
 import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
 
 export const metadata: Metadata = {
+  title: "An-, Um- y Abmeldung 🧉",
   openGraph: {
     title: "An-, Um- y Abmeldung 🧉",
     description: "Primeros pasos en Hamburgo: Empadronamiento",
