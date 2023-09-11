@@ -32,7 +32,7 @@ export default async function TelefonosUtilesLayout({
 }) {
   const {
     fields: { homeIconComponent },
-  }: Entry<IHomeIconResuableFields> = await getHomeIcons();
+  } = await getHomeIcons();
   const filteredMobileMenuElements = homeIconComponent?.filter(
     (icon) => icon.fields.extraData !== "/productos-latinos"
   );

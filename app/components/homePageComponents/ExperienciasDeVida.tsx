@@ -4,7 +4,8 @@ import Link from "next/link";
 import { Button } from "../button/button";
 import { Document } from "@contentful/rich-text-types";
 
-export function getTextFromContentfulRichText(paragraph: Document) {
+export function getTextFromContentfulRichText(paragraph?: Document) {
+  if (!paragraph) return "";
   const contentArray = paragraph.content;
   let text = "";
 
