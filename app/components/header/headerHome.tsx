@@ -3,11 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import clsx from "clsx";
 
-interface MobileMenuProps {
-  navigationElements: any[];
-}
-
-const HeaderHome: React.FC<MobileMenuProps> = () => {
+const HeaderHome: React.FC = () => {
   return (
     <header className="relative grid grid-rows-header w-full lg:min-h-[380px] items-end">
       <div className="absolute inset-0 z-0">
