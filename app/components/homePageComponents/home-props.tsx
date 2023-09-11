@@ -1,8 +1,5 @@
-import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
 import HomeIcon from "../home-icon/home-icon";
 import clsx from "clsx";
-import { Entry } from "contentful";
-import { IHomeIconResuableFields } from "@/@types/generated/contentful";
 import React from "react";
 
 const renderHomeIcons = (icons: any[], parentIndex: number = 0) => {
@@ -36,6 +33,12 @@ const renderHomeIcons = (icons: any[], parentIndex: number = 0) => {
         ? renderHomeIcons(icon.fields.homeIconComponent, index)
         : [];
 
+      const iconClassName = () => {
+        if (icons.length !== 8) return "";
+        if (index === 7) return "md:col-start-3"; 
+        return "";
+      };
+
       return (
         <React.Fragment key={index}>
           <HomeIcon
@@ -46,9 +49,7 @@ const renderHomeIcons = (icons: any[], parentIndex: number = 0) => {
             contentfulReference={icon.sys.id}
             width={width}
             height={height}
-            className={clsx(
-              index === icons.length - 1 && parentIndex === 0 && "md:col-span-3"
-            )}
+            className={iconClassName()}
           />
           {nestedIcons}
         </React.Fragment>

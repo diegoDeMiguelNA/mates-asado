@@ -5,16 +5,17 @@ import { IExperienciaFields } from "@/@types/generated/contentful";
 import { getExperienciaBySlug } from "@/lib/contentful/fetchDataFromContentful";
 import { RenderContent } from "@/utils/renderText";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
+interface IExperienciaProps {
+  params: {
+    experienciaId: string;
+  };
+}
 
-
-const Experiencia: React.FC<any> = async ({
+const Experiencia: React.FC<IExperienciaProps> = async ({
   params: { experienciaId },
 }) => {
   const results: Entry<IExperienciaFields> =
     await getExperienciaBySlug(experienciaId);
-
 
   if (!results) {
     return <div>Not found</div>;

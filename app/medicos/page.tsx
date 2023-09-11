@@ -4,8 +4,6 @@ import {
 import MedicosList from "@/app/components/pageComponents/medicos";
 import { getReusablePage } from "@/lib/contentful/fetchDataFromContentful";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
 
 type MedicosPageContent = {
   title: string;

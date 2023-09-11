@@ -1,6 +1,11 @@
+import { IHomeIconResuableFields } from "@/@types/generated/contentful";
+import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
+import { Entry } from "contentful";
 import { Metadata } from "next";
+import HeaderBlogPosts from "../components/header/headerBlogPosts";
 
 export const metadata: Metadata = {
+  title: "Teléfonos Útiles 🧉",
   openGraph: {
     title: "Teléfonos Útiles 🧉",
     description:
@@ -20,14 +25,20 @@ export const metadata: Metadata = {
   },
 };
 
-export default function TelefonosUtilesLayout({
+export default async function TelefonosUtilesLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const {
+    fields: { homeIconComponent },
+  }: Entry<IHomeIconResuableFields> = await getHomeIcons();
+  const filteredMobileMenuElements = homeIconComponent?.filter(
+    (icon) => icon.fields.extraData !== "/productos-latinos"
+  );
   return (
     <>
-      <section>{children}</section>
+      <HeaderBlogPosts navigationElements={filteredMobileMenuElements} /><section>{children}</section>
     </>
   );
 }

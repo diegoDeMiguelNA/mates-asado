@@ -1,6 +1,11 @@
+import { IHomeIconResuableFields } from "@/@types/generated/contentful";
+import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
+import { Entry } from "contentful";
 import { Metadata } from "next";
+import HeaderBlogPosts from "../components/header/headerBlogPosts";
 
 export const metadata: Metadata = {
+  title: "Deutschland Ticket 🧉",
   openGraph: {
     title: "Deutschland Ticket 🧉",
     description:
@@ -25,8 +30,16 @@ export default async function DeutschlandTicketLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const {
+    fields: { homeIconComponent },
+  }: Entry<IHomeIconResuableFields> = await getHomeIcons();
+  const filteredMobileMenuElements = homeIconComponent?.filter(
+    (icon) => icon.fields.extraData !== "/deutschlandticket"
+  );
+
   return (
     <>
+      <HeaderBlogPosts navigationElements={filteredMobileMenuElements} />
       <section>{children}</section>
     </>
   );

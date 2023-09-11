@@ -1,6 +1,11 @@
+import { IHomeIconResuableFields } from "@/@types/generated/contentful";
+import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
+import { Entry } from "contentful";
 import { Metadata } from "next";
+import HeaderBlogPosts from "../components/header/headerBlogPosts";
 
 export const metadata: Metadata = {
+  title: "Productos Latinos 🧉",
   openGraph: {
     title: "Productos Latinos 🧉",
     description: "Donde comprar productos latinos en Hamburgo",
@@ -19,10 +24,21 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ProductosLatinosLayout({
+export default async function ProductosLatinosLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  const {
+    fields: { homeIconComponent },
+  }: Entry<IHomeIconResuableFields> = await getHomeIcons();
+  const filteredMobileMenuElements = homeIconComponent?.filter(
+    (icon) => icon.fields.extraData !== "/productos-latinos"
+  );
+  return (
+    <>
+      <HeaderBlogPosts navigationElements={filteredMobileMenuElements} />
+      {children}
+    </>
+  );
 }

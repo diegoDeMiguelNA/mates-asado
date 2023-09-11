@@ -1,9 +1,15 @@
+import { IHomeIconResuableFields } from "@/@types/generated/contentful";
+import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
+import { Entry } from "contentful";
 import { Metadata } from "next";
+import HeaderBlogPosts from "../components/header/headerBlogPosts";
 
 export const metadata: Metadata = {
+  title: "Sobre nosotros...",
   openGraph: {
     title: "Sobre nosotros...",
-    description: "Historia y presente de les integrantes de Mates&Asado y su comunidad",
+    description:
+      "Historia y presente de les integrantes de Mates&Asado y su comunidad",
     url: "https://www.mates-asado.de/pages/about-us",
     siteName: "Mates&Asado",
     images: [
@@ -19,13 +25,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function AboutUsLayout({
+export default async function AboutUsLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const {
+    fields: { homeIconComponent },
+  }: Entry<IHomeIconResuableFields> = await getHomeIcons();
   return (
     <>
+      <HeaderBlogPosts navigationElements={homeIconComponent} />
       <section>{children}</section>
     </>
   );

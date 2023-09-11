@@ -1,6 +1,11 @@
+import { IHomeIconResuableFields } from "@/@types/generated/contentful";
+import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
+import { Entry } from "contentful";
 import { Metadata } from "next";
+import HeaderBlogPosts from "../components/header/headerBlogPosts";
 
 export const metadata: Metadata = {
+  title: "Búsqueda de Departamento 🧉",
   openGraph: {
     title: "Búsqueda de Departamento 🧉",
     description:
@@ -20,13 +25,20 @@ export const metadata: Metadata = {
   },
 };
 
-export default function WohnungssucheLayout({
+export default async function WohnungssucheLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const {
+    fields: { homeIconComponent },
+  }: Entry<IHomeIconResuableFields> = await getHomeIcons();
+  const filteredMobileMenuElements = homeIconComponent?.filter(
+    (icon) => icon.fields.extraData !== "/wohnungssuche"
+  );
   return (
     <>
+      <HeaderBlogPosts navigationElements={filteredMobileMenuElements} />
       <section>{children}</section>
     </>
   );

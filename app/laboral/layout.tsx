@@ -5,18 +5,19 @@ import { Metadata } from "next";
 import HeaderBlogPosts from "../components/header/headerBlogPosts";
 
 export const metadata: Metadata = {
-  title: "Médicos 🧉",
+  title: "Busqueda Laboral 🧉",
   openGraph: {
-    title: "Médicos 🧉",
-    description: "Profesionales de la saluds que hablan español en Hamburgo",
-    url: "https://www.mates-asado.de/pages/medicos",
+    title: "Busqueda Laboral en Alemania",
+    description:
+      "Como conseguir trabajo en Alemania, como hacer un curriculum vitae en Alemania, como hacer una carta de presentacion en Alemania, como hacer una carta de motiv",
+    url: "https://www.mates-asado.de/pages/fuehrerschein",
     siteName: "Mates&Asado",
     images: [
       {
         width: 300,
         height: 300,
         url: "./opengraph-image.jpg",
-        alt: "Medicos cruzados de brazo vestidos de blanco con sus estetoscopios",
+        alt: "Anverso de una licencia de conducir alemana",
       },
     ],
     locale: "en_US",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function MedicosLayout({
+export default async function LaboralLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -33,12 +34,12 @@ export default async function MedicosLayout({
     fields: { homeIconComponent },
   }: Entry<IHomeIconResuableFields> = await getHomeIcons();
   const filteredMobileMenuElements = homeIconComponent?.filter(
-    (icon) => icon.fields.extraData !== "/medicos"
+    (icon) => icon.fields.extraData !== "/fuehrerschein"
   );
   return (
     <>
       <HeaderBlogPosts navigationElements={filteredMobileMenuElements} />
-      <section>{children}</section>
+      <section>{children}</section>;
     </>
   );
 }

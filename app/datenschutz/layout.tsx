@@ -5,26 +5,19 @@ import { Metadata } from "next";
 import HeaderBlogPosts from "../components/header/headerBlogPosts";
 
 export const metadata: Metadata = {
-  title: "Médicos 🧉",
+  title: "Datenschutz",
   openGraph: {
-    title: "Médicos 🧉",
-    description: "Profesionales de la saluds que hablan español en Hamburgo",
-    url: "https://www.mates-asado.de/pages/medicos",
+    title: "Datenschutz",
+    description:
+      "Info sobre protección de datos en el sitio web de Mates&Asado",
+    url: "https://www.mates-asado.de/pages/about-us",
     siteName: "Mates&Asado",
-    images: [
-      {
-        width: 300,
-        height: 300,
-        url: "./opengraph-image.jpg",
-        alt: "Medicos cruzados de brazo vestidos de blanco con sus estetoscopios",
-      },
-    ],
     locale: "en_US",
     type: "website",
   },
 };
 
-export default async function MedicosLayout({
+export default async function DatenSchutzLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -32,12 +25,9 @@ export default async function MedicosLayout({
   const {
     fields: { homeIconComponent },
   }: Entry<IHomeIconResuableFields> = await getHomeIcons();
-  const filteredMobileMenuElements = homeIconComponent?.filter(
-    (icon) => icon.fields.extraData !== "/medicos"
-  );
   return (
     <>
-      <HeaderBlogPosts navigationElements={filteredMobileMenuElements} />
+      <HeaderBlogPosts navigationElements={homeIconComponent} />
       <section>{children}</section>
     </>
   );

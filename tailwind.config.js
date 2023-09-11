@@ -22,6 +22,9 @@ module.exports = {
       },
     },
     extend: {
+      gridTemplateRows: {
+        custom: "auto 1fr 1fr",
+      },
       width: {
         "90px": "90px",
         "120px": "120px",
@@ -29,6 +32,10 @@ module.exports = {
         "300px": "300px",
         "350px": "350px",
         "500px": "500px",
+      },
+      zIndex: {
+        100: "100",
+        200: "200",
       },
       height: {
         "19px": "19px",
@@ -131,7 +138,7 @@ module.exports = {
     },
   },
   plugins: [
-    require("tailwindcss-animate"),
+    require("tailwindcss-animate", "@tailwindcss/aspect-ratio"),
     function ({ addUtilities }) {
       const newUtilities = {
         ".landscape\\:block": {
@@ -157,7 +164,7 @@ module.exports = {
         ".flex-inherit": {
           "flex-direction": "inherit",
         },
-        ".nav-list-element": { 
+        ".nav-list-element": {
           "margin-left": "0px !important",
         },
       };
