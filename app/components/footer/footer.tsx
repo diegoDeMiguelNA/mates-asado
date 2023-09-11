@@ -29,7 +29,7 @@ export default function Footer() {
             <Link href="/datenschutz">Datenschutz</Link>
           </li>
         </ul>
-        <p className="mb-10">Copyright M&A Team 2023</p>
+        <p className="mb-5 text-sm md:text-base">&copy; M&A Team 2023</p>
       </div>
     </footer>
   );
