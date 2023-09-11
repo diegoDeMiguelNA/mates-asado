@@ -1,3 +1,4 @@
+"use client";
 import {
   IMedicoprofesionalDeLaSalud,
   IMedicoprofesionalDeLaSaludFields,
@@ -8,9 +9,10 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "../card/card";
+} from "../components/card/card";
 import { icons } from "lucide-react";
 import { ReactNode } from "react";
+import MedicosSelector from "./MedicosSelector";
 
 interface MedicosListProps {
   data: IMedicoprofesionalDeLaSalud[];
@@ -53,11 +55,7 @@ function MedicosCard({ data }: { data: IMedicoprofesionalDeLaSaludFields }) {
     idiomas,
   } = data;
 
-  let displayLink: string = emailwebsite || "";
-
-  if (emailwebsite) {
-    displayLink = emailwebsite!.replace(/^https?:\/\//, "");
-  }
+  const displayLink: string = emailwebsite?.replace(/^https?:\/\//, "") || "";
 
   return (
     <Card>
@@ -107,11 +105,14 @@ const MedicosList: React.FC<MedicosListProps> = ({ data }) => {
     (el) => el.sys.contentType.sys.id === "medicoprofesionalDeLaSalud"
   );
   return (
-    <div className="w-full pb-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 px-2 sm:px-16">
-      {filtered.map(({ sys, fields }) => (
-        <MedicosCard data={fields} key={sys.id} />
-      ))}
-    </div>
+    <>
+      <MedicosSelector value={"apple"} onChange={(newVal: string) => {}} />
+      <div className="w-full pb-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        {filtered.map(({ sys, fields }) => (
+          <MedicosCard data={fields} key={sys.id} />
+        ))}
+      </div>
+    </>
   );
 };
 
