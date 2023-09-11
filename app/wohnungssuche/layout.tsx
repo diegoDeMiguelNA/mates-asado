@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function aWohnungssucheLayout({
+export default async function WohnungssucheLayout({
   children,
 }: {
   children: React.ReactNode;
