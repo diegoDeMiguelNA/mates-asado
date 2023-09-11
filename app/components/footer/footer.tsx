@@ -14,7 +14,7 @@ export default function Footer() {
       </div>
       <div className="bg-regular-red w-full flex flex-col items-center justify-center h-auto py-6">
         <Link href="/">
-          <h3 className="text-xl lg:text-5xl font-heading font-light m-4 lg:m-10 cursor-pointer">
+          <h3 className="text-2xl lg:text-5xl font-heading font-light m-4 lg:m-10 cursor-pointer">
             Mates & Asado
           </h3>
         </Link>
