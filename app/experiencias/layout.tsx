@@ -1,4 +1,8 @@
+import { IHomeIconResuableFields } from "@/@types/generated/contentful";
+import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
+import { Entry } from "contentful";
 import { Metadata } from "next";
+import HeaderBlogPosts from "../components/header/headerBlogPosts";
 
 export const metadata: Metadata = {
   openGraph: {
@@ -25,8 +29,12 @@ export default async function ExperienciasLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
+  const {
+    fields: { homeIconComponent },
+  }: Entry<IHomeIconResuableFields> = await getHomeIcons();
+   return (
     <>
+      <HeaderBlogPosts navigationElements={homeIconComponent} />
       <section>{children}</section>
     </>
   );

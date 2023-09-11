@@ -1,4 +1,8 @@
 import { Metadata } from "next";
+import HeaderBlogPosts from "../components/header/headerBlogPosts";
+import { Entry } from "contentful";
+import { IHomeIconResuableFields } from "@/@types/generated/contentful";
+import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
 
 export const metadata: Metadata = {
   openGraph: {
@@ -19,13 +23,21 @@ export const metadata: Metadata = {
   },
 };
 
-export default function AnmeldungLayout({
+export default async function AnmeldungLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const {
+    fields: { homeIconComponent },
+  }: Entry<IHomeIconResuableFields> = await getHomeIcons();
+  const filteredMobileMenuElements = homeIconComponent?.filter(
+    (icon) => icon.fields.extraData !== "/anmeldung"
+  );
+
   return (
     <>
+      <HeaderBlogPosts navigationElements={filteredMobileMenuElements} />
       <section>{children}</section>
     </>
   );

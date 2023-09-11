@@ -6,25 +6,17 @@ import HeaderBlogPosts from "../components/header/headerBlogPosts";
 
 export const metadata: Metadata = {
   openGraph: {
-    title: "Búsqueda de Departamento 🧉",
+    title: "Datenschutz",
     description:
-      "Tips para encontrar departamento o Wg + como prevenir estafas",
-    url: "https://www.mates-asado.de/pages/deutschlandticket",
+      "Info sobre protección de datos en el sitio web de Mates&Asado",
+    url: "https://www.mates-asado.de/pages/about-us",
     siteName: "Mates&Asado",
-    images: [
-      {
-        width: 300,
-        height: 300,
-        url: "./opengraph-image.jpg",
-        alt: "Imagen de un cartel de busqueda de departamento con un edificio de fondo",
-      },
-    ],
     locale: "en_US",
     type: "website",
   },
 };
 
-export default async function aWohnungssucheLayout({
+export default async function DatenSchutzLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -32,12 +24,9 @@ export default async function aWohnungssucheLayout({
   const {
     fields: { homeIconComponent },
   }: Entry<IHomeIconResuableFields> = await getHomeIcons();
-  const filteredMobileMenuElements = homeIconComponent?.filter(
-    (icon) => icon.fields.extraData !== "/wohnungssuche"
-  );
   return (
     <>
-      <HeaderBlogPosts navigationElements={filteredMobileMenuElements} />
+      <HeaderBlogPosts navigationElements={homeIconComponent} />
       <section>{children}</section>
     </>
   );
