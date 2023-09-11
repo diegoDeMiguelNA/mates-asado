@@ -7,21 +7,22 @@ import {
 } from "generated/contentful";
 import { contentfulClient, getEntityData } from "./apiClient";
 
-export type SubPage = {
-  fields: {
-    homeIconComponent: any;
-    title: string;
-    subtitle: string;
-    extraData?: any;
-    svgFileName?: string;
-    width?: number;
-    height?: number;
-  };
+export type SubPageFields = {
+  homeIconComponent: any;
+  title: string;
+  subtitle: string;
+  extraData?: any;
+  svgFileName?: string;
+  width?: number;
+  height?: number;
+}
+export type SubPageData = {
+  fields: SubPageFields;
   sys: { id: string };
 };
 
 type HomeIconPageFields = Omit<IHomeIconResuableFields, "homeIconComponent"> & {
-  homeIconComponent: SubPage[];
+  homeIconComponent: SubPageData[];
 };
 
 // Home Page Icons
