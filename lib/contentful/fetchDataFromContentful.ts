@@ -1,4 +1,3 @@
-import { createClient } from "contentful";
 import {
   IBlogSubtitleAndParagraphFields,
   IBlogSubtitleParagraphAndImageFields,
@@ -6,15 +5,7 @@ import {
   IFuehrerscheinReusableFields,
   IHomeIconResuableFields,
 } from "generated/contentful";
-
-export const contentfulClient = createClient({
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!,
-  space: process.env.CONTENTFUL_SPACE!,
-});
-
-export async function getEntityData<T>(entryId: string) {
-  return contentfulClient.getEntry<T>(entryId);
-}
+import { contentfulClient, getEntityData } from "./apiClient";
 
 export type SubPage = {
   fields: {
@@ -70,11 +61,8 @@ export async function getExperienciaBySlug(slug: string) {
   );
 
   if (items.length > 0) {
-    const experiencia: any = items.find((item) => {
-      return item.fields.slug === slug;
-    });
-    return experiencia;
+    return items.find((item) => item.fields.slug === slug);
   }
 
-  return null;
+  return;
 }
