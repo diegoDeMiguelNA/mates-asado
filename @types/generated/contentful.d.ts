@@ -337,6 +337,12 @@ export interface IMedicoprofesionalDeLaSaludFields {
 
   /** idioma/s */
   idiomas?: string | undefined;
+
+  /** specialty */
+  specialty: string;
+
+  /** language/s */
+  languages: string[];
 }
 
 /** informacion sobre medicos que hablen español o ingles */

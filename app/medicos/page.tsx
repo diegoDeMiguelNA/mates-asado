@@ -16,6 +16,9 @@ export default async function Medicos({
   const {
     fields: { title, subtitle, pageBody },
   } = await getReusablePage<MedicosPageContent>("7815QrUkSC1g3On5DHk7Me");
+  const filtered = pageBody.filter(
+    (el) => el.sys.contentType.sys.id === "medicoprofesionalDeLaSalud"
+  );
 
   return (
     <main className="text-center">
@@ -31,7 +34,7 @@ export default async function Medicos({
         <MedicosList
           specialty={searchParams.specialty}
           language={searchParams.language}
-          data={pageBody}
+          data={filtered}
         />
       </div>
     </main>

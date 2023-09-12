@@ -18,7 +18,7 @@ interface MedicosListProps {
   data: IMedicoprofesionalDeLaSalud[];
   specialty: string | undefined;
   language: string | undefined;
-  }
+}
 
 function Icon({ name, size = 24 }: { name: string; size: string | number }) {
   const LucideIcon = icons[name as keyof typeof icons];
@@ -102,12 +102,22 @@ function MedicosCard({ data }: { data: IMedicoprofesionalDeLaSaludFields }) {
   );
 }
 
-const MedicosList: React.FC<MedicosListProps> = ({ data, language, specialty }) => {
-  const filtered = data.filter(
-    (el) => el.sys.contentType.sys.id === "medicoprofesionalDeLaSalud"
-  );
-  console.log('language', language);
-  console.log('specialty', specialty);
+const MedicosList: React.FC<MedicosListProps> = ({
+  data,
+  language,
+  specialty,
+}) => {
+  const filtered = data.filter((el) => {
+    const hasSpecialty =
+      !specialty || (el.fields.specialty && el.fields.specialty === specialty);
+  
+    const speaksLanguage =
+      !language ||
+      (el.fields.languages && el.fields.languages.includes(language));
+   
+    return hasSpecialty && speaksLanguage;
+  });
+
   return (
     <>
       <MedicosSelector value={"apple"} onChange={(newVal: string) => {}} />
