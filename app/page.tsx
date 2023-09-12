@@ -1,19 +1,17 @@
-import HomeProps from "./components/homePageComponents/home-props";
-import ExperienciasDeVida from "./components/homePageComponents/ExperienciasDeVida";
-import AboutUs from "./components/homePageComponents/AboutUs";
-import { Entry } from "contentful";
-import { IHomeIconResuableFields } from "@/@types/generated/contentful";
 import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
 import HeaderHome from "./components/header/headerHome";
+import AboutUs from "./components/homePageComponents/AboutUs";
+import ExperienciasDeVida from "./components/homePageComponents/ExperienciasDeVida";
+import HomeProps from "./components/homePageComponents/home-props";
 
 export default async function Home() {
   const {
     fields: { homeIconComponent },
-  }: Entry<IHomeIconResuableFields> = await getHomeIcons();
+  } = await getHomeIcons();
 
   return (
     <>
-      <HeaderHome navigationElements={homeIconComponent} />
+      <HeaderHome />
       <div className="homePage text-center flex flex-col items-center">
         <HomeProps navigationElements={homeIconComponent} />
 

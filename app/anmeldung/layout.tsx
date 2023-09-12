@@ -31,7 +31,7 @@ export default async function AnmeldungLayout({
 }) {
   const {
     fields: { homeIconComponent },
-  }: Entry<IHomeIconResuableFields> = await getHomeIcons();
+  } = await getHomeIcons();
   const filteredMobileMenuElements = homeIconComponent?.filter(
     (icon) => icon.fields.extraData !== "/anmeldung"
   );

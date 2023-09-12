@@ -32,7 +32,7 @@ export default async function AboutUsLayout({
 }) {
   const {
     fields: { homeIconComponent },
-  }: Entry<IHomeIconResuableFields> = await getHomeIcons();
+  } = await getHomeIcons();
   return (
     <>
       <HeaderBlogPosts navigationElements={homeIconComponent} />

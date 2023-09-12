@@ -24,7 +24,7 @@ export default async function KontaktLayout({
 }) {
   const {
     fields: { homeIconComponent },
-  }: Entry<IHomeIconResuableFields> = await getHomeIcons();
+  } = await getHomeIcons();
   return (
     <>
       <HeaderBlogPosts navigationElements={homeIconComponent} />

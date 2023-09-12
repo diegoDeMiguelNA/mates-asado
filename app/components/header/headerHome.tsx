@@ -3,11 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import clsx from "clsx";
 
-interface MobileMenuProps {
-  navigationElements: any[];
-}
-
-const HeaderHome: React.FC<MobileMenuProps> = () => {
+const HeaderHome: React.FC = () => {
   return (
     <header className="relative grid grid-rows-header w-full lg:min-h-[380px] items-end">
       <div className="absolute inset-0 z-0">
@@ -23,7 +19,7 @@ const HeaderHome: React.FC<MobileMenuProps> = () => {
 
       <div className="z-10 flex flex-col items-center justify-center row-start-1 self-center lg:mt-12">
         <Link href="/">
-          <h1 className="text-4xl font-bold mt-8 font-heading font-light mb-2 text-white md:text-5xl lg:text-8xl">
+          <h1 className="text-4xl mt-8 font-heading font-light mb-2 text-white md:text-5xl lg:text-8xl">
             Mates & Asado
           </h1>
         </Link>
@@ -37,7 +33,7 @@ const HeaderHome: React.FC<MobileMenuProps> = () => {
           "grid-row-2"
         )}
       >
-        <h2 className="text-xxs md:text-sm lg:text-xl leading-tight text-white font-body">
+        <h2 className="text-sm md:text-sm lg:text-xl leading-tight text-white font-body">
           Comunidad de ayuda para emigrados en Hamburgo
         </h2>
       </div>

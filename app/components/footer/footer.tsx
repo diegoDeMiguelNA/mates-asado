@@ -14,7 +14,7 @@ export default function Footer() {
       </div>
       <div className="bg-regular-red w-full flex flex-col items-center justify-center h-auto py-6">
         <Link href="/">
-          <h3 className="text-xl lg:text-5xl font-heading font-light m-4 lg:m-10 cursor-pointer">
+          <h3 className="text-2xl lg:text-5xl font-heading font-light m-4 lg:m-10 cursor-pointer">
             Mates & Asado
           </h3>
         </Link>
@@ -29,7 +29,7 @@ export default function Footer() {
             <Link href="/datenschutz">Datenschutz</Link>
           </li>
         </ul>
-        <p className="mb-10">Copyright M&A Team 2023</p>
+        <p className="mb-5 text-sm md:text-base">&copy; M&A Team 2023</p>
       </div>
     </footer>
   );

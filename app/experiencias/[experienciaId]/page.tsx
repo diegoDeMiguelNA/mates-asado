@@ -1,7 +1,5 @@
 import React from "react";
 
-import { Entry } from "contentful";
-import { IExperienciaFields } from "@/@types/generated/contentful";
 import { getExperienciaBySlug } from "@/lib/contentful/fetchDataFromContentful";
 import { RenderContent } from "@/utils/renderText";
 
@@ -14,8 +12,7 @@ interface IExperienciaProps {
 const Experiencia: React.FC<IExperienciaProps> = async ({
   params: { experienciaId },
 }) => {
-  const results: Entry<IExperienciaFields> =
-    await getExperienciaBySlug(experienciaId);
+  const results = await getExperienciaBySlug(experienciaId);
 
   if (!results) {
     return <div>Not found</div>;

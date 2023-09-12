@@ -32,7 +32,7 @@ export const RenderContent = (props: {
         if (entry.sys.contentType.sys.id === "onlyParagraph") {
           return (
             <BlogOnlyParagraph
-              key={Math.random() * index}
+              key={entry.sys.id}
               fields={entry.fields}
             />
           );
@@ -85,9 +85,8 @@ export const RenderContent = (props: {
 
         if (entry.sys.contentType.sys.id === "blogSubtitleParagraphAndImage") {
           return <SubtitleAndImage key={entry.sys.id} fields={entry.fields} />;
-        } else {
-          return null;
         }
+        return null;
       })}
     </>
   );
