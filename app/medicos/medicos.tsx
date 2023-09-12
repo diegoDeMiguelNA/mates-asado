@@ -16,7 +16,9 @@ import MedicosSelector from "./MedicosSelector";
 
 interface MedicosListProps {
   data: IMedicoprofesionalDeLaSalud[];
-}
+  specialty: string | undefined;
+  language: string | undefined;
+  }
 
 function Icon({ name, size = 24 }: { name: string; size: string | number }) {
   const LucideIcon = icons[name as keyof typeof icons];
@@ -100,10 +102,12 @@ function MedicosCard({ data }: { data: IMedicoprofesionalDeLaSaludFields }) {
   );
 }
 
-const MedicosList: React.FC<MedicosListProps> = ({ data }) => {
+const MedicosList: React.FC<MedicosListProps> = ({ data, language, specialty }) => {
   const filtered = data.filter(
     (el) => el.sys.contentType.sys.id === "medicoprofesionalDeLaSalud"
   );
+  console.log('language', language);
+  console.log('specialty', specialty);
   return (
     <>
       <MedicosSelector value={"apple"} onChange={(newVal: string) => {}} />
