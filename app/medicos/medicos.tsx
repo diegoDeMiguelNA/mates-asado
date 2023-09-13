@@ -1,4 +1,5 @@
 "use client";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
   IMedicoprofesionalDeLaSalud,
   IMedicoprofesionalDeLaSaludFields,
@@ -11,7 +12,7 @@ import {
   CardTitle,
 } from "../components/card/card";
 import { icons } from "lucide-react";
-import React, { ReactNode } from "react";
+import React, { ReactNode, useCallback } from "react";
 import MedicosSelector from "./MedicosSelector";
 import {
   translateLanguageToSpanish,
@@ -114,9 +115,23 @@ const MedicosList: React.FC<MedicosListProps> = ({
   const [selectedSpecialty, setSelectedSpecialty] = React.useState<
     string | undefined
   >();
-  const [selectedLanguage, setSelectedLanguage] = React.useState<
-    string | undefined
-  >();
+  const [selectedLanguage, setSelectedLanguage] = React.useState<string | "">();
+
+  const searchParams = useSearchParams()!;
+  const languageOnQueryString = searchParams.get("languages");
+  const specialtyOnQueryString = searchParams.get("specialty");
+  const router = useRouter();
+
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams();
+      params.set(name, value); 
+
+      return params.toString();
+    },
+    []
+  );
+
   const filtered = data.filter((el) => {
     const hasSpecialty =
       !specialty || (el.fields.specialty && el.fields.specialty === specialty);
@@ -141,7 +156,12 @@ const MedicosList: React.FC<MedicosListProps> = ({
       <div className="dorpdownWrapper flex justify-around mt-20 pt-14 w-full">
         <MedicosSelector
           value={selectedSpecialty}
-          onChange={(newVal: string) => setSelectedSpecialty(newVal)}
+          onChange={(newVal: string) => {
+            if (newVal) {
+              router.push(`/medicos?${createQueryString(specialtyOnQueryString || "specialties", newVal)}`);
+            }
+            setSelectedSpecialty(newVal);
+          }}
           dropdownItems={specialties}
           placeholder="Especialidad"
           translateFn={translateSpecialtyToSpanish}
@@ -149,7 +169,12 @@ const MedicosList: React.FC<MedicosListProps> = ({
         />
         <MedicosSelector
           value={selectedLanguage}
-          onChange={(newVal: string) => setSelectedLanguage(newVal)}
+          onChange={(newVal: string) => {
+            if (newVal) {
+              router.push(`/medicos?${createQueryString(specialtyOnQueryString || "languages", newVal)}`);
+            }
+            setSelectedLanguage(newVal);
+          }}
           dropdownItems={languages}
           placeholder="Idioma"
           translateFn={translateLanguageToSpanish}
