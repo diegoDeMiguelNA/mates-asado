@@ -117,20 +117,26 @@ const MedicosList: React.FC<MedicosListProps> = ({
   >();
   const [selectedLanguage, setSelectedLanguage] = React.useState<string | "">();
 
-  const searchParams = useSearchParams()!;
-  const languageOnQueryString = searchParams.get("languages");
-  const specialtyOnQueryString = searchParams.get("specialty");
   const router = useRouter();
 
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams();
-      params.set(name, value); 
+  const createQueryString = useCallback((name: string, value: string) => {
+    const params = new URLSearchParams(window.location.search);
 
-      return params.toString();
-    },
-    []
-  );
+    params.set(name, value);
+ 
+    const currentLanguage = params.get("languages");
+    const currentSpecialty = params.get("specialty");
+
+    if (currentLanguage) {
+      params.set("languages", currentLanguage);
+    }
+    if (currentSpecialty) {
+      params.set("specialty", currentSpecialty);
+    }
+  
+    return params.toString();
+  }, []);
+  
 
   const filtered = data.filter((el) => {
     const hasSpecialty =
@@ -158,7 +164,7 @@ const MedicosList: React.FC<MedicosListProps> = ({
           value={selectedSpecialty}
           onChange={(newVal: string) => {
             if (newVal) {
-              router.push(`/medicos?${createQueryString(specialtyOnQueryString || "specialties", newVal)}`);
+              router.push(`/medicos?${createQueryString("specialty", newVal)}`);
             }
             setSelectedSpecialty(newVal);
           }}
@@ -171,7 +177,7 @@ const MedicosList: React.FC<MedicosListProps> = ({
           value={selectedLanguage}
           onChange={(newVal: string) => {
             if (newVal) {
-              router.push(`/medicos?${createQueryString(specialtyOnQueryString || "languages", newVal)}`);
+              router.push(`/medicos?${createQueryString("languages", newVal)}`);
             }
             setSelectedLanguage(newVal);
           }}
