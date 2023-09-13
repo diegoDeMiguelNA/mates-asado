@@ -336,10 +336,17 @@ export interface IMedicoprofesionalDeLaSaludFields {
   email?: string | undefined;
 
   /** idioma/s */
-  idiomas?: string | undefined;
+  idiomas?: "Español" | "Inglés" | undefined;
 
   /** specialty */
-  specialty: string;
+  specialty:
+    | "general"
+    | "dermatology"
+    | "dentist"
+    | "orthopedist"
+    | "urology"
+    | "gynecology"
+    | "psychiatry";
 
   /** language/s */
   languages: string[];

@@ -11,7 +11,7 @@ import {
   CardTitle,
 } from "../components/card/card";
 import { icons } from "lucide-react";
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 import MedicosSelector from "./MedicosSelector";
 
 interface MedicosListProps {
@@ -107,20 +107,31 @@ const MedicosList: React.FC<MedicosListProps> = ({
   language,
   specialty,
 }) => {
+  const [selectedSpecialty, setSelectedSpecialty] = React.useState<
+    string | undefined
+  >();
   const filtered = data.filter((el) => {
     const hasSpecialty =
       !specialty || (el.fields.specialty && el.fields.specialty === specialty);
-  
+
     const speaksLanguage =
       !language ||
       (el.fields.languages && el.fields.languages.includes(language));
-   
+
     return hasSpecialty && speaksLanguage;
   });
 
+  const specialties = Array.from(
+    new Set(data.map((medico) => medico.fields.specialty))
+  );
+
   return (
     <>
-      <MedicosSelector value={"apple"} onChange={(newVal: string) => {}} />
+      <MedicosSelector
+        value={selectedSpecialty}
+        onChange={(newVal: string) => setSelectedSpecialty(newVal)}
+        specialties={specialties}
+      />
       <div className="w-full pb-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {filtered.map(({ sys, fields }) => (
           <MedicosCard data={fields} key={sys.id} />

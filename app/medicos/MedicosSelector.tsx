@@ -1,33 +1,41 @@
-"use client";
-
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
-
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+} from "@/components/ui/select";
+import { SelectLabel, SelectValue } from "@radix-ui/react-select";
+import React from "react";
 
 type MedicosSelectorProps = {
-  value: string;
+  value: string | undefined;
   onChange: (newVal: string) => void;
+  specialties: string[];
+  selectedSpecialty?: string;
 };
 
-function MedicosSelector({ value, onChange }: MedicosSelectorProps) {
+export default function MedicosSelector({
+  value,
+  onChange,
+  specialties,
+}: MedicosSelectorProps) {
   return (
-    <div className="mb-4 text-left">
+    <div className="mb-4 text-left max-w-[150px]">
       <Select value={value} onValueChange={onChange}>
-        <SelectTrigger className="w-[180px]">
-          <SelectValue placeholder="Select a fruit" />
+        <SelectTrigger>
+          <SelectValue placeholder={"Specialties"} />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent  className="text-center flex justify-center items-center">
           <SelectGroup>
-            <SelectLabel>Fruits</SelectLabel>
-            <SelectItem value="apple">Apple</SelectItem>
-            <SelectItem value="banana">Banana</SelectItem>
-            <SelectItem value="blueberry">Blueberry</SelectItem>
-            <SelectItem value="grapes">Grapes</SelectItem>
-            <SelectItem value="pineapple">Pineapple</SelectItem>
+            {specialties.map((specialty) => (
+              <SelectItem key={specialty} value={specialty}>
+                {specialty}
+              </SelectItem>
+            ))}
           </SelectGroup>
         </SelectContent>
       </Select>
     </div>
   );
 }
-
-export default MedicosSelector;
