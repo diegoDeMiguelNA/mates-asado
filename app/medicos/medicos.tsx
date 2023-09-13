@@ -13,6 +13,10 @@ import {
 import { icons } from "lucide-react";
 import React, { ReactNode } from "react";
 import MedicosSelector from "./MedicosSelector";
+import {
+  translateLanguageToSpanish,
+  translateSpecialtyToSpanish,
+} from "@/utils/helpFunction";
 
 interface MedicosListProps {
   data: IMedicoprofesionalDeLaSalud[];
@@ -110,6 +114,9 @@ const MedicosList: React.FC<MedicosListProps> = ({
   const [selectedSpecialty, setSelectedSpecialty] = React.useState<
     string | undefined
   >();
+  const [selectedLanguage, setSelectedLanguage] = React.useState<
+    string | undefined
+  >();
   const filtered = data.filter((el) => {
     const hasSpecialty =
       !specialty || (el.fields.specialty && el.fields.specialty === specialty);
@@ -125,13 +132,30 @@ const MedicosList: React.FC<MedicosListProps> = ({
     new Set(data.map((medico) => medico.fields.specialty))
   );
 
+  const languages = Array.from(
+    new Set(data.map((medico) => medico.fields.languages[0]))
+  );
+
   return (
     <>
-      <MedicosSelector
-        value={selectedSpecialty}
-        onChange={(newVal: string) => setSelectedSpecialty(newVal)}
-        specialties={specialties}
-      />
+      <div className="dorpdownWrapper flex justify-around mt-20 pt-14 w-full">
+        <MedicosSelector
+          value={selectedSpecialty}
+          onChange={(newVal: string) => setSelectedSpecialty(newVal)}
+          dropdownItems={specialties}
+          placeholder="Especialidad"
+          translateFn={translateSpecialtyToSpanish}
+          className="min-w-[180px]"
+        />
+        <MedicosSelector
+          value={selectedLanguage}
+          onChange={(newVal: string) => setSelectedLanguage(newVal)}
+          dropdownItems={languages}
+          placeholder="Idioma"
+          translateFn={translateLanguageToSpanish}
+          className="min-w-[150px]"
+        />
+      </div>
       <div className="w-full pb-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {filtered.map(({ sys, fields }) => (
           <MedicosCard data={fields} key={sys.id} />
