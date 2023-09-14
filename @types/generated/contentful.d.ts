@@ -329,11 +329,27 @@ export interface IMedicoprofesionalDeLaSaludFields {
   /** telephone */
   telephone?: string | undefined;
 
-  /** email/website */
+  /** website */
   emailwebsite?: string | undefined;
 
+  /** email */
+  email?: string | undefined;
+
   /** idioma/s */
-  idiomas?: string | undefined;
+  idiomas?: "Español" | "Inglés" | undefined;
+
+  /** specialty */
+  specialty:
+    | "general"
+    | "dermatology"
+    | "dentist"
+    | "orthopedist"
+    | "urology"
+    | "gynecology"
+    | "psychiatry";
+
+  /** language/s */
+  languages: string[];
 }
 
 /** informacion sobre medicos que hablen español o ingles */

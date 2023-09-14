@@ -2,7 +2,6 @@ import {
   IBlogSubtitleAndParagraphFields,
   IBlogSubtitleParagraphAndImageFields,
   IExperienciaFields,
-  IFuehrerscheinReusableFields,
   IHomeIconResuableFields,
 } from "generated/contentful";
 import { contentfulClient, getEntityData } from "./apiClient";
@@ -41,8 +40,10 @@ export async function getSubtitleAndParagraphAndImage(entryId: string) {
 }
 
 // Fetch Data for generic Page (Ex IFuehrerschein)
-export async function getReusablePage(entryId: string) {
-  return getEntityData<IFuehrerscheinReusableFields>(entryId);
+export async function getReusablePage<T>(entryId: string) {
+  return getEntityData<T>(
+    entryId
+  );
 }
 
 // Fetch Asset from contentful
