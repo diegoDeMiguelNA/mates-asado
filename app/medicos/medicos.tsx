@@ -115,10 +115,11 @@ const MedicosList: React.FC<MedicosListProps> = ({ data }) => {
   const searchParams = useSearchParams()!;
   const router = useRouter();
 
-  const [selectedSpecialty, setSelectedSpecialty] = React.useState<
-    string | undefined
-  >(searchParams.get("specialties") || undefined);
-  const [selectedLanguage, setSelectedLanguage] = React.useState<string | "">(
+  const [selectedSpecialty, setSelectedSpecialty] = React.useState<string>(
+    searchParams.get("specialties") || ""
+  );
+
+  const [selectedLanguage, setSelectedLanguage] = React.useState<string>(
     searchParams.get("languages") || ""
   );
 
