@@ -149,15 +149,18 @@ const MedicosList: React.FC<MedicosListProps> = ({ data }) => {
         <p className="text-2xl mb-4">
           No hay resultados para la búsqueda introducida
         </p>
-        <Link href="/medicos" scroll={false}>
-          <Button
-            className="bg-regular-teal text-xxs md:text-xs lg:text-[12px] rounded-full mt-4 py-4"
-            size="bigCustomPill"
-            style={{ color: "white" }}
-          >
-            Resetear búsqueda
-          </Button>
-        </Link>
+        <Button
+          className="bg-regular-teal text-xxs md:text-xs lg:text-[12px] rounded-full mt-4 py-4"
+          size="bigCustomPill"
+          style={{ color: "white" }}
+          onClick={() => {
+            setSelectedSpecialty("");
+            setSelectedLanguage("");
+            router.push("/medicos", { scroll: false });
+          }}
+        >
+          Resetear búsqueda
+        </Button>
       </div>
     );
   }

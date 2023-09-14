@@ -61,11 +61,12 @@ export const handleSelectorChange = (
 
   if (newVal) {
     router.push(
-      `/medicos?${createQueryString(searchParams, queryKey, newVal)}`
+      `/medicos?${createQueryString(searchParams, queryKey, newVal)}`,
+      { scroll: false }
     );
   } else {
     currentQuery.delete(queryKey);
-    router.push(`/medicos?${currentQuery.toString()}`);
+    router.push(`/medicos?${currentQuery.toString()}`, { scroll: false });
   }
 };
 
