@@ -1,7 +1,6 @@
 import { IMedicoprofesionalDeLaSalud } from "@/@types/generated/contentful";
 import MedicosList from "./medicos";
 import { getReusablePage } from "@/lib/contentful/fetchDataFromContentful";
-import { client } from "@/lib/contentful/apiClient";
 
 type MedicosPageContent = {
   title: string;
