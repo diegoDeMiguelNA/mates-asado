@@ -1,5 +1,5 @@
 "use client";
-import { useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import {
   IMedicoprofesionalDeLaSalud,
   IMedicoprofesionalDeLaSaludFields,
@@ -114,16 +114,26 @@ function MedicosCard({ data }: { data: IMedicoprofesionalDeLaSaludFields }) {
 const MedicosList: React.FC<MedicosListProps> = ({ data }) => {
   const searchParams = useSearchParams()!;
   const router = useRouter();
+  const pathname = usePathname();
 
-  const [selectedSpecialty, setSelectedSpecialty] = React.useState<
-    string | undefined
-  >(searchParams.get("specialties") || undefined);
+  const paramsSpecialties = searchParams.get("specialties");
+  const paramsLanguages = searchParams.get("languages");
+
+  const [selectedSpecialty, setSelectedSpecialty] = React.useState<string | "">(
+    searchParams.get("specialties") || ""
+  );
+  
   const [selectedLanguage, setSelectedLanguage] = React.useState<string | "">(
     searchParams.get("languages") || ""
   );
 
-  const paramsSpecialties = searchParams.get("specialties");
-  const paramsLanguages = searchParams.get("languages");
+
+  useEffect(() => {
+    if (pathname === "/medicos" && !paramsSpecialties && !paramsLanguages) {
+      setSelectedSpecialty("");
+      setSelectedLanguage("");
+    }
+  }, [paramsLanguages, paramsSpecialties, pathname]);
 
   const specialties = Array.from(
     new Set(data.map((medico) => medico.fields.specialty))
