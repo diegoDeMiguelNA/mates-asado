@@ -27,23 +27,23 @@ interface NextJsComponentProps {
   fields: Fields;
 }
 
-const ModalNovedades: React.FC<NextJsComponentProps> = ({ fields }) => {
+const Novedades: React.FC<NextJsComponentProps> = ({ fields }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
-    useEffect(() => {
-      const hasVisited = localStorage.getItem("hasSeenModalNovedades");
+  useEffect(() => {
+    const hasVisited = localStorage.getItem("hasSeenModalTimbero");
 
-      if (!hasVisited) {
-        setIsVisible(true);
-        localStorage.setItem("hasSeenModalNovedades", "true");
-      }
+    if (!hasVisited) {
+      setIsVisible(true);
+      localStorage.setItem("hasSeenModalTimbero", "true");
+    }
 
-      const timer = setTimeout(() => {
-        setIsVisible(false);
-      }, 10000);
+    const timer = setTimeout(() => {
+      setIsVisible(false);
+    }, 10000);
 
-      return () => clearTimeout(timer);
-    }, []);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div
@@ -75,4 +75,4 @@ const ModalNovedades: React.FC<NextJsComponentProps> = ({ fields }) => {
   );
 };
 
-export default ModalNovedades;
+export default Novedades;
