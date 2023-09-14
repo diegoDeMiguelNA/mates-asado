@@ -122,11 +122,9 @@ const MedicosList: React.FC<MedicosListProps> = ({ data }) => {
   const [selectedSpecialty, setSelectedSpecialty] = React.useState<string | "">(
     searchParams.get("specialties") || ""
   );
-  
   const [selectedLanguage, setSelectedLanguage] = React.useState<string | "">(
     searchParams.get("languages") || ""
   );
-
 
   useEffect(() => {
     if (pathname === "/medicos" && !paramsSpecialties && !paramsLanguages) {
@@ -151,7 +149,7 @@ const MedicosList: React.FC<MedicosListProps> = ({ data }) => {
         <p className="text-2xl mb-4">
           No hay resultados para la búsqueda introducida
         </p>
-        <Link href="/medicos">
+        <Link href="/medicos" scroll={false}>
           <Button
             className="bg-regular-teal text-xxs md:text-xs lg:text-[12px] rounded-full mt-4 py-4"
             size="bigCustomPill"
