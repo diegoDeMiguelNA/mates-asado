@@ -1,7 +1,6 @@
 import { IMedicoprofesionalDeLaSalud } from "@/@types/generated/contentful";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context";
 import { ReadonlyURLSearchParams } from "next/navigation";
-import { useRouter } from "next/router";
 import { NextRouter } from "next/router";
 
 export type Prettify<T> = {
