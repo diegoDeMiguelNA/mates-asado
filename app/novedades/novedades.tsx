@@ -45,6 +45,7 @@ const Novedades: React.FC<NextJsComponentProps> = ({ fields }) => {
     return () => clearTimeout(timer);
   }, []);
 
+
   return (
     <div
       className={clsx(

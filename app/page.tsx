@@ -1,7 +1,4 @@
-import {
-  getAsset,
-  getHomeIcons,
-} from "@/lib/contentful/fetchDataFromContentful";
+import { getAsset, getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
 import HeaderHome from "./components/header/headerHome";
 import AboutUs from "./components/homePageComponents/AboutUs";
 import ExperienciasDeVida from "./components/homePageComponents/ExperienciasDeVida";
@@ -14,7 +11,6 @@ export default async function Home() {
   } = await getHomeIcons();
 
   const { fields } = await getAsset("1SsCd0t1OAuqBzCgDVK2VJ");
-  console.log(fields);
 
   return (
     <>
