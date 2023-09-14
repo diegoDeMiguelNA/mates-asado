@@ -21,7 +21,6 @@ import {
   translateSpecialtyToSpanish,
 } from "@/utils/helpFunction";
 import { Button } from "../components/button/button";
-import Link from "next/link";
 
 interface MedicosListProps {
   data: IMedicoprofesionalDeLaSalud[];
