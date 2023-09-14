@@ -12,12 +12,16 @@ import {
   CardTitle,
 } from "../components/card/card";
 import { icons } from "lucide-react";
-import React, { ReactNode, useCallback } from "react";
+import React, { ReactNode, useCallback, useEffect } from "react";
 import MedicosSelector from "./MedicosSelector";
 import {
+  getFilteredData,
+  handleSelectorChange,
   translateLanguageToSpanish,
   translateSpecialtyToSpanish,
 } from "@/utils/helpFunction";
+import { Button } from "../components/button/button";
+import Link from "next/link";
 
 interface MedicosListProps {
   data: IMedicoprofesionalDeLaSalud[];
@@ -107,47 +111,19 @@ function MedicosCard({ data }: { data: IMedicoprofesionalDeLaSaludFields }) {
   );
 }
 
-const MedicosList: React.FC<MedicosListProps> = ({
-  data,
-  language,
-  specialty,
-}) => {
-  const [selectedSpecialty, setSelectedSpecialty] = React.useState<
-    string | undefined
-  >();
-  const [selectedLanguage, setSelectedLanguage] = React.useState<string | "">();
-
+const MedicosList: React.FC<MedicosListProps> = ({ data }) => {
+  const searchParams = useSearchParams()!;
   const router = useRouter();
 
-  const createQueryString = useCallback((name: string, value: string) => {
-    const params = new URLSearchParams(window.location.search);
+  const [selectedSpecialty, setSelectedSpecialty] = React.useState<
+    string | undefined
+  >(searchParams.get("specialties") || undefined);
+  const [selectedLanguage, setSelectedLanguage] = React.useState<string | "">(
+    searchParams.get("languages") || ""
+  );
 
-    params.set(name, value);
- 
-    const currentLanguage = params.get("languages");
-    const currentSpecialty = params.get("specialty");
-
-    if (currentLanguage) {
-      params.set("languages", currentLanguage);
-    }
-    if (currentSpecialty) {
-      params.set("specialty", currentSpecialty);
-    }
-  
-    return params.toString();
-  }, []);
-  
-
-  const filtered = data.filter((el) => {
-    const hasSpecialty =
-      !specialty || (el.fields.specialty && el.fields.specialty === specialty);
-
-    const speaksLanguage =
-      !language ||
-      (el.fields.languages && el.fields.languages.includes(language));
-
-    return hasSpecialty && speaksLanguage;
-  });
+  const paramsSpecialties = searchParams.get("specialties");
+  const paramsLanguages = searchParams.get("languages");
 
   const specialties = Array.from(
     new Set(data.map((medico) => medico.fields.specialty))
@@ -157,17 +133,41 @@ const MedicosList: React.FC<MedicosListProps> = ({
     new Set(data.map((medico) => medico.fields.languages[0]))
   );
 
+  const filtered = getFilteredData(data, paramsSpecialties, paramsLanguages);
+
+  if (filtered.length === 0) {
+    return (
+      <div className="text-center mt-20">
+        <p className="text-2xl mb-4">
+          No hay resultados para la búsqueda introducida
+        </p>
+        <Link href="/medicos">
+          <Button
+            className="bg-regular-teal text-xxs md:text-xs lg:text-[12px] rounded-full mt-4 py-4"
+            size="bigCustomPill"
+            style={{ color: "white" }}
+          >
+            Resetear búsqueda
+          </Button>
+        </Link>
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="dorpdownWrapper flex justify-around mt-20 pt-14 w-full">
         <MedicosSelector
           value={selectedSpecialty}
-          onChange={(newVal: string) => {
-            if (newVal) {
-              router.push(`/medicos?${createQueryString("specialty", newVal)}`);
-            }
-            setSelectedSpecialty(newVal);
-          }}
+          onChange={(newVal) =>
+            handleSelectorChange(
+              searchParams,
+              router,
+              newVal,
+              "specialties",
+              setSelectedSpecialty
+            )
+          }
           dropdownItems={specialties}
           placeholder="Especialidad"
           translateFn={translateSpecialtyToSpanish}
@@ -175,12 +175,15 @@ const MedicosList: React.FC<MedicosListProps> = ({
         />
         <MedicosSelector
           value={selectedLanguage}
-          onChange={(newVal: string) => {
-            if (newVal) {
-              router.push(`/medicos?${createQueryString("languages", newVal)}`);
-            }
-            setSelectedLanguage(newVal);
-          }}
+          onChange={(newVal) =>
+            handleSelectorChange(
+              searchParams,
+              router,
+              newVal,
+              "languages",
+              setSelectedLanguage
+            )
+          }
           dropdownItems={languages}
           placeholder="Idioma"
           translateFn={translateLanguageToSpanish}

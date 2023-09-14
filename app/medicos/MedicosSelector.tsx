@@ -28,13 +28,16 @@ export default function MedicosSelector({
   className,
 }: MedicosSelectorProps) {
   return (
-    <div className={clsx("mb-4 text-left", className)}>
+    <div className={clsx("mb-4 pb-4 text-left", className)}>
       <Select value={value} onValueChange={onChange}>
         <SelectTrigger className="flex justify-around">
           <SelectValue placeholder={placeholder} />
         </SelectTrigger>
         <SelectContent className="text-center flex justify-center items-center">
           <SelectGroup className="ml-0">
+            <SelectItem key="no-option" value="">
+              <span className="font-bold text-sm">{"Sin filtrar"}</span>
+            </SelectItem>
             {dropdownItems.map((specialty) => (
               <SelectItem key={specialty} value={specialty}>
                 {translateFn(specialty)}
