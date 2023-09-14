@@ -4,6 +4,8 @@ import { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import Footer from "./components/footer/footer";
 import CookieBanner from "./components/cookieBanner.tsx/cookieBanner";
+import { getAsset } from "@/lib/contentful/fetchDataFromContentful";
+import Novedades from "./novedades/novedades";
 
 const montserrat = Montserrat({
   weight: ["300", "400", "500", "700", "800"],
@@ -47,6 +49,14 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  let fields;
+
+  try {
+    const assetData = await getAsset("1SsCd0t1OAuqBzCgDVK2VJ");
+    fields = assetData.fields;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  };
   return (
     <html
       lang="en"
@@ -54,6 +64,7 @@ export default async function RootLayout({
     >
       <head />
       <body>
+      {fields && <Novedades fields={fields} />}
 
         {children}
 
