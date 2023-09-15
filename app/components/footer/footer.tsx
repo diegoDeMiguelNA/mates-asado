@@ -28,6 +28,9 @@ export default function Footer() {
           <li className="m-0">
             <Link href="/datenschutz">Datenschutz</Link>
           </li>
+          <li className="m-0">
+            <Link href="/impressum">Impressum</Link>
+          </li>
         </ul>
         <p className="mb-5 text-sm md:text-base">&copy; M&A Team 2023</p>
       </div>
