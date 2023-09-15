@@ -1,6 +1,4 @@
-import { IHomeIconResuableFields } from "@/@types/generated/contentful";
 import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
-import { Entry } from "contentful";
 import { Metadata } from "next";
 import HeaderBlogPosts from "../components/header/headerBlogPosts";
 

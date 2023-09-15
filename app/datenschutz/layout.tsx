@@ -1,6 +1,4 @@
-import { IHomeIconResuableFields } from "@/@types/generated/contentful";
 import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
-import { Entry } from "contentful";
 import { Metadata } from "next";
 import HeaderBlogPosts from "../components/header/headerBlogPosts";
 
@@ -10,7 +8,7 @@ export const metadata: Metadata = {
     title: "Datenschutz",
     description:
       "Info sobre protección de datos en el sitio web de Mates&Asado",
-    url: "https://www.mates-asado.de/pages/about-us",
+    url: "https://www.mates-asado.de/pages/datenschutz",
     siteName: "Mates&Asado",
     locale: "en_US",
     type: "website",

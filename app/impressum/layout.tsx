@@ -3,19 +3,19 @@ import { Metadata } from "next";
 import HeaderBlogPosts from "../components/header/headerBlogPosts";
 
 export const metadata: Metadata = {
-  title: "Contacto - Kontakt 🧉",
+  title: "Impressum",
   openGraph: {
-    title: "Contacto/Kontakt 🧉",
+    title: "Impressum",
     description:
-      "Como Contactarse con Mates&Asado, por email, redes sociales, etc.",
-    url: "https://www.mates-asado.de/pages/kontakt",
+      "RECHTLICHE INFORMATIONEN UND KONTAKTDATE",
+    url: "https://www.mates-asado.de/pages/impressum",
     siteName: "Mates&Asado",
     locale: "en_US",
     type: "website",
   },
 };
 
-export default async function KontaktLayout({
+export default async function DatenSchutzLayout({
   children,
 }: {
   children: React.ReactNode;
