@@ -6,6 +6,7 @@ import { getReusablePage } from "@/lib/contentful/fetchDataFromContentful";
 import { RenderContent } from "@/utils/renderText";
 
 const Anmeldung: React.FC = async () => {
+  throw new Error("This page is not implemented yet");
   const results: Entry<IFuehrerscheinReusableFields> = await getReusablePage(
     "7henc1KRwe8D0b4FkJEHpn"
   );

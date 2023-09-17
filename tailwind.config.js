@@ -67,6 +67,13 @@ module.exports = {
           "linear-gradient(to right, #74ACDF 33.3%, #fff 33.3%, #fff 66.6%, #74ACDF 66.6%)",
       }),
       colors: {
+        colors: {
+          'pastel-blue-100': '#BAC7E8',
+          'pastel-blue-900': '#2B2F55',
+          'pastel-purple-500': '#9E88E3',
+          'pastel-green-400': '#8ED4BB',
+          'pastel-yellow-400': '#FFEEB0',
+        },
         lightBlue: "#74ACDF",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

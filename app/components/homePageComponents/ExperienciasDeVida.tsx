@@ -31,7 +31,7 @@ export default async function ExperienciasDeVida() {
   if (Object.keys(results).length === 0) return;
 
   return (
-    <div className="experiencias-de-vida mb-16 w-full grid h-full min-h-[420px] md:mt-6 md:min-h-[400px] lg:pt-8 lg:pb-8 bg-regular-grey flex-col">
+    <div className="experiencias-de-vida mb-16 w-full grid h-full min-h-[530px] md:mt-6 md:min-h-[400px] lg:pt-8 lg:pb-8 bg-regular-grey flex flex-col md:flex-row xl:justify-center">
       <section className="relative w-full z-50 h-[200px] md:h-[250px] lg:hidden">
         <Image
           src={
@@ -45,7 +45,7 @@ export default async function ExperienciasDeVida() {
         />
       </section>
 
-      <div className="flex flex-col mb-10 w-full justify-end max-h-[370px] px-9 sm:px-16 md:mb-16 lg:mb-0 lg:grid lg:grid-cols-2 lg:py-10 lg:px-12 lg:max-h-none">
+      <div className="flex flex-col max-h-[140px] mb-10 w-full justify-end max-h-[370px] px-9 sm:px-16 md:mb-16 lg:mb-0 lg:grid lg:grid-cols-2 lg:py-10 lg:px-12 lg:max-h-none gap-24">
         <section className="relative hidden lg:block lg:h-[550px] lg:w-[480px] justify-self-center">
           <Image
             src={
@@ -61,7 +61,7 @@ export default async function ExperienciasDeVida() {
           />
         </section>
 
-        <div className="flex flex-col items-center lg:items-center justify-center space-y-4 mb-4 md:mb-2 pt-10 lg:pt-0">
+        <div className="flex flex-col items-center lg:items-center justify-center space-y-4 mb-4 md:mb-2 pt-16 lg:pt-0">
           <h3 className="text-s md:text-xl text-regular-red font-bold">
             {subtitle}
           </h3>

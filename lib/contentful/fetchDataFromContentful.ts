@@ -19,7 +19,7 @@ export type SubPageData = {
   fields: SubPageFields;
   sys: { id: string };
 };
-
+ 
 type HomeIconPageFields = Omit<IHomeIconResuableFields, "homeIconComponent"> & {
   homeIconComponent: SubPageData[];
 };

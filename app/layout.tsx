@@ -63,7 +63,7 @@ export default async function RootLayout({
       className={`${montserrat.variable}} ${lemonMilk.variable} `}
     >
       <head />
-      <body>
+      <body className="min-h-screen">
       {fields && <Novedades fields={fields} />}
 
         {children}
