@@ -2,18 +2,28 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import clsx from "clsx";
+import { getAsset } from "@/lib/contentful/fetchDataFromContentful";
 
-const HeaderHome: React.FC = () => {
+const HeaderHome: React.FC = async () => {
+  let fields;
+  try {
+    const assetData = await getAsset("1xValOZGL1NO8ZR9dK0EE9");
+    fields = assetData.fields;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
   return (
     <header className="relative grid grid-rows-header w-full lg:min-h-[380px] xl:min-h-[600px] items-end">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/port.webp"
+          src={fields ? `https:${fields.file.url}` : "/images/port.webp"}
           alt="Background Image"
           layout="fill"
           objectFit="cover"
           objectPosition="center"
           priority={true}
+          placeholder="blur"
+          blurDataURL="/images/port.webp"
         />
       </div>
 
