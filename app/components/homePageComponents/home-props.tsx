@@ -37,7 +37,7 @@ interface HomePropsInterface {
 }
 
 const HomeProps: React.FC<HomePropsInterface> = ({ navigationElements }) => (
-  <div className="iconWrapper py-10 my-14 px-4 grid grid-cols-1 grid-rows-3 gap-8 md:px-16 md:gap-30 md:grid-cols-3 lg:gap-y-32 lg:w-[900px] lg:mt-16 lg:mb-10 lg:pt-16 lg:pb-10">
+  <div className="iconWrapper py-10 my-14 px-4 grid grid-cols-1 grid-rows-3 gap-8 md:px-16 md:gap-30 md:grid-cols-3 lg:gap-y-32 lg:w-[900px] lg:mt-16 lg:mb-10 lg:pt-16 lg:pb-16">
     {navigationElements.map((page, index) => (
       <SubPage
         data={page}

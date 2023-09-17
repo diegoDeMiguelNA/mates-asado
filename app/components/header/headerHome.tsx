@@ -5,7 +5,7 @@ import clsx from "clsx";
 
 const HeaderHome: React.FC = () => {
   return (
-    <header className="relative grid grid-rows-header w-full lg:min-h-[380px] items-end">
+    <header className="relative grid grid-rows-header w-full lg:min-h-[380px] xl:min-h-[600px] items-end">
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/port.webp"
@@ -17,7 +17,7 @@ const HeaderHome: React.FC = () => {
         />
       </div>
 
-      <div className="z-10 flex flex-col items-center justify-center row-start-1 self-center lg:mt-12">
+      <div className="z-10 flex flex-col items-center justify-center row-start-1 self-center lg:mt-20 lg:pt-20">
         <Link href="/">
           <h1 className="text-4xl mt-8 font-heading font-light mb-2 text-white md:text-5xl lg:text-8xl">
             Mates & Asado
