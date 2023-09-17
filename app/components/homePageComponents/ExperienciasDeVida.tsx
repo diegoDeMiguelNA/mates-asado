@@ -45,7 +45,7 @@ export default async function ExperienciasDeVida() {
         />
       </section>
 
-      <div className="flex flex-col max-h-[140px] mb-10 w-full justify-end max-h-[370px] px-9 sm:px-16 md:mb-16 lg:mb-0 lg:grid lg:grid-cols-2 lg:py-10 lg:px-12 lg:max-h-none gap-24">
+      <div className="flex flex-col max-h-[140px] mb-10 w-full justify-end px-9 sm:px-16 md:mb-16 lg:mb-0 lg:grid lg:grid-cols-2 lg:py-10 lg:px-12 lg:max-h-none gap-24">
         <section className="relative hidden lg:block lg:h-[550px] lg:w-[480px] justify-self-center">
           <Image
             src={
