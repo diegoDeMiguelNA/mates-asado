@@ -1,6 +1,7 @@
 import { IMedicoprofesionalDeLaSalud } from "@/@types/generated/contentful";
 import MedicosList from "./medicos";
 import { getReusablePage } from "@/lib/contentful/fetchDataFromContentful";
+import { notFound } from "next/navigation";
 
 type MedicosPageContent = {
   title: string;
@@ -8,14 +9,20 @@ type MedicosPageContent = {
   pageBody: IMedicoprofesionalDeLaSalud[];
 };
 
+const getMedicosData = async () => {
+  const { fields } = await getReusablePage<MedicosPageContent>(
+    "7815QrUkSC1g3On5DHk7Me"
+  );
+  if (!fields.pageBody) return notFound();
+  return fields;
+};
+
 export default async function Medicos({
   searchParams,
 }: {
-  searchParams: { language: string | undefined; specialty: string | undefined };
+  searchParams: { languages: string | undefined; specialties: string | undefined };
 }) {
-  const {
-    fields: { title, subtitle, pageBody },
-  } = await getReusablePage<MedicosPageContent>("7815QrUkSC1g3On5DHk7Me");
+  const { title, subtitle, pageBody } = await getMedicosData();
   const filtered = pageBody.filter(
     (el) => el.sys.contentType.sys.id === "medicoprofesionalDeLaSalud"
   );
@@ -31,11 +38,7 @@ export default async function Medicos({
             {subtitle}
           </h3>
         </div>
-        <MedicosList
-          specialty={searchParams.specialty}
-          language={searchParams.language}
-          data={filtered}
-        />
+        <MedicosList data={filtered} searchParams={searchParams} />
       </div>
     </main>
   );

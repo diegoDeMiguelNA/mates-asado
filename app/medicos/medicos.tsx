@@ -24,8 +24,10 @@ import { Button } from "../components/button/button";
 
 interface MedicosListProps {
   data: IMedicoprofesionalDeLaSalud[];
-  specialty: string | undefined;
-  language: string | undefined;
+  searchParams: {
+    languages: string | undefined;
+    specialties: string | undefined;
+  };
 }
 
 function Icon({ name, size = 24 }: { name: string; size: string | number }) {
@@ -110,19 +112,19 @@ function MedicosCard({ data }: { data: IMedicoprofesionalDeLaSaludFields }) {
   );
 }
 
-const MedicosList: React.FC<MedicosListProps> = ({ data }) => {
-  const searchParams = useSearchParams()!;
+const MedicosList: React.FC<MedicosListProps> = ({ data, searchParams }) => {
+  const searchParamsHook = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
 
-  const paramsSpecialties = searchParams.get("specialties");
-  const paramsLanguages = searchParams.get("languages");
+  const paramsSpecialties = searchParams.specialties;
+  const paramsLanguages = searchParams.languages;
 
   const [selectedSpecialty, setSelectedSpecialty] = React.useState<string | "">(
-    searchParams.get("specialties") || ""
+    paramsSpecialties || ""
   );
   const [selectedLanguage, setSelectedLanguage] = React.useState<string | "">(
-    searchParams.get("languages") || ""
+    paramsLanguages || ""
   );
 
   useEffect(() => {
@@ -133,16 +135,16 @@ const MedicosList: React.FC<MedicosListProps> = ({ data }) => {
   }, [paramsLanguages, paramsSpecialties, pathname]);
 
   const specialties = Array.from(
-    new Set(data.map((medico) => medico.fields.specialty))
+    new Set(data?.map((medico) => medico.fields.specialty))
   );
 
   const languages = Array.from(
-    new Set(data.map((medico) => medico.fields.languages[0]))
+    new Set(data?.map((medico) => medico.fields.languages[0]))
   );
 
   const filtered = getFilteredData(data, paramsSpecialties, paramsLanguages);
 
-  if (filtered.length === 0) {
+  if (filtered?.length === 0) {
     return (
       <div className="text-center mt-20">
         <p className="text-2xl mb-4">
@@ -171,7 +173,7 @@ const MedicosList: React.FC<MedicosListProps> = ({ data }) => {
           value={selectedSpecialty}
           onChange={(newVal) =>
             handleSelectorChange(
-              searchParams,
+              searchParamsHook,
               router,
               newVal,
               "specialties",
@@ -187,7 +189,7 @@ const MedicosList: React.FC<MedicosListProps> = ({ data }) => {
           value={selectedLanguage}
           onChange={(newVal) =>
             handleSelectorChange(
-              searchParams,
+              searchParamsHook,
               router,
               newVal,
               "languages",
@@ -201,7 +203,7 @@ const MedicosList: React.FC<MedicosListProps> = ({ data }) => {
         />
       </div>
       <div className="w-full pb-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        {filtered.map(({ sys, fields }) => (
+        {filtered?.map(({ sys, fields }) => (
           <MedicosCard data={fields} key={sys.id} />
         ))}
       </div>
