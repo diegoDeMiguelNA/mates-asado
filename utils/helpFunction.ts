@@ -18,6 +18,7 @@ export function translateSpecialtyToSpanish(specialty: string): string {
     urology: "urología",
     otolaryngology: "otorrinolaringología",
     orthopedist: "ortopedista",
+    pediatrics: "pediatría",
   };
 
   return capitalizeWord(specialtiesMap[specialty] || specialty);

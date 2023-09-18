@@ -346,7 +346,8 @@ export interface IMedicoprofesionalDeLaSaludFields {
     | "orthopedist"
     | "urology"
     | "gynecology"
-    | "psychiatry";
+    | "psychiatry"
+    | "pediatry";
 
   /** language/s */
   languages: string[];
