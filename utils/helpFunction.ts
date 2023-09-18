@@ -57,7 +57,7 @@ export const handleSelectorChange = (
   setValueFunction: (value: string) => void
 ) => {
   setValueFunction(newVal);
-  const currentQuery = new URLSearchParams(searchParams.toString());
+  const currentQuery = new URLSearchParams(searchParams?.toString());
 
   if (newVal) {
     router.push(
@@ -75,7 +75,7 @@ export const getFilteredData = (
   paramsSpecialties?: string | null,
   paramsLanguages?: string | null
 ) => {
-  return data.filter((el) => {
+  return data?.filter((el) => {
     const hasSpecialty =
       paramsSpecialties === null ||
       paramsSpecialties === undefined ||

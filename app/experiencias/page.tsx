@@ -51,8 +51,6 @@ export default async function Experiencias() {
 
   const { title, subtitle, pageBody } = results?.fields;
 
-  console.log('pageBody', pageBody);
-
   return (
     <>
       <main className="text-center flex flex-col items-center justify-center">
