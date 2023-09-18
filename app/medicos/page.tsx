@@ -17,11 +17,7 @@ const getMedicosData = async () => {
   return fields;
 };
 
-export default async function Medicos({
-  searchParams,
-}: {
-  searchParams: { languages: string | undefined; specialties: string | undefined };
-}) {
+export default async function Medicos() {
   const { title, subtitle, pageBody } = await getMedicosData();
   const filtered = pageBody.filter(
     (el) => el.sys.contentType.sys.id === "medicoprofesionalDeLaSalud"
@@ -38,7 +34,7 @@ export default async function Medicos({
             {subtitle}
           </h3>
         </div>
-        <MedicosList data={filtered} searchParams={searchParams} />
+        <MedicosList data={filtered} />
       </div>
     </main>
   );

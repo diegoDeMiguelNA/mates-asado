@@ -24,10 +24,6 @@ import { Button } from "../components/button/button";
 
 interface MedicosListProps {
   data: IMedicoprofesionalDeLaSalud[];
-  searchParams: {
-    languages: string | undefined;
-    specialties: string | undefined;
-  };
 }
 
 function Icon({ name, size = 24 }: { name: string; size: string | number }) {
@@ -112,19 +108,19 @@ function MedicosCard({ data }: { data: IMedicoprofesionalDeLaSaludFields }) {
   );
 }
 
-const MedicosList: React.FC<MedicosListProps> = ({ data, searchParams }) => {
-  const searchParamsHook = useSearchParams();
+const MedicosList: React.FC<MedicosListProps> = ({ data }) => {
+  const searchParams = useSearchParams()!;
   const router = useRouter();
   const pathname = usePathname();
 
-  const paramsSpecialties = searchParams.specialties;
-  const paramsLanguages = searchParams.languages;
+  const paramsSpecialties = searchParams.get("specialties");
+  const paramsLanguages = searchParams.get("languages");
 
   const [selectedSpecialty, setSelectedSpecialty] = React.useState<string | "">(
-    paramsSpecialties || ""
+    searchParams.get("specialties") || ""
   );
   const [selectedLanguage, setSelectedLanguage] = React.useState<string | "">(
-    paramsLanguages || ""
+    searchParams.get("languages") || ""
   );
 
   useEffect(() => {
@@ -173,7 +169,7 @@ const MedicosList: React.FC<MedicosListProps> = ({ data, searchParams }) => {
           value={selectedSpecialty}
           onChange={(newVal) =>
             handleSelectorChange(
-              searchParamsHook,
+              searchParams,
               router,
               newVal,
               "specialties",
@@ -189,7 +185,7 @@ const MedicosList: React.FC<MedicosListProps> = ({ data, searchParams }) => {
           value={selectedLanguage}
           onChange={(newVal) =>
             handleSelectorChange(
-              searchParamsHook,
+              searchParams,
               router,
               newVal,
               "languages",
