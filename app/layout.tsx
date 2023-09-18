@@ -51,12 +51,13 @@ export default async function RootLayout({
 }) {
   let fields;
 
-  try {
-    const assetData = await getAsset("1SsCd0t1OAuqBzCgDVK2VJ");
-    fields = assetData.fields;
-  } catch (error) {
-    console.error("Error fetching data:", error);
-  };
+  // try {
+  //   const assetData = await getAsset("1SsCd0t1OAuqBzCgDVK2VJ");
+  //   fields = assetData.fields;
+  // } catch (error) {
+  //   console.error("Error fetching data:", error);
+  // };
+  
   return (
     <html
       lang="en"
@@ -64,7 +65,7 @@ export default async function RootLayout({
     >
       <head />
       <body className="min-h-screen">
-      {fields && <Novedades fields={fields} />}
+      {/* {fields && <Novedades fields={fields} />} */}
 
         {children}
 

@@ -3,13 +3,12 @@ import { Entry } from "contentful";
 import { getReusablePage } from "@/lib/contentful/fetchDataFromContentful";
 
 import ExperienciaIcon from "../components/experienciasComponents/ExperienciaIcon";
+import { notFound } from "next/navigation";
 
-// Define el tipo para los campos dentro de 'pageBody'
 export interface IExperienciaFields {
-  nombreDeLaExperiencia?: string; // Puedes ajustar si es opcional o no según tus datos
+  nombreDeLaExperiencia?: string; 
   subtitle?: string;
   slug?: string;
-  // Agrega cualquier otro campo necesario aquí...
 }
 
 export interface IFuehrerscheinReusableFields {
@@ -44,12 +43,15 @@ export interface IFuehrerscheinReusable
 }
 
 export default async function Experiencias() {
-  const results: Entry<IFuehrerscheinReusableFields> = await getReusablePage(
+  const results: Entry<IFuehrerscheinReusableFields> | undefined = await getReusablePage(
     "2E3ScHAH6l40tgsmACj00I"
   );
 
-  const { title, subtitle, pageBody } = results.fields;
+  if(!results) return notFound();
 
+  const { title, subtitle, pageBody } = results?.fields;
+
+  console.log('pageBody', pageBody);
 
   return (
     <>

@@ -1,12 +1,36 @@
 import React from "react";
 
-import { getExperienciaBySlug } from "@/lib/contentful/fetchDataFromContentful";
+import {
+  getExperienciaBySlug,
+  getReusablePage,
+} from "@/lib/contentful/fetchDataFromContentful";
 import { RenderContent } from "@/utils/renderText";
+import { notFound } from "next/navigation";
+import { Entry } from "contentful";
+import { IFuehrerscheinReusableFields } from "../page";
 
 interface IExperienciaProps {
   params: {
     experienciaId: string;
   };
+}
+
+export async function generateStaticParams(): Promise<
+  { experienciaId: string }[]
+> {
+  const results: Entry<IFuehrerscheinReusableFields> | undefined =
+    await getReusablePage("2E3ScHAH6l40tgsmACj00I");
+
+  if (!results) return [];
+
+  const { pageBody } = results?.fields;
+
+  if (!pageBody) return [];
+
+  return pageBody
+    .map((experience) => experience.fields.slug)
+    .filter((slug): slug is string => Boolean(slug))
+    .map((slug) => ({ experienciaId: slug }));
 }
 
 const Experiencia: React.FC<IExperienciaProps> = async ({
@@ -15,7 +39,7 @@ const Experiencia: React.FC<IExperienciaProps> = async ({
   const results = await getExperienciaBySlug(experienciaId);
 
   if (!results) {
-    return <div>Not found</div>;
+    return notFound();
   }
 
   const { nombreDeLaExperiencia, subtitle, pageBody } = results.fields;
