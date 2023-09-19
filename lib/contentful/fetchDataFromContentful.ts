@@ -20,7 +20,7 @@ export type SubPageData = {
   sys: { id: string };
 };
  
-type HomeIconPageFields = Omit<IHomeIconResuableFields, "homeIconComponent"> & {
+export type HomeIconPageFields = Omit<IHomeIconResuableFields, "homeIconComponent"> & {
   homeIconComponent: SubPageData[];
 };
 

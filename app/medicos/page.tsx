@@ -10,15 +10,16 @@ type MedicosPageContent = {
 };
 
 const getMedicosData = async () => {
-  const { fields } = await getReusablePage<MedicosPageContent>(
+  const results = await getReusablePage<MedicosPageContent>(
     "7815QrUkSC1g3On5DHk7Me"
   );
-  if (!fields.pageBody) return notFound();
-  return fields;
+  return results.fields;
 };
 
 export default async function Medicos() {
-  const { title, subtitle, pageBody } = await getMedicosData();
+  const results = await getMedicosData();
+  if (!results) return notFound();
+  const { title, subtitle, pageBody } = results;
   const filtered = pageBody.filter(
     (el) => el.sys.contentType.sys.id === "medicoprofesionalDeLaSalud"
   );
