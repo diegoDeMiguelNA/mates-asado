@@ -31,11 +31,11 @@ const Novedades: React.FC<NextJsComponentProps> = ({ fields }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   useEffect(() => {
-    const hasVisited = localStorage.getItem("hasSeenModalTimbero");
+    const hasVisited = localStorage.getItem("hasSeenModalMilonga");
 
     if (!hasVisited) {
       setIsVisible(true);
-      localStorage.setItem("hasSeenModalTimbero", "true");
+      localStorage.setItem("hasSeenModalMilonga", "true");
     }
 
     const timer = setTimeout(() => {
@@ -45,7 +45,6 @@ const Novedades: React.FC<NextJsComponentProps> = ({ fields }) => {
     return () => clearTimeout(timer);
   }, []);
 
-
   return (
     <div
       className={clsx(
@@ -54,7 +53,7 @@ const Novedades: React.FC<NextJsComponentProps> = ({ fields }) => {
       )}
       style={{ backdropFilter: "blur(5px)" }}
     >
-      <div className="relative max-w-[90%] sm:max-w-[90%] lg:max-w-[800px] xl:max-w-[600px] rounded bg-white p-4 sm:p-5 lg:p-5 max-h-[90vh] overflow-y-auto max-h-[calc(100vh-3rem)] sm:max-h-[calc(100vh-2rem)]">
+      <div className="relative max-w-[90%] sm:max-w-[90%] lg:max-w-[800px] xl:max-w-[600px] rounded bg-white p-4 sm:p-5 lg:p-5 overflow-y-auto max-h-[calc(100vh-3rem)] sm:max-h-[calc(100vh-2rem)]">
         <Image
           src={`https:${fields.file.url}`}
           alt={fields.title}
@@ -64,10 +63,10 @@ const Novedades: React.FC<NextJsComponentProps> = ({ fields }) => {
         />
         <button
           onClick={() => setIsVisible(false)}
-          className="absolute top-3 right-3 sm:top-4 sm:right-4 lg:top-5 lg:right-5 block flex py-2 px-3 sm:py-3 sm:px-4 border rounded text-blue-600 border-white hover:text-white"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 lg:top-5 lg:right-5 block py-2 px-3 sm:py-3 sm:px-4 border rounded text-blue-600 border-black hover:text-white"
           aria-label="Close Modal"
         >
-          <span className="text-s px-2 sm:text-lg lg:text-lg text-white font-bold">
+          <span className="text-s px-2 sm:text-lg lg:text-lg text-black font-bold">
             X
           </span>
         </button>

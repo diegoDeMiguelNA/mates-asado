@@ -5,7 +5,11 @@ import { NextRouter } from "next/router";
 
 export type Prettify<T> = {
   [K in keyof T]: T[K];
-} & {};
+} & object;
+
+export function capitalizeWord(word: string): string {
+  return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+}
 
 export function translateSpecialtyToSpanish(specialty: string): string {
   const specialtiesMap: { [key: string]: string } = {
@@ -33,16 +37,12 @@ export function translateLanguageToSpanish(language: string): string {
   return capitalizeWord(languageMap[language] || language);
 }
 
-export function capitalizeWord(word: string): string {
-  return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-}
-
 export const createQueryString = (
   searchParams: URLSearchParams | ReadonlyURLSearchParams,
   name: string,
   value: string
 ): string => {
-  let params = new URLSearchParams(searchParams.toString());
+  const params = new URLSearchParams(searchParams.toString());
   params.set(name, value);
   return params.toString();
 };
