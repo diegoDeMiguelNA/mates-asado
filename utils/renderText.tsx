@@ -15,12 +15,14 @@ type EntryFields = {
   isHrTag?: boolean;
 };
 
-export const RenderContent = (props: {
+export default function RenderContent({
+  entries,
+}: {
   entries: Entry<{ [fieldId: string]: unknown }>[];
-}) => {
+}) {
   return (
     <>
-      {props.entries.map((entry, index) => {
+      {entries.map((entry) => {
         if (entry.sys.contentType.sys.id === "blogSubtitleAndParagraph") {
           return (
             <BlogSubtitleAndParagraph
@@ -30,12 +32,7 @@ export const RenderContent = (props: {
           );
         }
         if (entry.sys.contentType.sys.id === "onlyParagraph") {
-          return (
-            <BlogOnlyParagraph
-              key={entry.sys.id}
-              fields={entry.fields}
-            />
-          );
+          return <BlogOnlyParagraph key={entry.sys.id} fields={entry.fields} />;
         }
         if (entry.sys.contentType.sys.id === "linkWithReference") {
           return <Hyperlink key={entry.sys.id} fields={entry.fields} />;
@@ -90,4 +87,4 @@ export const RenderContent = (props: {
       })}
     </>
   );
-};
+}

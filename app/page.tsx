@@ -1,6 +1,4 @@
-import {
-  getHomeIcons,
-} from "@/lib/contentful/fetchDataFromContentful";
+import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
 import HeaderHome from "./components/header/headerHome";
 import AboutUs from "./components/homePageComponents/AboutUs";
 import ExperienciasDeVida from "./components/homePageComponents/ExperienciasDeVida";
