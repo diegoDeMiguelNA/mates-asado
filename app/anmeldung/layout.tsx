@@ -1,7 +1,5 @@
 import { Metadata } from "next";
 import HeaderBlogPosts from "../components/header/headerBlogPosts";
-import { Entry } from "contentful";
-import { IHomeIconResuableFields } from "@/@types/generated/contentful";
 import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
 
 export const metadata: Metadata = {
