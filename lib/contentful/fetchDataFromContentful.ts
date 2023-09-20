@@ -7,20 +7,23 @@ import {
 import { contentfulClient, getEntityData } from "./apiClient";
 
 export type SubPageFields = {
-  homeIconComponent: any;
+  homeIconComponent: unknown;
   title: string;
   subtitle: string;
-  extraData?: any;
+  extraData?: unknown;
   svgFileName?: string;
   width?: number;
   height?: number;
-}
+};
 export type SubPageData = {
   fields: SubPageFields;
   sys: { id: string };
 };
- 
-export type HomeIconPageFields = Omit<IHomeIconResuableFields, "homeIconComponent"> & {
+
+export type HomeIconPageFields = Omit<
+  IHomeIconResuableFields,
+  "homeIconComponent"
+> & {
   homeIconComponent: SubPageData[];
 };
 
@@ -41,9 +44,7 @@ export async function getSubtitleAndParagraphAndImage(entryId: string) {
 
 // Fetch Data for generic Page (Ex IFuehrerschein)
 export async function getReusablePage<T>(entryId: string) {
-  return getEntityData<T>(
-    entryId
-  );
+  return getEntityData<T>(entryId);
 }
 
 // Fetch Asset from contentful
@@ -58,13 +59,12 @@ export async function getExperiencia(entryId: string) {
 
 // Fetch Experiencias from contentful by slug
 export async function getExperienciaBySlug(slug: string) {
-  const { items } = await contentfulClient.getEntries<IExperienciaFields>(
-    "Experiencia"
-  );
+  const { items } =
+    await contentfulClient.getEntries<IExperienciaFields>("Experiencia");
 
   if (items.length > 0) {
     return items.find((item) => item.fields.slug === slug);
   }
 
-  return;
+  return null;
 }

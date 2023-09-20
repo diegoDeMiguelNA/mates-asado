@@ -28,6 +28,7 @@
     "react/jsx-props-no-spreading": "off",
     "react/require-default-props": "off",
     "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
+    "global-require": "off",
     "jsx-a11y/anchor-is-valid": [
       "error",
       {
