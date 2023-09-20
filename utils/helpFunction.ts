@@ -5,7 +5,11 @@ import { NextRouter } from "next/router";
 
 export type Prettify<T> = {
   [K in keyof T]: T[K];
-} & {};
+} & object;
+
+export function capitalizeWord(word: string): string {
+  return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+}
 
 export function translateSpecialtyToSpanish(specialty: string): string {
   const specialtiesMap: { [key: string]: string } = {
@@ -33,16 +37,12 @@ export function translateLanguageToSpanish(language: string): string {
   return capitalizeWord(languageMap[language] || language);
 }
 
-export function capitalizeWord(word: string): string {
-  return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-}
-
 export const createQueryString = (
   searchParams: URLSearchParams | ReadonlyURLSearchParams,
   name: string,
-  value: string
+  value: string,
 ): string => {
-  let params = new URLSearchParams(searchParams.toString());
+  const params = new URLSearchParams(searchParams.toString());
   params.set(name, value);
   return params.toString();
 };
@@ -54,7 +54,7 @@ export const handleSelectorChange = (
   router: RouterType,
   newVal: string,
   queryKey: string,
-  setValueFunction: (value: string) => void
+  setValueFunction: (value: string) => void,
 ) => {
   setValueFunction(newVal);
   const currentQuery = new URLSearchParams(searchParams?.toString());
@@ -62,7 +62,7 @@ export const handleSelectorChange = (
   if (newVal) {
     router.push(
       `/medicos?${createQueryString(searchParams, queryKey, newVal)}`,
-      { scroll: false }
+      { scroll: false },
     );
   } else {
     currentQuery.delete(queryKey);
@@ -73,7 +73,7 @@ export const handleSelectorChange = (
 export const getFilteredData = (
   data: IMedicoprofesionalDeLaSalud[],
   paramsSpecialties?: string | null,
-  paramsLanguages?: string | null
+  paramsLanguages?: string | null,
 ) => {
   return data?.filter((el) => {
     const hasSpecialty =
