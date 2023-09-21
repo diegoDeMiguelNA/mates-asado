@@ -6,8 +6,7 @@ export const metadata: Metadata = {
   title: "Impressum",
   openGraph: {
     title: "Impressum",
-    description:
-      "RECHTLICHE INFORMATIONEN UND KONTAKTDATE",
+    description: "RECHTLICHE INFORMATIONEN UND KONTAKTDATE",
     url: "https://www.mates-asado.de/pages/impressum",
     siteName: "Mates&Asado",
     locale: "en_US",

@@ -31,7 +31,7 @@ export default async function ProductosLatinosLayout({
     fields: { homeIconComponent },
   } = await getHomeIcons();
   const filteredMobileMenuElements = homeIconComponent?.filter(
-    (icon) => icon.fields.extraData !== "/productos-latinos"
+    icon => icon.fields.extraData !== "/productos-latinos",
   );
   return (
     <>

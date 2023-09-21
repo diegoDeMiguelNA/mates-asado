@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Hyperlink(props: { fields: any }) {
   const hyperlinkData =
     props?.fields?.linkUrlString?.content?.[0]?.content?.find(
-      (item: { nodeType: string }) => item.nodeType === "hyperlink"
+      (item: { nodeType: string }) => item.nodeType === "hyperlink",
     );
 
   if (!hyperlinkData) return null;

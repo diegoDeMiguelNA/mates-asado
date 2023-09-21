@@ -22,7 +22,7 @@ export default function RenderContent({
 }) {
   return (
     <>
-      {entries.map((entry) => {
+      {entries.map(entry => {
         if (entry.sys.contentType.sys.id === "blogSubtitleAndParagraph") {
           return (
             <BlogSubtitleAndParagraph

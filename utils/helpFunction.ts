@@ -75,7 +75,7 @@ export const getFilteredData = (
   paramsSpecialties?: string | null,
   paramsLanguages?: string | null,
 ) => {
-  return data?.filter((el) => {
+  return data?.filter(el => {
     const hasSpecialty =
       paramsSpecialties === null ||
       paramsSpecialties === undefined ||

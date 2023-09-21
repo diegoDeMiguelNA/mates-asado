@@ -32,7 +32,7 @@ export default async function DeutschlandTicketLayout({
     fields: { homeIconComponent },
   } = await getHomeIcons();
   const filteredMobileMenuElements = homeIconComponent?.filter(
-    (icon) => icon.fields.extraData !== "/deutschlandticket"
+    icon => icon.fields.extraData !== "/deutschlandticket",
   );
 
   return (

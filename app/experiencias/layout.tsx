@@ -31,7 +31,7 @@ export default async function ExperienciasLayout({
   const {
     fields: { homeIconComponent },
   } = await getHomeIcons();
-   return (
+  return (
     <>
       <HeaderBlogPosts navigationElements={homeIconComponent} />
       <section>{children}</section>

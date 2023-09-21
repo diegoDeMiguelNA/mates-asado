@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import HeaderBlogPosts from "../components/header/headerBlogPosts";
 import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
+import HeaderBlogPosts from "../components/header/headerBlogPosts";
 
 export const metadata: Metadata = {
   title: "An-, Um- y Abmeldung 🧉",
@@ -31,7 +31,7 @@ export default async function AnmeldungLayout({
     fields: { homeIconComponent },
   } = await getHomeIcons();
   const filteredMobileMenuElements = homeIconComponent?.filter(
-    (icon) => icon.fields.extraData !== "/anmeldung"
+    icon => icon.fields.extraData !== "/anmeldung",
   );
 
   return (

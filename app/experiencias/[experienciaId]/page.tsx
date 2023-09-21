@@ -28,9 +28,9 @@ export async function generateStaticParams(): Promise<
   if (!pageBody) return [];
 
   return pageBody
-    .map((experience) => experience.fields.slug)
+    .map(experience => experience.fields.slug)
     .filter((slug): slug is string => Boolean(slug))
-    .map((slug) => ({ experienciaId: slug }));
+    .map(slug => ({ experienciaId: slug }));
 }
 
 const Experiencia: React.FC<IExperienciaProps> = async ({

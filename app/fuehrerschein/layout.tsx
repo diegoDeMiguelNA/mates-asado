@@ -32,7 +32,7 @@ export default async function FuhrerscheinLayout({
     fields: { homeIconComponent },
   } = await getHomeIcons();
   const filteredMobileMenuElements = homeIconComponent?.filter(
-    (icon) => icon.fields.extraData !== "/fuehrerschein"
+    icon => icon.fields.extraData !== "/fuehrerschein",
   );
   return (
     <>

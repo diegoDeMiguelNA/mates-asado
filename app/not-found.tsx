@@ -1,6 +1,6 @@
 import Link from "next/link";
-import HeaderBlogPosts from "./components/header/headerBlogPosts";
 import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
+import HeaderBlogPosts from "./components/header/headerBlogPosts";
 import { Button } from "./components/button/button";
 
 export default async function NotFound() {

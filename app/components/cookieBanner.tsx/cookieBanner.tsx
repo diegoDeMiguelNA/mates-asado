@@ -1,4 +1,5 @@
 "use client";
+
 import clsx from "clsx";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
@@ -7,11 +8,11 @@ const CookieBanner: React.FC = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   useEffect(() => {
-    const hasVisited = localStorage.getItem('hasVisited');
+    const hasVisited = localStorage.getItem("hasVisited");
 
     if (!hasVisited) {
       setIsVisible(true);
-      localStorage.setItem('hasVisited', 'true');
+      localStorage.setItem("hasVisited", "true");
     }
 
     const timer = setTimeout(() => {
@@ -24,8 +25,8 @@ const CookieBanner: React.FC = () => {
   return (
     <div
       className={clsx(
-        "fixed bottom-0 z-50 left-0 w-full p-4 pr-0 bg-gray-100 transform transition-transform duration-500 grid grid-cols-[1fr,max-content] items-center gap-4 min-h-[160px] pb-6 md:h-[230px] 2xl:h-[180px]0 max-w-[500px] rounded", 
-        isVisible ? "translate-y-0" : "translate-y-full"
+        "fixed bottom-0 z-50 left-0 w-full p-4 pr-0 bg-gray-100 transform transition-transform duration-500 grid grid-cols-[1fr,max-content] items-center gap-4 min-h-[160px] pb-6 md:h-[230px] 2xl:h-[180px]0 max-w-[500px] rounded",
+        isVisible ? "translate-y-0" : "translate-y-full",
       )}
     >
       <div className="flex flex-col items-start lg:items-center gap-2 ml-4 md:ml-8">

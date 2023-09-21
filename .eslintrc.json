@@ -21,6 +21,7 @@
     }
   },
   "rules": {
+    "comma-dangle": ["error", "always-multiline"],
     "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",

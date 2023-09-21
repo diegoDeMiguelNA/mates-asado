@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import clsx from "clsx";
 
@@ -52,7 +53,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
         className={clsx(
           "text-center z-30",
           className,
-          menuOpen && "rounded font-body h-full"
+          menuOpen && "rounded font-body h-full",
         )}
         style={gradientStyleArgentina}
       >
@@ -62,7 +63,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
             "lg:hidden sm:space-x-8 flex flex-col items-center justify-start w-full h-full px-4 sm:mb-8 pb-8",
             {
               hidden: !menuOpen,
-            }
+            },
           )}
           role="menu"
           aria-label="Mobile Menu"
@@ -94,7 +95,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
 
         <ul
           className={clsx(
-            "hidden justify-center sm:space-x-8 lg:flex flex-col items-center justify-start w-full h-full px-4 mb-2 lg:flex-inherit"
+            "hidden justify-center sm:space-x-8 lg:flex flex-col items-center justify-start w-full h-full px-4 mb-2 lg:flex-inherit",
           )}
           role="menu"
           aria-label="Mobile Menu"

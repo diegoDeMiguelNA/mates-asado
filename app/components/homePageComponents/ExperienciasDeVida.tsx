@@ -1,16 +1,16 @@
 import { getSubtitleAndParagraphAndImage } from "@/lib/contentful/fetchDataFromContentful";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "../button/button";
 import { Document } from "@contentful/rich-text-types";
+import { Button } from "../button/button";
 
 export function getTextFromContentfulRichText(paragraph?: Document) {
   if (!paragraph) return "";
   const contentArray = paragraph.content;
   let text = "";
 
-  contentArray.forEach((content) => {
-    content.content.forEach((innerContent) => {
+  contentArray.forEach(content => {
+    content.content.forEach(innerContent => {
       if (innerContent.nodeType === "text") {
         text += innerContent.value;
       }
@@ -22,7 +22,7 @@ export function getTextFromContentfulRichText(paragraph?: Document) {
 
 export default async function ExperienciasDeVida() {
   const results = await getSubtitleAndParagraphAndImage(
-    "2FSjWb3HaXM9obR4vqS1Gr"
+    "2FSjWb3HaXM9obR4vqS1Gr",
   );
 
   const { subtitle, paragraph, assets } = results.fields;

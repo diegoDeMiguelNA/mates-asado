@@ -1,10 +1,10 @@
 import Image from "next/image";
-import { Button } from "../button/button";
 import { IBlogSubtitleParagraphAndImageFields } from "@/@types/generated/contentful";
 import { Entry } from "contentful";
 import { getSubtitleAndParagraphAndImage } from "@/lib/contentful/fetchDataFromContentful";
-import { getTextFromContentfulRichText } from "./ExperienciasDeVida";
 import Link from "next/link";
+import { getTextFromContentfulRichText } from "./ExperienciasDeVida";
+import { Button } from "../button/button";
 
 export default async function AboutUs() {
   const results: Entry<IBlogSubtitleParagraphAndImageFields> =
@@ -44,7 +44,7 @@ export default async function AboutUs() {
           <Button
             className="bg-regular-teal text-xxs md:text-xs lg:text-[12px] rounded-full mt-4 py-4"
             size="customPill"
-          style={{ color: "white" }}
+            style={{ color: "white" }}
           >
             Ver más
           </Button>

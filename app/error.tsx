@@ -1,12 +1,13 @@
 "use client";
+
 import Link from "next/link";
-import HeaderBlogPosts from "./components/header/headerBlogPosts";
 import {
   SubPageData,
   getHomeIcons,
 } from "@/lib/contentful/fetchDataFromContentful";
-import { Button } from "./components/button/button";
 import { useEffect, useState } from "react";
+import HeaderBlogPosts from "./components/header/headerBlogPosts";
+import { Button } from "./components/button/button";
 
 export default function Error({ error }: { error: Error; reset: () => void }) {
   const [homeIconComponent, setHomeIconComponent] = useState<SubPageData[]>([]);
@@ -39,7 +40,12 @@ export default function Error({ error }: { error: Error; reset: () => void }) {
           </div>
           <h3>
             Si el sitio no funciona por favor comunicarte a <br />
-            <a className="underline text-blue-500" href="mailto:mates.asado@gmail.com">mates.asado@gmail.com</a>
+            <a
+              className="underline text-blue-500"
+              href="mailto:mates.asado@gmail.com"
+            >
+              mates.asado@gmail.com
+            </a>
           </h3>
         </div>
       </div>

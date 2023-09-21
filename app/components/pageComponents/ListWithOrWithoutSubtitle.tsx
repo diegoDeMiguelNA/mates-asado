@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-export const ListWithOrWithoutSubtitle = (props: { fields: any }) => {
+export function ListWithOrWithoutSubtitle(props: { fields: any }) {
   return (
     <div className="flex flex-col justify-center px-4 max-w-[550px] lg:max-w-[700px]">
       {props.fields.subtitle && (
@@ -17,7 +17,7 @@ export const ListWithOrWithoutSubtitle = (props: { fields: any }) => {
                   props.fields.isOrderedList
                     ? "list-decimal list-inside"
                     : "list-disc list-inside pl-5",
-                  "py-6 px-4"
+                  "py-6 px-4",
                 )}
                 key={Math.random() * index}
               >
@@ -38,7 +38,9 @@ export const ListWithOrWithoutSubtitle = (props: { fields: any }) => {
                               >
                                 {itemIndex + 1}.
                               </span>
-                            ) : "- "}
+                            ) : (
+                              "- "
+                            )}
                             <span
                               className={
                                 props.fields.isOrderedList ? "flex-grow" : ""
@@ -47,14 +49,14 @@ export const ListWithOrWithoutSubtitle = (props: { fields: any }) => {
                               {text.value}
                             </span>
                           </li>
-                        )
-                      )
-                  )
+                        ),
+                      ),
+                  ),
                 )}
               </ul>
-            )
+            ),
         )}
       </div>
     </div>
   );
-};
+}

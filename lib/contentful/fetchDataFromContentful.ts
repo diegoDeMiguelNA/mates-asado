@@ -63,7 +63,7 @@ export async function getExperienciaBySlug(slug: string) {
     await contentfulClient.getEntries<IExperienciaFields>("Experiencia");
 
   if (items.length > 0) {
-    return items.find((item) => item.fields.slug === slug);
+    return items.find(item => item.fields.slug === slug);
   }
 
   return null;

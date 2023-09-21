@@ -66,7 +66,7 @@ module.exports = {
       margin: {
         "25px": "25px",
       },
-      backgroundImage: (_theme) => ({
+      backgroundImage: _theme => ({
         "flag-gradient":
           "linear-gradient(to right, #74ACDF 33.3%, #fff 33.3%, #fff 66.6%, #74ACDF 66.6%)",
       }),

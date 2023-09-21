@@ -36,9 +36,9 @@ export default function MedicosSelector({
         <SelectContent className="text-center flex justify-center items-center">
           <SelectGroup className="ml-0">
             <SelectItem key="no-option" value="">
-              <span className="font-bold text-sm">{"Sin filtrar"}</span>
+              <span className="font-bold text-sm">Sin filtrar</span>
             </SelectItem>
-            {dropdownItems.map((specialty) => (
+            {dropdownItems.map(specialty => (
               <SelectItem key={specialty} value={specialty}>
                 {translateFn(specialty)}
               </SelectItem>

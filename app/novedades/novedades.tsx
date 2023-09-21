@@ -1,4 +1,5 @@
 "use client";
+
 import clsx from "clsx";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
@@ -45,12 +46,11 @@ const Novedades: React.FC<NextJsComponentProps> = ({ fields }) => {
     return () => clearTimeout(timer);
   }, []);
 
-
   return (
     <div
       className={clsx(
         "fixed inset-0 z-200 p-4 bg-transparent transform transition-transform duration-500 flex justify-center items-center sm:px-20 sm:py-10 lg:px-40 lg:py-20 xl:px-40 xl:py-20 w-full",
-        isVisible ? "translate-y-0" : "-translate-y-full"
+        isVisible ? "translate-y-0" : "-translate-y-full",
       )}
       style={{ backdropFilter: "blur(5px)" }}
     >

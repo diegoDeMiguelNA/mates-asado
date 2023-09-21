@@ -19,7 +19,8 @@ export default function BlogOnlyParagraph(props: { fields: any }) {
               {item.content.map((contentItem: any, contentIndex: number) => {
                 if (contentItem.nodeType === "text") {
                   return contentItem.value;
-                } else if (contentItem.nodeType === "hyperlink") { 
+                }
+                if (contentItem.nodeType === "hyperlink") {
                   return (
                     <div
                       className="mt-4 mb-4"
@@ -52,10 +53,11 @@ export default function BlogOnlyParagraph(props: { fields: any }) {
               })}
             </div>
           );
-        } else if (item.nodeType === "unordered-list") {
+        }
+        if (item.nodeType === "unordered-list") {
           return (
             <ul
-            key={Math.random() * index}
+              key={Math.random() * index}
               className="list-disc list-outside pl-5 w-full flex flex-col flex-wrap items-center justify-center"
             >
               {item.content.map((listItem: any, listItemIndex: number) => (
@@ -70,10 +72,11 @@ export default function BlogOnlyParagraph(props: { fields: any }) {
               ))}
             </ul>
           );
-        } else if (item.nodeType === "ordered-list") {
+        }
+        if (item.nodeType === "ordered-list") {
           return (
             <ol
-            key={index + Math.random() * 5 * index}
+              key={index + Math.random() * 5 * index}
               className="list-decimal list-outside pl-5 w-full flex flex-col flex-wrap items-center justify-center"
             >
               {item.content.map((listItem: any, listItemIndex: number) => (

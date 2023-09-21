@@ -31,7 +31,7 @@ export default async function MedicosLayout({
     fields: { homeIconComponent },
   } = await getHomeIcons();
   const filteredMobileMenuElements = homeIconComponent?.filter(
-    (icon) => icon.fields.extraData !== "/medicos"
+    icon => icon.fields.extraData !== "/medicos",
   );
   return (
     <>

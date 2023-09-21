@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import MobileMenu from "../ResponsiveNavMenu/mobileMenu";
 import clsx from "clsx";
+import MobileMenu from "../ResponsiveNavMenu/mobileMenu";
 
 interface MobileMenuProps {
   navigationElements: any[];
@@ -24,7 +24,7 @@ const HeaderBlogPosts: React.FC<MobileMenuProps> = ({ navigationElements }) => {
       <div
         className={clsx(
           "z-10 flex flex-col items-center justify-center row-start-1 self-center mb-4 lg:mt-12",
-          "grid-row-1 sm:mb-8 lg:mb-8 lg:pb-8 row-start-2 lg:mt-0"
+          "grid-row-1 sm:mb-8 lg:mb-8 lg:pb-8 row-start-2 lg:mt-0",
         )}
       >
         <Link href="/">
@@ -39,7 +39,7 @@ const HeaderBlogPosts: React.FC<MobileMenuProps> = ({ navigationElements }) => {
       <div
         className={clsx(
           "bg-customRed flex items-center justify-center h-[20px] md:h-[22px] lg:h-[38px] z-50 self-end row-start-3",
-          "grid-row-2"
+          "grid-row-2",
         )}
       >
         <h2 className="text-xxs md:text-sm lg:text-xl leading-tight text-white font-body">

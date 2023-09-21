@@ -32,11 +32,12 @@ export default async function TelefonosUtilesLayout({
     fields: { homeIconComponent },
   } = await getHomeIcons();
   const filteredMobileMenuElements = homeIconComponent?.filter(
-    (icon) => icon.fields.extraData !== "/productos-latinos"
+    icon => icon.fields.extraData !== "/productos-latinos",
   );
   return (
     <>
-      <HeaderBlogPosts navigationElements={filteredMobileMenuElements} /><section>{children}</section>
+      <HeaderBlogPosts navigationElements={filteredMobileMenuElements} />
+      <section>{children}</section>
     </>
   );
 }

@@ -32,7 +32,7 @@ export default async function WohnungssucheLayout({
     fields: { homeIconComponent },
   } = await getHomeIcons();
   const filteredMobileMenuElements = homeIconComponent?.filter(
-    (icon) => icon.fields.extraData !== "/wohnungssuche"
+    icon => icon.fields.extraData !== "/wohnungssuche",
   );
   return (
     <>

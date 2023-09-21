@@ -1,7 +1,7 @@
 import { IMedicoprofesionalDeLaSalud } from "@/@types/generated/contentful";
-import MedicosList from "./medicos";
 import { getReusablePage } from "@/lib/contentful/fetchDataFromContentful";
 import { notFound } from "next/navigation";
+import MedicosList from "./medicos";
 
 type MedicosPageContent = {
   title: string;
@@ -11,7 +11,7 @@ type MedicosPageContent = {
 
 const getMedicosData = async () => {
   const results = await getReusablePage<MedicosPageContent>(
-    "7815QrUkSC1g3On5DHk7Me"
+    "7815QrUkSC1g3On5DHk7Me",
   );
   return results.fields;
 };
@@ -21,7 +21,7 @@ export default async function Medicos() {
   if (!results) return notFound();
   const { title, subtitle, pageBody } = results;
   const filtered = pageBody.filter(
-    (el) => el.sys.contentType.sys.id === "medicoprofesionalDeLaSalud"
+    el => el.sys.contentType.sys.id === "medicoprofesionalDeLaSalud",
   );
 
   return (

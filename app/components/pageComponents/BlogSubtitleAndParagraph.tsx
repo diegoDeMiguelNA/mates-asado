@@ -14,10 +14,13 @@ export default function BlogSubtitleAndParagraph(props: { fields: any }) {
           (content: any, index: number) =>
             content.nodeType === "paragraph" &&
             content.content.map((text: any, textIndex: number) => (
-              <p className="px-6 text-left py-2" key={Math.random() * textIndex}>
+              <p
+                className="px-6 text-left py-2"
+                key={Math.random() * textIndex}
+              >
                 {text.value}
               </p>
-            ))
+            )),
         )}
     </div>
   );
