@@ -20,6 +20,15 @@
       "version": "detect"
     }
   },
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "rules": {
+        "no-unused-vars": "off"
+        // Add any other rules you want to turn off for .js files
+      }
+    }
+  ],
   "rules": {
     "comma-dangle": ["error", "always-multiline"],
     "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
@@ -30,6 +39,7 @@
     "react/require-default-props": "off",
     "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
     "global-require": "off",
+    "@typescript-eslint/no-var-requires": "off",
     "jsx-a11y/anchor-is-valid": [
       "error",
       {

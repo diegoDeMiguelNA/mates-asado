@@ -44,7 +44,7 @@
     "@types/react-dom": "18.2.6",
     "@typescript-eslint/eslint-plugin": "^6.7.2",
     "@typescript-eslint/parser": "^6.7.2",
-    "contentful-management": "^10.39.2",
+    "contentful-management": "^10.46.0",
     "contentful-typescript-codegen": "^3.4.0",
     "eslint": "^8.49.0",
     "eslint-config-airbnb": "^19.0.4",
