@@ -1,6 +1,6 @@
 type NodeData = {
   uri?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 };
 
 type Block = {
