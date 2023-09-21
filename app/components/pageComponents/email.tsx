@@ -1,5 +1,3 @@
-import React from "react";
-
 interface EmailProps {
   data: {
     fields: {
@@ -8,7 +6,7 @@ interface EmailProps {
   };
 }
 
-const EmailComponent: React.FC<EmailProps> = ({ data }) => {
+function EmailComponent({ data }: EmailProps) {
   const email = data?.fields?.emailAdress;
 
   if (!email) return null;
@@ -20,6 +18,6 @@ const EmailComponent: React.FC<EmailProps> = ({ data }) => {
       </a>
     </div>
   );
-};
+}
 
 export default EmailComponent;

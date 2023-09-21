@@ -1,6 +1,5 @@
-import React from "react";
-import { Entry } from "contentful";
 import { getReusablePage } from "@/lib/contentful/fetchDataFromContentful";
+import { Entry } from "contentful";
 
 import { notFound } from "next/navigation";
 import ExperienciaIcon from "../components/experienciasComponents/ExperienciaIcon";
@@ -48,13 +47,13 @@ export default async function Experiencias() {
 
   if (!results) return notFound();
 
-  const { title, subtitle, pageBody } = results?.fields;
+  const { title, subtitle, pageBody } = results.fields;
 
   return (
     <main className="text-center flex flex-col items-center justify-center">
       <div className="py-12">
         <h2 className="text-2xl sm:text-5xl font-heading uppercase">{title}</h2>
-        <h3 className="text-sm mx-8 font-heading uppercase pt-10 mb-4 sm:mx-24 max-w-[300px] md: max-w-[400px] lg:max-w-[600px]">
+        <h3 className="text-sm mx-8 font-heading uppercase pt-10 mb-4 sm:mx-24 max-w-[300px] md:max-w-[400px] lg:max-w-[600px]">
           {subtitle}
         </h3>
       </div>

@@ -7,13 +7,11 @@ import {
 } from "@/components/ui/select";
 import { SelectValue } from "@radix-ui/react-select";
 import clsx from "clsx";
-import React from "react";
 
 type MedicosSelectorProps = {
   value: string | undefined;
   onChange: (newVal: string) => void;
   dropdownItems: string[];
-  selectedSpecialty?: string;
   placeholder?: string;
   translateFn: (item: string) => string;
   className?: string;

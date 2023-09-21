@@ -1,31 +1,34 @@
 "use client";
 
-import Link from "next/link";
 import {
   SubPageData,
   getHomeIcons,
 } from "@/lib/contentful/fetchDataFromContentful";
+import Link from "next/link";
 import { useEffect, useState } from "react";
-import HeaderBlogPosts from "./components/header/headerBlogPosts";
 import { Button } from "./components/button/button";
+import HeaderBlogPosts from "./components/header/headerBlogPosts";
 
-export default function Error({ error }: { error: Error; reset: () => void }) {
-  const [homeIconComponent, setHomeIconComponent] = useState<SubPageData[]>([]);
+export default function Error({ error }: { error: Error }) {
+  const [localHomeIconComponent, setlocalHomeIconComponent] = useState<
+    SubPageData[]
+  >([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const {
         fields: { homeIconComponent },
       } = await getHomeIcons();
-      setHomeIconComponent(homeIconComponent);
-      if (error) console.log(error);
+      setlocalHomeIconComponent(homeIconComponent);
+      // eslint-disable-next-line no-console
+      if (error) console.log("error within error.tsx: ", error);
     };
     fetchData();
   }, [error]);
 
   return (
     <>
-      <HeaderBlogPosts navigationElements={homeIconComponent} />
+      <HeaderBlogPosts navigationElements={localHomeIconComponent} />
       <div className="min-h-full flex flex-col justify-center items-center bg-pastel-blue-100">
         <div className="text-center space-y-4 mt-16 pt-16 mb-16 pb-8">
           <h1 className="text-6xl text-pastel-purple-500">404</h1>

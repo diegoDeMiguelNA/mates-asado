@@ -1,4 +1,4 @@
-export function TitleWithOrWithoutSubtitle(props: { fields: any }) {
+function TitleWithOrWithoutSubtitle(props: { fields: any }) {
   const titleWithOrWithoutSubtitle = props.fields && props.fields;
   if (!titleWithOrWithoutSubtitle) return null;
 
@@ -17,3 +17,5 @@ export function TitleWithOrWithoutSubtitle(props: { fields: any }) {
     </div>
   );
 }
+
+export default TitleWithOrWithoutSubtitle;

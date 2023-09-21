@@ -1,19 +1,19 @@
 "use client";
 
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import {
   IMedicoprofesionalDeLaSalud,
   IMedicoprofesionalDeLaSaludFields,
 } from "@/@types/generated/contentful";
-import { icons } from "lucide-react";
-import React, { ReactNode, useCallback, useEffect } from "react";
 import {
   getFilteredData,
   handleSelectorChange,
   translateLanguageToSpanish,
   translateSpecialtyToSpanish,
 } from "@/utils/helpFunction";
-import MedicosSelector from "./MedicosSelector";
+import { icons } from "lucide-react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import React, { ReactNode, useEffect } from "react";
+import { Button } from "../components/button/button";
 import {
   Card,
   CardContent,
@@ -21,7 +21,7 @@ import {
   CardHeader,
   CardTitle,
 } from "../components/card/card";
-import { Button } from "../components/button/button";
+import MedicosSelector from "./MedicosSelector";
 
 interface MedicosListProps {
   data: IMedicoprofesionalDeLaSalud[];
@@ -109,7 +109,7 @@ function MedicosCard({ data }: { data: IMedicoprofesionalDeLaSaludFields }) {
   );
 }
 
-const MedicosList: React.FC<MedicosListProps> = ({ data }) => {
+function MedicosList({ data }: MedicosListProps) {
   const searchParams = useSearchParams()!;
   const router = useRouter();
   const pathname = usePathname();
@@ -206,6 +206,6 @@ const MedicosList: React.FC<MedicosListProps> = ({ data }) => {
       </div>
     </>
   );
-};
+}
 
 export default MedicosList;

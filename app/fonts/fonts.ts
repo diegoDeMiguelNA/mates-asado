@@ -1,6 +1,6 @@
 import localFont from "next/font/local";
 
-export const lemonMilk = localFont({
+const lemonMilk = localFont({
   variable: "--font-lemon-milk",
   src: [
     {
@@ -35,3 +35,5 @@ export const lemonMilk = localFont({
     },
   ],
 });
+
+export default lemonMilk;

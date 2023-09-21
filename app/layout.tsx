@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import CookieBanner from "./components/cookieBanner.tsx/cookieBanner";
 import Footer from "./components/footer/footer";
-import { lemonMilk } from "./fonts/fonts";
+import lemonMilk from "./fonts/fonts";
 import "./globals.css";
 import Novedades from "./novedades/novedades";
 
@@ -54,6 +54,7 @@ export default async function RootLayout({
     const assetData = await getAsset("5xAikUztodHQ0PaiVsMlFJ");
     fields = assetData.fields;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error("Error fetching data:", error);
   }
 
