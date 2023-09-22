@@ -1,8 +1,8 @@
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import clsx from "clsx";
 import { getAsset } from "@/lib/contentful/fetchDataFromContentful";
+import clsx from "clsx";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
 const HeaderHome: React.FC = async () => {
   let fields;
@@ -10,6 +10,7 @@ const HeaderHome: React.FC = async () => {
     const assetData = await getAsset("1xValOZGL1NO8ZR9dK0EE9");
     fields = assetData.fields;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error("Error fetching data:", error);
   }
   return (

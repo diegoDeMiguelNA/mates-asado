@@ -2,9 +2,10 @@
 
 import clsx from "clsx";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { Button } from "../button/button";
 
-const CookieBanner: React.FC = () => {
+function CookieBanner() {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   useEffect(() => {
@@ -32,12 +33,12 @@ const CookieBanner: React.FC = () => {
       <div className="flex flex-col items-start lg:items-center gap-2 ml-4 md:ml-8">
         <p className="text-sm md:text-lg">Wir verfolgen keine Cookies.</p>
         <p className="text-sm md:text-lg">No rastreamos ninguna cookie.</p>
-        <button
+        <Button
           className="px-4 py-2 mt-2 bg-blue-500 text-white rounded md:text-lg"
           onClick={() => setIsVisible(false)}
         >
           OK
-        </button>
+        </Button>
       </div>
 
       <Image
@@ -49,6 +50,6 @@ const CookieBanner: React.FC = () => {
       />
     </div>
   );
-};
+}
 
 export default CookieBanner;

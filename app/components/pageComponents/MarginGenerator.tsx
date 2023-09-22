@@ -1,14 +1,12 @@
-import React from "react";
-
 type MarginGeneratorProps = {
   marginpadding?: number;
   isHrTag?: boolean;
 };
 
-const MarginGenerator: React.FC<MarginGeneratorProps> = ({
+function MarginGenerator({
   marginpadding = 20,
   isHrTag = false,
-}) => {
+}: MarginGeneratorProps) {
   return (
     <div
       style={{
@@ -22,6 +20,6 @@ const MarginGenerator: React.FC<MarginGeneratorProps> = ({
       {isHrTag && <hr />}
     </div>
   );
-};
+}
 
 export default MarginGenerator;

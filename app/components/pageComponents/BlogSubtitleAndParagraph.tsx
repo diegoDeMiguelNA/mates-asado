@@ -1,27 +1,36 @@
-import clsx from "clsx";
+interface Content {
+  nodeType: string;
+  content: { value: string }[];
+}
 
-export default function BlogSubtitleAndParagraph(props: { fields: any }) {
+interface BlogSubtitleAndParagraphProps {
+  fields: {
+    subtitle?: string;
+    paragraph?: {
+      content: Content[];
+    };
+  };
+}
+
+export default function BlogSubtitleAndParagraph({
+  fields,
+}: BlogSubtitleAndParagraphProps) {
   return (
     <div>
-      {props.fields.subtitle && (
+      {fields.subtitle && (
         <h2 className="mb-16 text-l sm:text-3xl font-heading uppercase">
-          {props.fields.subtitle}
+          {fields.subtitle}
         </h2>
       )}
-      {props.fields.paragraph &&
-        props.fields.paragraph.content &&
-        props.fields.paragraph.content.map(
-          (content: any, index: number) =>
-            content.nodeType === "paragraph" &&
-            content.content.map((text: any, textIndex: number) => (
-              <p
-                className="px-6 text-left py-2"
-                key={Math.random() * textIndex}
-              >
+      {fields.paragraph?.content?.map(content =>
+        content.nodeType === "paragraph"
+          ? content.content.map(text => (
+              <p className="px-6 text-left py-2" key={text.value}>
                 {text.value}
               </p>
-            )),
-        )}
+            ))
+          : null,
+      )}
     </div>
   );
 }

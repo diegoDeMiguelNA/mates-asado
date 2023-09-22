@@ -14,7 +14,7 @@ type HomeIconProps = {
   last: boolean;
 };
 
-const HomeIcon: React.FC<HomeIconProps> = ({
+function HomeIcon({
   iconSrc,
   title,
   description,
@@ -24,7 +24,7 @@ const HomeIcon: React.FC<HomeIconProps> = ({
   width = 30,
   height = 30,
   last,
-}) => {
+}: HomeIconProps) {
   return (
     <div
       className={clsx(
@@ -61,6 +61,6 @@ const HomeIcon: React.FC<HomeIconProps> = ({
       <input type="hidden" value={contentfulReference} />
     </div>
   );
-};
+}
 
 export default HomeIcon;

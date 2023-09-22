@@ -7,13 +7,14 @@ import {
 import { contentfulClient, getEntityData } from "./apiClient";
 
 export type SubPageFields = {
-  homeIconComponent: unknown;
+  homeIconComponent: IHomeIconResuableFields;
   title: string;
   subtitle: string;
-  extraData?: unknown;
+  extraData?: string;
   svgFileName?: string;
   width?: number;
   height?: number;
+  linkTo: string;
 };
 export type SubPageData = {
   fields: SubPageFields;

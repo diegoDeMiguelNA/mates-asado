@@ -1,21 +1,19 @@
-import React from "react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 interface DynamicCardProps {
   title: string;
   subtitle: string;
   imageUrl: string;
   slug: string;
-  entryId: string;
 }
 
-const ExperienciaIcon: React.FC<DynamicCardProps> = ({
+function ExperienciaIcon({
   title,
   subtitle,
   imageUrl,
   slug,
-}) => {
+}: DynamicCardProps) {
   return (
     <Link
       className="relative block p-4 border border-gray-200 rounded-md bg-gray-100 hover:bg-gray-300 transition ease-in-out duration-150 max-w-[300px]"
@@ -37,6 +35,6 @@ const ExperienciaIcon: React.FC<DynamicCardProps> = ({
       </div>
     </Link>
   );
-};
+}
 
 export default ExperienciaIcon;

@@ -69,9 +69,14 @@ function MedicosCard({ data }: { data: IMedicoprofesionalDeLaSaludFields }) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>{nombre}</CardTitle>
+        {nombre ? (
+          <CardTitle>{nombre}</CardTitle>
+        ) : (
+          <CardTitle>No Name Provided</CardTitle>
+        )}
         <CardDescription>{especialidad}</CardDescription>
       </CardHeader>
+
       <CardContent className="text-left">
         <Detail iconName="Home" content={direccion} />
         <Detail iconName="Phone" content={telephone} />

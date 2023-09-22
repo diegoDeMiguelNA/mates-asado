@@ -1,10 +1,14 @@
-import React from "react";
-import Link from "next/link";
 import clsx from "clsx";
+import Link from "next/link";
 import MobileMenu from "../ResponsiveNavMenu/mobileMenu";
 
+interface NavigationElement {
+  id: number;
+  name: string;
+}
+
 interface MobileMenuProps {
-  navigationElements: any[];
+  navigationElements: NavigationElement[];
 }
 
 export const gradientStyleArgentina = {
@@ -13,10 +17,10 @@ export const gradientStyleArgentina = {
   gridTemplateRows: "auto 1fr auto",
 };
 
-const HeaderBlogPosts: React.FC<MobileMenuProps> = ({ navigationElements }) => {
+function HeaderBlogPosts({ navigationElements }: MobileMenuProps): JSX.Element {
   return (
     <header
-      className="grid grid-rows-custom min-h-[180px] lg:min-h-[280px] bg-gradient-to-h from-lightBlue to-white to-lightBlue items-start"
+      className="grid grid-rows-custom min-h-[180px] lg:min-h-[280px] bg-gradient-to-h from-lightBlue to-lightBlue items-start"
       style={gradientStyleArgentina}
     >
       <MobileMenu className="block" navigationElements={navigationElements} />
@@ -28,7 +32,7 @@ const HeaderBlogPosts: React.FC<MobileMenuProps> = ({ navigationElements }) => {
         )}
       >
         <Link href="/">
-          <h1 className="text-black text-2xl md:text-4xl lg:text-5xl font-bold font-heading font-light mb-2">
+          <h1 className="text-black text-2xl md:text-4xl lg:text-5xl font-heading font-light mb-2">
             Mates & Asado
           </h1>
         </Link>
@@ -48,6 +52,6 @@ const HeaderBlogPosts: React.FC<MobileMenuProps> = ({ navigationElements }) => {
       </div>
     </header>
   );
-};
+}
 
 export default HeaderBlogPosts;

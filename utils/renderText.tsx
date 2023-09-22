@@ -3,7 +3,7 @@ import ProductoLatinoComponent from "@/app/components/ProductoLatino/ProductoLat
 import BlogOnlyParagraph from "@/app/components/pageComponents/BlogOnlyParagraph";
 import BlogSubtitleAndParagraph from "@/app/components/pageComponents/BlogSubtitleAndParagraph";
 import Hyperlink from "@/app/components/pageComponents/Hyperlink";
-import { ListWithOrWithoutSubtitle } from "@/app/components/pageComponents/ListWithOrWithoutSubtitle";
+import ListWithOrWithoutSubtitle from "@/app/components/pageComponents/ListWithOrWithoutSubtitle";
 import MarginGenerator from "@/app/components/pageComponents/MarginGenerator";
 import SubtitleAndImage from "@/app/components/pageComponents/SubtitleAndImage";
 import TitleWithOrWithoutSubtitle from "@/app/components/pageComponents/TitleWithOrWithoutSubtitle";
