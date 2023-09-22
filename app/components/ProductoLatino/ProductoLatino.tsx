@@ -4,9 +4,9 @@ interface ProductoLatinoComponentProps {
   data: IProductoLatinoFields;
 }
 
-const ProductoLatinoComponent: React.FC<ProductoLatinoComponentProps> = ({
+function ProductoLatinoComponent({
   data,
-}) => {
+}: ProductoLatinoComponentProps): JSX.Element {
   return (
     <div className="flex flex-col items-center justify-center">
       <h2 className="text-xl sd:3xl font-heading uppercase my-16">
@@ -27,6 +27,6 @@ const ProductoLatinoComponent: React.FC<ProductoLatinoComponentProps> = ({
       {data.openingHours && <p className="mb-20">{data.openingHours}</p>}
     </div>
   );
-};
+}
 
 export default ProductoLatinoComponent;
