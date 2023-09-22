@@ -1,21 +1,27 @@
 import clsx from "clsx";
 import Link from "next/link";
-import MobileMenu from "../ResponsiveNavMenu/mobileMenu";
+import MobileMenu, {
+  gradientStyleArgentina,
+} from "../ResponsiveNavMenu/mobileMenu";
 
-interface NavigationElement {
+export interface NavigationElementFields {
+  title: string;
+  subtitle: string;
+  extraData?: string;
+  svgFileName?: string;
+  width?: number;
+  height?: number;
+}
+
+export interface NavigationElement {
   id: number;
   name: string;
+  fields: NavigationElementFields;
 }
 
-interface MobileMenuProps {
+export interface MobileMenuProps {
   navigationElements: NavigationElement[];
 }
-
-export const gradientStyleArgentina = {
-  backgroundImage:
-    "linear-gradient(to right, #74ACDF 33.3%, #fff 33.3%, #fff 66.6%, #74ACDF 66.6%)",
-  gridTemplateRows: "auto 1fr auto",
-};
 
 function HeaderBlogPosts({ navigationElements }: MobileMenuProps): JSX.Element {
   return (

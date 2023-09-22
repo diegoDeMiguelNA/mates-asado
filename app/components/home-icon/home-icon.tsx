@@ -7,7 +7,6 @@ type HomeIconProps = {
   title: string;
   description: string;
   linkTo: string;
-  contentfulReference: string;
   className?: string;
   width?: number;
   height?: number;
@@ -19,7 +18,6 @@ function HomeIcon({
   title,
   description,
   linkTo,
-  contentfulReference,
   className,
   width = 30,
   height = 30,
@@ -58,7 +56,6 @@ function HomeIcon({
           </p>
         </div>
       </Link>
-      <input type="hidden" value={contentfulReference} />
     </div>
   );
 }

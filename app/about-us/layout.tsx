@@ -1,5 +1,6 @@
 import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
 import { Metadata } from "next";
+import HeaderBlogPosts from "../components/header/headerBlogPosts";
 
 export const metadata: Metadata = {
   title: "Sobre nosotros...",
@@ -27,13 +28,11 @@ export default async function AboutUsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    fields: { homeIconComponent },
-  } = await getHomeIcons();
+  const navigationElements = await getHomeIcons();
+
   return (
     <>
-      {/* <HeaderBlogPosts navigationElements={homeIconComponent} /> */}
+      <HeaderBlogPosts navigationElements={navigationElements} />
       <section>{children}</section>
     </>
   );

@@ -1,25 +1,31 @@
 "use client";
 
-import {
-  SubPageData,
-  getHomeIcons,
-} from "@/lib/contentful/fetchDataFromContentful";
+"use client";
+
+import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Button } from "./components/button/button";
-import HeaderBlogPosts from "./components/header/headerBlogPosts";
+import HeaderBlogPosts, {
+  NavigationElement,
+} from "./components/header/headerBlogPosts";
 
 export default function Error({ error }: { error: Error }) {
   const [localHomeIconComponent, setlocalHomeIconComponent] = useState<
-    SubPageData[]
+    NavigationElement[]
   >([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const {
-        fields: { homeIconComponent },
-      } = await getHomeIcons();
-      setlocalHomeIconComponent(homeIconComponent);
+      const fields = await getHomeIcons();
+      const mappedFields = fields.map(field => ({
+        title: field.name,
+        subtitle: field.fields.subtitle,
+        id: field.id,
+        name: field.name,
+        fields: field.fields,
+      }));
+      setlocalHomeIconComponent(mappedFields);
       // eslint-disable-next-line no-console
       if (error) console.log("error within error.tsx: ", error);
     };

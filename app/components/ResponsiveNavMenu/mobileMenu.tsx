@@ -10,7 +10,7 @@ export const gradientStyleArgentina = {
 
 interface NavigationElement {
   fields: {
-    extraData: string;
+    extraData?: string;
     title: string;
   };
 }
@@ -79,7 +79,7 @@ function MobileMenu({
           <li className="mt-4 nav-list-element">
             <a
               href="/"
-              className="text-red-200 font-bold text-2xl"
+              className="text-red-300 font-bold text-2xl"
               role="menuitem"
             >
               Inicio{" "}
@@ -89,7 +89,7 @@ function MobileMenu({
             <li key={item.fields.title} className="mt-4 nav-list-element">
               <a
                 href={item.fields.extraData}
-                className="text-red-200 font-bold text-2xl"
+                className="text-red-300 font-bold text-2xl"
                 role="menuitem"
               >
                 {item.fields.title}
@@ -102,7 +102,7 @@ function MobileMenu({
 
         <ul
           className={clsx(
-            "hidden sm:space-x-8 lg:flex flex-col items-center justify-start w-full h-full px-4 mb-2 lg:flex-inherit",
+            "hidden sm:space-x-8 lg:flex flex-col justify-around w-full h-full px-4 mb-2 lg:flex-inherit",
           )}
           role="menu"
           aria-label="Mobile Menu"
@@ -111,7 +111,7 @@ function MobileMenu({
           <li className="mt-4 nav-list-element">
             <a
               href="/"
-              className="text-red-200 font-bold text-l"
+              className="text-red-300 font-bold text-l"
               role="menuitem"
             >
               Inicio{" "}
@@ -121,7 +121,7 @@ function MobileMenu({
             <li key={item.fields.title} className="mt-4 nav-list-element px-2">
               <a
                 href={item.fields.extraData}
-                className="text-red-200 font-bold text-l"
+                className="text-red-300 font-bold text-l"
                 role="menuitem"
               >
                 {item.fields.title}

@@ -1,5 +1,5 @@
-import { Metadata } from "next";
 import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
+import { Metadata } from "next";
 import HeaderBlogPosts from "../components/header/headerBlogPosts";
 
 export const metadata: Metadata = {
@@ -27,10 +27,8 @@ export default async function AnmeldungLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const {
-    fields: { homeIconComponent },
-  } = await getHomeIcons();
-  const filteredMobileMenuElements = homeIconComponent?.filter(
+  const navigationElements = await getHomeIcons();
+  const filteredMobileMenuElements = navigationElements?.filter(
     icon => icon.fields.extraData !== "/anmeldung",
   );
 

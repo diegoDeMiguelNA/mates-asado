@@ -27,10 +27,8 @@ export default async function MedicosLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const {
-    fields: { homeIconComponent },
-  } = await getHomeIcons();
-  const filteredMobileMenuElements = homeIconComponent?.filter(
+  const navigationElements = await getHomeIcons();
+  const filteredMobileMenuElements = navigationElements.filter(
     icon => icon.fields.extraData !== "/medicos",
   );
   return (

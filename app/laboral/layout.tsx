@@ -28,10 +28,8 @@ export default async function LaboralLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const {
-    fields: { homeIconComponent },
-  } = await getHomeIcons();
-  const filteredMobileMenuElements = homeIconComponent?.filter(
+  const navigationElements = await getHomeIcons();
+  const filteredMobileMenuElements = navigationElements?.filter(
     icon => icon.fields.extraData !== "/fuehrerschein",
   );
   return (

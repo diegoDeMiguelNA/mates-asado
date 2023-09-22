@@ -5,15 +5,13 @@ import ExperienciasDeVida from "./components/homePageComponents/ExperienciasDeVi
 import HomeProps from "./components/homePageComponents/home-props";
 
 export default async function Home() {
-  const {
-    fields: { homeIconComponent },
-  } = await getHomeIcons();
+  const navigationElements = await getHomeIcons();
 
   return (
     <>
       <HeaderHome />
       <div className="homePage text-center flex flex-col items-center">
-        <HomeProps navigationElements={homeIconComponent} />
+        <HomeProps navigationElements={navigationElements} />
 
         <ExperienciasDeVida />
 

@@ -28,9 +28,26 @@ export type HomeIconPageFields = Omit<
   homeIconComponent: SubPageData[];
 };
 
-// Home Page Icons
 export async function getHomeIcons() {
-  return getEntityData<HomeIconPageFields>("13fZd2HWu0ZBxxNCC00tfT");
+  try {
+    const entry = await contentfulClient.getEntry<HomeIconPageFields>(
+      "13fZd2HWu0ZBxxNCC00tfT",
+    );
+
+    if (entry && entry.fields && entry.fields.homeIconComponent) {
+      return entry.fields.homeIconComponent.map((icon, index) => ({
+        id: index,
+        name: icon.fields.title,
+        fields: icon.fields,
+      }));
+    }
+
+    return [];
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error("Error fetching home icons:", error);
+    throw error;
+  }
 }
 
 // Subtitle and Paragraph content type

@@ -1,9 +1,14 @@
-import { SubPageData } from "@/lib/contentful/fetchDataFromContentful";
+import { SubPageFields } from "@/lib/contentful/fetchDataFromContentful";
 import HomeIcon from "../home-icon/home-icon";
 
-type SubPageProps = { data: SubPageData; last?: boolean };
+interface SubPageDataInterface {
+  fields: SubPageFields;
+  sys?: { id: string };
+}
 
-function SubPage({ data: { fields, sys }, last = false }: SubPageProps) {
+type SubPageProps = { data: SubPageDataInterface; last?: boolean };
+
+function SubPage({ data: { fields }, last = false }: SubPageProps) {
   const {
     title,
     subtitle: description,
@@ -21,11 +26,11 @@ function SubPage({ data: { fields, sys }, last = false }: SubPageProps) {
         title={title}
         description={description}
         linkTo={linkTo as string}
-        contentfulReference={sys.id}
         width={width}
         height={height}
         last={last}
       />
+
       {homeIconComponent && (
         <SubPage
           data={{
@@ -45,8 +50,15 @@ function SubPage({ data: { fields, sys }, last = false }: SubPageProps) {
   );
 }
 
+interface NavigationElementT {
+  id: number;
+  name: string;
+  fields: SubPageFields;
+  sys?: { id: string };
+}
+
 interface HomePropsInterface {
-  navigationElements: SubPageData[];
+  navigationElements: NavigationElementT[];
 }
 
 function HomeProps({ navigationElements }: HomePropsInterface): JSX.Element {
@@ -55,7 +67,7 @@ function HomeProps({ navigationElements }: HomePropsInterface): JSX.Element {
       {navigationElements.map((page, index) => (
         <SubPage
           data={page}
-          key={page.sys.id}
+          key={page.id}
           last={index === navigationElements.length - 1}
         />
       ))}

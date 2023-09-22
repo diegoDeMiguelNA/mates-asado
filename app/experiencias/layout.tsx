@@ -28,12 +28,10 @@ export default async function ExperienciasLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const {
-    fields: { homeIconComponent },
-  } = await getHomeIcons();
+  const navigationElements = await getHomeIcons();
   return (
     <>
-      <HeaderBlogPosts navigationElements={homeIconComponent} />
+      <HeaderBlogPosts navigationElements={navigationElements} />
       <section>{children}</section>
     </>
   );

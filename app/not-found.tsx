@@ -1,15 +1,13 @@
-import Link from "next/link";
 import { getHomeIcons } from "@/lib/contentful/fetchDataFromContentful";
-import HeaderBlogPosts from "./components/header/headerBlogPosts";
+import Link from "next/link";
 import { Button } from "./components/button/button";
+import HeaderBlogPosts from "./components/header/headerBlogPosts";
 
 export default async function NotFound() {
-  const {
-    fields: { homeIconComponent },
-  } = await getHomeIcons();
+  const navigationElements = await getHomeIcons();
   return (
     <>
-      <HeaderBlogPosts navigationElements={homeIconComponent} />
+      <HeaderBlogPosts navigationElements={navigationElements} />
       <div className="min-h-screen flex flex-col justify-center items-center bg-pastel-blue-100">
         <div className="text-center space-y-4">
           <h1 className="text-6xl text-pastel-purple-500">404</h1>
