@@ -1,39 +1,62 @@
-import Image from "next/image";
+import { Document } from "@contentful/rich-text-types";
 import clsx from "clsx";
+import Image from "next/image";
 import { getTextFromContentfulRichText } from "../homePageComponents/ExperienciasDeVida";
 
-export function SubtitleAndImage(props: { fields: any }) {
-  const { assets } = props.fields;
-  const { paragraph } = props.fields;
+interface Asset {
+  fields: {
+    title: string;
+    file: {
+      url: string;
+      details: {
+        image: {
+          width: number;
+          height: number;
+        };
+      };
+    };
+  };
+}
 
-  const text = getTextFromContentfulRichText(paragraph);
+interface SubtitleAndImageProps {
+  fields: {
+    assets?: Asset[];
+    paragraph?: Document;
+    subtitle?: string;
+  };
+}
+
+function SubtitleAndImage({
+  fields: { assets, paragraph, subtitle },
+}: SubtitleAndImageProps) {
+  const text = paragraph ? getTextFromContentfulRichText(paragraph) : "";
 
   if (!assets || assets.length === 0) return null;
 
   return (
     <div>
-      {props.fields.subtitle && (
+      {subtitle && (
         <h2
           className={clsx(
             "sm:text-3xl font-heading uppercase mb-2 pb-4 mt-4",
             !text && "lg:mb-4 lg:pb-4",
           )}
         >
-          {props.fields.subtitle}
+          {subtitle}
         </h2>
       )}
       {text && <p className="mb-8 pb-8 text-center mt-8 pt-4">{text}</p>}
-      {assets.map((asset: any, index: number) => {
+      {assets.map((asset: Asset) => {
         const imageUrl = asset.fields.file.url;
         const secureImageUrl = imageUrl.startsWith("//")
           ? `https:${imageUrl}`
           : imageUrl;
         return (
-          <div key={index} className="mt-4 mb-4">
+          <div key={asset.fields.title} className="mt-4 mb-4">
             <p className="mt-4 pt-4 mb-4 pb-4 text-xl">{asset.fields.title}</p>
             <span className="border-2">
               <Image
-                key={index}
+                key={asset.fields.title}
                 src={secureImageUrl}
                 alt={asset.fields.title || "Image"}
                 width={asset.fields.file.details.image.width}
@@ -47,3 +70,5 @@ export function SubtitleAndImage(props: { fields: any }) {
     </div>
   );
 }
+
+export default SubtitleAndImage;

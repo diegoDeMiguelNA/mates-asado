@@ -1,7 +1,7 @@
 import { getSubtitleAndParagraphAndImage } from "@/lib/contentful/fetchDataFromContentful";
+import { Document } from "@contentful/rich-text-types";
 import Image from "next/image";
 import Link from "next/link";
-import { Document } from "@contentful/rich-text-types";
 import { Button } from "../button/button";
 
 export function getTextFromContentfulRichText(paragraph?: Document) {
@@ -27,11 +27,8 @@ export default async function ExperienciasDeVida() {
 
   const { subtitle, paragraph, assets } = results.fields;
 
-  // is this check necessary?
-  if (Object.keys(results).length === 0) return;
-
   return (
-    <div className="experiencias-de-vida mb-16 w-full grid h-full min-h-[530px] md:mt-6 md:min-h-[600px] lg:pt-8 lg:pb-8 bg-regular-grey flex flex-col md:flex-row xl:justify-center">
+    <div className="experiencias-de-vida mb-16 w-full h-full min-h-[530px] md:mt-6 md:min-h-[600px] lg:pt-8 lg:pb-8 bg-regular-grey flex flex-col md:flex-row xl:justify-center">
       <section className="relative w-full z-50 h-[200px] md:h-[250px] lg:hidden">
         <Image
           src={

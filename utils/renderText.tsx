@@ -5,8 +5,8 @@ import BlogSubtitleAndParagraph from "@/app/components/pageComponents/BlogSubtit
 import Hyperlink from "@/app/components/pageComponents/Hyperlink";
 import { ListWithOrWithoutSubtitle } from "@/app/components/pageComponents/ListWithOrWithoutSubtitle";
 import MarginGenerator from "@/app/components/pageComponents/MarginGenerator";
-import { SubtitleAndImage } from "@/app/components/pageComponents/SubtitleAndImage";
-import { TitleWithOrWithoutSubtitle } from "@/app/components/pageComponents/TitleWithOrWithoutSubtitle";
+import SubtitleAndImage from "@/app/components/pageComponents/SubtitleAndImage";
+import TitleWithOrWithoutSubtitle from "@/app/components/pageComponents/TitleWithOrWithoutSubtitle";
 import EmailComponent from "@/app/components/pageComponents/email";
 import { Entry } from "contentful";
 
