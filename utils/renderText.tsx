@@ -3,7 +3,9 @@ import ProductoLatinoComponent from "@/app/components/ProductoLatino/ProductoLat
 import BlogOnlyParagraph from "@/app/components/pageComponents/BlogOnlyParagraph";
 import BlogSubtitleAndParagraph from "@/app/components/pageComponents/BlogSubtitleAndParagraph";
 import Hyperlink from "@/app/components/pageComponents/Hyperlink";
-import ListWithOrWithoutSubtitle from "@/app/components/pageComponents/ListWithOrWithoutSubtitle";
+import ListWithOrWithoutSubtitle, {
+  ListWithOrWithoutSubtitleProps,
+} from "@/app/components/pageComponents/ListWithOrWithoutSubtitle";
 import MarginGenerator from "@/app/components/pageComponents/MarginGenerator";
 import SubtitleAndImage from "@/app/components/pageComponents/SubtitleAndImage";
 import TitleWithOrWithoutSubtitle from "@/app/components/pageComponents/TitleWithOrWithoutSubtitle";
@@ -57,10 +59,11 @@ export default function RenderContent({
           return (
             <ListWithOrWithoutSubtitle
               key={entry.sys.id}
-              fields={entry.fields}
+              fields={entry.fields as ListWithOrWithoutSubtitleProps["fields"]}
             />
           );
         }
+
         if (entry.sys.contentType.sys.id === "marginGenerator") {
           const { marginpadding, isHrTag } = entry.fields as EntryFields;
           return (

@@ -6,7 +6,7 @@ interface Content {
   content?: Content[];
 }
 
-interface ListWithOrWithoutSubtitleProps {
+export interface ListWithOrWithoutSubtitleProps {
   fields: {
     subtitle?: string;
     list: {

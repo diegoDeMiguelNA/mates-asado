@@ -66,7 +66,6 @@ export default async function Experiencias() {
               subtitle={experience.fields.subtitle || ""}
               imageUrl="/images/experiencia-fuehrerschein.webp"
               slug={experience.fields.slug || ""}
-              entryId={experience.sys.id}
             />
           ))}
       </div>
