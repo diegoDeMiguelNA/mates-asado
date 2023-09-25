@@ -35,7 +35,7 @@ export default function Error({ error }: { error: Error }) {
   return (
     <>
       <HeaderBlogPosts navigationElements={localHomeIconComponent} />
-      <div className="min-h-full flex flex-col justify-center items-center bg-pastel-blue-100">
+      <div className="min-h-screen flex flex-col justify-center items-center bg-pastel-blue-100">
         <div className="text-center space-y-4 mt-16 pt-16 mb-16 pb-8">
           <h1 className="text-6xl text-pastel-purple-500">404</h1>
           <p className="text-2xl text-pastel-green-400">Error interno</p>

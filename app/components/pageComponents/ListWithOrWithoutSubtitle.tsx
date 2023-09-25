@@ -20,7 +20,7 @@ export default function ListWithOrWithoutSubtitle({
   fields,
 }: ListWithOrWithoutSubtitleProps) {
   return (
-    <div className="flex flex-col justify-center px-4 max-w-[550px] lg:max-w-[700px]">
+    <div className="flex flex-col items-center px-4">
       {fields.subtitle && (
         <h2 className="sm:text-3xl font-heading uppercase mb-4">
           {fields.subtitle}

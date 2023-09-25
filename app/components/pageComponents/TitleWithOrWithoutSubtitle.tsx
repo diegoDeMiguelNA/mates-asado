@@ -11,14 +11,14 @@ function TitleWithOrWithoutSubtitle({
   if (!titleWithOrWithoutSubtitle) return null;
 
   return (
-    <div>
+    <div className="flex items-center flex-col">
       {titleWithOrWithoutSubtitle.titleName && (
         <h2 className="mb-4 text-l sm:text-3xl font-heading uppercase">
           {titleWithOrWithoutSubtitle.titleName}
         </h2>
       )}
       {titleWithOrWithoutSubtitle.subtitle && (
-        <h3 className="mb-4 sm:text-sm">
+        <h3 className="mb-8 sm:text-sm md:px-8 max-w-[250px] md:max-w-[560px] lg:max-w-[600px]">
           {titleWithOrWithoutSubtitle.subtitle}
         </h3>
       )}

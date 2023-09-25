@@ -50,7 +50,7 @@ export default async function Experiencias() {
   const { title, subtitle, pageBody } = results.fields;
 
   return (
-    <main className="text-center flex flex-col items-center justify-center">
+    <main className="min-h-screen text-center flex flex-col items-center justify-center">
       <div className="py-12">
         <h2 className="text-2xl sm:text-5xl font-heading uppercase">{title}</h2>
         <h3 className="text-sm mx-8 font-heading uppercase pt-10 mb-4 sm:mx-24 max-w-[300px] md:max-w-[400px] lg:max-w-[600px]">

@@ -29,7 +29,7 @@ export default function Hyperlink({ fields }: HyperlinkProps) {
   const reference = fields.reference ? `(${fields.reference})` : "";
 
   return (
-    <div className="mt-4 mb-4">
+    <div className="mt-4 mb-4 flex justify-center">
       <a
         href={url}
         target="_blank"

@@ -10,7 +10,7 @@ export default async function Home() {
   return (
     <>
       <HeaderHome />
-      <div className="homePage text-center flex flex-col items-center">
+      <div className="homePage min-h-screen text-center flex flex-col items-center">
         <HomeProps navigationElements={navigationElements} />
 
         <ExperienciasDeVida />
