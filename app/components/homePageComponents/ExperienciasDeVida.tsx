@@ -33,17 +33,17 @@ export default async function ExperienciasDeVida() {
     : "";
 
   return (
-    <div className="experiencias-de-vida w-full min-h-[430px] lg:min-h-[600px] flex flex-col md:grid md:grid-cols-2 bg-regular-grey mb-4">
-      <div className="relative w-full h-[110px] md:h-full overflow-hidden lg:h-auto lg:min-h-[430px] lg:flex lg:items-center lg:justify-center lg:py-15 lg:pl-15">
+    <div className="experiencias-de-vida w-full min-h-[430px] lg:min-h-[600px] flex flex-col md:grid md:grid-cols-2 bg-regular-grey mb-4 lg:justify-items-center">
+      <div className="relative w-full h-[110px] md:h-full overflow-hidden lg:h-auto lg:min-h-[430px] lg:flex lg:py-15 lg:pl-15 ">
         <Image
           src={imageUrl}
           alt={imageAlt}
           fill
-          className="object-cover object-bottom md:object-center  lg:object-bottom lg:max-h-full lg:max-w-full md:p-8"
+          className="object-cover object-bottom md:object-center lg:object-bottom lg:max-h-full md:p-8 lg:max-w-[600px] lg:block lg:mx-auto lg:pl-0"
         />
       </div>
 
-      <div className="flex-grow flex flex-col items-center justify-center px-9 sm:px-16 lg:px-12 space-y-4 py-16 lg:py-0">
+      <div className="flex-grow flex flex-col items-center px-9 sm:px-16 lg:px-12 space-y-4 py-16 lg:py-0 justify-center">
         <h3 className="text-center text-s md:text-xl text-regular-red font-bold">
           {subtitle}
         </h3>
