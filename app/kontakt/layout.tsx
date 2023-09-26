@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Contacto/Kontakt 🧉",
     description:
       "Como Contactarse con Mates&Asado, por email, redes sociales, etc.",
-    url: "https://www.mates-asado.de/pages/kontakt",
+    url: "https://www.mates-asado.de/kontakt",
     siteName: "Mates&Asado",
     locale: "en_US",
     type: "website",

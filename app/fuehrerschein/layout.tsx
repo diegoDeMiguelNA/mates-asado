@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Licencia de Conducir 🧉",
     description:
       "Como obtener la licencia de conducir en Alemania, que necesitas, cuanto cuesta, etc.",
-    url: "https://www.mates-asado.de/pages/fuehrerschein",
+    url: "https://www.mates-asado.de/fuehrerschein",
     siteName: "Mates&Asado",
     images: [
       {

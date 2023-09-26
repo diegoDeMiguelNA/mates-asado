@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Productos Latinos 🧉",
     description: "Donde comprar productos latinos en Hamburgo",
-    url: "https://www.mates-asado.de/pages/productos-latinos",
+    url: "https://www.mates-asado.de/productos-latinos",
     siteName: "Mates&Asado",
     images: [
       {

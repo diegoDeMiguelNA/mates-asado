@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Busqueda Laboral en Alemania",
     description:
       "Como conseguir trabajo en Alemania, como hacer un curriculum vitae en Alemania, como hacer una carta de presentacion en Alemania, como hacer una carta de motiv",
-    url: "https://www.mates-asado.de/pages/fuehrerschein",
+    url: "https://www.mates-asado.de/fuehrerschein",
     siteName: "Mates&Asado",
     images: [
       {

@@ -1,9 +1,10 @@
 import { getReusablePage } from "@/lib/contentful/fetchDataFromContentful";
 import { Entry } from "contentful";
-import { notFound } from "next/navigation";
-import BlogPostIcon from "../components/blogPostIcon/blogPostIcon";
 
-export interface IExperienciaFields {
+import { notFound } from "next/navigation";
+import ExperienciaIcon from "../components/blogPostIcon/blogPostIcon";
+
+export interface IActividades {
   nombreDeLaExperiencia?: string;
   subtitle?: string;
   slug?: string;
@@ -17,7 +18,7 @@ export interface IFuehrerscheinReusableFields {
   subtitle?: string | undefined;
 
   /** Page Body */
-  pageBody?: Entry<IExperienciaFields>[] | undefined;
+  pageBody?: Entry<IActividades>[] | undefined;
 }
 
 /** This content model will hold the info for every page within the site (Wohnungssuche, Führerschein, etc) */
@@ -40,9 +41,9 @@ export interface IFuehrerscheinReusable
   };
 }
 
-export default async function Experiencias() {
+export default async function Actividades() {
   const results: Entry<IFuehrerscheinReusableFields> | undefined =
-    await getReusablePage("2E3ScHAH6l40tgsmACj00I");
+    await getReusablePage("3cr2X20j5DvViKOMYpIrUZ");
 
   if (!results) return notFound();
 
@@ -58,13 +59,12 @@ export default async function Experiencias() {
       </div>
       <div className="p-4">
         {pageBody &&
-          pageBody.map((experience: Entry<IExperienciaFields>) => (
-            <BlogPostIcon
+          pageBody.map((experience: Entry<IActividades>) => (
+            <ExperienciaIcon
               key={experience.sys.id}
               title={experience.fields.nombreDeLaExperiencia || ""}
               subtitle={experience.fields.subtitle || ""}
-              imageUrl="/images/experiencia-fuehrerschein.webp"
-              postType="experiencias"
+              imageUrl="/images/frente-de-casa.webp"
               slug={experience.fields.slug || ""}
             />
           ))}

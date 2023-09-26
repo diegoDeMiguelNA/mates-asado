@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Deutschland Ticket 🧉",
     description:
       "Info sobre el Deutschland Ticket, como pedirlo, precios, etc.",
-    url: "https://www.mates-asado.de/pages/deutschlandticket",
+    url: "https://www.mates-asado.de/deutschlandticket",
     siteName: "Mates&Asado",
     images: [
       {

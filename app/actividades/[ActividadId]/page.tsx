@@ -19,7 +19,7 @@ export async function generateStaticParams(): Promise<
   { experienciaId: string }[]
 > {
   const results: Entry<IFuehrerscheinReusableFields> | undefined =
-    await getReusablePage("2E3ScHAH6l40tgsmACj00I");
+    await getReusablePage("3cr2X20j5DvViKOMYpIrUZ");
 
   if (!results.fields) return [];
 
@@ -36,7 +36,7 @@ export async function generateStaticParams(): Promise<
 const Experiencia: React.FC<IExperienciaProps> = async ({
   params: { experienciaId },
 }) => {
-  const results = await getExperienciaBySlug(`/${experienciaId}`);
+  const results = await getExperienciaBySlug(experienciaId);
 
   if (!results) {
     return notFound();
@@ -48,7 +48,7 @@ const Experiencia: React.FC<IExperienciaProps> = async ({
     <div className="mx-auto flex flex-col items-center">
       <main className="text-center mb-8 sm:mb-24 mx-2 sm:mx-4 flex flex-col justify-center items-center max-w-[800px]">
         <div className="pt-24 pb-4">
-          <h2 className="text-2xl sm:text-5xl font-heading uppercase">
+          <h2 className="text-2xl sm:text-5xl font-heading uppercase px-8">
             {nombreDeLaExperiencia}
           </h2>
         </div>

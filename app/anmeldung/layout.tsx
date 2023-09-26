@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "An-, Um- y Abmeldung 🧉",
     description: "Primeros pasos en Hamburgo: Empadronamiento",
-    url: "https://www.mates-asado.de/pages/anmeldung",
+    url: "https://www.mates-asado.de/anmeldung",
     siteName: "Mates&Asado",
     images: [
       {

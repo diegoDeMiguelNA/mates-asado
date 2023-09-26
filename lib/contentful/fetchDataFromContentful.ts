@@ -77,8 +77,9 @@ export async function getExperiencia(entryId: string) {
 
 // Fetch Experiencias from contentful by slug
 export async function getExperienciaBySlug(slug: string) {
-  const { items } =
-    await contentfulClient.getEntries<IExperienciaFields>("Experiencia");
+  const { items } = await contentfulClient.getEntries<IExperienciaFields>({
+    content_type: "experiencia",
+  });
 
   if (items.length > 0) {
     return items.find(item => item.fields.slug === slug);

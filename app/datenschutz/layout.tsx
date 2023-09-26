@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Datenschutz",
     description:
       "Info sobre protección de datos en el sitio web de Mates&Asado",
-    url: "https://www.mates-asado.de/pages/datenschutz",
+    url: "https://www.mates-asado.de/datenschutz",
     siteName: "Mates&Asado",
     locale: "en_US",
     type: "website",

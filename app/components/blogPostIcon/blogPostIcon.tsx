@@ -5,19 +5,21 @@ interface DynamicCardProps {
   title: string;
   subtitle: string;
   imageUrl: string;
+  postType: string;
   slug: string;
 }
 
-function ExperienciaIcon({
+function BlogPostIcon({
   title,
   subtitle,
   imageUrl,
+  postType,
   slug,
 }: DynamicCardProps) {
   return (
     <Link
       className="relative block p-4 border border-gray-200 rounded-md bg-gray-100 hover:bg-gray-300 transition ease-in-out duration-150 max-w-[300px]"
-      href={`/experiencias/${slug}`}
+      href={`/${postType}/${slug}`}
     >
       <div className="absolute top-0 left-0 w-full h-48 overflow-hidden">
         <Image
@@ -37,4 +39,4 @@ function ExperienciaIcon({
   );
 }
 
-export default ExperienciaIcon;
+export default BlogPostIcon;
