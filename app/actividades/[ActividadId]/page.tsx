@@ -1,5 +1,3 @@
-import React from "react";
-
 import {
   getBlogPostBySlug,
   getReusablePage,
@@ -7,6 +5,7 @@ import {
 import RenderContent from "@/utils/renderText";
 import { Entry } from "contentful";
 import { notFound } from "next/navigation";
+import React from "react";
 import { IFuehrerscheinReusableFields } from "../page";
 
 interface IActividadProps {
@@ -21,7 +20,7 @@ export async function generateStaticParams(): Promise<
   const results: Entry<IFuehrerscheinReusableFields> | undefined =
     await getReusablePage("3cr2X20j5DvViKOMYpIrUZ");
 
-  if (!results.fields) return [];
+  if (!results?.fields) return [];
 
   const { pageBody } = results.fields;
 
