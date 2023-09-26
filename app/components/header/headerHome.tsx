@@ -1,8 +1,8 @@
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import clsx from "clsx";
 import { getAsset } from "@/lib/contentful/fetchDataFromContentful";
+import clsx from "clsx";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
 const HeaderHome: React.FC = async () => {
   let fields;
@@ -10,6 +10,7 @@ const HeaderHome: React.FC = async () => {
     const assetData = await getAsset("1xValOZGL1NO8ZR9dK0EE9");
     fields = assetData.fields;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error("Error fetching data:", error);
   }
   return (
@@ -21,7 +22,7 @@ const HeaderHome: React.FC = async () => {
           layout="fill"
           objectFit="cover"
           objectPosition="center"
-          priority={true}
+          priority
           placeholder="blur"
           blurDataURL="/images/port.webp"
         />
@@ -40,7 +41,7 @@ const HeaderHome: React.FC = async () => {
       <div
         className={clsx(
           "bg-customRed flex items-center justify-center h-[20px] md:h-[22px] lg:h-[38px] z-50 self-end row-start-3",
-          "grid-row-2"
+          "grid-row-2",
         )}
       >
         <h2 className="text-sm md:text-sm lg:text-xl leading-tight text-white font-body">

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Médicos 🧉",
     description: "Profesionales de la salud que hablan español en Hamburgo",
-    url: "https://www.mates-asado.de/pages/medicos",
+    url: "https://www.mates-asado.de/medicos",
     siteName: "Mates&Asado",
     images: [
       {
@@ -27,11 +27,9 @@ export default async function MedicosLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const {
-    fields: { homeIconComponent },
-  } = await getHomeIcons();
-  const filteredMobileMenuElements = homeIconComponent?.filter(
-    (icon) => icon.fields.extraData !== "/medicos"
+  const navigationElements = await getHomeIcons();
+  const filteredMobileMenuElements = navigationElements.filter(
+    icon => icon.fields.extraData !== "/medicos",
   );
   return (
     <>

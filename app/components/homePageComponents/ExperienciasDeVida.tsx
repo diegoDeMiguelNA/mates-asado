@@ -1,16 +1,16 @@
 import { getSubtitleAndParagraphAndImage } from "@/lib/contentful/fetchDataFromContentful";
+import { Document } from "@contentful/rich-text-types";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../button/button";
-import { Document } from "@contentful/rich-text-types";
 
 export function getTextFromContentfulRichText(paragraph?: Document) {
   if (!paragraph) return "";
   const contentArray = paragraph.content;
   let text = "";
 
-  contentArray.forEach((content) => {
-    content.content.forEach((innerContent) => {
+  contentArray.forEach(content => {
+    content.content.forEach(innerContent => {
       if (innerContent.nodeType === "text") {
         text += innerContent.value;
       }
@@ -22,65 +22,46 @@ export function getTextFromContentfulRichText(paragraph?: Document) {
 
 export default async function ExperienciasDeVida() {
   const results = await getSubtitleAndParagraphAndImage(
-    "2FSjWb3HaXM9obR4vqS1Gr"
+    "2FSjWb3HaXM9obR4vqS1Gr",
   );
-
   const { subtitle, paragraph, assets } = results.fields;
-
-  // is this check necessary?
-  if (Object.keys(results).length === 0) return;
+  const imageUrl = assets
+    ? `http:${assets[0].fields.file.url}`
+    : "/images/rathaus-full.webp";
+  const imageAlt = assets
+    ? assets[0].fields.description || "Hamburg Townhall"
+    : "";
 
   return (
-    <div className="experiencias-de-vida mb-16 w-full grid h-full min-h-[530px] md:mt-6 md:min-h-[600px] lg:pt-8 lg:pb-8 bg-regular-grey flex flex-col md:flex-row xl:justify-center">
-      <section className="relative w-full z-50 h-[200px] md:h-[250px] lg:hidden">
+    <div className="experiencias-de-vida w-full min-h-[430px] lg:min-h-[600px] flex flex-col md:grid md:grid-cols-2 bg-regular-grey mb-4 lg:justify-items-center">
+      <div className="relative w-full h-[110px] md:h-full overflow-hidden lg:h-auto lg:min-h-[430px] lg:flex lg:py-15 lg:pl-15 ">
         <Image
-          src={
-            assets
-              ? `http:${assets[0].fields.file.url}`
-              : "/images/rathaus-full.webp"
-          }
-          alt={assets ? assets[0].fields.description || "Hamburg Townhall" : ""}
+          src={imageUrl}
+          alt={imageAlt}
           fill
-          className="object-cover"
+          className="object-cover object-bottom md:object-center lg:object-bottom lg:max-h-full md:p-8 lg:max-w-[600px] lg:block lg:mx-auto lg:pl-0"
         />
-      </section>
+      </div>
 
-      <div className="flex flex-col max-h-[70px] md:max-h-[140px] mb-10 w-full justify-end px-9 sm:px-16 md:mb-0 md:mt-12 lg:mb-0 lg:grid lg:grid-cols-2 lg:py-10 lg:px-12 lg:max-h-none gap-24">
-        <section className="relative hidden lg:block lg:h-[550px] lg:w-[480px] justify-self-center">
-          <Image
-            src={
-              assets
-                ? `http:${assets[0].fields.file.url}`
-                : "/images/rathaus-full.webp"
-            }
-            alt={
-              assets ? assets[0].fields.description || "Hamburg Townhall" : ""
-            }
-            fill
-            style={{ objectFit: "cover", objectPosition: "bottom" }}
-          />
-        </section>
-
-        <div className="flex flex-col items-center lg:items-center justify-center space-y-4 mb-4 md:mb-2 pt-16 lg:pt-0">
-          <h3 className="text-s md:text-xl text-regular-red font-bold">
-            {subtitle}
-          </h3>
-          <p
-            className="text-s md:text-sm font-light sm:max-w-[550px] lg:max-w-[400px]"
-            style={{ lineHeight: "1.5rem" }}
+      <div className="flex-grow flex flex-col items-center px-9 sm:px-16 lg:px-12 space-y-4 py-16 lg:py-0 justify-center">
+        <h3 className="text-center text-s md:text-xl text-regular-red font-bold">
+          {subtitle}
+        </h3>
+        <p
+          className="text-center text-s md:text-sm font-light lg:max-w-[350px] mx-auto"
+          style={{ lineHeight: "1.5rem" }}
+        >
+          {paragraph && getTextFromContentfulRichText(paragraph)}
+        </p>
+        <Link href="/experiencias">
+          <Button
+            className="bg-regular-red text-xxs md:text-xs lg:text-[12px] rounded-full mt-4 py-4"
+            size="customPill"
+            style={{ color: "white" }}
           >
-            {paragraph && getTextFromContentfulRichText(paragraph)}
-          </p>
-          <Link href="/experiencias">
-            <Button
-              className="bg-regular-red text-xxs md:text-xs lg:text-[12px] rounded-full mt-4 py-4"
-              size="customPill"
-              style={{ color: "white" }}
-            >
-              Ver más
-            </Button>
-          </Link>
-        </div>
+            Ver más
+          </Button>
+        </Link>
       </div>
     </div>
   );

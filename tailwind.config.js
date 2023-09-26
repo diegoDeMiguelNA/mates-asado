@@ -1,4 +1,7 @@
+/* eslint-disable func-names */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   mode: "jit",
   darkMode: ["class"],
@@ -24,6 +27,7 @@ module.exports = {
     extend: {
       gridTemplateRows: {
         custom: "auto 1fr 1fr",
+        header: "210px 20px",
       },
       width: {
         "90px": "90px",
@@ -62,17 +66,17 @@ module.exports = {
       margin: {
         "25px": "25px",
       },
-      backgroundImage: (theme) => ({
+      backgroundImage: _theme => ({
         "flag-gradient":
           "linear-gradient(to right, #74ACDF 33.3%, #fff 33.3%, #fff 66.6%, #74ACDF 66.6%)",
       }),
       colors: {
         colors: {
-          'pastel-blue-100': '#BAC7E8',
-          'pastel-blue-900': '#2B2F55',
-          'pastel-purple-500': '#9E88E3',
-          'pastel-green-400': '#8ED4BB',
-          'pastel-yellow-400': '#FFEEB0',
+          "pastel-blue-100": "#BAC7E8",
+          "pastel-blue-900": "#2B2F55",
+          "pastel-purple-500": "#9E88E3",
+          "pastel-green-400": "#8ED4BB",
+          "pastel-yellow-400": "#FFEEB0",
         },
         lightBlue: "#74ACDF",
         border: "hsl(var(--border))",
@@ -128,9 +132,6 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-      },
-      gridTemplateRows: {
-        header: "210px 20px",
       },
       screens: {
         md: { raw: "(min-width: 768px)" },

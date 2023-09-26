@@ -1,8 +1,7 @@
 import { getReusablePage } from "@/lib/contentful/fetchDataFromContentful";
 import { Entry } from "contentful";
-
 import { notFound } from "next/navigation";
-import ExperienciaIcon from "../components/experienciasComponents/ExperienciaIcon";
+import BlogPostIcon from "../components/blogPostIcon/blogPostIcon";
 
 export interface IExperienciaFields {
   nombreDeLaExperiencia?: string;
@@ -47,33 +46,29 @@ export default async function Experiencias() {
 
   if (!results) return notFound();
 
-  const { title, subtitle, pageBody } = results?.fields;
+  const { title, subtitle, pageBody } = results.fields;
 
   return (
-    <>
-      <main className="text-center flex flex-col items-center justify-center">
-        <div className="py-12">
-          <h2 className="text-2xl sm:text-5xl font-heading uppercase">
-            {title}
-          </h2>
-          <h3 className="text-sm mx-8 font-heading uppercase pt-10 mb-4 sm:mx-24 max-w-[300px] md:max-w-[400px] lg:max-w-[600px]">
-            {subtitle}
-          </h3>
-        </div>
-        <div className="p-4">
-          {pageBody &&
-            pageBody.map((experience: Entry<IExperienciaFields>) => (
-              <ExperienciaIcon
-                key={experience.sys.id}
-                title={experience.fields.nombreDeLaExperiencia || ""}
-                subtitle={experience.fields.subtitle || ""}
-                imageUrl="/images/experiencia-fuehrerschein.webp"
-                slug={experience.fields.slug || ""}
-                entryId={experience.sys.id}
-              />
-            ))}
-        </div>
-      </main>
-    </>
+    <main className="min-h-screen text-center flex flex-col items-center justify-center">
+      <div className="py-12">
+        <h2 className="text-2xl sm:text-5xl font-heading uppercase">{title}</h2>
+        <h3 className="text-sm mx-8 font-heading uppercase pt-10 mb-4 sm:mx-24 max-w-[300px] md:max-w-[400px] lg:max-w-[600px]">
+          {subtitle}
+        </h3>
+      </div>
+      <div className="p-4">
+        {pageBody &&
+          pageBody.map((experience: Entry<IExperienciaFields>) => (
+            <BlogPostIcon
+              key={experience.sys.id}
+              title={experience.fields.nombreDeLaExperiencia || ""}
+              subtitle={experience.fields.subtitle || ""}
+              imageUrl="/images/experiencia-fuehrerschein.webp"
+              postType="experiencias"
+              slug={experience.fields.slug || ""}
+            />
+          ))}
+      </div>
+    </main>
   );
 }

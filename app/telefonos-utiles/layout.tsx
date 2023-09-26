@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Teléfonos Útiles 🧉",
     description:
       "Listado de teléfonos útiles y organismos de gobierno en Hamburgo",
-    url: "https://www.mates-asado.de/pages/telefonos-utiles",
+    url: "https://www.mates-asado.de/telefonos-utiles",
     siteName: "Mates&Asado",
     images: [
       {
@@ -28,15 +28,14 @@ export default async function TelefonosUtilesLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const {
-    fields: { homeIconComponent },
-  } = await getHomeIcons();
-  const filteredMobileMenuElements = homeIconComponent?.filter(
-    (icon) => icon.fields.extraData !== "/productos-latinos"
+  const navigationElements = await getHomeIcons();
+  const filteredMobileMenuElements = navigationElements.filter(
+    icon => icon.fields.extraData !== "/productos-latinos",
   );
   return (
     <>
-      <HeaderBlogPosts navigationElements={filteredMobileMenuElements} /><section>{children}</section>
+      <HeaderBlogPosts navigationElements={filteredMobileMenuElements} />
+      <section>{children}</section>
     </>
   );
 }

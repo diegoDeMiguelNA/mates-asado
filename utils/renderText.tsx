@@ -3,10 +3,12 @@ import ProductoLatinoComponent from "@/app/components/ProductoLatino/ProductoLat
 import BlogOnlyParagraph from "@/app/components/pageComponents/BlogOnlyParagraph";
 import BlogSubtitleAndParagraph from "@/app/components/pageComponents/BlogSubtitleAndParagraph";
 import Hyperlink from "@/app/components/pageComponents/Hyperlink";
-import { ListWithOrWithoutSubtitle } from "@/app/components/pageComponents/ListWithOrWithoutSubtitle";
+import ListWithOrWithoutSubtitle, {
+  ListWithOrWithoutSubtitleProps,
+} from "@/app/components/pageComponents/ListWithOrWithoutSubtitle";
 import MarginGenerator from "@/app/components/pageComponents/MarginGenerator";
-import { SubtitleAndImage } from "@/app/components/pageComponents/SubtitleAndImage";
-import { TitleWithOrWithoutSubtitle } from "@/app/components/pageComponents/TitleWithOrWithoutSubtitle";
+import SubtitleAndImage from "@/app/components/pageComponents/SubtitleAndImage";
+import TitleWithOrWithoutSubtitle from "@/app/components/pageComponents/TitleWithOrWithoutSubtitle";
 import EmailComponent from "@/app/components/pageComponents/email";
 import { Entry } from "contentful";
 
@@ -15,12 +17,14 @@ type EntryFields = {
   isHrTag?: boolean;
 };
 
-export const RenderContent = (props: {
+export default function RenderContent({
+  entries,
+}: {
   entries: Entry<{ [fieldId: string]: unknown }>[];
-}) => {
+}) {
   return (
     <>
-      {props.entries.map((entry, index) => {
+      {entries.map(entry => {
         if (entry.sys.contentType.sys.id === "blogSubtitleAndParagraph") {
           return (
             <BlogSubtitleAndParagraph
@@ -30,12 +34,7 @@ export const RenderContent = (props: {
           );
         }
         if (entry.sys.contentType.sys.id === "onlyParagraph") {
-          return (
-            <BlogOnlyParagraph
-              key={entry.sys.id}
-              fields={entry.fields}
-            />
-          );
+          return <BlogOnlyParagraph key={entry.sys.id} fields={entry.fields} />;
         }
         if (entry.sys.contentType.sys.id === "linkWithReference") {
           return <Hyperlink key={entry.sys.id} fields={entry.fields} />;
@@ -60,10 +59,11 @@ export const RenderContent = (props: {
           return (
             <ListWithOrWithoutSubtitle
               key={entry.sys.id}
-              fields={entry.fields}
+              fields={entry.fields as ListWithOrWithoutSubtitleProps["fields"]}
             />
           );
         }
+
         if (entry.sys.contentType.sys.id === "marginGenerator") {
           const { marginpadding, isHrTag } = entry.fields as EntryFields;
           return (
@@ -90,4 +90,4 @@ export const RenderContent = (props: {
       })}
     </>
   );
-};
+}

@@ -40,7 +40,7 @@ export function translateLanguageToSpanish(language: string): string {
 export const createQueryString = (
   searchParams: URLSearchParams | ReadonlyURLSearchParams,
   name: string,
-  value: string
+  value: string,
 ): string => {
   const params = new URLSearchParams(searchParams.toString());
   params.set(name, value);
@@ -54,7 +54,7 @@ export const handleSelectorChange = (
   router: RouterType,
   newVal: string,
   queryKey: string,
-  setValueFunction: (value: string) => void
+  setValueFunction: (value: string) => void,
 ) => {
   setValueFunction(newVal);
   const currentQuery = new URLSearchParams(searchParams?.toString());
@@ -62,7 +62,7 @@ export const handleSelectorChange = (
   if (newVal) {
     router.push(
       `/medicos?${createQueryString(searchParams, queryKey, newVal)}`,
-      { scroll: false }
+      { scroll: false },
     );
   } else {
     currentQuery.delete(queryKey);
@@ -73,9 +73,9 @@ export const handleSelectorChange = (
 export const getFilteredData = (
   data: IMedicoprofesionalDeLaSalud[],
   paramsSpecialties?: string | null,
-  paramsLanguages?: string | null
+  paramsLanguages?: string | null,
 ) => {
-  return data?.filter((el) => {
+  return data?.filter(el => {
     const hasSpecialty =
       paramsSpecialties === null ||
       paramsSpecialties === undefined ||

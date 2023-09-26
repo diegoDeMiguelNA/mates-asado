@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Deutschland Ticket 🧉",
     description:
       "Info sobre el Deutschland Ticket, como pedirlo, precios, etc.",
-    url: "https://www.mates-asado.de/pages/deutschlandticket",
+    url: "https://www.mates-asado.de/deutschlandticket",
     siteName: "Mates&Asado",
     images: [
       {
@@ -28,11 +28,9 @@ export default async function DeutschlandTicketLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const {
-    fields: { homeIconComponent },
-  } = await getHomeIcons();
-  const filteredMobileMenuElements = homeIconComponent?.filter(
-    (icon) => icon.fields.extraData !== "/deutschlandticket"
+  const navigationElements = await getHomeIcons();
+  const filteredMobileMenuElements = navigationElements?.filter(
+    icon => icon.fields.extraData !== "/deutschlandticket",
   );
 
   return (

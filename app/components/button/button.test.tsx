@@ -1,5 +1,6 @@
-import { Button } from "./button";
+/* eslint-disable import/no-extraneous-dependencies */
 import { render } from "@testing-library/react";
+import { Button } from "./button";
 
 describe("basic tests", () => {
   it("should be clickable", async () => {

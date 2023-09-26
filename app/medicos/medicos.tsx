@@ -1,9 +1,19 @@
 "use client";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+
 import {
   IMedicoprofesionalDeLaSalud,
   IMedicoprofesionalDeLaSaludFields,
 } from "@/@types/generated/contentful";
+import {
+  getFilteredData,
+  handleSelectorChange,
+  translateLanguageToSpanish,
+  translateSpecialtyToSpanish,
+} from "@/utils/helpFunction";
+import { icons } from "lucide-react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import React, { ReactNode, useEffect } from "react";
+import { Button } from "../components/button/button";
 import {
   Card,
   CardContent,
@@ -11,16 +21,7 @@ import {
   CardHeader,
   CardTitle,
 } from "../components/card/card";
-import { icons } from "lucide-react";
-import React, { ReactNode, useCallback, useEffect } from "react";
 import MedicosSelector from "./MedicosSelector";
-import {
-  getFilteredData,
-  handleSelectorChange,
-  translateLanguageToSpanish,
-  translateSpecialtyToSpanish,
-} from "@/utils/helpFunction";
-import { Button } from "../components/button/button";
 
 interface MedicosListProps {
   data: IMedicoprofesionalDeLaSalud[];
@@ -68,9 +69,14 @@ function MedicosCard({ data }: { data: IMedicoprofesionalDeLaSaludFields }) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>{nombre}</CardTitle>
+        {nombre ? (
+          <CardTitle>{nombre}</CardTitle>
+        ) : (
+          <CardTitle>No Name Provided</CardTitle>
+        )}
         <CardDescription>{especialidad}</CardDescription>
       </CardHeader>
+
       <CardContent className="text-left">
         <Detail iconName="Home" content={direccion} />
         <Detail iconName="Phone" content={telephone} />
@@ -108,7 +114,7 @@ function MedicosCard({ data }: { data: IMedicoprofesionalDeLaSaludFields }) {
   );
 }
 
-const MedicosList: React.FC<MedicosListProps> = ({ data }) => {
+function MedicosList({ data }: MedicosListProps) {
   const searchParams = useSearchParams()!;
   const router = useRouter();
   const pathname = usePathname();
@@ -117,10 +123,10 @@ const MedicosList: React.FC<MedicosListProps> = ({ data }) => {
   const paramsLanguages = searchParams.get("languages");
 
   const [selectedSpecialty, setSelectedSpecialty] = React.useState<string | "">(
-    searchParams.get("specialties") || ""
+    searchParams.get("specialties") || "",
   );
   const [selectedLanguage, setSelectedLanguage] = React.useState<string | "">(
-    searchParams.get("languages") || ""
+    searchParams.get("languages") || "",
   );
 
   useEffect(() => {
@@ -131,11 +137,11 @@ const MedicosList: React.FC<MedicosListProps> = ({ data }) => {
   }, [paramsLanguages, paramsSpecialties, pathname]);
 
   const specialties = Array.from(
-    new Set(data?.map((medico) => medico.fields.specialty))
+    new Set(data?.map(medico => medico.fields.specialty)),
   );
 
   const languages = Array.from(
-    new Set(data?.map((medico) => medico.fields.languages[0]))
+    new Set(data?.map(medico => medico.fields.languages[0])),
   );
 
   const filtered = getFilteredData(data, paramsSpecialties, paramsLanguages);
@@ -167,13 +173,13 @@ const MedicosList: React.FC<MedicosListProps> = ({ data }) => {
       <div className="dorpdownWrapper flex justify-around mt-20 pt-14 w-full">
         <MedicosSelector
           value={selectedSpecialty}
-          onChange={(newVal) =>
+          onChange={newVal =>
             handleSelectorChange(
               searchParams,
               router,
               newVal,
               "specialties",
-              setSelectedSpecialty
+              setSelectedSpecialty,
             )
           }
           dropdownItems={specialties}
@@ -183,13 +189,13 @@ const MedicosList: React.FC<MedicosListProps> = ({ data }) => {
         />
         <MedicosSelector
           value={selectedLanguage}
-          onChange={(newVal) =>
+          onChange={newVal =>
             handleSelectorChange(
               searchParams,
               router,
               newVal,
               "languages",
-              setSelectedLanguage
+              setSelectedLanguage,
             )
           }
           dropdownItems={languages}
@@ -205,6 +211,6 @@ const MedicosList: React.FC<MedicosListProps> = ({ data }) => {
       </div>
     </>
   );
-};
+}
 
 export default MedicosList;

@@ -1,8 +1,8 @@
 import PageReusable from "@/app/components/pageReusable/PageReusable";
 
-const Laboral: React.FC = () => {
-  const entryId: string = "3c7wPXTmbanFfp6XZ7BVL9";
-  return <PageReusable entryId={entryId} />
-};
+function Laboral(): React.ReactElement {
+  const entryId: string = "2lAekDy2OasiUxrA9ZPER";
+  return <PageReusable entryId={entryId} />;
+}
 
 export default Laboral;

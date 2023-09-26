@@ -1,21 +1,28 @@
 "use client";
-import { useState } from "react";
+
 import clsx from "clsx";
+import { useState } from "react";
 
 export const gradientStyleArgentina = {
   backgroundImage:
     "linear-gradient(to right, #74ACDF 33.3%, #fff 33.3%, #fff 66.6%, #74ACDF 66.6%)",
 };
 
+interface NavigationElement {
+  fields: {
+    extraData?: string;
+    title: string;
+  };
+}
 interface MobileMenuProps {
   className?: string;
-  navigationElements: any[];
+  navigationElements: NavigationElement[];
 }
 
-const MobileMenu: React.FC<MobileMenuProps> = ({
+function MobileMenu({
   className,
   navigationElements,
-}) => {
+}: MobileMenuProps): React.ReactElement {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   const handleMenuToggle = () => {
@@ -25,8 +32,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   return (
     <div className="row-start-1">
       <button
+        type="button"
         onClick={handleMenuToggle}
-        className="block flex py-4 border rounded text-blue-600 border-white hover:text-white ml-2 mt-2  sm:ml-4 sm:mt-4 lg:hidden"
+        className="flex py-4 border rounded text-blue-600 border-white hover:text-white ml-2 mt-2  sm:ml-4 sm:mt-4 lg:hidden"
         aria-label="Toggle Menu"
         data-testid="mobile-menu-toggle"
       >
@@ -52,7 +60,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
         className={clsx(
           "text-center z-30",
           className,
-          menuOpen && "rounded font-body h-full"
+          menuOpen && "rounded font-body h-full",
         )}
         style={gradientStyleArgentina}
       >
@@ -62,7 +70,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
             "lg:hidden sm:space-x-8 flex flex-col items-center justify-start w-full h-full px-4 sm:mb-8 pb-8",
             {
               hidden: !menuOpen,
-            }
+            },
           )}
           role="menu"
           aria-label="Mobile Menu"
@@ -71,17 +79,17 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
           <li className="mt-4 nav-list-element">
             <a
               href="/"
-              className="text-red-200 font-bold text-2xl"
+              className="text-red-300 font-bold text-2xl"
               role="menuitem"
             >
               Inicio{" "}
             </a>
           </li>
-          {navigationElements?.map((item, index) => (
-            <li key={index} className="mt-4 nav-list-element">
+          {navigationElements?.map(item => (
+            <li key={item.fields.title} className="mt-4 nav-list-element">
               <a
                 href={item.fields.extraData}
-                className="text-red-200 font-bold text-2xl"
+                className="text-red-300 font-bold text-2xl"
                 role="menuitem"
               >
                 {item.fields.title}
@@ -94,7 +102,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
 
         <ul
           className={clsx(
-            "hidden justify-center sm:space-x-8 lg:flex flex-col items-center justify-start w-full h-full px-4 mb-2 lg:flex-inherit"
+            "hidden sm:space-x-8 lg:flex flex-col justify-around w-full h-full px-4 mb-2 lg:flex-inherit",
           )}
           role="menu"
           aria-label="Mobile Menu"
@@ -103,17 +111,17 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
           <li className="mt-4 nav-list-element">
             <a
               href="/"
-              className="text-red-200 font-bold text-l"
+              className="text-red-300 font-bold text-l"
               role="menuitem"
             >
               Inicio{" "}
             </a>
           </li>
-          {navigationElements?.map((item, index) => (
-            <li key={index} className="mt-4 nav-list-element px-2">
+          {navigationElements?.map(item => (
+            <li key={item.fields.title} className="mt-4 nav-list-element px-2">
               <a
                 href={item.fields.extraData}
-                className="text-red-200 font-bold text-l"
+                className="text-red-300 font-bold text-l"
                 role="menuitem"
               >
                 {item.fields.title}
@@ -124,6 +132,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
       </nav>
     </div>
   );
-};
+}
 
 export default MobileMenu;

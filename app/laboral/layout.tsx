@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Busqueda Laboral en Alemania",
     description:
       "Como conseguir trabajo en Alemania, como hacer un curriculum vitae en Alemania, como hacer una carta de presentacion en Alemania, como hacer una carta de motiv",
-    url: "https://www.mates-asado.de/pages/fuehrerschein",
+    url: "https://www.mates-asado.de/fuehrerschein",
     siteName: "Mates&Asado",
     images: [
       {
@@ -28,11 +28,9 @@ export default async function LaboralLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const {
-    fields: { homeIconComponent },
-  } = await getHomeIcons();
-  const filteredMobileMenuElements = homeIconComponent?.filter(
-    (icon) => icon.fields.extraData !== "/fuehrerschein"
+  const navigationElements = await getHomeIcons();
+  const filteredMobileMenuElements = navigationElements?.filter(
+    icon => icon.fields.extraData !== "/fuehrerschein",
   );
   return (
     <>

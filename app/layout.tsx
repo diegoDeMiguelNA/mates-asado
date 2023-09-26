@@ -1,10 +1,10 @@
-import "./globals.css";
-import { lemonMilk } from "./fonts/fonts";
+import { getAsset } from "@/lib/contentful/fetchDataFromContentful";
 import { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import Footer from "./components/footer/footer";
 import CookieBanner from "./components/cookieBanner.tsx/cookieBanner";
-import { getAsset } from "@/lib/contentful/fetchDataFromContentful";
+import Footer from "./components/footer/footer";
+import lemonMilk from "./fonts/fonts";
+import "./globals.css";
 import Novedades from "./novedades/novedades";
 
 const montserrat = Montserrat({
@@ -54,14 +54,12 @@ export default async function RootLayout({
     const assetData = await getAsset("5xAikUztodHQ0PaiVsMlFJ");
     fields = assetData.fields;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error("Error fetching data:", error);
   }
 
   return (
-    <html
-      lang="en"
-      className={`${montserrat.variable}} ${lemonMilk.variable} `}
-    >
+    <html lang="en" className={`${montserrat.variable}} ${lemonMilk.variable}`}>
       <head />
       <body className="min-h-screen">
         {fields && <Novedades fields={fields} />}

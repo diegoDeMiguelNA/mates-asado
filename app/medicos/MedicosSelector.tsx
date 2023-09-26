@@ -7,13 +7,11 @@ import {
 } from "@/components/ui/select";
 import { SelectValue } from "@radix-ui/react-select";
 import clsx from "clsx";
-import React from "react";
 
 type MedicosSelectorProps = {
   value: string | undefined;
   onChange: (newVal: string) => void;
   dropdownItems: string[];
-  selectedSpecialty?: string;
   placeholder?: string;
   translateFn: (item: string) => string;
   className?: string;
@@ -36,9 +34,9 @@ export default function MedicosSelector({
         <SelectContent className="text-center flex justify-center items-center">
           <SelectGroup className="ml-0">
             <SelectItem key="no-option" value="">
-              <span className="font-bold text-sm">{"Sin filtrar"}</span>
+              <span className="font-bold text-sm">Sin filtrar</span>
             </SelectItem>
-            {dropdownItems.map((specialty) => (
+            {dropdownItems.map(specialty => (
               <SelectItem key={specialty} value={specialty}>
                 {translateFn(specialty)}
               </SelectItem>

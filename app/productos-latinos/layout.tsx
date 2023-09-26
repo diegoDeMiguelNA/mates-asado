@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Productos Latinos 🧉",
     description: "Donde comprar productos latinos en Hamburgo",
-    url: "https://www.mates-asado.de/pages/productos-latinos",
+    url: "https://www.mates-asado.de/productos-latinos",
     siteName: "Mates&Asado",
     images: [
       {
@@ -27,11 +27,9 @@ export default async function ProductosLatinosLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const {
-    fields: { homeIconComponent },
-  } = await getHomeIcons();
-  const filteredMobileMenuElements = homeIconComponent?.filter(
-    (icon) => icon.fields.extraData !== "/productos-latinos"
+  const navigationElements = await getHomeIcons();
+  const filteredMobileMenuElements = navigationElements?.filter(
+    icon => icon.fields.extraData !== "/productos-latinos",
   );
   return (
     <>

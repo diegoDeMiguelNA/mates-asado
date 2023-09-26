@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Licencia de Conducir 🧉",
     description:
       "Como obtener la licencia de conducir en Alemania, que necesitas, cuanto cuesta, etc.",
-    url: "https://www.mates-asado.de/pages/fuehrerschein",
+    url: "https://www.mates-asado.de/fuehrerschein",
     siteName: "Mates&Asado",
     images: [
       {
@@ -28,11 +28,9 @@ export default async function FuhrerscheinLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const {
-    fields: { homeIconComponent },
-  } = await getHomeIcons();
-  const filteredMobileMenuElements = homeIconComponent?.filter(
-    (icon) => icon.fields.extraData !== "/fuehrerschein"
+  const navigationElements = await getHomeIcons();
+  const filteredMobileMenuElements = navigationElements?.filter(
+    icon => icon.fields.extraData !== "/fuehrerschein",
   );
   return (
     <>

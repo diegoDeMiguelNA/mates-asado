@@ -1,20 +1,35 @@
 import Image from "next/image";
 
-export default function Hyperlink(props: { fields: any }) {
-  const hyperlinkData =
-    props?.fields?.linkUrlString?.content?.[0]?.content?.find(
-      (item: { nodeType: string }) => item.nodeType === "hyperlink"
-    );
+interface HyperlinkData {
+  nodeType: string;
+  data: { uri: string };
+  content?: { value: string }[];
+}
+
+interface HyperlinkProps {
+  fields: {
+    linkUrlString?: {
+      content?: {
+        content?: HyperlinkData[];
+      }[];
+    };
+    reference?: string;
+  };
+}
+
+export default function Hyperlink({ fields }: HyperlinkProps) {
+  const hyperlinkData = fields?.linkUrlString?.content?.[0]?.content?.find(
+    (item: HyperlinkData) => item.nodeType === "hyperlink",
+  );
 
   if (!hyperlinkData) return null;
 
   const url = hyperlinkData.data.uri;
   const displayText = hyperlinkData.content?.[0]?.value;
-
-  const reference = props.fields.reference ? `(${props.fields.reference})` : "";
+  const reference = fields.reference ? `(${fields.reference})` : "";
 
   return (
-    <div className="mt-4 mb-4">
+    <div className="mt-4 mb-4 flex justify-center">
       <a
         href={url}
         target="_blank"

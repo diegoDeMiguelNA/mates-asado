@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Búsqueda de Departamento 🧉",
     description:
       "Tips para encontrar departamento o Wg + como prevenir estafas",
-    url: "https://www.mates-asado.de/pages/deutschlandticket",
+    url: "https://www.mates-asado.de/deutschlandticket",
     siteName: "Mates&Asado",
     images: [
       {
@@ -28,11 +28,9 @@ export default async function WohnungssucheLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const {
-    fields: { homeIconComponent },
-  } = await getHomeIcons();
-  const filteredMobileMenuElements = homeIconComponent?.filter(
-    (icon) => icon.fields.extraData !== "/wohnungssuche"
+  const navigationElements = await getHomeIcons();
+  const filteredMobileMenuElements = navigationElements?.filter(
+    icon => icon.fields.extraData !== "/wohnungssuche",
   );
   return (
     <>

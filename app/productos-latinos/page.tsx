@@ -6,4 +6,3 @@ const ProductoLatinos: React.FC = () => {
 };
 
 export default ProductoLatinos;
-

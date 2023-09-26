@@ -1,22 +1,32 @@
-import React from "react";
-import Link from "next/link";
-import MobileMenu from "../ResponsiveNavMenu/mobileMenu";
 import clsx from "clsx";
+import Link from "next/link";
+import MobileMenu, {
+  gradientStyleArgentina,
+} from "../ResponsiveNavMenu/mobileMenu";
 
-interface MobileMenuProps {
-  navigationElements: any[];
+export interface NavigationElementFields {
+  title: string;
+  subtitle: string;
+  extraData?: string;
+  svgFileName?: string;
+  width?: number;
+  height?: number;
 }
 
-export const gradientStyleArgentina = {
-  backgroundImage:
-    "linear-gradient(to right, #74ACDF 33.3%, #fff 33.3%, #fff 66.6%, #74ACDF 66.6%)",
-  gridTemplateRows: "auto 1fr auto",
-};
+export interface NavigationElement {
+  id: number;
+  name: string;
+  fields: NavigationElementFields;
+}
 
-const HeaderBlogPosts: React.FC<MobileMenuProps> = ({ navigationElements }) => {
+export interface MobileMenuProps {
+  navigationElements: NavigationElement[];
+}
+
+function HeaderBlogPosts({ navigationElements }: MobileMenuProps): JSX.Element {
   return (
     <header
-      className="grid grid-rows-custom min-h-[180px] lg:min-h-[280px] bg-gradient-to-h from-lightBlue to-white to-lightBlue items-start"
+      className="grid grid-rows-custom min-h-[180px] lg:min-h-[280px] bg-gradient-to-h from-lightBlue to-lightBlue items-start"
       style={gradientStyleArgentina}
     >
       <MobileMenu className="block" navigationElements={navigationElements} />
@@ -24,11 +34,11 @@ const HeaderBlogPosts: React.FC<MobileMenuProps> = ({ navigationElements }) => {
       <div
         className={clsx(
           "z-10 flex flex-col items-center justify-center row-start-1 self-center mb-4 lg:mt-12",
-          "grid-row-1 sm:mb-8 lg:mb-8 lg:pb-8 row-start-2 lg:mt-0"
+          "grid-row-1 sm:mb-8 lg:mb-8 lg:pb-8 row-start-2 lg:mt-0",
         )}
       >
         <Link href="/">
-          <h1 className="text-black text-2xl md:text-4xl lg:text-5xl font-bold font-heading font-light mb-2">
+          <h1 className="text-black text-2xl md:text-4xl lg:text-5xl font-heading font-light mb-2">
             Mates & Asado
           </h1>
         </Link>
@@ -39,7 +49,7 @@ const HeaderBlogPosts: React.FC<MobileMenuProps> = ({ navigationElements }) => {
       <div
         className={clsx(
           "bg-customRed flex items-center justify-center h-[20px] md:h-[22px] lg:h-[38px] z-50 self-end row-start-3",
-          "grid-row-2"
+          "grid-row-2",
         )}
       >
         <h2 className="text-xxs md:text-sm lg:text-xl leading-tight text-white font-body">
@@ -48,6 +58,6 @@ const HeaderBlogPosts: React.FC<MobileMenuProps> = ({ navigationElements }) => {
       </div>
     </header>
   );
-};
+}
 
 export default HeaderBlogPosts;

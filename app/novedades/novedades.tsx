@@ -1,4 +1,5 @@
 "use client";
+
 import clsx from "clsx";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
@@ -27,7 +28,7 @@ interface NextJsComponentProps {
   fields: Fields;
 }
 
-const Novedades: React.FC<NextJsComponentProps> = ({ fields }) => {
+function Novedades({ fields }: NextJsComponentProps): React.ReactElement {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   useEffect(() => {
@@ -49,7 +50,7 @@ const Novedades: React.FC<NextJsComponentProps> = ({ fields }) => {
     <div
       className={clsx(
         "fixed inset-0 z-200 p-4 bg-transparent transform transition-transform duration-500 flex justify-center items-center sm:px-20 sm:py-10 lg:px-40 lg:py-20 xl:px-40 xl:py-20 w-full",
-        isVisible ? "translate-y-0" : "-translate-y-full"
+        isVisible ? "translate-y-0" : "-translate-y-full",
       )}
       style={{ backdropFilter: "blur(5px)" }}
     >
@@ -62,8 +63,9 @@ const Novedades: React.FC<NextJsComponentProps> = ({ fields }) => {
           className="w-full h-auto"
         />
         <button
+          type="button"
           onClick={() => setIsVisible(false)}
-          className="absolute top-3 right-3 sm:top-4 sm:right-4 lg:top-5 lg:right-5 block py-2 px-3 sm:py-3 sm:px-4 border rounded text-blue-600 border-black hover:text-white"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 lg:top-5 lg:right-5 block py-2 px-3 sm:py-3 sm:px-4 border rounded text-blue-600 border-white hover:text-white"
           aria-label="Close Modal"
         >
           <span className="text-s px-2 sm:text-lg lg:text-lg text-black font-bold">
@@ -73,6 +75,6 @@ const Novedades: React.FC<NextJsComponentProps> = ({ fields }) => {
       </div>
     </div>
   );
-};
+}
 
 export default Novedades;

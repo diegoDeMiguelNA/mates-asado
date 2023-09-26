@@ -1,60 +1,82 @@
 import clsx from "clsx";
 
-export const ListWithOrWithoutSubtitle = (props: { fields: any }) => {
+interface Content {
+  value?: string;
+  nodeType: string;
+  content?: Content[];
+}
+
+export interface ListWithOrWithoutSubtitleProps {
+  fields: {
+    subtitle?: string;
+    list: {
+      content: Content[];
+    };
+    isOrderedList: boolean;
+  };
+}
+
+export default function ListWithOrWithoutSubtitle({
+  fields,
+}: ListWithOrWithoutSubtitleProps) {
   return (
-    <div className="flex flex-col justify-center px-4 max-w-[550px] lg:max-w-[700px]">
-      {props.fields.subtitle && (
+    <div className="flex flex-col items-center px-4">
+      {fields.subtitle && (
         <h2 className="sm:text-3xl font-heading uppercase mb-4">
-          {props.fields.subtitle}
+          {fields.subtitle}
         </h2>
       )}
       <div className="max-w-xl text-left">
-        {props.fields.list.content.map(
-          (content: any, index: number) =>
+        {fields.list.content.map(
+          content =>
             content.nodeType === "unordered-list" && (
               <ul
                 className={clsx(
-                  props.fields.isOrderedList
+                  fields.isOrderedList
                     ? "list-decimal list-inside"
                     : "list-disc list-inside pl-5",
-                  "py-6 px-4"
+                  "py-6 px-4",
                 )}
-                key={Math.random() * index}
+                key={content.value}
               >
-                {content.content.map((listItem: any, itemIndex: number) =>
-                  listItem.content.map(
-                    (listContent: any, contentIndex: number) =>
-                      listContent.nodeType === "paragraph" &&
-                      listContent.content.map(
-                        (text: any, textIndex: number) => (
-                          <li
-                            className="my-4 w-full sm:w-full lg:w-full pl-7 inline-block relative"
-                            key={textIndex}
-                          >
-                            {props.fields.isOrderedList ? (
-                              <span
-                                style={{ marginRight: "5px" }}
-                                className="flex-shrink-0 mr-2"
-                              >
-                                {itemIndex + 1}.
-                              </span>
-                            ) : "- "}
-                            <span
-                              className={
-                                props.fields.isOrderedList ? "flex-grow" : ""
-                              }
+                {content.content &&
+                  content.content.map(
+                    (listItem, itemIndex) =>
+                      listItem.content &&
+                      listItem.content.map(
+                        listContent =>
+                          listContent.nodeType === "paragraph" &&
+                          listContent.content &&
+                          listContent.content.map(text => (
+                            <li
+                              className="my-4 w-full sm:w-full lg:w-full pl-7 inline-block relative"
+                              key={text.toString()}
                             >
-                              {text.value}
-                            </span>
-                          </li>
-                        )
-                      )
-                  )
-                )}
+                              {fields.isOrderedList ? (
+                                <span
+                                  style={{ marginRight: "5px" }}
+                                  className="flex-shrink-0 mr-2"
+                                >
+                                  {itemIndex + 1}.
+                                </span>
+                              ) : (
+                                "- "
+                              )}
+                              <span
+                                className={
+                                  fields.isOrderedList ? "flex-grow" : ""
+                                }
+                              >
+                                {text.value}
+                              </span>
+                            </li>
+                          )),
+                      ),
+                  )}
               </ul>
-            )
+            ),
         )}
       </div>
     </div>
   );
-};
+}

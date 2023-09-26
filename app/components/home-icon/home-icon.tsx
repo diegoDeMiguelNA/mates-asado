@@ -7,26 +7,30 @@ type HomeIconProps = {
   title: string;
   description: string;
   linkTo: string;
-  contentfulReference: string;
   className?: string;
   width?: number;
   height?: number;
-  last: boolean
+  last: boolean;
 };
 
-const HomeIcon: React.FC<HomeIconProps> = ({
+function HomeIcon({
   iconSrc,
   title,
   description,
   linkTo,
-  contentfulReference,
   className,
   width = 30,
   height = 30,
-  last
-}) => {
+  last,
+}: HomeIconProps) {
   return (
-    <div className={clsx(`home-icon mb-4 md:mb-0`, className, last && "md:col-start-3")}>
+    <div
+      className={clsx(
+        `home-icon mb-4 md:mb-0`,
+        className,
+        last && "md:col-start-3",
+      )}
+    >
       <Link href={linkTo} passHref>
         <div
           title={title}
@@ -52,9 +56,8 @@ const HomeIcon: React.FC<HomeIconProps> = ({
           </p>
         </div>
       </Link>
-      <input type="hidden" value={contentfulReference} />
     </div>
   );
-};
+}
 
 export default HomeIcon;

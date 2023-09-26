@@ -6,9 +6,8 @@ export const metadata: Metadata = {
   title: "Impressum",
   openGraph: {
     title: "Impressum",
-    description:
-      "RECHTLICHE INFORMATIONEN UND KONTAKTDATE",
-    url: "https://www.mates-asado.de/pages/impressum",
+    description: "RECHTLICHE INFORMATIONEN UND KONTAKTDATE",
+    url: "https://www.mates-asado.de/impressum",
     siteName: "Mates&Asado",
     locale: "en_US",
     type: "website",
@@ -20,12 +19,10 @@ export default async function DatenSchutzLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const {
-    fields: { homeIconComponent },
-  } = await getHomeIcons();
+  const navigationElements = await getHomeIcons();
   return (
     <>
-      <HeaderBlogPosts navigationElements={homeIconComponent} />
+      <HeaderBlogPosts navigationElements={navigationElements} />
       <section>{children}</section>
     </>
   );

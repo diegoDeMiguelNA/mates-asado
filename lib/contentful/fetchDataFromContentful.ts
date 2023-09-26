@@ -7,26 +7,47 @@ import {
 import { contentfulClient, getEntityData } from "./apiClient";
 
 export type SubPageFields = {
-  homeIconComponent: any;
+  homeIconComponent: IHomeIconResuableFields;
   title: string;
   subtitle: string;
-  extraData?: any;
+  extraData?: string;
   svgFileName?: string;
   width?: number;
   height?: number;
-}
+  linkTo: string;
+};
 export type SubPageData = {
   fields: SubPageFields;
   sys: { id: string };
 };
- 
-export type HomeIconPageFields = Omit<IHomeIconResuableFields, "homeIconComponent"> & {
+
+export type HomeIconPageFields = Omit<
+  IHomeIconResuableFields,
+  "homeIconComponent"
+> & {
   homeIconComponent: SubPageData[];
 };
 
-// Home Page Icons
 export async function getHomeIcons() {
-  return getEntityData<HomeIconPageFields>("13fZd2HWu0ZBxxNCC00tfT");
+  try {
+    const entry = await contentfulClient.getEntry<HomeIconPageFields>(
+      "13fZd2HWu0ZBxxNCC00tfT",
+    );
+
+    if (entry && entry.fields && entry.fields.homeIconComponent) {
+      return entry.fields.homeIconComponent.map((icon, index) => ({
+        id: index,
+        name: icon.fields.title,
+        fields: icon.fields,
+      }));
+    }
+
+    return [];
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error("Error fetching home icons:", error);
+    throw error;
+  }
 }
 
 // Subtitle and Paragraph content type
@@ -41,9 +62,7 @@ export async function getSubtitleAndParagraphAndImage(entryId: string) {
 
 // Fetch Data for generic Page (Ex IFuehrerschein)
 export async function getReusablePage<T>(entryId: string) {
-  return getEntityData<T>(
-    entryId
-  );
+  return getEntityData<T>(entryId);
 }
 
 // Fetch Asset from contentful
@@ -57,14 +76,14 @@ export async function getExperiencia(entryId: string) {
 }
 
 // Fetch Experiencias from contentful by slug
-export async function getExperienciaBySlug(slug: string) {
-  const { items } = await contentfulClient.getEntries<IExperienciaFields>(
-    "Experiencia"
-  );
+export async function getBlogPostBySlug(slug: string) {
+  const { items } = await contentfulClient.getEntries<IExperienciaFields>({
+    content_type: "experiencia",
+  });
 
   if (items.length > 0) {
-    return items.find((item) => item.fields.slug === slug);
+    return items.find(item => item.fields.slug === slug);
   }
 
-  return;
+  return null;
 }

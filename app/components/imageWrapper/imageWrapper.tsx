@@ -1,12 +1,11 @@
-import Image, { ImageProps } from 'next/image';
+import Image, { ImageProps } from "next/image";
 
 interface ImageWrapperProps extends ImageProps {
   divClassName?: string;
   divStyle?: React.CSSProperties;
-  imageClasses?: string;
 }
 
-const ImageWrapper: React.FC<ImageWrapperProps> = ({
+function ImageWrapper({
   src,
   alt,
   width,
@@ -16,10 +15,10 @@ const ImageWrapper: React.FC<ImageWrapperProps> = ({
   blurDataURL,
   divClassName,
   divStyle,
-}) => {
+}: ImageWrapperProps): JSX.Element {
   return (
     <div className={`relative ${divClassName}`} style={divStyle}>
-      <Image 
+      <Image
         src={src}
         alt={alt}
         width={width}
@@ -29,7 +28,7 @@ const ImageWrapper: React.FC<ImageWrapperProps> = ({
         blurDataURL={blurDataURL}
       />
     </div>
-  )
+  );
 }
 
 export default ImageWrapper;

@@ -9,7 +9,7 @@ export default function Footer() {
           src="/images/jungfernstieg.webp"
           alt="Jungfernstieg"
           fill
-          style={{objectFit:"cover", objectPosition:"center"}}
+          style={{ objectFit: "cover", objectPosition: "center" }}
         />
       </div>
       <div className="bg-regular-red w-full flex flex-col items-center justify-center h-auto py-6">
