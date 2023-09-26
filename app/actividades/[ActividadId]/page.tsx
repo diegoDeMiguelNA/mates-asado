@@ -1,7 +1,7 @@
 import React from "react";
 
 import {
-  getExperienciaBySlug,
+  getBlogPostBySlug,
   getReusablePage,
 } from "@/lib/contentful/fetchDataFromContentful";
 import RenderContent from "@/utils/renderText";
@@ -9,9 +9,9 @@ import { Entry } from "contentful";
 import { notFound } from "next/navigation";
 import { IFuehrerscheinReusableFields } from "../page";
 
-interface IExperienciaProps {
+interface IActividadProps {
   params: {
-    experienciaId: string;
+    ActividadId: string;
   };
 }
 
@@ -33,10 +33,10 @@ export async function generateStaticParams(): Promise<
     .map(slug => ({ experienciaId: slug }));
 }
 
-const Experiencia: React.FC<IExperienciaProps> = async ({
-  params: { experienciaId },
+const Actividad: React.FC<IActividadProps> = async ({
+  params: { ActividadId },
 }) => {
-  const results = await getExperienciaBySlug(experienciaId);
+  const results = await getBlogPostBySlug(`/${ActividadId}`);
 
   if (!results) {
     return notFound();
@@ -67,4 +67,4 @@ const Experiencia: React.FC<IExperienciaProps> = async ({
   );
 };
 
-export default Experiencia;
+export default Actividad;

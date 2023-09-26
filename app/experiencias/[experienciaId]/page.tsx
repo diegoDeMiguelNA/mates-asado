@@ -1,7 +1,7 @@
 import React from "react";
 
 import {
-  getExperienciaBySlug,
+  getBlogPostBySlug,
   getReusablePage,
 } from "@/lib/contentful/fetchDataFromContentful";
 import RenderContent from "@/utils/renderText";
@@ -36,7 +36,7 @@ export async function generateStaticParams(): Promise<
 const Experiencia: React.FC<IExperienciaProps> = async ({
   params: { experienciaId },
 }) => {
-  const results = await getExperienciaBySlug(`/${experienciaId}`);
+  const results = await getBlogPostBySlug(`/${experienciaId}`);
 
   if (!results) {
     return notFound();
