@@ -1,12 +1,11 @@
-import React from "react";
-import { Entry } from "contentful";
 import { getReusablePage } from "@/lib/contentful/fetchDataFromContentful";
+import { Entry } from "contentful";
 
-import ExperienciaIcon from "../components/experienciasComponents/ExperienciaIcon";
 import { notFound } from "next/navigation";
+import ExperienciaIcon from "../components/experienciasComponents/ExperienciaIcon";
 
 export interface IExperienciaFields {
-  nombreDeLaExperiencia?: string; 
+  nombreDeLaExperiencia?: string;
   subtitle?: string;
   slug?: string;
 }
@@ -43,11 +42,10 @@ export interface IFuehrerscheinReusable
 }
 
 export default async function Experiencias() {
-  const results: Entry<IFuehrerscheinReusableFields> | undefined = await getReusablePage(
-    "2E3ScHAH6l40tgsmACj00I"
-  );
+  const results: Entry<IFuehrerscheinReusableFields> | undefined =
+    await getReusablePage("2E3ScHAH6l40tgsmACj00I");
 
-  if(!results) return notFound();
+  if (!results) return notFound();
 
   const { title, subtitle, pageBody } = results?.fields;
 
@@ -58,26 +56,22 @@ export default async function Experiencias() {
           <h2 className="text-2xl sm:text-5xl font-heading uppercase">
             {title}
           </h2>
-          <h3 className="text-sm mx-8 font-heading uppercase pt-10 mb-4 sm:mx-24 max-w-[300px] md: max-w-[400px] lg:max-w-[600px]">
+          <h3 className="text-sm mx-8 font-heading uppercase pt-10 mb-4 sm:mx-24 max-w-[300px] md:max-w-[400px] lg:max-w-[600px]">
             {subtitle}
           </h3>
         </div>
         <div className="p-4">
           {pageBody &&
-            pageBody.map(
-              (
-                experience: Entry<IExperienciaFields> 
-              ) => (
-                <ExperienciaIcon
-                  key={experience.sys.id}
-                  title={experience.fields.nombreDeLaExperiencia || ""}
-                  subtitle={experience.fields.subtitle || ""}
-                  imageUrl="/images/experiencia-fuehrerschein.webp"
-                  slug={experience.fields.slug || ""}
-                  entryId={experience.sys.id}
-                />
-              )
-            )}
+            pageBody.map((experience: Entry<IExperienciaFields>) => (
+              <ExperienciaIcon
+                key={experience.sys.id}
+                title={experience.fields.nombreDeLaExperiencia || ""}
+                subtitle={experience.fields.subtitle || ""}
+                imageUrl="/images/experiencia-fuehrerschein.webp"
+                slug={experience.fields.slug || ""}
+                entryId={experience.sys.id}
+              />
+            ))}
         </div>
       </main>
     </>
