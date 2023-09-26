@@ -3,11 +3,11 @@ import { Metadata } from "next";
 import HeaderBlogPosts from "../components/header/headerBlogPosts";
 
 export const metadata: Metadata = {
-  title: "Experiencias",
+  title: "Actividades para hacer en Hamburgo",
   openGraph: {
-    title: "Experiencias",
+    title: "Actividades para hacer en Hamburgo",
     description:
-      "Hispanohablantes comparten sus experiencias realizando diferentes trámites en Alemania..",
+      "Te damos tips e ideas de actividades para hacer en Hamburgo y alrededores.",
     url: "https://www.mates-asado.de/deutschlandticket",
     siteName: "Mates&Asado",
     images: [
