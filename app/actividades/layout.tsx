@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function ExperienciasLayout({
+export default async function ActividadesLayout({
   children,
 }: {
   children: React.ReactNode;
