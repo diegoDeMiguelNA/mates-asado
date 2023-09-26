@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Links de la bio de Instagram de Mates&Asado",
   openGraph: {
     title: "Instagram",
-    description: "Imagen relacionada al instagram de Mates&Asado",
+    description: "Info sobre trámites y actividades en Hamburgo.",
     url: "https://www.mates-asado.de/instagram",
     siteName: "Mates&Asado",
     locale: "en_US",
