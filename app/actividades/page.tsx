@@ -65,6 +65,7 @@ export default async function Actividades() {
               title={experience.fields.nombreDeLaExperiencia || ""}
               subtitle={experience.fields.subtitle || ""}
               imageUrl="/images/frente-de-casa.webp"
+              postType="actividades"
               slug={experience.fields.slug || ""}
             />
           ))}
