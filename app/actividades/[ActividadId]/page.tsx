@@ -16,7 +16,7 @@ interface IActividadProps {
 }
 
 export async function generateStaticParams(): Promise<
-  { experienciaId: string }[]
+  { ActividadId: string }[]
 > {
   const results: Entry<IFuehrerscheinReusableFields> | undefined =
     await getReusablePage("3cr2X20j5DvViKOMYpIrUZ");
@@ -30,7 +30,7 @@ export async function generateStaticParams(): Promise<
   return pageBody
     .map(experience => experience.fields.slug)
     .filter((slug): slug is string => Boolean(slug))
-    .map(slug => ({ experienciaId: slug }));
+    .map(slug => ({ ActividadId: slug }));
 }
 
 const Actividad: React.FC<IActividadProps> = async ({
