@@ -1,6 +1,7 @@
 import { getAsset } from "@/lib/contentful/fetchDataFromContentful";
 import { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import { headers } from "next/headers";
 import CookieBanner from "./components/cookieBanner.tsx/cookieBanner";
 import Footer from "./components/footer/footer";
 import lemonMilk from "./fonts/fonts";
@@ -49,6 +50,9 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const headersList = headers();
+  const pathname = headersList.get("x-invoke-path") || "";
+
   let fields;
   try {
     const assetData = await getAsset("5xAikUztodHQ0PaiVsMlFJ");
@@ -62,7 +66,7 @@ export default async function RootLayout({
     <html lang="en" className={`${montserrat.variable}} ${lemonMilk.variable}`}>
       <head />
       <body className="min-h-screen">
-        {fields && <Novedades fields={fields} />}
+        {fields && pathname !== "/instagram" && <Novedades fields={fields} />}
 
         {children}
 

@@ -5,7 +5,7 @@ import HeaderBlogPosts from "../components/header/headerBlogPosts";
 export const metadata: Metadata = {
   title: "Links de la bio de Instagram de Mates&Asado",
   openGraph: {
-    title: "Instagram",
+    title: "LinkTree de Mates&Asado",
     description: "Info sobre trámites y actividades en Hamburgo.",
     url: "https://www.mates-asado.de/instagram",
     siteName: "Mates&Asado",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function DatenSchutzLayout({
+export default async function InstagramLayout({
   children,
 }: {
   children: React.ReactNode;
