@@ -1,12 +1,12 @@
-// import { getAsset } from "@/lib/contentful/fetchDataFromContentful";
+import { getAsset } from "@/lib/contentful/fetchDataFromContentful";
 import { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-// import { headers } from "next/headers";
+import { headers } from "next/headers";
 import CookieBanner from "./components/cookieBanner.tsx/cookieBanner";
 import Footer from "./components/footer/footer";
 import lemonMilk from "./fonts/fonts";
 import "./globals.css";
-// import Novedades from "./novedades/novedades";
+import Novedades from "./novedades/novedades";
 
 const montserrat = Montserrat({
   weight: ["300", "400", "500", "700", "800"],
@@ -50,23 +50,26 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // const headersList = headers();
-  // const pathname = headersList.get("x-invoke-path") || "";
-
-  // let fields;
-  // try {
-  //   const assetData = await getAsset("5xAikUztodHQ0PaiVsMlFJ");
-  //   fields = assetData.fields;
-  // } catch (error) {
-  //   // eslint-disable-next-line no-console
-  //   console.error("Error fetching data:", error);
-  // }
+  let fields;
+  let cookieName;
+  const headersList = headers();
+  const pathname = headersList.get("x-invoke-path") || "";
+  try {
+    const assetData = await getAsset("1IyJqcJtlywnux27QnMG9w");
+    fields = assetData.fields;
+    cookieName = assetData.fields.title;
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error("Error fetching data:", error);
+  }
 
   return (
     <html lang="en" className={`${montserrat.variable}} ${lemonMilk.variable}`}>
       <head />
       <body className="min-h-screen">
-        {/* {fields && pathname !== "/instagram" && <Novedades fields={fields} />} */}
+        {fields && cookieName && pathname !== "/instagram" && (
+          <Novedades fields={fields} cookieName={cookieName} />
+        )}
 
         {children}
 

@@ -26,17 +26,21 @@ interface Fields {
 
 interface NextJsComponentProps {
   fields: Fields;
+  cookieName: string;
 }
 
-function Novedades({ fields }: NextJsComponentProps): React.ReactElement {
+function Novedades({
+  fields,
+  cookieName,
+}: NextJsComponentProps): React.ReactElement {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   useEffect(() => {
-    const hasVisited = localStorage.getItem("hasSeenModalMilonga");
+    const hasVisited = localStorage.getItem(cookieName);
 
     if (!hasVisited) {
       setIsVisible(true);
-      localStorage.setItem("hasSeenModalMilonga", "true");
+      localStorage.setItem(cookieName, "true");
     }
 
     const timer = setTimeout(() => {
