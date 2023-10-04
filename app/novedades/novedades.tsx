@@ -25,8 +25,8 @@ interface Fields {
 }
 
 interface NextJsComponentProps {
-  fields: Fields;
-  cookieName: string;
+  fields?: Fields;
+  cookieName?: string;
 }
 
 function Novedades({
@@ -36,9 +36,9 @@ function Novedades({
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   useEffect(() => {
-    const hasVisited = localStorage.getItem(cookieName);
+    const hasVisited = cookieName ? localStorage.getItem(cookieName) : false;
 
-    if (!hasVisited) {
+    if (!hasVisited && cookieName) {
       setIsVisible(true);
       localStorage.setItem(cookieName, "true");
     }
@@ -48,7 +48,7 @@ function Novedades({
     }, 10000);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [cookieName]);
 
   return (
     <div
@@ -60,8 +60,8 @@ function Novedades({
     >
       <div className="relative max-w-[90%] sm:max-w-[90%] lg:max-w-[800px] xl:max-w-[600px] rounded bg-white p-4 sm:p-5 lg:p-5 overflow-y-auto max-h-[calc(100vh-3rem)] sm:max-h-[calc(100vh-2rem)]">
         <Image
-          src={`https:${fields.file.url}`}
-          alt={fields.title}
+          src={`https:${fields?.file.url}`}
+          alt={fields?.title ? fields?.title : "Novedades image"}
           width={800}
           height={1130}
           className="w-full h-auto"
