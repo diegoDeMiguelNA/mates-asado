@@ -67,7 +67,7 @@ export default async function RootLayout({
     <html lang="en" className={`${montserrat.variable}} ${lemonMilk.variable}`}>
       <head />
       <body className="min-h-screen">
-        {pathname !== "/instagram" && (
+        {pathname !== "/instagram" && fields && (
           <Novedades fields={fields} cookieName={cookieName} />
         )}
 
