@@ -1,10 +1,10 @@
-import Image from "next/image";
 import { IBlogSubtitleParagraphAndImageFields } from "@/@types/generated/contentful";
-import { Entry } from "contentful";
 import { getSubtitleAndParagraphAndImage } from "@/lib/contentful/fetchDataFromContentful";
+import { Entry } from "contentful";
+import Image from "next/image";
 import Link from "next/link";
-import { getTextFromContentfulRichText } from "./ExperienciasDeVida";
 import { Button } from "../button/button";
+import { getTextFromContentfulRichText } from "./ExperienciasDeVida";
 
 export default async function AboutUs() {
   const results: Entry<IBlogSubtitleParagraphAndImageFields> =
@@ -14,7 +14,7 @@ export default async function AboutUs() {
 
   return (
     Object.keys(results).length !== 0 && (
-      <div className="about-us mb-16 mt-14 flex flex-col px-8 py-6 justify-center items-center mb-20 lg:mb-[100px] lg:pt-[90px]">
+      <div className="about-us mt-14 flex flex-col px-8 py-6 justify-center items-center mb-20 lg:mb-[100px] lg:pt-[90px]">
         <div className="relative h-[160px] w-[320px] sm:w-[480px] sm:h-[350px] md:w-[600px] md:h-[350px] lg:w-[850px] rounded-2xl overflow-hidden">
           <Image
             src={
