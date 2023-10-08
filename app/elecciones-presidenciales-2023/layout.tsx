@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Elecciones 2023 🧉",
     description:
-      "Info sobre el Deutschland Ticket, como pedirlo, precios, etc.",
+      "Información sobre como votar y justificar tu ausencia para las elecciones",
     url: "https://www.mates-asado.de/elecciones-presidenciales-2023",
     siteName: "Mates&Asado",
     images: [
