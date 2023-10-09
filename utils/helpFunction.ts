@@ -17,12 +17,12 @@ export function translateSpecialtyToSpanish(specialty: string): string {
     general: "general",
     dentist: "dentista",
     gynecology: "ginecología",
-    oftalmology: "oftalmología",
+    ophthalmology: "oftalmología",
     dermatology: "dermatología",
     urology: "urología",
     otolaryngology: "otorrinolaringología",
-    orthopedist: "ortopedista",
-    pediatrics: "pediatría",
+    orthopedy: "ortopedista",
+    pediatry: "pediatría",
   };
 
   return capitalizeWord(specialtiesMap[specialty] || specialty);
