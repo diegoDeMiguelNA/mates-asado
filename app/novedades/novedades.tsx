@@ -72,7 +72,7 @@ function Novedades({
           className="absolute top-3 right-3 sm:top-4 sm:right-4 lg:top-5 lg:right-5 block py-2 px-3 sm:py-3 sm:px-4 border rounded text-blue-600 border-white hover:text-white"
           aria-label="Close Modal"
         >
-          <span className="text-s px-2 sm:text-lg lg:text-lg text-black font-bold">
+          <span className="text-s px-2 sm:text-lg lg:text-lg text-white font-bold">
             X
           </span>
         </button>
