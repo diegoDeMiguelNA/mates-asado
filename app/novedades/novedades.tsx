@@ -50,7 +50,7 @@ function Novedades({
     return () => clearTimeout(timer);
   }, [cookieName]);
 
-  //comment
+  // comment
 
   return (
     <div
