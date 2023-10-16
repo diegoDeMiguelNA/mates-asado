@@ -55,7 +55,7 @@ export default async function RootLayout({
   const headersList = headers();
   const pathname = headersList.get("x-invoke-path") || "";
   try {
-    const assetData = await getAsset("2ragBbk2rLkCu84WvEs9ur");
+    const assetData = await getAsset("1RYNYG988lf2cMD2utYE8c");
     fields = assetData.fields;
     cookieName = assetData.fields.title;
   } catch (error) {
