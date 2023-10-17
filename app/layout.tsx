@@ -1,3 +1,4 @@
+import Skeleton from "@/components/ui/skeleton";
 import { getAsset } from "@/lib/contentful/fetchDataFromContentful";
 import { Metadata } from "next";
 import { Montserrat } from "next/font/google";
@@ -55,7 +56,7 @@ export default async function RootLayout({
   const headersList = headers();
   const pathname = headersList.get("x-invoke-path") || "";
   try {
-    const assetData = await getAsset("1RYNYG988lf2cMD2utYE8c");
+    const assetData = await getAsset("2enSZFgZliJJQF4uQ5KQlB");
     fields = assetData.fields;
     cookieName = assetData.fields.title;
   } catch (error) {
@@ -67,8 +68,10 @@ export default async function RootLayout({
     <html lang="en" className={`${montserrat.variable}} ${lemonMilk.variable}`}>
       <head />
       <body className="min-h-screen">
-        {pathname !== "/instagram" && fields && (
+        {pathname !== "/instagram" && fields ? (
           <Novedades fields={fields} cookieName={cookieName} />
+        ) : (
+          <Skeleton />
         )}
 
         {children}
