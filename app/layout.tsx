@@ -1,4 +1,3 @@
-import Skeleton from "@/components/ui/skeleton";
 import { getAsset } from "@/lib/contentful/fetchDataFromContentful";
 import { Metadata } from "next";
 import { Montserrat } from "next/font/google";
@@ -68,10 +67,8 @@ export default async function RootLayout({
     <html lang="en" className={`${montserrat.variable}} ${lemonMilk.variable}`}>
       <head />
       <body className="min-h-screen">
-        {pathname !== "/instagram" && fields ? (
+        {pathname !== "/instagram" && fields && (
           <Novedades fields={fields} cookieName={cookieName} />
-        ) : (
-          <Skeleton />
         )}
 
         {children}
