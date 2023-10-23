@@ -50,8 +50,6 @@ function Novedades({
     return () => clearTimeout(timer);
   }, [cookieName]);
 
-  // comment
-
   return (
     <div
       className={clsx(
