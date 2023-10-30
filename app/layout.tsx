@@ -1,13 +1,9 @@
-import Skeleton from "@/components/ui/skeleton";
-import { getAsset } from "@/lib/contentful/fetchDataFromContentful";
 import { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import { headers } from "next/headers";
 import CookieBanner from "./components/cookieBanner.tsx/cookieBanner";
 import Footer from "./components/footer/footer";
 import lemonMilk from "./fonts/fonts";
 import "./globals.css";
-import Novedades from "./novedades/novedades";
 
 const montserrat = Montserrat({
   weight: ["300", "400", "500", "700", "800"],
@@ -51,14 +47,14 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  let fields;
-  let cookieName;
-  const headersList = headers();
-  const pathname = headersList.get("x-invoke-path") || "";
+  // let fields;
+  // let cookieName;
+  // const headersList = headers();
+  // const pathname = headersList.get("x-invoke-path") || "";
   try {
-    const assetData = await getAsset("2ragBbk2rLkCu84WvEs9ur");
-    fields = assetData.fields;
-    cookieName = assetData.fields.title;
+    //  const assetData = await getAsset("2ragBbk2rLkCu84WvEs9ur");
+    // fields = assetData.fields;
+    // cookieName = assetData.fields.title;
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error("Error fetching data:", error);
@@ -68,11 +64,11 @@ export default async function RootLayout({
     <html lang="en" className={`${montserrat.variable}} ${lemonMilk.variable}`}>
       <head />
       <body className="min-h-screen">
-        {pathname !== "/instagram" && fields ? (
+        {/* {pathname !== "/instagram" && fields ? (
           <Novedades fields={fields} cookieName={cookieName} />
         ) : (
           <Skeleton />
-        )}
+        )} */}
 
         {children}
 
