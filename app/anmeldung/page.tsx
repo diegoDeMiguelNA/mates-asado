@@ -9,7 +9,7 @@ const Anmeldung: React.FC = async () => {
   const results: Entry<IFuehrerscheinReusableFields> = await getReusablePage(
     "7henc1KRwe8D0b4FkJEHpn",
   );
-
+  // destructure result.fields 
   const { title, subtitle, pageBody } = results.fields;
 
   return (
