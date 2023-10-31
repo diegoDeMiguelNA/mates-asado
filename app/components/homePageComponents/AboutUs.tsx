@@ -15,7 +15,7 @@ export default async function AboutUs() {
   return (
     Object.keys(results).length !== 0 && (
       <div className="about-us mt-14 flex flex-col px-8 py-6 justify-center items-center mb-20 lg:mb-[100px] lg:pt-[90px]">
-        <div className="relative h-[160px] w-[320px] sm:w-[480px] sm:h-[350px] md:w-[600px] md:h-[350px] lg:w-[850px] rounded-2xl overflow-hidden">
+        <div className="relative h-[160px] w-[320px] sm:w-[480px] sm:h-[350px] md:w-[600px] md:h-[350px] lg:w-[850px] overflow-hidden">
           <Image
             src={
               assets
