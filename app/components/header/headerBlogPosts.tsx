@@ -33,8 +33,8 @@ function HeaderBlogPosts({ navigationElements }: MobileMenuProps): JSX.Element {
 
       <div
         className={clsx(
-          "z-10 flex flex-col items-center justify-center row-start-1 self-center mb-4 lg:mt-12",
-          "grid-row-1 sm:mb-8 lg:mb-8 lg:pb-8 row-start-2 lg:mt-0",
+          "z-10 flex flex-col items-center justify-center row-start-1 self-center lg:mt-20",
+          "grid-row-1 row-start-2 lg:mt-0",
         )}
       >
         <Link href="/">
