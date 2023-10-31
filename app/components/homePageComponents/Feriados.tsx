@@ -34,20 +34,20 @@ export default async function Elecciones() {
         <div className="bg-black opacity-40 absolute top-0 left-0 w-full h-full" />
         <div className="p-4 w-full h-full absolute flex flex-col justify-center items-center">
           <h3
-            className="text-lg md:text-s lg:text-2xl text-white font-bold md:mb-4 text-center "
+            className="text-lg md:text-s md:text-2xl lg:text-2xl text-yellow font-bold md:mb-4 text-center"
             style={{ color: "#FFFFFF" }}
           >
             {subtitle}
           </h3>
           <p
-            className="text-xs text-white font-bold md:text-lg md:px-2 mb-2 md:mb-4 max-w-[800px] text-center"
+            className="text-xs text-white font-bold md:text-xl md:px-2 mb-2 md:mb-4 max-w-[800px] text-center"
             style={{ lineHeight: "1.5rem" }}
           >
             {paragraph && getTextFromContentfulRichText(paragraph)}
           </p>
           <Link className="mt-2 md:mt-4" href="/feriados" passHref>
             <Button
-              className="bg-regular-teal text-xxxs md:text-xxs lg:text-[12px] rounded-full py-2 md:py-4"
+              className="bg-regular-teal text-xxxs md:text-xs lg:text-[12px] rounded-full py-2 md:py-4"
               size="customPill"
               style={{ color: "white" }}
             >
