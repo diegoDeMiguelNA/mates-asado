@@ -3,6 +3,7 @@ import HeaderHome from "./components/header/headerHome";
 import AboutUs from "./components/homePageComponents/AboutUs";
 import Elecciones from "./components/homePageComponents/EleccionesPresidencaiales";
 import ExperienciasDeVida from "./components/homePageComponents/ExperienciasDeVida";
+import Feriados from "./components/homePageComponents/Feriados";
 import HomeProps from "./components/homePageComponents/home-props";
 
 export default async function Home() {
@@ -15,6 +16,8 @@ export default async function Home() {
         <HomeProps navigationElements={navigationElements} />
 
         <Elecciones />
+
+        <Feriados />
 
         <ExperienciasDeVida />
 
