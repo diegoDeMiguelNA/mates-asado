@@ -1,15 +1,15 @@
 import React from "react";
 
-import { Entry } from "contentful";
 import { IFuehrerscheinReusableFields } from "@/@types/generated/contentful";
 import { getReusablePage } from "@/lib/contentful/fetchDataFromContentful";
 import RenderContent from "@/utils/renderText";
+import { Entry } from "contentful";
 
 const Anmeldung: React.FC = async () => {
   const results: Entry<IFuehrerscheinReusableFields> = await getReusablePage(
     "7henc1KRwe8D0b4FkJEHpn",
   );
-  // destructure result.fields 
+
   const { title, subtitle, pageBody } = results.fields;
 
   return (
