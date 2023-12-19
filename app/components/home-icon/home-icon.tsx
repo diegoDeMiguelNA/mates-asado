@@ -28,7 +28,7 @@ function HomeIcon({
       className={clsx(
         `home-icon mb-4 md:mb-0`,
         className,
-        last && "md:col-start-3",
+        last && "md:col-start-2",
       )}
     >
       <Link href={linkTo} passHref>

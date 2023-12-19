@@ -17,7 +17,7 @@ export const metadata: Metadata = {
         alt: "Imagen de dulces y golosinas de Argentina",
       },
     ],
-    locale: "en_US",
+    locale: "es_ES",
     type: "website",
   },
 };

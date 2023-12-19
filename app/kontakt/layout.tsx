@@ -10,7 +10,7 @@ export const metadata: Metadata = {
       "Como Contactarse con Mates&Asado, por email, redes sociales, etc.",
     url: "https://www.mates-asado.de/kontakt",
     siteName: "Mates&Asado",
-    locale: "en_US",
+    locale: "es_ES",
     type: "website",
   },
 };

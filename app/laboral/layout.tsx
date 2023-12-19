@@ -18,7 +18,7 @@ export const metadata: Metadata = {
         alt: "Anverso de una licencia de conducir alemana",
       },
     ],
-    locale: "en_US",
+    locale: "es_ES",
     type: "website",
   },
 };

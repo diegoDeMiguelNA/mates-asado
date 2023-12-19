@@ -3,19 +3,18 @@ import { Metadata } from "next";
 import HeaderBlogPosts from "../components/header/headerBlogPosts";
 
 export const metadata: Metadata = {
-  title: "Teléfonos Útiles 🧉",
+  title: "Seguros en Alemania 🧉",
   openGraph: {
-    title: "Teléfonos Útiles 🧉",
-    description:
-      "Listado de teléfonos útiles y organismos de gobierno en Hamburgo",
-    url: "https://www.mates-asado.de/telefonos-utiles",
+    title: "Seguros en Alemania 🧉",
+    description: "Qué tipos de seguros existen en Alemania y cómo funcionan.",
+    url: "https://www.mates-asado.de/productos-latinos",
     siteName: "Mates&Asado",
     images: [
       {
         width: 300,
         height: 300,
         url: "./opengraph-image.jpg",
-        alt: "Imagen de un teléfono",
+        alt: "Un objeto roto y dinero alrededor",
       },
     ],
     locale: "es_ES",
@@ -23,19 +22,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function TelefonosUtilesLayout({
+export default async function ProductosLatinosLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const navigationElements = await getHomeIcons();
-  const filteredMobileMenuElements = navigationElements.filter(
-    icon => icon.fields.extraData !== "/productos-latinos",
-  );
   return (
     <>
-      <HeaderBlogPosts navigationElements={filteredMobileMenuElements} />
-      <section>{children}</section>
+      <HeaderBlogPosts navigationElements={navigationElements} />
+      {children}
     </>
   );
 }

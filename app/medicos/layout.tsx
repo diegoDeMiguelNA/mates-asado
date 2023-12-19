@@ -17,7 +17,7 @@ export const metadata: Metadata = {
         alt: "Medicos cruzados de brazo vestidos de blanco con sus estetoscopios",
       },
     ],
-    locale: "en_US",
+    locale: "es_ES",
     type: "website",
   },
 };

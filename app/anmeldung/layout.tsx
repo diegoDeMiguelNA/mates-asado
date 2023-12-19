@@ -17,7 +17,7 @@ export const metadata: Metadata = {
         alt: "Imagen de un Formulario de Anmeldung",
       },
     ],
-    locale: "en_US",
+    locale: "es_ES",
     type: "website",
   },
 };

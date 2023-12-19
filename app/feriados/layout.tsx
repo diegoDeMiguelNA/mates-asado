@@ -18,7 +18,7 @@ export const metadata: Metadata = {
         alt: "Calendario con feriados",
       },
     ],
-    locale: "en_US",
+    locale: "es_ES",
     type: "website",
   },
 };

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
         alt: "Una urna de votación",
       },
     ],
-    locale: "en_US",
+    locale: "es_ES",
     type: "website",
   },
 };

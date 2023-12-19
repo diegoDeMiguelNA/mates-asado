@@ -10,7 +10,7 @@ export const metadata: Metadata = {
       "Info sobre protección de datos en el sitio web de Mates&Asado",
     url: "https://www.mates-asado.de/datenschutz",
     siteName: "Mates&Asado",
-    locale: "en_US",
+    locale: "es_ES",
     type: "website",
   },
 };

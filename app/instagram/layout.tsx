@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description: "Info sobre trámites y actividades en Hamburgo.",
     url: "https://www.mates-asado.de/instagram",
     siteName: "Mates&Asado",
-    locale: "en_US",
+    locale: "es_ES",
     type: "website",
   },
 };

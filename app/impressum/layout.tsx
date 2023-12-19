@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description: "RECHTLICHE INFORMATIONEN UND KONTAKTDATE",
     url: "https://www.mates-asado.de/impressum",
     siteName: "Mates&Asado",
-    locale: "en_US",
+    locale: "es_ES",
     type: "website",
   },
 };

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
         alt: "Imagen de un cartel de busqueda de departamento con un edificio de fondo",
       },
     ],
-    locale: "en_US",
+    locale: "es_ES",
     type: "website",
   },
 };

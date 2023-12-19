@@ -18,7 +18,7 @@ export const metadata: Metadata = {
         alt: "Imagen de un tren regional de la Deutsche Bahn",
       },
     ],
-    locale: "en_US",
+    locale: "es_ES",
     type: "website",
   },
 };
